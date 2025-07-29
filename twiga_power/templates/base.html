@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <!-- Encodage & responsive -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Titre de la page -->
+    <title>Twiga Power - {{ page|default:"Accueil" }}</title>
+
+    <!-- SEO : Meta Description & Keywords -->
+    <meta
+      name="description"
+      content="Twiga Power fournit des solutions électriques fiables, durables et innovantes à travers l'Afrique."
+    />
+    <meta
+      name="keywords"
+      content="Twiga Power, électricité, énergie, infrastructures électriques, Afrique, énergie renouvelable, distribution, production, maintenance, RDC"
+    />
+    <meta name="author" content="Twiga Power SARL" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="fr" />
+    <meta name="theme-color" content="#0a3d62" />
+
+    <!-- Open Graph pour les réseaux sociaux -->
+    <meta property="og:title" content="Twiga Power" />
+    <meta
+      property="og:description"
+      content="Solutions électriques durables pour l'Afrique. Production, distribution et maintenance énergétique."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://twigapower.com" />
+    <meta property="og:image" content="https://twigapower.com/static/images/social_media.png" />
+    <meta property="og:image:alt" content="Bannière illustrant Twiga Power en action" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Twiga Power" />
+    <meta name="twitter:description" content="L'électricité au service du progrès en Afrique." />
+    <meta name="twitter:image" content="https://twigapower.com/static/images/social_media.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.png' %}" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://twigapower.com/" />
+
+    <!-- Bootstrap & Icônes -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+    <!-- Fonts Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
+
+    <!-- Style CSS personnalisé -->
+    <link href="{% static 'style/app.css' %}" rel="stylesheet" />
+
+    <!-- AOS (Animations on Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- Bloc extensible pour le contenu des pages -->
+    {% block base %} {% endblock %}
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- AOS Animation Init -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>
