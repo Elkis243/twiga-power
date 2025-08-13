@@ -53,18 +53,23 @@
     <!-- Fonts Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400..800&display=swap" rel="stylesheet" />
 
     <!-- Style CSS personnalisé -->
-    <link href="{% static 'style/app.css' %}" rel="stylesheet" />
+    <link href="{% static 'style/index.css' %}" rel="stylesheet" />
 
     <!-- AOS (Animations on Scroll) -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   </head>
 
   <body>
-    <!-- Bloc extensible pour le contenu des pages -->
+    <div id="loading" class="loading-overlay">
+      <img src="{% static 'images/logo_twiga.webp' %}" alt="Chargement..." class="loading-image" />
+    </div>
+
     {% block base %} {% endblock %}
+
+    <script src="{% static 'scripts/loader.js' %}"></script>
 
     <!-- Bootstrap JS -->
     <script

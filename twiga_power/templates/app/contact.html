@@ -1,0 +1,80 @@
+{% extends 'base.html' %} {% load static %} {% block base %} {% include 'components/navbar.html' %}
+<div class='header-contact'>
+  <div class="d-flex justify-content-center align-items-center">
+    <h1 class="text-white"># Contactez-nous !</h1>
+  </div>
+</div>
+<div class="container mt-5 mb-5">
+  <div class="container d-flex flex-column justify-content-center align-items-center">
+    <div class="container p-5">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="container">
+            <h1 class="lh-sm mb-4 fs-2 p-3">
+              Vous avez des questions ? <br />
+              Contactez-nous !
+            </h1>
+            <p class="text-muted p-3">
+              Twiga Power lit et répond à chacun de vos messages. Contactez-nous pour découvrir nos solutions
+              énergétiques adaptées à vos besoins et à votre budget.
+            </p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          {% if messages %} {% for message in messages %}
+          <div class="alert {{message.tags}} alert-dismissible fade show" role="alert">
+            <strong>Message ! </strong> {{message}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+          {% endfor %} {% endif %}
+          <form action="{% url 'contact' %}" method="post" class="needs-validation mt-5" novalidate id="contact_form">
+            {% csrf_token %}
+            <div class="mb-3">
+              <label for="email" class="form-label">Vote adresse e-mail</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                placeholder="Votre adresse e-mail"
+                pattern="[\-a-zA-Z0-9~!$%^&*_=+\}\{'?]+(\.[\-a-zA-Z0-9~!$%^&*_=+\}\{'?]+)*@[a-zA-Z0-9_][\-a-zA-Z0-9_]*(\.[\-a-zA-Z0-9_]+)*\.[a-zA-Z]{2,5}"
+                required
+              />
+              <div class="invalid-feedback">Email requis !</div>
+            </div>
+            <div class="mb-3">
+              <label for="subject" class="form-label">Objet</label>
+              <input
+                type="text"
+                class="form-control"
+                id="subject"
+                name="objet"
+                placeholder="Objet de votre message"
+                required
+                minlength="3"
+                maxlength="100"
+              />
+              <div class="invalid-feedback"></div>
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label">Message</label>
+              <textarea
+                class="form-control"
+                id="message"
+                name="message"
+                rows="5"
+                placeholder="Votre message"
+                required
+                minlength="10"
+                maxlength="700"
+              ></textarea>
+              <div class="invalid-feedback"></div>
+            </div>
+            <button type="submit" class="btn btn-primary">Envoyer</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% include 'components/footer.html' %} {% endblock base %}

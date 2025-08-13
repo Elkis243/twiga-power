@@ -1,0 +1,286 @@
+{% extends 'base.html' %} {% load static %} {% block base %}
+  {% include 'components/navbar.html' %}
+  <div id="heroCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel" data-bs-interval="4000">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+    </div>
+
+    <div class="carousel-inner">
+      <div class="carousel-item active" id="slide1">
+        <div class="carousel-caption">
+          <div class="row">
+            <div class="col-md-5 col-10">
+              <p class="h1 text-white mb-3" data-aos="fade-up" data-aos-duration="1000">Bienvenu sur Twiga power</p>
+              <p data-aos="fade-up" data-aos-duration="1000">Twiga Power fournit des solutions électriques durables, combinant expertise technique et innovation pour éclairer les communautés et stimuler le développement économique.</p>
+              <a href="{% url 'contact' %}" class="btn btn-primary">Je veux devenir un client</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item" id="slide2">
+        <div class="carousel-caption">
+          <div class="row">
+            <div class="col-md-5 col-10">
+              <p class="h1 text-white mb-3" data-aos="fade-up" data-aos-duration="1000">Alimenter Demain, Aujourd’hui</p>
+              <p data-aos="fade-up" data-aos-duration="1000">Nous proposons des solutions énergétiques intelligentes, durables et adaptées aux réalités africaines. De la production à la distribution, nos technologies assurent un accès fiable à l’électricité pour les foyers, entreprises et institutions, tout en favorisant le développement économique et social des communautés locales.</p>
+              <a href="" class="btn btn-primary">En savoir plus</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item" id="slide3">
+        <div class="carousel-caption">
+          <div class="row">
+            <div class="col-md-5 col-10">
+              <p class="h1 text-white" data-aos="fade-up" data-aos-duration="1000">Construire l’énergie de demain</p>
+              <p data-aos="fade-up" data-aos-duration="1000">Nos projets incarnent notre engagement à fournir des solutions énergétiques innovantes et durables. Chaque initiative est conçue pour répondre aux besoins spécifiques des communautés, en favorisant l’accès à une électricité fiable, sécurisée et respectueuse de l’environnement.</p>
+              <button class="btn btn-primary">En savoir plus</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+      <i class="bi bi-chevron-left fs-5"></i>
+      <span class="visually-hidden">Précédent</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+      <i class="bi bi-chevron-right fs-5"></i>
+      <span class="visually-hidden">Suivant</span>
+    </button>
+  </div>
+  <div class="container mb-5 mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-11">
+        <div class="row justify-content-center align-items-center gy-3">
+          <div class="col-md-6 col-12">
+            <img src="{% static 'images/image1.jpg' %}" alt="Image" class="img-fluid" />
+          </div>
+          <div class="col-md-6 col-12">
+            <div class="container p-3">
+              <p class="h3 text-color mb-4">Qui sommes nous ?</p>
+              <div class="container">
+                <p>Twiga Power est une entreprise énergétique leader en RDC, spécialisée dans l'exploitation, la distribution et la commercialisation d'électricité. Nous développons des solutions innovantes et durables pour électrifier le pays, des centres urbains aux zones rurales, en combinant technologies modernes et expertise locale.</p>
+                <p>Notre mission est de fournir une énergie fiable et accessible pour stimuler le développement économique et améliorer les conditions de vie en République Démocratique du Congo.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container" id="services">
+    <div class="row justify-content-center">
+      <div class="col-md-11 col-10">
+        <div class="row">
+          <div class="col-md-8 mb-4">
+            <p class="h3 text-color mb-2">Nos services Énergétiques Intégrées.</p>
+            <p class="text-muted">Nous offrons des solutions complètes pour garantir une électricité fiable, durable et bénéfique pour les communautés comme pour l’environnement.</p>
+          </div>
+        </div>
+
+        <section class="services-section">
+          <div class="container">
+            <div class="services-grid">
+              <!-- Service 1 -->
+              <div class="service-card rounded-3">
+                <h3>Production d'énergie</h3>
+                <ul>
+                  <li>Centrales hydroélectriques</li>
+                  <li>Systèmes solaires hybrides</li>
+                  <li>Solutions thermiques de secours</li>
+                  <li>Maintenance préventive</li>
+                </ul>
+                <div class="service-footer">
+                  <a href="#" class="text-decoration-none">En savoir plus</a>
+                </div>
+              </div>
+
+              <!-- Service 2 -->
+              <div class="service-card highlight rounded-3">
+                <div class="service-badge">Populaire</div>
+                <h3>Réseaux de distribution</h3>
+                <ul>
+                  <li>Distribution haute/moyenne tension</li>
+                  <li>Postes de transformation</li>
+                  <li>Raccordement client</li>
+                  <li>Monitoring</li>
+                </ul>
+                <div class="service-footer">
+                  <a href="#" class="text-decoration-none">En savoir plus</a>
+                </div>
+              </div>
+
+              <!-- Service 3 -->
+              <div class="service-card rounded-3">
+                <h3>Services Commerciaux</h3>
+                <ul>
+                  <li>Comptage intelligent</li>
+                  <li>Gestion des abonnements</li>
+                  <li>Service client 24/7</li>
+                  <li>Solutions prépayées</li>
+                </ul>
+                <div class="service-footer">
+                  <a href="#" class="text-decoration-none">En savoir plus</a>
+                </div>
+              </div>
+
+              <!-- Service 4 -->
+              <div class="service-card rounded-3">
+                <h3>Conseil & Ingénierie</h3>
+                <ul>
+                  <li>Audits énergétiques</li>
+                  <li>Études de faisabilité</li>
+                  <li>Formation technique</li>
+                  <li>Digitalisation des réseaux</li>
+                </ul>
+                <div class="service-footer">
+                  <a href="#" class="text-decoration-none">En savoir plus</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <style>
+          .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+          }
+          
+          .service-card {
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            border-top: 3px solid #397ee6ff;
+          }
+          
+          .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+          }
+          
+          .service-card.highlight {
+            border: 2px solid #395ce6ff;
+          }
+          
+          .service-badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: #398ae6ff;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+          }
+          
+          .service-card h3 {
+            color: #0a0a0a;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+          }
+          
+          .service-card ul {
+            padding-left: 20px;
+            margin-bottom: 25px;
+          }
+          
+          .service-card li {
+            margin-bottom: 6px;
+            position: relative;
+            color: #555;
+            font-size: 0.95rem;
+          }
+          
+          .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            text-align: center;
+          }
+          
+          .stat-item {
+            padding: 15px;
+            color: #398ae6ff;
+          }
+          
+          .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #398ae6ff !important;
+            margin-bottom: 5px;
+          }
+          
+          .stat-label {
+            color: #398ae6ff;
+            font-size: 0.9rem;
+          }
+          
+          @media (max-width: 768px) {
+            .services-grid {
+              grid-template-columns: 1fr;
+            }
+          }
+        </style>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-5 mb-5 bg-dark-custom p-5">
+    <div class="container">
+      <h2 class="text-center text-white mb-4">Pourquoi choisir Twiga Power ?</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <p class="text-center text-white lead">Leader du secteur énergétique en RDC, nous offrons des solutions sur mesure alliant performance technologique et expertise locale</p>
+        </div>
+      </div>
+
+      <div class="row justify-content-center mt-5">
+        <div class="col-md-10">
+          <div class="row g-4">
+            <!-- Avantage 1 -->
+            <div class="col-md-3">
+              <div class="h5 text-color mb-3 text-center">
+                <i class="bi bi-lightning-charge-fill me-2"></i> Énergie fiable
+              </div>
+              <p class="text-white small text-center">Solutions stables avec 99.7% de disponibilité grâce à nos infrastructures modernes et systèmes de monitoring 24h/24</p>
+            </div>
+
+            <!-- Avantage 2 -->
+            <div class="col-md-3">
+              <div class="h5 text-color mb-3 text-center">
+                <i class="bi bi-cash-coin me-2"></i> Tarifs compétitifs
+              </div>
+              <p class="text-white small text-center">Offres adaptées aux réalités économiques locales avec options de paiement flexibles (prépaid, crédit)</p>
+            </div>
+
+            <!-- Avantage 3 -->
+            <div class="col-md-3">
+              <div class="h5 text-color mb-3 text-center">
+                <i class="bi bi-people-fill me-2"></i> Expertise locale
+              </div>
+              <p class="text-white small text-center">Équipe 100% congolaise formée aux standards internationaux pour une meilleure compréhension de vos besoins</p>
+            </div>
+
+            <!-- Avantage 4 -->
+            <div class="col-md-3">
+              <div class="h5 text-color mb-3 text-center">
+                <i class="bi bi-tree-fill me-2"></i> Solutions vertes
+              </div>
+              <p class="text-white small text-center">60% de notre énergie provient de sources renouvelables (hydroélectrique et solaire) pour un impact écologique réduit</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% include 'components/footer.html' %}
+{% endblock %}
