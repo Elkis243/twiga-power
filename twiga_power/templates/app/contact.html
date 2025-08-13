@@ -27,7 +27,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
           {% endfor %} {% endif %}
-          <form action="{% url 'contact' %}" method="post" class="needs-validation mt-5" novalidate id="contact_form">
+          <form action="{% url 'contact' %}" method="post" class="needs-validation mt-5" novalidate id="customValidationForm">
             {% csrf_token %}
             <div class="mb-3">
               <label for="email" class="form-label">Vote adresse e-mail</label>
