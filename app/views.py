@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponseRedirect
 from django.core.mail import send_mail
 from .utils import send_contact_email
+
 
 
 def home(request):
@@ -24,6 +25,7 @@ def contact(request):
             message=message,
         )
         print(recipient, objet, message)
+        return HttpResponseRedirect("/contact/")
     return render(request, "app/contact.html", context)
 
 
