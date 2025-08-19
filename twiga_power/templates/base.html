@@ -51,11 +51,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   </head>
   <body>
-    <div id="loading" class="loading-overlay">
-      <img src="{% static 'images/logo_twiga.png' %}" alt="Chargement..." class="loading-image" />
-    </div>
     {% block base %} {% endblock %}
-    <script src="{% static 'scripts/loader.js' %}"></script>
     <script src="{% static 'scripts/validate_form.js' %}"></script>
     <!-- Bootstrap JS -->
     <script
