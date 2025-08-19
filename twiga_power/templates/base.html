@@ -101,7 +101,7 @@
     {% block base %}{% endblock %}
 
     <!-- Scripts personnalisés -->
-    <script src="{% static 'scripts/validate_form.js' %}" defer></script>
+    <script src="{% static 'scripts/validate_form.js' %}"></script>
 
     <!-- Bootstrap JS avec defer -->
     <script
@@ -112,8 +112,8 @@
     ></script>
 
     <!-- AOS Animation Init -->
-    <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script defer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
       document.addEventListener("DOMContentLoaded", function () {
         AOS.init();
       });
