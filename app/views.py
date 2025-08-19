@@ -33,3 +33,9 @@ def employment(request):
     page = "Emploi"
     context = {"page": page}
     return render(request, "app/employment.html", context)
+
+
+def about(request):
+    page = "A propos"
+    context = {"page": page}
+    return render(request, "app/about.html", context)

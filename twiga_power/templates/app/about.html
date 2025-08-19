@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block base %}
+{% include 'components/navbar.html' %}
+
+<div class="header-contact">
+  <div class="d-flex justify-content-center align-items-center">
+    <h1 class="text-white"># Qui sommes-nous ?</h1>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-10 col-10">
+      <div class="container-fluid p-5">
+        <div class="row">
+          <!-- Historique et Statut -->
+          <div class="col-md-5">
+            <div class="alert alert-secondary border-0 p-4">
+              <h4 class="mb-4"><i class="bi bi-clock-history fs-3"></i> Historique</h4>
+              <p>
+                Fondée en 2020, <strong>Twiga Power</strong> est une entreprise congolaise spécialisée 
+                dans la production, la distribution et la commercialisation d’électricité en République 
+                Démocratique du Congo. Nous accompagnons les particuliers, 
+                entreprises et institutions dans l’accès à une énergie fiable et durable.
+              </p>
+            </div>
+            <div class="alert alert-primary border-0 p-4">
+              <h4 class="mb-4"><i class="bi bi-journal-text fs-3"></i> Statut juridique</h4>
+              <p>
+                Twiga Power SARL est une entreprise privée de droit congolais, enregistrée conformément 
+                aux lois en vigueur, et opérant dans le secteur de l’énergie avec un engagement ferme 
+                pour le développement durable et l’électrification du pays.
+              </p>
+            </div>
+          </div>
+
+          <!-- Missions -->
+          <div class="col-md-7">
+            <div class="alert alert-success border-0 p-4">
+              <h4 class="mb-4"><i class="bi bi-bullseye fs-3"></i> Notre Mission</h4>
+              <p class="mb-4">Twiga Power s’engage à :</p>
+              <ul>
+                <li>Fournir une énergie fiable, disponible 24h/24 et 7j/7.</li>
+                <li>Développer des solutions énergétiques durables adaptées aux besoins spécifiques de nos clients.</li>
+                <li>Contribuer à l’électrification des zones urbaines et rurales en RDC.</li>
+                <li>Favoriser la transition vers des sources d’énergie plus propres et efficaces.</li>
+                <li>Assurer un service de maintenance rapide et efficace.</li>
+                <li>Former et employer des experts locaux pour soutenir le développement national.</li>
+                <li>Mettre en place des projets innovants pour relever les défis énergétiques du pays.</li>
+              </ul>
+              <p>
+                Notre vision est de bâtir un avenir électrifié et responsable, en plaçant 
+                la satisfaction de nos clients au cœur de nos actions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% include 'components/footer.html' %}
+{% endblock base %}
