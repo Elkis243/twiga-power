@@ -3,7 +3,7 @@ from .base import *
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 SECRET_KEY = os.getenv('SECRET_KEY')
-ALLOWED_HOSTS = ['twigapower.com']
+ALLOWED_HOSTS = ['twigapower.pythonanywhere.com']
 
 SECURE_HSTS_SECONDS = int(os.getenv('SECURE_HSTS_SECONDS'))
 SECURE_HSTS_INCLUDE_SUBDOMAINS = os.getenv('SECURE_HSTS_INCLUDE_SUBDOMAINS') == 'True'
