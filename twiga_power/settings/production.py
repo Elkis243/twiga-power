@@ -1,6 +1,18 @@
 from .base import *
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_FINDERS = [
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+    "compressor.finders.CompressorFinder",  # obligatoire pour compresser
+]
+COMPRESS_ENABLED = True
+COMPRESS_OFFLINE = True
+COMPRESS_ROOT = STATIC_ROOT
+
+INSTALLED_APPS += [
+    'compressor',
+]
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 ALLOWED_HOSTS = ['twigapower.pythonanywhere.com']

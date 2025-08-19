@@ -126,6 +126,7 @@ STATIC_URL = 'static/'
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
+
 # bootstrap messages configuration
 MESSAGE_TAGS = {
     messages.DEBUG: "alert-info",
