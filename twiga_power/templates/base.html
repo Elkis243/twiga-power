@@ -97,14 +97,10 @@
   </head>
 
   <body>
-    <div id="loading" class="loading-overlay">
-      <img src="{% static 'images/logo_twiga.png' %}" alt="Chargement..." class="loading-image" />
-    </div>
 
     {% block base %}{% endblock %}
 
     <!-- Scripts personnalisés -->
-    <script src="{% static 'scripts/loader.js' %}" defer></script>
     <script src="{% static 'scripts/validate_form.js' %}" defer></script>
 
     <!-- Bootstrap JS avec defer -->
