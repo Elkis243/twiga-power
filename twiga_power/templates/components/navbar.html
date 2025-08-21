@@ -2,32 +2,52 @@
 <nav class="navbar navbar-expand-md bg-body-tertiary sticky-top">
   <div class="container">
     <a href="{% url 'home' %}" class="navbar-brand mx-5">
-      <img src="{% static 'images/logo_twiga.webp' %}" alt="Image" class="" height="35" width="auto" />
+      <img src="{% static 'images/logo_twiga.webp' %}"
+           alt="Image"
+           class=""
+           height="35"
+           width="auto" />
     </a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="offcanvas"
-      data-bs-target="#offcanvasNavbar"
-      aria-controls="offcanvasNavbar"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+    <button class="navbar-toggler"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar">
       <div class="offcanvas-header">
         <a href="" class="navbar-brand mx-5">
-          <img src="{% static 'images/logo_twiga.webp' %}" alt="Image" class="" height="35" width="auto" />
+          <img src="{% static 'images/logo_twiga.webp' %}"
+               alt="Image"
+               class=""
+               height="35"
+               width="auto" />
         </a>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        <button type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-          <li class="nav-item"><a class="nav-link mx-2 px-2  py-2 {% if page == 'Home' %}active-link{% endif %}" href="{% url 'home' %}">Home</a></li> 
-          <li class="nav-item"><a class="nav-link mx-2 px-2 py-2" href="{% url 'home' %}#services">Nos services</a></li>
-          <li class="nav-item"><a class="nav-link mx-2 px-2 py-2  {% if page == 'A propos' %}active-link{% endif %}" href="{% url 'about' %}">Qui sommes-nous ?</a></li>
-          <li class="nav-item"><a class="nav-link mx-2 px-2 py-2 {% if page == 'Contact' %}active-link{% endif %}" href="{% url 'contact' %}">Nous contacter</a></li>
+          <li class="nav-item">
+            <a class="nav-link mx-2 px-2  py-2 {% if page == 'Home' %}active-link{% endif %}"
+               href="{% url 'home' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2 px-2 py-2" href="{% url 'home' %}#services">Nos services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2 px-2 py-2  {% if page == 'A propos' %}active-link{% endif %}"
+               href="{% url 'about' %}">Qui sommes-nous ?</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2 px-2 py-2 {% if page == 'Contact' %}active-link{% endif %}"
+               href="{% url 'contact' %}">Nous contacter</a>
+          </li>
         </ul>
       </div>
     </div>
