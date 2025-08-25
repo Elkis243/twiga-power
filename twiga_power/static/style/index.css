@@ -32,7 +32,7 @@ html {
 }
 
 #slide1 {
-     background-color: #000;
+    background-color: #000;
     background-image: linear-gradient(rgba(21, 34, 26, 0.776), rgba(7, 34, 59, 0.888)),
         url("../images/slide1.webp");
 }
@@ -117,8 +117,6 @@ html {
 
 /* Image de chargement */
 .loading-image {
-    width: 150px;
-    height: 60px;
     animation: scalePulse 1.5s ease-in-out infinite;
     transform-origin: center;
 }
