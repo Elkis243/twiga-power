@@ -1,90 +1,84 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <!-- Encodage & responsive -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Titre de la page -->
-    <title>Twiga Power - {{ page|default:"Accueil" }}</title>
-    <!-- SEO : Meta Description & Keywords -->
-    <meta name="description"
-          content="Twiga Power fournit des solutions électriques fiables, durables et innovantes à travers l'Afrique." />
-    <meta name="keywords"
-          content="Twiga Power, électricité, énergie, infrastructures électriques, Afrique, énergie renouvelable, distribution, production, maintenance, RDC" />
-    <meta name="author" content="Twiga Power SARL" />
-    <meta name="robots" content="index, follow" />
-    <meta name="language" content="fr" />
-    <meta name="theme-color" content="#0a3d62" />
-    <!-- Open Graph pour les réseaux sociaux -->
-    <meta property="og:title" content="Twiga Power" />
-    <meta property="og:description"
-          content="Solutions électriques durables pour l'Afrique. Production, distribution et maintenance énergétique." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://twigapower.pythonanywhere.com/" />
-    <meta property="og:image"
-          content="https://twigapower.pythonanywhere.com/static/images/logo_twiga.png" />
-    <meta property="og:image:alt"
-          content="Bannière illustrant Twiga Power en action" />
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Twiga Power" />
-    <meta name="twitter:description"
-          content="L'électricité au service du progrès en Afrique." />
-    <meta name="twitter:image"
-          content="https://twigapower.pythonanywhere.com/static/images/logo_twiga.png" />
-    <!-- Favicon -->
-    <link rel="icon"
-          type="image/x-icon"
-          href="{% static 'images/favicon.ico' %}" />
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://twigapower.pythonanywhere.com/" />
-    <!-- Bootstrap & Icônes -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-          rel="stylesheet" />
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-    <!-- Fonts Google -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400..800&display=swap"
-          rel="stylesheet" />
-    <!-- Style CSS personnalisé -->
-    <link href="{% static 'style/index.css' %}" rel="stylesheet" />
-    <!-- AOS (Animations on Scroll) -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  </head>
-  <body>
-    <div id="loading" class="loading-overlay">
-      <img src="{% static "images/logo_twiga.png" %}"
-           alt="Chargement..."
-           class="loading-image"
-           height="auto"
-           width="150" />
-    </div>
-    {% block base %}
-    {% endblock base %}
-    <script src="{% static 'js/loader.js' %}"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+
+<head>
+      <!-- Encodage & responsive -->
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <!-- Titre de la page -->
+      <title>Twiga Power - {{ page|default:"Accueil" }}</title>
+      <!-- SEO : Meta Description & Keywords -->
+      <meta name="description"
+            content="Twiga Power fournit des solutions électriques fiables, durables et innovantes à travers l'Afrique." />
+      <meta name="keywords"
+            content="Twiga Power, électricité, énergie, infrastructures électriques, Afrique, énergie renouvelable, distribution, production, maintenance, RDC" />
+      <meta name="author" content="Twiga Power SARL" />
+      <meta name="robots" content="index, follow" />
+      <meta name="language" content="fr" />
+      <meta name="theme-color" content="#0a3d62" />
+      <!-- Open Graph pour les réseaux sociaux -->
+      <meta property="og:title" content="Twiga Power" />
+      <meta property="og:description"
+            content="Solutions électriques durables pour l'Afrique. Production, distribution et maintenance énergétique." />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://twigapower.pythonanywhere.com/" />
+      <meta property="og:image" content="https://twigapower.pythonanywhere.com/static/images/logo_twiga.png" />
+      <meta property="og:image:alt" content="Bannière illustrant Twiga Power en action" />
+      <!-- Twitter Card -->
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Twiga Power" />
+      <meta name="twitter:description" content="L'électricité au service du progrès en Afrique." />
+      <meta name="twitter:image" content="https://twigapower.pythonanywhere.com/static/images/logo_twiga.png" />
+      <!-- Favicon -->
+      <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}" />
+      <!-- Canonical URL -->
+      <link rel="canonical" href="https://twigapower.pythonanywhere.com/" />
+      <!-- Bootstrap & Icônes -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+      <!-- Fonts Google -->
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link href="https://fonts.googleapis.com/css2?family=Sen:wght@400..800&display=swap" rel="stylesheet" />
+      <!-- Style CSS personnalisé -->
+      <link href="{% static 'style/index.css' %}" rel="stylesheet" />
+      <!-- Sal.js (Scroll Animation Library) -->
+      <link rel="stylesheet" href="https://unpkg.com/sal.js/dist/sal.css">
+</head>
+
+<body>
+      <div id="loading" class="loading-overlay">
+            <img src="{% static " images/logo_twiga.png" %}" alt="Chargement..." class="loading-image" height="auto"
+                  width="150" />
+      </div>
+      {% block base %}
+      {% endblock base %}
+      <script src="{% static 'js/loader.js' %}"></script>
+      <!-- Bootstrap JS -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
             crossorigin="anonymous"></script>
-    <!-- AOS Animation Init -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      AOS.init();
-      document.addEventListener("DOMContentLoaded", function () {
-        // Récupérer l'élément Offcanvas Bootstrap
-        const offcanvasElement = document.getElementById("offcanvasNavbar");
-        const bsOffcanvas = new bootstrap.Offcanvas(offcanvasElement);
+      <script src="https://unpkg.com/sal.js/dist/sal.js"></script>
+      <script>
+              document.addEventListener("DOMContentLoaded", function () {
+                  // Récupérer l'élément Offcanvas Bootstrap
+                  const offcanvasElement = document.getElementById("offcanvasNavbar");
+                  const bsOffcanvas = new bootstrap.Offcanvas(offcanvasElement);
 
-        // Fermer automatiquement quand on clique sur un lien à l'intérieur
-        offcanvasElement.querySelectorAll("a").forEach(function (link) {
-          link.addEventListener("click", function () {
-            bsOffcanvas.hide();
-          });
-        });
-      });
-    </script>
-  </body>
+                  // Fermer automatiquement quand on clique sur un lien à l'intérieur
+                  offcanvasElement.querySelectorAll("a").forEach(function (link) {
+                        link.addEventListener("click", function () {
+                              bsOffcanvas.hide();
+                        });
+                  });
+            });
+            sal({
+                  threshold: 0.1,
+                  once: false,
+                  easing: 'ease-in-out'
+            });
+      </script>
+</body>
+
 </html>
