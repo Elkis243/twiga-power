@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponseRedirect
 from django.conf import settings
 from django.contrib import messages
 from django.core.mail import send_mail
+from django.http import HttpResponse
 
 
 def home(request):
@@ -53,3 +54,12 @@ def about(request):
     page = "A propos"
     context = {"page": page}
     return render(request, "app/about.html", context)
+
+
+def robots_txt(request):
+    content = """
+User-agent: *
+Disallow: /admin/
+Sitemap: https://www.twigapower.com/sitemap.xml
+"""
+    return HttpResponse(content, content_type="text/plain")
