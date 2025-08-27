@@ -24,7 +24,7 @@ def contact(request):
 
         subject = f"Nouveau message de {name}"
         body = (
-            f"Nom: {name}\n"
+            f"Nom complet: {name}\n"
             f"Email: {email}\n"
             f"Téléphone: {phone}\n"
             f"Adresse: {address}\n\n"
