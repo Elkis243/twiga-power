@@ -162,18 +162,6 @@ html {
     border: 2px solid #395ce6ff;
 }
 
-.service-badge {
-    position: absolute;
-    top: -12px;
-    right: 20px;
-    background: #398ae6ff;
-    color: white;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: bold;
-}
-
 .service-card h3 {
     color: #0a0a0a;
     margin-bottom: 20px;

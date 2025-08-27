@@ -1,301 +1,261 @@
 {% extends "base.html" %}
 {% load static %}
 {% block base %}
-  {% include "components/navbar.html" %}
-  <div id="heroCarousel"
-       class="carousel slide hero-carousel"
-       data-bs-ride="carousel"
-       data-bs-interval="4000">
-    <div class="carousel-indicators">
-      <button type="button"
-              data-bs-target="#heroCarousel"
-              data-bs-slide-to="0"
-              class="active"></button>
-      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
-      <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active" id="slide1">
-        <div class="carousel-caption">
-          <div class="row">
-            <div class="col-md-10">
-              <p class="h1 text-white mb-3"
-                data-sal="fade" data-sal-duration="2000" data-sal-delay="500">L’énergie qui fait bouger la RDC</p>
-              <p data-aos="fade-up"
-                 data-sal="slide-up" data-sal-duration="800" data-sal-delay="100">
-                Découvrez comment Twiga Power transforme chaque watt en progrès et opportunités pour tous.
-              </p>
-              <a href="{% url 'about' %}" class="btn btn-primary">En savoir plus</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item" id="slide2">
-        <div class="carousel-caption">
-          <div class="row">
-            <div class="col-md-10">
-              <p class="h1 text-white mb-3">Connecter les villes, éclairer les villages</p>
-              <p>
-               Des solutions modernes et durables pour connecter villes et villages à une électricité fiable.
-              </p>
-              <a href="{% url 'home' %}#services" class="btn btn-primary">Explorer nos services</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item" id="slide3">
-        <div class="carousel-caption">
-          <div class="row">
-            <div class="col-md-10">
-              <p class="h1 text-white">Ensemble, faisons briller l’avenir.</p>
-              <p>
-              Twiga Power, partenaire engagé pour stimuler le développement économique et améliorer les conditions de vie.
-              </p>
-              <a href="{% url 'contact' %}" class="btn btn-primary">Nous contacter</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <button class="carousel-control-prev"
-            type="button"
-            data-bs-target="#heroCarousel"
-            data-bs-slide="prev">
-      <i class="bi bi-chevron-left fs-5"></i>
-      <span class="visually-hidden">Précédent</span>
-    </button>
-    <button class="carousel-control-next"
-            type="button"
-            data-bs-target="#heroCarousel"
-            data-bs-slide="next">
-      <i class="bi bi-chevron-right fs-5"></i>
-      <span class="visually-hidden">Suivant</span>
-    </button>
+{% include "components/navbar.html" %}
+<div id="heroCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel" data-bs-interval="4000">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
   </div>
-  <section class="container mb-5 mt-5">
-    <div class="row justify-content-center">
-      <div class="col-md-11">
-        <div class="row justify-content-center align-items-center gy-3">
-          <div class="col-md-6 col-12">
-            <img src="{% static 'images/img1.webp' %}"
-                 alt="Image"
-                 class="img-fluid"
-                 width="600"
-                 height="400" />
+  <div class="carousel-inner">
+    <div class="carousel-item active" id="slide1">
+      <div class="carousel-caption">
+        <div class="row">
+          <div class="col-md-10">
+            <p class="h1 text-white mb-3" data-sal="fade" data-sal-duration="2000" data-sal-delay="500">L’énergie qui
+              fait bouger la RDC</p>
+            <p data-aos="fade-up" data-sal="slide-up" data-sal-duration="800" data-sal-delay="100">
+              Découvrez comment Twiga Power transforme chaque watt en progrès et opportunités pour tous.
+            </p>
+            <a href="{% url 'about' %}" class="btn btn-primary">En savoir plus</a>
           </div>
-          <div class="col-md-6 col-12">
-            <div class="container p-3">
-              <p class="h3 text-color mb-4">Qui sommes nous ?</p>
-              <p>
-                Twiga Power est une entreprise congolaise jeune et ambitieuse, dédiée à transformer le paysage énergétique de la RDC. Nous intervenons dans l’exploitation, la distribution et la commercialisation d’électricité en mettant l’innovation et la durabilité au cœur de nos actions.
-              </p>
-              <p>
-                Notre vision est claire : rendre l’énergie fiable et accessible à tous, des grandes villes aux zones les plus reculées. Grâce à notre expertise locale et à des solutions modernes, nous contribuons à bâtir un avenir où l’électricité devient un véritable levier de croissance, de progrès et de bien-être pour chaque Congolais.
-              </p>
-              <a href="{% url 'about' %}" class="btn btn-primary">En savoir plus</a>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item" id="slide2">
+      <div class="carousel-caption">
+        <div class="row">
+          <div class="col-md-10">
+            <p class="h1 text-white mb-3">Connecter les villes, éclairer les villages</p>
+            <p>
+              Des solutions modernes et durables pour connecter villes et villages à une électricité fiable.
+            </p>
+            <a href="{% url 'home' %}#services" class="btn btn-primary">Explorer nos services</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item" id="slide3">
+      <div class="carousel-caption">
+        <div class="row">
+          <div class="col-md-10">
+            <p class="h1 text-white">Ensemble, faisons briller l’avenir.</p>
+            <p>
+              Twiga Power, partenaire engagé pour stimuler le développement économique et améliorer les conditions de
+              vie.
+            </p>
+            <a href="{% url 'contact' %}" class="btn btn-primary">Nous contacter</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+    <i class="bi bi-chevron-left fs-5"></i>
+    <span class="visually-hidden">Précédent</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+    <i class="bi bi-chevron-right fs-5"></i>
+    <span class="visually-hidden">Suivant</span>
+  </button>
+</div>
+<section class="container mb-5 mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-11">
+      <div class="row justify-content-center align-items-center gy-3">
+        <div class="col-md-6 col-12">
+          <img src="{% static 'images/img1.webp' %}" alt="Image" class="img-fluid" width="600" height="400" />
+        </div>
+        <div class="col-md-6 col-12">
+          <div class="container p-3">
+            <p class="h3 text-color mb-4" data-sal="fade" data-sal-duration="2000" data-sal-delay="200">Qui sommes nous
+              ?</p>
+            <p data-sal="fade" data-sal-duration="2000" data-sal-delay="300">
+              Twiga Power est une entreprise congolaise jeune et ambitieuse, dédiée à transformer le paysage énergétique
+              de la RDC. Nous intervenons dans l’exploitation, la distribution et la commercialisation d’électricité en
+              mettant l’innovation et la durabilité au cœur de nos actions.
+            </p>
+            <p data-sal="fade" data-sal-duration="2000" data-sal-delay="400">
+              Notre vision est claire : rendre l’énergie fiable et accessible à tous, des grandes villes aux zones les
+              plus reculées. Grâce à notre expertise locale et à des solutions modernes, nous contribuons à bâtir un
+              avenir où l’électricité devient un véritable levier de croissance, de progrès et de bien-être pour chaque
+              Congolais.
+            </p>
+            <a href="{% url 'about' %}" class="btn btn-primary">En savoir plus</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="container" id="services">
+  <div class="row justify-content-center">
+    <div class="col-md-11 col-10">
+      <div class="row">
+        <div class="col-md-8 mb-4">
+          <p class="h3 text-color mb-2" data-sal="fade" data-sal-duration="2000" data-sal-delay="500">Nos services
+            Énergétiques Intégrées.</p>
+          <p class="text-muted" data-aos="fade-up" data-sal="slide-up" data-sal-duration="800" data-sal-delay="100">
+            Nous offrons des solutions complètes pour garantir une électricité fiable, durable et bénéfique pour les
+            communautés comme pour l’environnement.
+          </p>
+        </div>
+      </div>
+      <div class="services-section">
+        <div class="container">
+          <div class="services-grid">
+            <!-- Service 1 : Exploitation -->
+            <div class="service-card rounded-3">
+              <h3><strong>Service d'Exploitation</strong></h3>
+              <ul>
+                <li>Centrales hydroélectriques</li>
+                <li>Systèmes solaires hybrides</li>
+                <li>Solutions thermiques de secours</li>
+                <li>Maintenance préventive</li>
+              </ul>
+              <div class="service-footer">
+                <a href="{% url 'contact' %}" class="text-decoration-none">Nous contacter</a>
+              </div>
+            </div>
+
+            <!-- Service 2 : Transport -->
+            <div class="service-card rounded-3">
+              <h3><strong>Service de Transport</strong></h3>
+              <ul>
+                <li>Lignes de transmission haute/moyenne tension</li>
+                <li>Réseaux hybrides</li>
+                <li>Minimisation des pertes en ligne</li>
+                <li>Supervision et sécurité du transport</li>
+              </ul>
+              <div class="service-footer">
+                <a href="{% url 'contact' %}" class="text-decoration-none">Nous contacter</a>
+              </div>
+            </div>
+
+            <!-- Service 3 : Transformation -->
+            <div class="service-card rounded-3">
+              <h3><strong>Service de Transformation</strong></h3>
+              <ul>
+                <li>Postes de transformation haute/moyenne/basse tension</li>
+                <li>Transformateurs intelligents</li>
+                <li>Gestion à distance des charges</li>
+                <li>Smart grid et surveillance réseau</li>
+              </ul>
+              <div class="service-footer">
+                <a href="{% url 'contact' %}" class="text-decoration-none">Nous contacter</a>
+              </div>
+            </div>
+
+            <!-- Service 4 : Distribution & Commercialisation -->
+            <div class="service-card rounded-3 highlight">
+              <h3><strong>Service de Distribution & Commercialisation</strong></h3>
+              <ul>
+                <li>Distribution aux ménages, PME et industries</li>
+                <li>Comptage intelligent et prépayé</li>
+                <li>Gestion des abonnements</li>
+                <li>Service client et assistance 24/7</li>
+              </ul>
+              <div class="service-footer">
+                <a href="{% url 'contact' %}" class="text-decoration-none">Nous contacter</a>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
-  <section class="container" id="services">
+  </div>
+</section>
+<section class="mt-5 bg-dark-custom p-5">
+  <div class="container">
     <div class="row justify-content-center">
-      <div class="col-md-11 col-10">
+      <div class="col-md-10 col-10">
         <div class="row">
-          <div class="col-md-8 mb-4">
-            <p class="h3 text-color mb-2">Nos services Énergétiques Intégrées.</p>
-            <p class="text-muted">
-              Nous offrons des solutions complètes pour garantir une électricité fiable, durable et bénéfique pour les
-              communautés comme pour l’environnement.
+          <div class="col-md-6">
+            <p class="h2 mb-3 text-white">Pourquoi choisir Twiga Power ?</p>
+            <p class="text-white mb-3">
+              Votre satisfaction guidant notre service fiable, efficace et personnalisé quotidiennement.
             </p>
           </div>
         </div>
-        <div class="services-section">
-          <div class="container">
-            <div class="services-grid">
-              <!-- Service 1 -->
-              <div class="service-card rounded-3">
-                <h3>Production d'énergie</h3>
-                <ul>
-                  <li>Centrales hydroélectriques</li>
-                  <li>Systèmes solaires hybrides</li>
-                  <li>Solutions thermiques de secours</li>
-                  <li>Maintenance préventive</li>
-                </ul>
-                <div class="service-footer">
-                  <a href="#" class="text-decoration-none">En savoir plus</a>
-                </div>
-              </div>
-              <!-- Service 2 -->
-              <div class="service-card highlight rounded-3">
-                <div class="service-badge">Populaire</div>
-                <h3>Réseaux de distribution</h3>
-                <ul>
-                  <li>Distribution haute/moyenne tension</li>
-                  <li>Postes de transformation</li>
-                  <li>Raccordement client</li>
-                  <li>Monitoring</li>
-                </ul>
-                <div class="service-footer">
-                  <a href="#" class="text-decoration-none">En savoir plus</a>
-                </div>
-              </div>
-              <!-- Service 3 -->
-              <div class="service-card rounded-3">
-                <h3>Services Commerciaux</h3>
-                <ul>
-                  <li>Comptage intelligent</li>
-                  <li>Gestion des abonnements</li>
-                  <li>Service client 24/7</li>
-                  <li>Solutions prépayées</li>
-                </ul>
-                <div class="service-footer">
-                  <a href="#" class="text-decoration-none">En savoir plus</a>
-                </div>
-              </div>
-              <!-- Service 4 -->
-              <div class="service-card rounded-3">
-                <h3>Conseil & Ingénierie</h3>
-                <ul>
-                  <li>Audits énergétiques</li>
-                  <li>Études de faisabilité</li>
-                  <li>Formation technique</li>
-                  <li>Digitalisation des réseaux</li>
-                </ul>
-                <div class="service-footer">
-                  <a href="#" class="text-decoration-none">En savoir plus</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="mt-5 bg-dark-custom p-5">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-10 col-10">
-          <div class="row">
-            <div class="col-md-6">
-              <p class="h1 mb-3 text-white">Pourquoi choisir Twiga Power ?</p>
-              <p class="text-white mb-3">
-                Votre satisfaction guidant notre service fiable, efficace et personnalisé quotidiennement.
-              </p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="d-flex align-items-center"
-                   data-aos="fade-up"
-                   data-aos-duration="500">
-                <i class="bi bi-check-circle-fill text-primary me-3 fs-1"></i>
-                <div class="container text-white">
-                  <p class="fw-medium mb-1 text-color">Énergie garantie 24/7</p>
-                  <p>Une alimentation continue et fiable, même dans les conditions les plus exigeantes.</p>
-                </div>
-              </div>
-              <div class="d-flex align-items-center"
-                   data-aos="fade-up"
-                   data-aos-duration="800">
-                <i class="bi bi-check-circle-fill text-primary me-3 fs-1"></i>
-                <div class="container text-white">
-                  <p class="fw-medium mb-1 text-color">Solutions personnalisées</p>
-                  <p>Des offres adaptées à vos besoins spécifiques, quelle que soit la taille de votre entreprise.</p>
-                </div>
-              </div>
-              <div class="d-flex align-items-center"
-                   data-aos="fade-up"
-                   data-aos-duration="1300">
-                <i class="bi bi-check-circle-fill text-primary me-3 fs-1"></i>
-                <div class="container text-white">
-                  <p class="fw-medium mb-1 text-color">Maintenance rapide et efficace</p>
-                  <p>Un service d’intervention réactif pour réduire au minimum les interruptions.</p>
-                </div>
-              </div>
-              <div class="d-flex align-items-center">
-                <i class="bi bi-check-circle-fill text-primary me-3 fs-1"></i>
-                <div class="container text-white">
-                  <p class="fw-medium mb-1 text-color">Équipe d’experts locaux</p>
-                  <p>Des professionnels qualifiés qui comprennent les réalités et défis du marché local.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-12">
-              <img src="{% static 'images/img2.webp' %}"
-                   alt="Image"
-                   class="img-fluid"
-                   width="600"
-                   height="400" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="container mt-5 mb-5">
-    <div class="row justify-content-center">
-      <div class="col-md-11">
         <div class="row">
-          <div class="col-md-8 mb-4">
-            <p class="h3 text-color mb-2">Découvrez nos partenaires stratégiques</p>
-            <p class="text-muted">
-              Nous collaborons avec des entreprises et organisations de confiance pour garantir des solutions innovantes et
-              durables dans le secteur énergétique.
-            </p>
+          <div class="col-md-6">
+            <div class="d-flex align-items-center" data-aos="fade-up" data-aos-duration="500">
+              <i class="bi bi-check-circle-fill text-primary me-3 fs-1"></i>
+              <div class="container text-white">
+                <p class="fw-medium mb-1 text-color">Énergie garantie 24/7</p>
+                <p>Une alimentation continue et fiable, même dans les conditions les plus exigeantes.</p>
+              </div>
+            </div>
+            <div class="d-flex align-items-center" data-aos="fade-up" data-aos-duration="800">
+              <i class="bi bi-check-circle-fill text-primary me-3 fs-1"></i>
+              <div class="container text-white">
+                <p class="fw-medium mb-1 text-color">Solutions personnalisées</p>
+                <p>Des offres adaptées à vos besoins spécifiques, quelle que soit la taille de votre entreprise.</p>
+              </div>
+            </div>
+            <div class="d-flex align-items-center" data-aos="fade-up" data-aos-duration="1300">
+              <i class="bi bi-check-circle-fill text-primary me-3 fs-1"></i>
+              <div class="container text-white">
+                <p class="fw-medium mb-1 text-color">Maintenance rapide et efficace</p>
+                <p>Un service d’intervention réactif pour réduire au minimum les interruptions.</p>
+              </div>
+            </div>
+            <div class="d-flex align-items-center">
+              <i class="bi bi-check-circle-fill text-primary me-3 fs-1"></i>
+              <div class="container text-white">
+                <p class="fw-medium mb-1 text-color">Équipe d’experts locaux</p>
+                <p>Des professionnels qualifiés qui comprennent les réalités et défis du marché local.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-12">
+            <img src="{% static 'images/img2.webp' %}" alt="Image" class="img-fluid" width="600" height="400" />
           </div>
         </div>
       </div>
     </div>
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-        <div class="row justify-content-center align-items-center gy-3 text-center">
-          <div class="col-md-2 d-flex justify-content-center">
-            <img src="{% static 'images/partner1.webp' %}"
-                 alt="Partenaire 1"
-                 class="img-fluid"
-                 width="150"
-                 height="80">
-          </div>
-          <div class="col-md-2 d-flex justify-content-center">
-            <img src="{% static 'images/partner2.webp' %}"
-                 alt="Partenaire 2"
-                 class="img-fluid"
-                 width="150"
-                 height="80">
-          </div>
-          <div class="col-md-2 d-flex justify-content-center">
-            <img src="{% static 'images/partner3.webp' %}"
-                 alt="Partenaire 3"
-                 class="img-fluid"
-                 width="150"
-                 height="80">
-          </div>
-          <div class="col-md-2 d-flex justify-content-center">
-            <img src="{% static 'images/partner4.webp' %}"
-                 alt="Partenaire 4"
-                 class="img-fluid"
-                 width="150"
-                 height="80">
-          </div>
-          <div class="col-md-2 d-flex justify-content-center">
-            <img src="{% static 'images/partner5.webp' %}"
-                 alt="Partenaire 5"
-                 class="img-fluid"
-                 width="150"
-                 height="80">
-          </div>
-          <div class="col-md-2 d-flex justify-content-center">
-            <img src="{% static 'images/partner6.webp' %}"
-                 alt="Partenaire 6"
-                 class="img-fluid"
-                 width="150"
-                 height="80">
-          </div>
+  </div>
+</section>
+<section class="container mt-5 mb-5">
+  <div class="row justify-content-center">
+    <div class="col-md-11">
+      <div class="row">
+        <div class="col-md-8 mb-4">
+          <p class="h3 text-color mb-2">Découvrez nos partenaires stratégiques</p>
+          <p class="text-muted">
+            Nous collaborons avec des entreprises et organisations de confiance pour garantir des solutions innovantes
+            et
+            durables dans le secteur énergétique.
+          </p>
         </div>
       </div>
     </div>
-  </section>
-  {% include "components/footer.html" %}
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="row justify-content-center align-items-center gy-3 text-center">
+        <div class="col-md-2 d-flex justify-content-center">
+          <img src="{% static 'images/partner1.webp' %}" alt="Partenaire 1" class="img-fluid" width="150" height="80">
+        </div>
+        <div class="col-md-2 d-flex justify-content-center">
+          <img src="{% static 'images/partner2.webp' %}" alt="Partenaire 2" class="img-fluid" width="150" height="80">
+        </div>
+        <div class="col-md-2 d-flex justify-content-center">
+          <img src="{% static 'images/partner3.webp' %}" alt="Partenaire 3" class="img-fluid" width="150" height="80">
+        </div>
+        <div class="col-md-2 d-flex justify-content-center">
+          <img src="{% static 'images/partner4.webp' %}" alt="Partenaire 4" class="img-fluid" width="150" height="80">
+        </div>
+        <div class="col-md-2 d-flex justify-content-center">
+          <img src="{% static 'images/partner5.webp' %}" alt="Partenaire 5" class="img-fluid" width="150" height="80">
+        </div>
+        <div class="col-md-2 d-flex justify-content-center">
+          <img src="{% static 'images/partner6.webp' %}" alt="Partenaire 6" class="img-fluid" width="150" height="80">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% include "components/footer.html" %}
 {% endblock base %}
