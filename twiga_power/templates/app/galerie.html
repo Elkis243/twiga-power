@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block base %}
+{% include "components/navbar.html" %}
+
+<div class="header-contact">
+    <div class="d-flex justify-content-center align-items-center">
+        <h1 class="text-white"># Galerie de photos</h1>
+    </div>
+</div>
+
+<section class="container p-5">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-md-10">
+            <div class="gallery"></div>
+        </div>
+    </div>
+</section>
+
+<!-- Lightbox avec carrousel -->
+<div class="lightbox">
+    <span class="lightbox-close">&times;</span>
+    <div class="lightbox-content">
+        <button class="lightbox-prev border-0 bg-transparent text-white">
+            <i class="bi bi-chevron-left fs-4"></i>
+        </button>
+        <img src="" alt="" class="lightbox-image">
+        <button class="lightbox-next border-0 bg-transparent text-white">
+            <i class="bi bi-chevron-right fs-4"></i>
+        </button>
+        <p class="lightbox-caption"></p>
+    </div>
+</div>
+
+<script>
+    const galleryData = [
+        { src: "{% static 'images/picture1.webp' %}", title: "Directeur générale"},
+        { src: "{% static 'images/picture2.webp' %}", title: "Inspection technique"},
+        { src: "{% static 'images/picture3.webp' %}", title: "Directeur générale"},
+        { src: "{% static 'images/picture4.webp' %}", title: "Inspection technique"},
+        { src: "{% static 'images/picture5.webp' %}", title: "autochtones"},
+        { src: "{% static 'images/picture6.webp' %}", title: "Inspection technique"},
+    ];
+
+    const gallery = document.querySelector('.gallery');
+    const lightbox = document.querySelector('.lightbox');
+    const lightboxImage = document.querySelector('.lightbox-image');
+    const lightboxCaption = document.querySelector('.lightbox-caption');
+    const lightboxClose = document.querySelector('.lightbox-close');
+    const prevBtn = document.querySelector('.lightbox-prev');
+    const nextBtn = document.querySelector('.lightbox-next');
+
+    let currentIndex = 0;
+
+    // Générer la galerie
+    galleryData.forEach((item, index) => {
+        const galleryItem = document.createElement('div');
+        galleryItem.className = `gallery-item`;
+        galleryItem.innerHTML = `<img src="${item.src}" alt="${item.title}" class="gallery-image">`;
+        galleryItem.addEventListener('click', () => openLightbox(index));
+        gallery.appendChild(galleryItem);
+    });
+
+    function openLightbox(index) {
+        currentIndex = index;
+        updateLightbox();
+        lightbox.style.display = 'flex';
+    }
+
+    function updateLightbox() {
+        const item = galleryData[currentIndex];
+        lightboxImage.src = item.src;
+        lightboxCaption.textContent = `${item.title}`;
+    }
+
+    function closeLightbox() {
+        lightbox.style.display = 'none';
+    }
+
+    function showPrev() {
+        currentIndex = (currentIndex - 1 + galleryData.length) % galleryData.length;
+        updateLightbox();
+    }
+
+    function showNext() {
+        currentIndex = (currentIndex + 1) % galleryData.length;
+        updateLightbox();
+    }
+
+    lightboxClose.addEventListener('click', closeLightbox);
+    prevBtn.addEventListener('click', showPrev);
+    nextBtn.addEventListener('click', showNext);
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+</script>
+
+{% include "components/footer.html" %}
+<script src="{% static 'js/validate_form.js' %}"></script>
+{% endblock base %}

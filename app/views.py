@@ -108,6 +108,11 @@ def detail_project_construction(request, project_id):
     context = {"page": "Détails du projet", "projet": projet}
     return render(request, "app/detail_project_construction.html", context)
 
+def galery(request):
+    page = "Galerie"
+    context = {"page": page}
+    return render(request, "app/galerie.html", context)
+
 
 def robots_txt(request):
     content = """

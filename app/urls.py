@@ -24,5 +24,6 @@ urlpatterns = [
         {"sitemaps": sitemaps},
         name="django.contrib.sitemaps.views.sitemap",
     ),
+    path("galerie/", galery, name="galerie"),
     path("robots.txt", robots_txt, name="robots_txt"),
 ]
