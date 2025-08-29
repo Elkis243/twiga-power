@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+{% block base %}
+{% include "components/navbar.html" %}
+<div class="header-contact">
+    <div class="d-flex justify-content-center align-items-center">
+        <h1 class="text-white"># {{projet.nom}}</h1>
+    </div>
+</div>
+<section class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="row align-items-center">
+                <!-- Image à gauche -->
+                <div class="col-md-6 mb-3 mb-md-0">
+                    <img src="{% static projet.image %}" alt="{{ projet.nom }}" class="img-fluid rounded">
+                </div>
+
+                <!-- Informations à droite -->
+                <div class="col-md-6">
+                    <p class="h3 text-color">{{projet.nom}}</p>
+                    <p>{{ projet.description }}</p>
+                    <ul class="text-muted">
+                        <li class="mb-2">Rivière {{ projet.riviere }}</li>
+                        <li class="mb-2">{{ projet.ville }}</li>
+                        <li class="mb-2">Capacité de {{ projet.capacite }} MW</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% include "components/footer.html" %}
+{% endblock base %}

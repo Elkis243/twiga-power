@@ -8,10 +8,21 @@ sitemaps = {
 }
 
 urlpatterns = [
-    path('', home, name='home'),
-    path('contact/', contact, name='contact'),
-    path('employment/', employment, name='employment'),
-    path('about/', about, name='about'),
-    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
-    path('robots.txt', robots_txt, name='robots_txt'),
+    path("", home, name="home"),
+    path("contact/", contact, name="contact"),
+    path("employment/", employment, name="employment"),
+    path("about/", about, name="about"),
+    path("projects/", projects, name="projects"),
+    path(
+        "projet/<int:project_id>/",
+        detail_project_construction,
+        name="detail_project",
+    ),
+    path(
+        "sitemap.xml",
+        sitemap,
+        {"sitemaps": sitemaps},
+        name="django.contrib.sitemaps.views.sitemap",
+    ),
+    path("robots.txt", robots_txt, name="robots_txt"),
 ]

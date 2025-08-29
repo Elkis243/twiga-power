@@ -35,9 +35,9 @@ def contact(request):
             mail = EmailMessage(
                 subject=subject,
                 body=body,
-                from_email=settings.EMAIL_HOST_USER,   # ✅ ton mail hostinger
-                to=[settings.EMAIL_HOST_USER],         # ✅ destinataire (toi-même)
-                reply_to=[email],                      # ✅ pour pouvoir répondre au visiteur
+                from_email=settings.EMAIL_HOST_USER,  # ✅ ton mail hostinger
+                to=[settings.EMAIL_HOST_USER],  # ✅ destinataire (toi-même)
+                reply_to=[email],  # ✅ pour pouvoir répondre au visiteur
             )
             mail.send(fail_silently=False)
 
@@ -67,6 +67,46 @@ def about(request):
     page = "A propos"
     context = {"page": page}
     return render(request, "app/about.html", context)
+
+
+def projects(request):
+    page = "Projets"
+    context = {"page": page}
+    return render(request, "app/projects.html", context)
+
+
+def detail_project_construction(request, project_id):
+    projets = {
+        1: {
+            "nom": "Site Kibombo",
+            "riviere": "Inkisi",
+            "ville": "Kongo-Central",
+            "capacite": 240,
+            "description": "La centrale hydroélectrique de Kibombo sur la rivière Inkisi utilise des technologies modernes pour produire une énergie stable et durable. Le projet soutient le développement local tout en respectant l’environnement.",
+            "image": "images/img0.webp",
+        },
+        2: {
+            "nom": "Site Nondo",
+            "riviere": "Luvua",
+            "ville": "Tanganyika",
+            "capacite": 1022,
+            "description": "Le site hydroélectrique de Nondo sur la rivière Luvua, à Tanganyika, développe 1022 MW avec des installations modernes et durables. Le projet soutient le développement local et valorise le potentiel hydraulique de la région.",
+            "image": "images/img9.webp",
+        },
+        3: {
+            "nom": "Site Kilwani",
+            "riviere": "Luvua",
+            "ville": "Tanganyika",
+            "capacite": 153,
+            "description": "Le site hydroélectrique de Kilwani sur la rivière Luvua, à Tanganyika, produit 153 MW grâce à des technologies efficaces et respectueuses de l’environnement. Il contribue également au développement économique et social local.",
+            "image": "images/img9.webp",
+        },
+    }
+
+    projet = projets.get(project_id, None)
+
+    context = {"page": "Détails du projet", "projet": projet}
+    return render(request, "app/detail_project_construction.html", context)
 
 
 def robots_txt(request):

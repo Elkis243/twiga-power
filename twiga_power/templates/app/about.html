@@ -1,101 +1,108 @@
 {% extends "base.html" %}
 {% load static %}
 {% block base %}
-  {% include "components/navbar.html" %}
-  <div class="header-contact">
-    <div class="d-flex justify-content-center align-items-center">
-      <h1 class="text-white"># Qui sommes-nous ?</h1>
+{% include "components/navbar.html" %}
+<div class="header-contact">
+  <div class="d-flex justify-content-center align-items-center">
+    <h1 class="text-white"># Qui sommes-nous ?</h1>
+  </div>
+</div>
+<section class="container mt-5 mb-5 p-5">
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <div class="row gy-5">
+        <!-- Colonne image DG -->
+        <div class="col-md-6 ">
+          <div class="mb-3">
+            <p class="mb-0 lh-sm fs-5 fw-medium">Papy Mvulazana Mbidi</p>
+            <small class="text-muted">Directeur Général</small>
+          </div>
+          <img src="{% static  'images/img3.webp' %}" alt="Directeur Général" class="img-fluid" height="auto"
+            width="450">
+        </div>
+        <!-- Colonne texte centré verticalement -->
+        <div class="col-md-6 d-flex align-items-center">
+          <div>
+            <div class="mb-4">
+              <h2 class="mb-4 text-color">Qui sommes-nous ?</h2>
+              <p>
+                Twiga Power est une entreprise congolaise dynamique spécialisée dans l’exploitation, le transport, la
+                transformation et la distribution d’électricité. Nous accompagnons également entreprises et institutions
+                à travers des services de sous-traitance, en garantissant des solutions fiables, modernes et durables.
+                Avec professionnalisme et engagement, nous nous positionnons comme un partenaire de confiance pour
+                contribuer au développement énergétique de la RDC.
+              </p>
+              <a href="{% url 'contact' %}" class="btn btn-primary">Nous contacter <i
+                  class="bi bi-arrow-right"></i></a>
+            </div>
+            <h2 class="mb-4 text-color">
+              <i class="bi bi-clock-history fs-3"></i> Historique
+            </h2>
+            <p>
+              Fondée en 2024, Twiga Power est une entreprise congolaise émergente spécialisée dans la production, la
+              distribution et la commercialisation d’électricité en République Démocratique du Congo. Animés par
+              l’ambition de contribuer activement au développement énergétique du pays, nous accompagnons particuliers,
+              entreprises et institutions dans l’accès à une énergie fiable, moderne et durable.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <section class="container mt-5 mb-5 p-5">
-    <div class="row justify-content-center">
-      <div class="col-md-10">
-        <div class="row gy-5">
-          <!-- Colonne image DG -->
-          <div class="col-md-6 ">
-            <div class="mb-3">
-              <p class="mb-0 lh-sm fs-5 fw-medium">Papy Mvulazana Mbidi</p>
-              <small class="text-muted">Directeur Général</small>
-            </div>
-            <img src="{% static "images/img3.webp" %}"
-                 alt="Directeur Général"
-                 class="img-fluid"
-                 height="auto"
-                 width="450">
+</section>
+<section class="container mb-5 mt-5 p-5">
+  <div class="row justify-content-center align-items-center">
+    <div class="col-md-10">
+      <div class="row gy-3">
+        <div class="col-md-6">
+          <div class="container">
+            <h3 class="mb-3 text-color">Notre Mission</h3>
+            <p>
+              Fournir des solutions énergétiques durables et accessibles qui contribuent au développement économique et
+              social de la République Démocratique du Congo.
+            </p>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <i class="bi bi-check-circle text-success me-2"></i>Électrifier les zones rurales et urbaines
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-check-circle text-success me-2"></i>Promouvoir les énergies renouvelables
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-check-circle text-success me-2"></i>Former la main-d'œuvre locale
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-check-circle text-success me-2"></i>Innovation constante
+              </li>
+            </ul>
           </div>
-          <!-- Colonne texte centré verticalement -->
-          <div class="col-md-6 d-flex align-items-center">
-            <div>
-              <div class="mb-4">
-                <h2 class="mb-4 text-color">Qui sommes-nous ?</h2>
-                <p>
-                  Twiga Power est une entreprise congolaise dynamique spécialisée dans l’exploitation, le transport, la transformation et la distribution d’électricité. Nous accompagnons également entreprises et institutions à travers des services de sous-traitance, en garantissant des solutions fiables, modernes et durables. Avec professionnalisme et engagement, nous nous positionnons comme un partenaire de confiance pour contribuer au développement énergétique de la RDC.
-                </p>
-                <a href="{% url "contact" %}" class="btn btn-primary">Nous contacter <i class="bi bi-arrow-right"></i></a>
-              </div>
-              <h2 class="mb-4 text-color">
-                <i class="bi bi-clock-history fs-3"></i> Historique
-              </h2>
-              <p>
-                Fondée en 2024, Twiga Power est une entreprise congolaise émergente spécialisée dans la production, la distribution et la commercialisation d’électricité en République Démocratique du Congo. Animés par l’ambition de contribuer activement au développement énergétique du pays, nous accompagnons particuliers, entreprises et institutions dans l’accès à une énergie fiable, moderne et durable.
-              </p>
-            </div>
+        </div>
+        <div class="col-md-6">
+          <div class="container">
+            <h3 class="mb-3 text-color">Notre Vision</h3>
+            <p>
+              Devenir le leader incontournable du secteur énergétique en Afrique Centrale, reconnu pour notre excellence
+              technique et notre engagement social.
+            </p>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <i class="bi bi-check-circle text-success me-2"></i>Couverture nationale d'ici 2030
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-check-circle text-success me-2"></i>50% d'énergie renouvelable dans nos projets
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-check-circle text-success me-2"></i>Centre d'excellence énergétique
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-check-circle text-success me-2"></i>Impact social mesurable
+              </li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
-  </section>
-  <section class="container mb-5 mt-5 p-5">
-    <div class="row justify-content-center align-items-center">
-      <div class="col-md-10">
-        <div class="row gy-3">
-          <div class="col-md-6">
-            <div class="container">
-              <h3 class="mb-3 text-color">Notre Mission</h3>
-              <p>
-                Fournir des solutions énergétiques durables et accessibles qui contribuent au développement économique et social de la République Démocratique du Congo.
-              </p>
-              <ul class="list-unstyled">
-                <li class="mb-2">
-                  <i class="bi bi-check-circle text-success me-2"></i>Électrifier les zones rurales et urbaines
-                </li>
-                <li class="mb-2">
-                  <i class="bi bi-check-circle text-success me-2"></i>Promouvoir les énergies renouvelables
-                </li>
-                <li class="mb-2">
-                  <i class="bi bi-check-circle text-success me-2"></i>Former la main-d'œuvre locale
-                </li>
-                <li class="mb-2">
-                  <i class="bi bi-check-circle text-success me-2"></i>Innovation constante
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="container">
-              <h3 class="mb-3 text-color">Notre Vision</h3>
-              <p>
-                Devenir le leader incontournable du secteur énergétique en Afrique Centrale, reconnu pour notre excellence technique et notre engagement social.
-              </p>
-              <ul class="list-unstyled">
-                <li class="mb-2">
-                  <i class="bi bi-check-circle text-success me-2"></i>Couverture nationale d'ici 2030
-                </li>
-                <li class="mb-2">
-                  <i class="bi bi-check-circle text-success me-2"></i>50% d'énergie renouvelable dans nos projets
-                </li>
-                <li class="mb-2">
-                  <i class="bi bi-check-circle text-success me-2"></i>Centre d'excellence énergétique
-                </li>
-                <li class="mb-2">
-                  <i class="bi bi-check-circle text-success me-2"></i>Impact social mesurable
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  {% include "components/footer.html" %}
+  </div>
+</section>
+{% include "components/footer.html" %}
 {% endblock base %}
