@@ -51,19 +51,19 @@ p {
 #slide1 {
     background-color: #000;
     background-image: linear-gradient(rgba(21, 34, 26, 0.776), rgba(7, 34, 59, 0.888)),
-        url("../images/slide1.webp");
+        url("../images/chute_eau.webp");
 }
 
 #slide2 {
     background-color: #000;
     background-image: linear-gradient(rgba(21, 34, 26, 0.776), rgba(7, 34, 59, 0.888)),
-        url("../images/slide2.webp");
+        url("../images/ligne_haute_tension.webp");
 }
 
 #slide3 {
     background-color: #000;
     background-image: linear-gradient(rgba(21, 34, 26, 0.776), rgba(7, 34, 59, 0.888)),
-        url("../images/slide3.webp");
+        url("../images/poteau_electric.webp");
 }
 
 .carousel-indicators [data-bs-target] {
@@ -75,7 +75,7 @@ p {
 }
 
 .carousel-indicators {
-    bottom: 80px;
+    bottom: 40px;
 }
 
 .carousel-indicators .active {
@@ -130,18 +130,18 @@ p {
 
 @media (max-width: 768px) {
     .hero-carousel {
-        height: 60vh;
+        height: 65vh;
     }
 
     .carousel-item {
-        height: 65vh;
+        height: 70vh;
         clip-path: polygon(0 0, 100% 0, 100% 90%, 0 95%);
     }
 
     .carousel-caption {
         left: 5%;
         right: 5%;
-        top: 30%;
+        top: 40%;
         transform: translateY(-40%);
         font-size: 0.9rem;
     }
@@ -173,7 +173,7 @@ p {
 
 .bg-image {
     background-image: linear-gradient(rgba(33, 84, 141, 0.8), rgba(17, 78, 136, 0)),
-        url("../images/img4.webp");
+        url("../images/central_electric.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
