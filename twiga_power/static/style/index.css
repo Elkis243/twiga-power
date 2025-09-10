@@ -51,19 +51,21 @@ p {
 #slide1 {
     background-color: #000;
     background-image: linear-gradient(rgba(21, 34, 26, 0.776), rgba(7, 34, 59, 0.888)),
-        url("../images/chute_eau.webp");
+        url("../images/header.webp");
+    background-position: center 0%;
+        /* décale l'image vers le bas */
 }
 
 #slide2 {
     background-color: #000;
     background-image: linear-gradient(rgba(21, 34, 26, 0.776), rgba(7, 34, 59, 0.888)),
-        url("../images/ligne_haute_tension.webp");
+        url("../images/chute_eau.webp");
 }
 
 #slide3 {
     background-color: #000;
     background-image: linear-gradient(rgba(21, 34, 26, 0.776), rgba(7, 34, 59, 0.888)),
-        url("../images/poteau_electric.webp");
+        url("../images/ligne_haute_tension.webp");
 }
 
 .carousel-indicators [data-bs-target] {
@@ -151,9 +153,40 @@ p {
         backdrop-filter: blur(5px);
     }
 
+    .navbar-nav .nav-link,
     .navbar-nav .active-link {
-        color: inherit !important;
+        color: white !important;
         background: none !important;
+    }
+
+    .navbar-nav .nav-link:hover {
+        color: white !important;
+        background: none !important;
+    }
+
+    /* Dropdown transparent avec blur */
+    .offcanvas .dropdown-menu {
+        background: rgba(255, 255, 255, 0.1) !important;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        box-shadow: none !important;
+        text-align: center;
+        margin-top: 0px;
+        max-width: 200px;
+        margin: 0 auto;  
+    }
+
+    /* Items centrés + bordure légère */
+    .offcanvas .dropdown-menu .dropdown-item {
+        color: white !important;
+        text-align: center;
+    }
+
+    /* Hover / focus */
+    .offcanvas .dropdown-menu .dropdown-item:hover,
+    .offcanvas .dropdown-menu .dropdown-item:focus {
+        background: none !important;
+        color: #fff !important;
     }
 
     .offcanvas ul li {
@@ -168,6 +201,8 @@ p {
     .custom-close {
         filter: invert(1);
     }
+
+
 }
 
 

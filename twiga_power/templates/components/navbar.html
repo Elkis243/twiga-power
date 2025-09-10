@@ -4,8 +4,9 @@
     <a href="{% url 'home' %}" class="navbar-brand mx-3">
       <img src="{% static 'images/logo_twiga.webp' %}" alt="Image" height="auto" width="65" />
     </a>
-    <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-      aria-controls="offcanvasNavbar" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false"
+      aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar">
@@ -22,19 +23,25 @@
               href="{% url 'home' %}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mx-2 px-2 py-2" href="{% url 'home' %}#services">Services</a>
+            <a class="nav-link mx-2 px-2 py-2" id="services-link" href="{% url 'home' %}#services">Services</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link mx-2 px-2 py-2 {% if page == 'Projets' %}active-link{% endif %}" href="{% url 'projects' %}">Projets</a>
+            <a class="nav-link mx-2 px-2 py-2 {% if page == 'Projets' %}active-link{% endif %}"
+              href="{% url 'projects' %}">Projets</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link mx-2 px-2 py-2  {% if page == 'A propos' %}active-link{% endif %}"
-              href="{% url 'about' %}">Qui sommes-nous ?</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              A propos
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'about' %}">Qui sommes-nous ?</a></li>
+              <li><a class="dropdown-item" href="{% url 'galerie' %}">Galerie</a></li>
+            </ul>
           </li>
-          <li class="nav-item">
-            <a class="nav-link mx-2 px-2 py-2 {% if page == 'Contact' %}active-link{% endif %}"
-              href="{% url 'contact' %}">Nous contacter</a>
-          </li>
+            <li class="nav-item">
+              <a class="nav-link mx-2 px-2 py-2 {% if page == 'Contact' %}active-link{% endif %}" href="{% url 'contact' %}">Nous
+                contacter</a>
+            </li>
         </ul>
       </div>
     </div>

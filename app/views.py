@@ -83,7 +83,7 @@ def detail_project_construction(request, project_id):
             "ville": "Kongo-Central",
             "capacite": 240,
             "description": "La centrale hydroélectrique de Kibombo sur la rivière Inkisi utilise des technologies modernes pour produire une énergie stable et durable. Le projet soutient le développement local tout en respectant l’environnement.",
-            "image": "images/img0.webp",
+            "image": "images/inkisi.webp",
         },
         2: {
             "nom": "Site Nondo",
@@ -91,7 +91,7 @@ def detail_project_construction(request, project_id):
             "ville": "Tanganyika",
             "capacite": 1022,
             "description": "Le site hydroélectrique de Nondo sur la rivière Luvua, à Tanganyika, développe 1022 MW avec des installations modernes et durables. Le projet soutient le développement local et valorise le potentiel hydraulique de la région.",
-            "image": "images/img9.webp",
+            "image": "images/luvua.webp",
         },
         3: {
             "nom": "Site Kilwani",
@@ -99,7 +99,7 @@ def detail_project_construction(request, project_id):
             "ville": "Tanganyika",
             "capacite": 153,
             "description": "Le site hydroélectrique de Kilwani sur la rivière Luvua, à Tanganyika, produit 153 MW grâce à des technologies efficaces et respectueuses de l’environnement. Il contribue également au développement économique et social local.",
-            "image": "images/img9.webp",
+            "image": "images/luvua.webp",
         },
     }
 

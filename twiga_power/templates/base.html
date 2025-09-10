@@ -57,17 +57,23 @@
             crossorigin="anonymous"></script>
       <script src="https://unpkg.com/sal.js/dist/sal.js"></script>
       <script>
-            document.addEventListener("DOMContentLoaded", function () {
+           document.addEventListener("DOMContentLoaded", function () {
                   // Récupérer l'élément Offcanvas Bootstrap
                   const offcanvasElement = document.getElementById("offcanvasNavbar");
-                  const bsOffcanvas = new bootstrap.Offcanvas(offcanvasElement);
 
-                  // Fermer automatiquement quand on clique sur un lien à l'intérieur
-                  offcanvasElement.querySelectorAll("a").forEach(function (link) {
-                        link.addEventListener("click", function () {
-                              bsOffcanvas.hide();
-                        });
-                  });
+                  if (offcanvasElement) {
+                        // Récupérer ou créer l'instance Bootstrap
+                        const bsOffcanvas = bootstrap.Offcanvas.getOrCreateInstance(offcanvasElement);
+
+                        // Récupérer le lien Services
+                        const servicesLink = document.getElementById("services-link");
+
+                        if (servicesLink) {
+                              servicesLink.addEventListener("click", function () {
+                                    bsOffcanvas.hide();
+                              });
+                        }
+                  }
             });
             sal({
                   threshold: 0.1,
