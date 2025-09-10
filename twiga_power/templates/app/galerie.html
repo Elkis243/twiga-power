@@ -34,47 +34,60 @@
 
 <script>
     const galleryData = [
-         {
+        {
             src: "{% static 'images/picture7.webp' %}",
-            title: "Twiga power",
-            name: "Twiga power",
+            title: "Obtention de la licence d’importation et de commercialisation de l’électricité – ARE-RDC",
             description: "Obtention de la licence d’importation et de commercialisation de l’électricité – ARE-RDC"
         },
         {
-            src: "{% static 'images/picture1.webp' %}",
-            title: "Directeur générale",
-            name: "Papy Mvulazana Mbidi",
-            description: "Directeur Général"
+            src: "{% static 'images/picture12.webp' %}",
+            title: "Obtention de la licence d’importation et de commercialisation de l’électricité – ARE-RDC",
+            description: "Obtention de la licence d’importation et de commercialisation de l’électricité – ARE-RDC"
+        },
+        {
+            src: "{% static 'images/picture13.webp' %}",
+            title: "Obtention de la licence d’importation et de commercialisation de l’électricité – ARE-RDC",
+            description: "Obtention de la licence d’importation et de commercialisation de l’électricité – ARE-RDC"
+        },
+        {
+            src: "{% static 'images/picture10.webp' %}",
+            title: "Pont en liasse, rivière inkisi, village Mbata Nkulusu",
+            description: "Pont en liasse, rivière inkisi, village Mbata Nkulusu"
         },
         {
             src: "{% static 'images/picture2.webp' %}",
-            title: "Inspection technique",
-            name: "Équipe technique",
-            description: "Spécialistes"
+            title: "Rapide rivière inkisi",
+            description: "Rapide rivière inkisi"
         },
         {
-            src: "{% static 'images/picture3.webp' %}",
-            title: "Directeur générale",
-            name: "Papy Mvulazana Mbidi",
-            description: "Directeur Général"
+            src: "{% static 'images/picture8.webp' %}",
+            title: "Rivière Inkisi, site de kibombo",
+            description: "Rivière Inkisi, site de kibombo, Kongo-central"
         },
         {
-            src: "{% static 'images/picture4.webp' %}",
-            title: "Inspection technique",
-            name: "Équipe technique",
-            description: "Spécialistes"
+            src: "{% static 'images/picture9.webp' %}",
+            title: "Les enfants du Village Mbata Nkulusu",
+            description: "Les enfants du Village Mbata Nkulusu"
         },
         {
             src: "{% static 'images/picture5.webp' %}",
-            title: "autochtones",
-            name: "Communauté locale",
-            description: "Partenaires"
+            title: "Communauté locale",
+            description: "Communauté locale"
         },
         {
-            src: "{% static 'images/picture6.webp' %}",
-            title: "Inspection technique",
-            name: "Équipe technique",
-            description: "Spécialistes"
+            src: "{% static 'images/picture11.webp' %}",
+            title: "Visite du site avec les spécialistes",
+            description: "Visite du site avec les spécialistes"
+        },
+        {
+            src: "{% static 'images/picture14.webp' %}",
+            title: "Visite du site avec les spécialistes",
+            description: "Visite du site avec les spécialistes"
+        },
+         {
+            src: "{% static 'images/picture15.webp' %}",
+            title: "Visite du site avec les spécialistes",
+            description: "Visite du site avec les spécialistes"
         },
     ];
 
@@ -91,15 +104,12 @@
     // Générer la galerie
     galleryData.forEach((item, index) => {
         const galleryItem = document.createElement('div');
-        galleryItem.className = 'col-md-4 mb-4 gallery-item';
+        galleryItem.className = 'col-md-3 mb-4 gallery-item';
         galleryItem.innerHTML = `
             <div class="card border-0 project-card position-relative">
                 <img src="${item.src}" alt="${item.title}" class="card-img rounded gallery-image">
                 <div class="project-footer d-flex justify-content-between align-items-center p-2 rounded-bottom position-absolute w-100 bottom-0 bg-color opacity-75">
-                    <div>
-                        <p class="text-white mb-0 fw-medium">${item.name}</p>
-                        <small class="text-white">${item.description}</small>
-                    </div>
+                    <small class="text-whit">${item.description}</small>
                 </div>
             </div>
         `;
