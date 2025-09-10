@@ -276,31 +276,6 @@ p {
     z-index: 9999;
 }
 
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.gallery-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 8px;
-    transition: transform 0.3s ease;
-    height: 250px;
-    cursor: pointer;
-}
-
-.gallery-item:hover {
-    transform: translateY(-5px);
-}
-
-.gallery-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
 .lightbox {
     display: none;
     position: fixed;
