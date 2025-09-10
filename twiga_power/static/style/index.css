@@ -173,7 +173,17 @@ p {
 
 .bg-image {
     background-image: linear-gradient(rgba(33, 84, 141, 0.8), rgba(17, 78, 136, 0)),
-        url("../images/central_electric.webp");
+        url("../images/twiga.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    min-height: 300px;
+}
+
+.bg-image-other {
+    background-image: linear-gradient(rgba(33, 84, 141, 0.8), rgba(17, 78, 136, 0)),
+        url("../images/twiga1.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
