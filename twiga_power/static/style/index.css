@@ -208,12 +208,13 @@ p {
 
 .bg-image {
     background-image: linear-gradient(rgba(33, 84, 141, 0.8), rgba(17, 78, 136, 0)),
-        url("../images/twiga.webp");
+        url("../images/about.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     height: 100%;
     min-height: 300px;
+    background-position: center 0%;
 }
 
 .bg-image-other {
