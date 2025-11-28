@@ -4,7 +4,7 @@ from django.contrib.sitemaps.views import sitemap
 from .sitemaps import StaticViewSitemap
 
 sitemaps = {
-    'static': StaticViewSitemap,
+    "static": StaticViewSitemap,
 }
 
 urlpatterns = [
