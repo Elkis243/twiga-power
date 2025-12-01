@@ -25,4 +25,5 @@ urlpatterns = [
     ),
     path("galerie/", galery, name="galerie"),
     path("robots.txt", robots_txt, name="robots_txt"),
+    path("favicon.ico", favicon_view, name="favicon"),
 ]
