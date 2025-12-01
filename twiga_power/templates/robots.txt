@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /admin/
+Allow: /
+Allow: /static/
+Allow: /favicon.ico
+Sitemap: {{ sitemap_url }}
+

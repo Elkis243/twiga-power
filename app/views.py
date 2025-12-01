@@ -3,6 +3,7 @@ from django.conf import settings
 from django.contrib import messages
 from django.core.mail import EmailMessage
 from django.http import HttpResponse
+from django.urls import reverse
 import os
 from django.http import FileResponse
 
@@ -104,6 +105,7 @@ def detail_project_construction(request, project_id):
     context = {"page": "Détails du projet", "projet": projet}
     return render(request, "app/detail_project_construction.html", context)
 
+
 def galery(request):
     page = "Galerie"
     context = {"page": page}
@@ -111,15 +113,17 @@ def galery(request):
 
 
 def robots_txt(request):
-    content = """
-        User-agent: *
-        Disallow: /admin/
-        Allow: /
-        Allow: /static/
-        Allow: /favicon.ico
-        Sitemap: https://www.twigapower.com/sitemap.xml
-        """
-    return HttpResponse(content, content_type="text/plain")
+    """
+    Vue pour servir le fichier robots.txt de manière dynamique.
+    Utilise un template Django pour générer le contenu.
+    """
+    sitemap_url = request.build_absolute_uri(
+        reverse("django.contrib.sitemaps.views.sitemap")
+    )
+    context = {
+        "sitemap_url": sitemap_url,
+    }
+    return render(request, "robots.txt", context, content_type="text/plain")
 
 
 def favicon_view(request):

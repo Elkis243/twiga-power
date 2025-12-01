@@ -38,7 +38,15 @@
             <meta name="twitter:image:alt" content="Site officiel de Twiga Power SARL" />
 
             <!-- Favicon -->
-            <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}" />
+            <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+            <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+            <!-- Pour les appareils Apple -->
+            <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/apple-touch-icon.png' %}">
+            <!-- Pour Android/Chrome -->
+            <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}">
+            <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon-16x16.png' %}">
+            <link rel="manifest" href="{% static 'site.webmanifest' %}">
+
             <!-- Canonical URL -->
             <link rel="canonical" href="https://{{ request.get_host }}/" />
             <!-- Bootstrap & Icônes -->
