@@ -110,8 +110,11 @@ def galery(request):
 
 def robots_txt(request):
     content = """
-User-agent: *
-Disallow: /admin/
-Sitemap: https://www.twigapower.com/sitemap.xml
-"""
+        User-agent: *
+        Disallow: /admin/
+        Allow: /
+        Allow: /static/
+        Allow: /favicon.ico
+        Sitemap: https://www.twigapower.com/sitemap.xml
+        """
     return HttpResponse(content, content_type="text/plain")
