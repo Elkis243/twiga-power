@@ -25,5 +25,10 @@ urlpatterns = [
     ),
     path("galerie/", galery, name="galerie"),
     path("robots.txt", robots_txt, name="robots_txt"),
-    path("favicon.ico", favicon_view, name="favicon"),
+    path(
+        "favicon.ico",
+        lambda request: HttpResponseRedirect(
+            settings.STATIC_URL + "images/favicon.ico"
+        ),
+    ),
 ]

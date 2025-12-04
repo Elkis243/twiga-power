@@ -124,8 +124,3 @@ def robots_txt(request):
         "sitemap_url": sitemap_url,
     }
     return render(request, "robots.txt", context, content_type="text/plain")
-
-
-def favicon_view(request):
-    path = os.path.join(settings.BASE_DIR, "static", "images", "favicon.ico")
-    return FileResponse(open(path, "rb"), content_type="image/x-icon")
