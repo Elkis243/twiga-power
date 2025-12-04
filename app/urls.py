@@ -2,6 +2,8 @@ from django.urls import path
 from .views import *
 from django.contrib.sitemaps.views import sitemap
 from .sitemaps import StaticViewSitemap
+from django.contrib.staticfiles.storage import staticfiles_storage
+from django.views.generic.base import RedirectView
 
 sitemaps = {
     "static": StaticViewSitemap,
@@ -27,8 +29,6 @@ urlpatterns = [
     path("robots.txt", robots_txt, name="robots_txt"),
     path(
         "favicon.ico",
-        lambda request: HttpResponseRedirect(
-            settings.STATIC_URL + "images/favicon.ico"
-        ),
+        RedirectView.as_view(url=staticfiles_storage.url("images/favicon.ico")),
     ),
 ]
