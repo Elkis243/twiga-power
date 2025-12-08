@@ -1,7 +1,43 @@
+# robots.txt pour Twiga Power
+# https://www.robotstxt.org/robotstxt.html
+
+# Règles pour tous les robots
 User-agent: *
-Disallow: /admin/
 Allow: /
+Disallow: /admin/
+Disallow: /admin/*
+Disallow: /static/admin/
 Allow: /static/
 Allow: /favicon.ico
-Sitemap: {{ sitemap_url }}
+Allow: /site.webmanifest
+Allow: /browserconfig.xml
+Crawl-delay: 1
 
+# Règles spécifiques pour Googlebot
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+Disallow: /admin/*
+Crawl-delay: 0
+
+# Règles spécifiques pour Googlebot-Image
+User-agent: Googlebot-Image
+Allow: /static/images/
+Disallow: /admin/
+
+# Règles spécifiques pour Bingbot
+User-agent: Bingbot
+Allow: /
+Disallow: /admin/
+Disallow: /admin/*
+Crawl-delay: 1
+
+# Bloquer les bots malveillants
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+# Sitemap
+Sitemap: {{ sitemap_url }}

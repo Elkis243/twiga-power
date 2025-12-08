@@ -1,12 +1,13 @@
 from django.urls import path
 from .views import *
 from django.contrib.sitemaps.views import sitemap
-from .sitemaps import StaticViewSitemap
+from .sitemaps import StaticViewSitemap, ProjectSitemap
 from django.contrib.staticfiles.storage import staticfiles_storage
 from django.views.generic.base import RedirectView
 
 sitemaps = {
     "static": StaticViewSitemap,
+    "projects": ProjectSitemap,
 }
 
 urlpatterns = [
@@ -27,6 +28,8 @@ urlpatterns = [
     ),
     path("galerie/", galery, name="galerie"),
     path("robots.txt", robots_txt, name="robots_txt"),
+    path("site.webmanifest", site_webmanifest, name="site_webmanifest"),
+    path("browserconfig.xml", browserconfig_xml, name="browserconfig_xml"),
     path(
         "favicon.ico",
         RedirectView.as_view(url=staticfiles_storage.url("images/favicon.ico")),

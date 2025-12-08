@@ -4,29 +4,24 @@
     "description": "Twiga Power, entreprise congolaise, fournit une électricité fiable et durable en RDC",
     "icons": [
         {
-            "src": "/static/images/android-chrome-192x192.png",
+            "src": "{{ base_url }}/static/images/logo.png?v=2",
             "sizes": "192x192",
             "type": "image/png",
             "purpose": "any maskable"
         },
         {
-            "src": "/static/images/android-chrome-512x512.png",
+            "src": "{{ base_url }}/static/images/logo.png?v=2",
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "any maskable"
         },
         {
-            "src": "/static/images/favicon-32x32.png",
+            "src": "{{ base_url }}/static/images/favicon.ico?v=2",
             "sizes": "32x32",
-            "type": "image/png"
+            "type": "image/x-icon"
         },
         {
-            "src": "/static/images/favicon-16x16.png",
-            "sizes": "16x16",
-            "type": "image/png"
-        },
-        {
-            "src": "/static/images/apple-touch-icon.png",
+            "src": "{{ base_url }}/static/images/logo.png?v=2",
             "sizes": "180x180",
             "type": "image/png"
         }
@@ -38,3 +33,4 @@
     "start_url": "/",
     "scope": "/"
 }
+

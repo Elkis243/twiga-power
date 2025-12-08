@@ -1,8 +1,8 @@
 {% load static %}
-<nav class="navbar navbar-expand-md bg-body-tertiary sticky-top">
+<nav class="navbar navbar-expand-md bg-body-tertiary fixed-top">
   <div class="container">
     <a href="{% url 'home' %}" class="navbar-brand mx-3">
-      <img src="{% static 'images/logo_twiga.webp' %}" alt="Image" height="auto" width="65" />
+      <img src="{% static 'images/logo.png' %}" alt="Logo Twiga Power" height="auto" width="65" />
     </a>
     <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="offcanvas"
       data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false"
@@ -12,7 +12,7 @@
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar">
       <div class="offcanvas-header">
         <a href="" class="navbar-brand mx-3">
-          <img src="{% static 'images/logo_twiga.webp' %}" alt="Image" height="auto" width="65" />
+          <img src="{% static 'images/logo.png' %}" alt="Logo Twiga Power" height="auto" width="65" />
         </a>
         <button type="button" class="btn-close custom-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>

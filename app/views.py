@@ -124,3 +124,42 @@ def robots_txt(request):
         "sitemap_url": sitemap_url,
     }
     return render(request, "robots.txt", context, content_type="text/plain")
+
+
+def site_webmanifest(request):
+    """
+    Vue pour servir le fichier site.webmanifest de manière dynamique
+    avec des URLs absolues pour une meilleure indexation Google.
+    """
+    base_url = request.build_absolute_uri('/')[:-1]  # Enlever le slash final
+    context = {
+        "base_url": base_url,
+    }
+    return render(request, "site.webmanifest", context, content_type="application/manifest+json")
+
+
+def browserconfig_xml(request):
+    """
+    Vue pour servir le fichier browserconfig.xml de manière dynamique
+    avec des URLs absolues.
+    """
+    base_url = request.build_absolute_uri('/')[:-1]  # Enlever le slash final
+    context = {
+        "base_url": base_url,
+    }
+    return render(request, "browserconfig.xml", context, content_type="application/xml")
+
+
+def handler404(request, exception):
+    """Vue personnalisée pour l'erreur 404"""
+    return render(request, "404.html", status=404)
+
+
+def handler400(request, exception):
+    """Vue personnalisée pour l'erreur 400"""
+    return render(request, "400.html", status=400)
+
+
+def handler500(request):
+    """Vue personnalisée pour l'erreur 500"""
+    return render(request, "500.html", status=500)

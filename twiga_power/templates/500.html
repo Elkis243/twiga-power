@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+{% block base %}
+{% include "components/navbar.html" %}
+<section class="error-page-section">
+  <div class="container">
+    <div class="row justify-content-center align-items-center" style="min-height: calc(100vh - 200px);">
+      <div class="col-md-8 text-center">
+        <div class="error-content" data-sal="fade-up" data-sal-duration="800">
+          <div class="error-number">
+            <h1 class="display-1 fw-bold text-color mb-0">500</h1>
+          </div>
+          <div class="error-icon mb-4">
+            <i class="bi bi-gear-fill text-danger" style="font-size: 5rem;"></i>
+          </div>
+          <h2 class="h3 text-color mb-3">Erreur serveur</h2>
+          <p class="text-muted mb-4 fs-5">
+            Une panne technique s'est produite sur notre serveur. 
+            Notre équipe travaille déjà à rétablir l'énergie et à résoudre le problème.
+          </p>
+          <div class="error-actions">
+            <a href="{% url 'home' %}" class="btn btn-primary btn-arrow me-3">
+              <i class="bi bi-house-fill me-2"></i>Retour à l'accueil
+            </a>
+            <a href="{% url 'contact' %}" class="btn btn-outline-primary btn-arrow">
+              <i class="bi bi-envelope-fill me-2"></i>Signaler le problème
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% include "components/footer.html" %}
+{% endblock base %}
+

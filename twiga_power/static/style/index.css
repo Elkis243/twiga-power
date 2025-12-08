@@ -6,6 +6,10 @@ html {
     scroll-behavior: smooth;
 }
 
+body {
+    padding-top: 76px;
+}
+
 * {
     font-size: 13px;
     letter-spacing: .2px;
@@ -336,4 +340,97 @@ p {
 .lightbox-caption {
     color: white;
     margin-top: 10px;
+}
+
+/* Styles pour les pages d'erreur */
+.error-page-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+}
+
+.error-content {
+    padding: 3rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.error-number {
+    margin-bottom: 2rem;
+}
+
+.error-number h1 {
+    font-size: 8rem;
+    line-height: 1;
+    background: linear-gradient(135deg, var(--blue) 0%, #0a4d7a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 4px 20px rgba(2, 47, 84, 0.2);
+}
+
+.error-icon {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+.error-actions {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.error-actions .btn {
+    padding: 12px 30px;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    min-width: 200px;
+}
+
+.error-actions .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(2, 47, 84, 0.3);
+}
+
+@media (max-width: 768px) {
+    .error-page-section {
+        padding: 50px 0;
+        min-height: calc(100vh - 76px);
+    }
+
+    .error-content {
+        padding: 2rem 1.5rem;
+    }
+
+    .error-number h1 {
+        font-size: 5rem;
+    }
+
+    .error-icon i {
+        font-size: 3.5rem !important;
+    }
+
+    .error-actions {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .error-actions .btn {
+        width: 100%;
+        min-width: auto;
+        margin: 0 !important;
+    }
 }
