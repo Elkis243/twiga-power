@@ -14,16 +14,25 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path, include
 from app import views
+from app import error_views
+from django.views.generic.base import RedirectView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('app.urls')),
+    path("admin/", admin.site.urls),
+    # Redirection pour favicon.ico
+    path(
+        "favicon.ico",
+        RedirectView.as_view(url="/static/images/favicon/favicon.ico", permanent=True),
+    ),
+    path("", include("app.urls")),
 ]
 
 # Configuration des handlers d'erreur personnalisés
-handler404 = views.handler404
-handler400 = views.handler400
-handler500 = views.handler500
+handler400 = error_views.handler400
+handler403 = error_views.handler403
+handler404 = error_views.handler404
+handler500 = error_views.handler500
