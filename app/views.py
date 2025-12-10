@@ -116,12 +116,16 @@ def robots_txt(request):
     """
     Vue pour servir le fichier robots.txt de manière dynamique.
     Utilise un template Django pour générer le contenu.
+    Optimisé pour le référencement SEO.
     """
+    from datetime import datetime
+
     sitemap_url = request.build_absolute_uri(
         reverse("django.contrib.sitemaps.views.sitemap")
     )
     context = {
         "sitemap_url": sitemap_url,
+        "current_date": datetime.now().strftime("%Y-%m-%d"),
     }
     return render(request, "robots.txt", context, content_type="text/plain")
 

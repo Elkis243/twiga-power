@@ -1,43 +1,128 @@
 # robots.txt pour Twiga Power
-# https://www.robotstxt.org/robotstxt.html
+# Optimisé pour le référencement SEO
+# Documentation: https://www.robotstxt.org/robotstxt.html
+# Dernière mise à jour: {{ current_date }}
 
-# Règles pour tous les robots
+# ============================================
+# RÈGLES GÉNÉRALES POUR TOUS LES ROBOTS
+# ============================================
 User-agent: *
 Allow: /
+# Bloquer l'accès à l'administration Django
 Disallow: /admin/
 Disallow: /admin/*
-Disallow: /static/admin/
+# Autoriser les fichiers statiques (images, CSS, JS)
 Allow: /static/
+Allow: /static/images/
+Allow: /static/css/
+Allow: /static/js/
+# Autoriser les fichiers essentiels
 Allow: /favicon.ico
 Allow: /site.webmanifest
 Allow: /browserconfig.xml
+Allow: /robots.txt
+Allow: /sitemap.xml
+# Délai de crawl modéré pour éviter la surcharge
 Crawl-delay: 1
 
-# Règles spécifiques pour Googlebot
+# ============================================
+# RÈGLES SPÉCIFIQUES POUR GOOGLEBOT
+# ============================================
 User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+Disallow: /admin/*
+# Pas de délai pour Googlebot (indexation prioritaire)
+Crawl-delay: 0
+
+# ============================================
+# RÈGLES POUR GOOGLEBOT-IMAGE
+# ============================================
+User-agent: Googlebot-Image
+Allow: /static/images/
+Allow: /static/
+Disallow: /admin/
+Disallow: /admin/*
+# Optimisation pour l'indexation des images
+Crawl-delay: 0
+
+# ============================================
+# RÈGLES POUR GOOGLEBOT-MOBILE
+# ============================================
+User-agent: Googlebot-Mobile
 Allow: /
 Disallow: /admin/
 Disallow: /admin/*
 Crawl-delay: 0
 
-# Règles spécifiques pour Googlebot-Image
-User-agent: Googlebot-Image
-Allow: /static/images/
-Disallow: /admin/
-
-# Règles spécifiques pour Bingbot
+# ============================================
+# RÈGLES POUR BINGBOT
+# ============================================
 User-agent: Bingbot
 Allow: /
 Disallow: /admin/
 Disallow: /admin/*
 Crawl-delay: 1
 
-# Bloquer les bots malveillants
+# ============================================
+# RÈGLES POUR YANDEX
+# ============================================
+User-agent: Yandex
+Allow: /
+Disallow: /admin/
+Disallow: /admin/*
+Crawl-delay: 2
+
+# ============================================
+# RÈGLES POUR BAIDU
+# ============================================
+User-agent: Baiduspider
+Allow: /
+Disallow: /admin/
+Disallow: /admin/*
+Crawl-delay: 2
+
+# ============================================
+# LIMITATION DES BOTS DE RÉFÉRENCEMENT
+# ============================================
+# Ces bots peuvent être utiles mais consomment beaucoup de ressources
 User-agent: AhrefsBot
+Allow: /
+Disallow: /admin/
 Crawl-delay: 10
 
 User-agent: SemrushBot
+Allow: /
+Disallow: /admin/
 Crawl-delay: 10
 
-# Sitemap
+User-agent: DotBot
+Allow: /
+Disallow: /admin/
+Crawl-delay: 5
+
+# ============================================
+# BLOQUER LES BOTS MALVEILLANTS/SPAM
+# ============================================
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /
+
+# ============================================
+# CONFIGURATION DU SITEMAP
+# ============================================
+# Sitemap principal (obligatoire pour le référencement)
 Sitemap: {{ sitemap_url }}
+
+# ============================================
+# NOTES POUR LES DÉVELOPPEURS
+# ============================================
+# - Ce fichier est généré dynamiquement par Django
+# - Les URLs sont construites automatiquement
+# - Modifier app/views.py pour changer la logique
+# - Le sitemap est accessible via /sitemap.xml
