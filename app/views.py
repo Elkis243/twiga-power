@@ -13,6 +13,11 @@ def home(request):
     context = {"page": page}
     return render(request, "app/home.html", context)
 
+def champ_activité(request):
+    page = "Champ d'activité"
+    context = {"page": page}
+    return render(request, "app/champ_activité.html", context)
+
 
 def contact(request):
     page = "Contact"
