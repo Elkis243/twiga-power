@@ -1,7 +1,7 @@
-{% extends "base.html" %} {% load static %} {% block base %} {% include "components/navbar.html" %}
+{% extends "base.html" %} {% load static i18n %} {% block base %} {% include "components/navbar.html" %}
 <div class="header-contact">
   <div class="d-flex justify-content-center align-items-center">
-    <h1 class="text-white"># Qui sommes-nous ?</h1>
+    <h1 class="text-white"># {% trans "Qui sommes-nous ?" %}</h1>
   </div>
 </div>
 <section class="container mt-5 mb-5 p-5">
@@ -14,7 +14,7 @@
             <div class="project-footer d-flex justify-content-between align-items-center p-2 rounded-bottom position-absolute w-100 bottom-0 bg-color opacity-75">
               <div>
                 <p class="text-white mb-0">Papy Mvulazana Mbidi</p>
-                <small>Directeur Général</small>
+                <small>{% trans "Directeur Général" %}</small>
               </div>
             </div>
           </div>
@@ -22,16 +22,16 @@
         <div class="col-md-6 d-flex align-items-center">
           <div>
             <div class="mb-4">
-              <p class="text-color h3 lh-sm mb-3">Qui sommes-nous ?</p>
+              <p class="text-color h3 lh-sm mb-3">{% trans "Qui sommes-nous ?" %}</p>
               <p class="text-muted">
-                Créée en novembre 2024, Twiga Power SARL est une société de droit congolais constituée sous la forme d’une Société à Responsabilité Limitée (SARL). Elle s’inscrit dans une dynamique de
-                développement énergétique visant à apporter des solutions innovantes et adaptées au contexte de la République Démocratique du Congo.
+                {% blocktrans %}Créée en novembre 2024, Twiga Power SARL est une société de droit congolais constituée sous la forme d’une Société à Responsabilité Limitée (SARL). Elle s’inscrit dans une dynamique de développement énergétique visant à apporter des solutions innovantes et adaptées au contexte de la République Démocratique du Congo.{% endblocktrans %}
               </p>
               <p class="text-muted">
-                Animée par la volonté de fournir une énergie fiable, économiquement accessible et durable, Twiga Power SARL œuvre pour soutenir la croissance économique et répondre efficacement aux
-                besoins croissants en électricité, tout en contribuant à l’amélioration des conditions de vie des communautés.
+                {% blocktrans %}Animée par la volonté de fournir une énergie fiable, économiquement accessible et durable, Twiga Power SARL œuvre pour soutenir la croissance économique et répondre efficacement aux besoins croissants en électricité, tout en contribuant à l’amélioration des conditions de vie des communautés.{% endblocktrans %}
               </p>
-              <a href="{% url 'contact' %}" class="btn btn-primary">Nous contacter <i class="bi bi-arrow-right"></i></a>
+              <a href="{% url 'contact' %}" class="btn btn-primary">
+                {% trans "Nous contacter" %} <i class="bi bi-arrow-right"></i>
+              </a>
             </div>
           </div>
         </div>
@@ -46,30 +46,45 @@
         <div class="row justify-content-between gy-3">
           <div class="col-md-6">
             <div class="container">
-              <h3 class="mb-3 text-color">Notre Mission</h3>
-              <p>Fournir des solutions énergétiques durables et accessibles qui contribuent au développement économique et social de la République Démocratique du Congo.</p>
+              <h3 class="mb-3 text-color">{% trans "Notre Mission" %}</h3>
+              <p>
+                {% blocktrans %}Fournir des solutions énergétiques durables et accessibles qui contribuent au développement économique et social de la République Démocratique du Congo.{% endblocktrans %}
+              </p>
               <ul class="list-unstyled">
                 <li class="mb-2">
-                  <i class="bi bi-check-circle text-success me-2"></i>Répondre aux besoins fondamentaux de la population en garantissant un accès fiable, sécurisé et durable à l’énergie électrique.
+                  <i class="bi bi-check-circle text-success me-2"></i>
+                  {% blocktrans %}Répondre aux besoins fondamentaux de la population en garantissant un accès fiable, sécurisé et durable à l’énergie électrique.{% endblocktrans %}
                 </li>
                 <li class="mb-2">
-                  <i class="bi bi-check-circle text-success me-2"></i>Contribuer de manière responsable au développement économique, social et environnemental de la République Démocratique du Congo.
+                  <i class="bi bi-check-circle text-success me-2"></i>
+                  {% blocktrans %}Contribuer de manière responsable au développement économique, social et environnemental de la République Démocratique du Congo.{% endblocktrans %}
                 </li>
                 <li class="mb-2">
-                  <i class="bi bi-check-circle text-success me-2"></i>Aller au-delà du rôle d’énergéticien en accompagnant et en sensibilisant les consommateurs à une utilisation responsable de
-                  l’électricité, afin de renforcer leur satisfaction. met à la meme longuer
+                  <i class="bi bi-check-circle text-success me-2"></i>
+                  {% blocktrans %}Aller au-delà du rôle d’énergéticien en accompagnant et en sensibilisant les consommateurs à une utilisation responsable de l’électricité, afin de renforcer leur satisfaction.{% endblocktrans %}
                 </li>
               </ul>
             </div>
           </div>
           <div class="col-md-6">
             <div class="container">
-              <h3 class="mb-3 text-color">Notre Vision</h3>
-              <p>Être une référence nationale et un acteur central de la relance énergétique durable en République Démocratique du Congo</p>
+              <h3 class="mb-3 text-color">{% trans "Notre Vision" %}</h3>
+              <p>
+                {% blocktrans %}Être une référence nationale et un acteur central de la relance énergétique durable en République Démocratique du Congo{% endblocktrans %}
+              </p>
               <ul class="list-unstyled">
-                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Électrifier les zones rurales et urbaines afin de réduire les inégalités d’accès à l’électricité.</li>
-                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Promouvoir les énergies renouvelables et l’innovation pour des solutions modernes et durables.</li>
-                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Former la main-d’œuvre locale afin de renforcer les compétences et garantir un service de qualité.</li>
+                <li class="mb-2">
+                  <i class="bi bi-check-circle text-success me-2"></i>
+                  {% blocktrans %}Électrifier les zones rurales et urbaines afin de réduire les inégalités d’accès à l’électricité.{% endblocktrans %}
+                </li>
+                <li class="mb-2">
+                  <i class="bi bi-check-circle text-success me-2"></i>
+                  {% blocktrans %}Promouvoir les énergies renouvelables et l’innovation pour des solutions modernes et durables.{% endblocktrans %}
+                </li>
+                <li class="mb-2">
+                  <i class="bi bi-check-circle text-success me-2"></i>
+                  {% blocktrans %}Former la main-d’œuvre locale afin de renforcer les compétences et garantir un service de qualité.{% endblocktrans %}
+                </li>
               </ul>
             </div>
           </div>
@@ -82,44 +97,40 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-10">
-        <h3 class="mb-4 text-center text-color">Nos Valeurs</h3>
+        <h3 class="mb-4 text-center text-color">{% trans "Nos Valeurs" %}</h3>
         <p class="text-muted text-center mb-5 w-50 mx-auto">
-          Ces valeurs guident chaque décision et chaque action de Twiga Power SARL dans la construction d’un système énergétique fiable, durable et responsable.
+          {% blocktrans %}Ces valeurs guident chaque décision et chaque action de Twiga Power SARL dans la construction d’un système énergétique fiable, durable et responsable.{% endblocktrans %}
         </p>
         <div class="row g-4">
           <div class="col-md-6">
             <div class="h-100 border-0 rounded-3 p-4 bg-body-secondary">
-              <h5 class="text-color mb-2"><i class="bi bi-check-circle-fill me-2 text-success"></i>Respect</h5>
+              <h5 class="text-color mb-2"><i class="bi bi-check-circle-fill me-2 text-success"></i>{% trans "Respect" %}</h5>
               <p class="mb-0 text-muted">
-                Le respect constitue le socle des relations de Twiga Power SARL avec les clients, les partenaires, les communautés locales et les autorités publiques. 
-                Il se traduit par la prise en compte des besoins des populations, le respect des engagements contractuels et l’observation stricte du cadre légal dans l’ensemble de ses activités énergétiques.
+                {% blocktrans %}Le respect constitue le socle des relations de Twiga Power SARL avec les clients, les partenaires, les communautés locales et les autorités publiques. Il se traduit par la prise en compte des besoins des populations, le respect des engagements contractuels et l’observation stricte du cadre légal dans l’ensemble de ses activités énergétiques.{% endblocktrans %}
               </p>
             </div>
           </div>
           <div class="col-md-6">
             <div class="h-100 border-0 rounded-3 p-4 bg-body-secondary">
-              <h5 class="text-color mb-2"><i class="bi bi-check-circle-fill me-2 text-success"></i>Excellence</h5>
+              <h5 class="text-color mb-2"><i class="bi bi-check-circle-fill me-2 text-success"></i>{% trans "Excellence" %}</h5>
               <p class="mb-0 text-muted">
-                L’excellence guide les pratiques opérationnelles et managériales de Twiga Power SARL. 
-                Elle se traduit par l’adoption de standards techniques élevés, l’amélioration continue des processus et le développement des compétences humaines et technologiques.
+                {% blocktrans %}L’excellence guide les pratiques opérationnelles et managériales de Twiga Power SARL. Elle se traduit par l’adoption de standards techniques élevés, l’amélioration continue des processus et le développement des compétences humaines et technologiques.{% endblocktrans %}
               </p>
             </div>
           </div>
           <div class="col-md-6">
             <div class="h-100 border-0 rounded-3 p-4 bg-body-secondary">
-              <h5 class="text-color mb-2"><i class="bi bi-check-circle-fill me-2 text-success"></i>Sécurité</h5>
+              <h5 class="text-color mb-2"><i class="bi bi-check-circle-fill me-2 text-success"></i>{% trans "Sécurité" %}</h5>
               <p class="mb-0 text-muted">
-                La sécurité est une priorité absolue dans toutes nos opérations. 
-                Elle vise la protection des personnes safety first, des installations et des infrastructures électriques, afin de prévenir les risques techniques, humains et environnementaux liés à la production, au transport et à la distribution de l’énergie électrique (hygiène et sécurité du travail).
+                {% blocktrans %}La sécurité est une priorité absolue dans toutes nos opérations. Elle vise la protection des personnes, des installations et des infrastructures électriques, afin de prévenir les risques techniques, humains et environnementaux liés à la production, au transport et à la distribution de l’énergie électrique.{% endblocktrans %}
               </p>
             </div>
           </div>
           <div class="col-md-6">
             <div class="h-100 border-0 rounded-3 p-4 bg-body-secondary">
-              <h5 class="text-color mb-2"><i class="bi bi-check-circle-fill me-2 text-success"></i>Engagement social</h5>
+              <h5 class="text-color mb-2"><i class="bi bi-check-circle-fill me-2 text-success"></i>{% trans "Engagement social" %}</h5>
               <p class="mb-0 text-muted">
-                Twiga Power SARL considère l’énergie comme un levier de développement. 
-                L’entreprise s’engage à accompagner les communautés, à sensibiliser les consommateurs à une utilisation responsable de l’électricité et à contribuer durablement au progrès social.
+                {% blocktrans %}Twiga Power SARL considère l’énergie comme un levier de développement. L’entreprise s’engage à accompagner les communautés, à sensibiliser les consommateurs à une utilisation responsable de l’électricité et à contribuer durablement au progrès social.{% endblocktrans %}
               </p>
             </div>
           </div>

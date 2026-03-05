@@ -1,13 +1,14 @@
+{% load i18n %}
 <footer class="text-white bg-footer p-5">
   <div class="container">
     <div class="row">
       <div class="col-md-4">
         <p class="h5 lh-sm mb-3">Twiga Power</p>
-        <p>Entreprise congolaise spécialisée dans l’électricité, offrant des solutions fiables et durables pour un développement responsable en RDC.</p>
+        <p>{% trans "Entreprise congolaise spécialisée dans l’électricité, offrant des solutions fiables et durables pour un développement responsable en RDC." %}</p>
       </div>
       <div class="col-md-3">
-        <p class="h5 lh-sm mb-3">Coordonnées</p>
-        <p class="mb-1"><i class="bi bi-geo-alt-fill"></i> Immeuble Luxury Tower, Local 1101, 148/A Boulevard du 30 Juin, Kinshasa-Gombe, RDC.</p>
+        <p class="h5 lh-sm mb-3">{% trans "Coordonnées" %}</p>
+        <p class="mb-1"><i class="bi bi-geo-alt-fill"></i> {% trans "Immeuble Luxury Tower, Local 1101, 148/A Boulevard du 30 Juin, Kinshasa-Gombe, RDC." %}</p>
         <p class="text-white fw-medium mb-1">
           <i class="bi bi-phone fs-5"></i>
           <a href="tel:+243839302367" class="text-decoration-none text-white" target="_blank">+243 839 302 367</a>
@@ -18,49 +19,75 @@
         </p>
       </div>
       <div class="col-md-3">
-        <p class="h5 lh-sm mb-3">Liens rapides</p>
+        <p class="h5 lh-sm mb-3">{% trans "Liens rapides" %}</p>
         <ul class="list-unstyled">
           <li>
-            <a href="{% url 'home' %}" class="text-white text-decoration-none mb-3"><i class="bi bi-chevron-right"></i> Home</a>
+            <a href="{% url 'home' %}" class="text-white text-decoration-none mb-3"><i class="bi bi-chevron-right"></i> {% trans "Home" %}</a>
           </li>
           <li>
-            <a href="{% url 'home' %}#services" class="text-white text-decoration-none"><i class="bi bi-chevron-right"></i> Services</a>
+            <a href="{% url 'home' %}#services" class="text-white text-decoration-none"><i class="bi bi-chevron-right"></i> {% trans "Services" %}</a>
           </li>
           <li>
-            <a href="{% url 'champ_activité' %}" class="text-white text-decoration-none"><i class="bi bi-chevron-right"></i> Champ d'activité</a>
+            <a href="{% url 'champ_activité' %}" class="text-white text-decoration-none"><i class="bi bi-chevron-right"></i> {% trans "Champ d'activité" %}</a>
           </li>
           <li>
-            <a href="{% url 'projects' %}" class="text-white text-decoration-none"><i class="bi bi-chevron-right"></i> Projets</a>
+            <a href="{% url 'projects' %}" class="text-white text-decoration-none"><i class="bi bi-chevron-right"></i> {% trans "Projets" %}</a>
           </li>
           <li>
-            <a href="{% url 'about' %}" class="text-white text-decoration-none"><i class="bi bi-chevron-right"></i> Qui sommes nous ?</a>
+            <a href="{% url 'about' %}" class="text-white text-decoration-none"><i class="bi bi-chevron-right"></i> {% trans "Qui sommes nous ?" %}</a>
           </li>
           <li>
-            <a href="{% url 'contact' %}" class="text-white text-decoration-none"><i class="bi bi-chevron-right"></i> Nous contacter</a>
+            <a href="{% url 'contact' %}" class="text-white text-decoration-none"><i class="bi bi-chevron-right"></i> {% trans "Nous contacter" %}</a>
           </li>
           <li>
-            <a href="{% url 'galerie' %}" class="text-white text-decoration-none"><i class="bi bi-chevron-right"></i> Galerie</a>
+            <a href="{% url 'galerie' %}" class="text-white text-decoration-none"><i class="bi bi-chevron-right"></i> {% trans "Galerie" %}</a>
           </li>
         </ul>
       </div>
       <div class="col-md-2">
-        <p class="h5 lh-sm mb-3">Suivez-nous</p>
-        <p>Suivez-nous sur nos réseaux sociaux :</p>
-        <div class="d-flex gap-3">
-          <a href="https://www.facebook.com/share/1BdbsnCLaK/" target="_blank" class="text-white"><i class="bi bi-facebook fs-4"></i></a>
-          <a href="https://www.linkedin.com/in/twiga-power-005b1a386?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="text-white"
-            ><i class="bi bi-linkedin fs-4"></i
-          ></a>
-          <a href="https://x.com/TwigaP73502?t=AWQTb66k7TsJzD50OswUdw&s=09" target="_blank" class="text-white"><i class="bi bi-twitter-x fs-4"></i></a>
-          <a href="https://www.tiktok.com/@twiga.power?_t=ZM-90lXamRCgRs&_r=1" target="_blank" class="text-white"><i class="bi bi-tiktok fs-4"></i></a>
+        <p class="h5 lh-sm mb-3">{% trans "Suivez-nous" %}</p>
+        <p>{% trans "Suivez-nous sur nos réseaux sociaux :" %}</p>
+        <div class="d-flex flex-wrap gap-2">
+          <a
+            href="https://www.facebook.com/share/1BdbsnCLaK/"
+            target="_blank"
+            class="d-inline-flex align-items-center justify-content-center rounded-circle bg-white text-primary"
+            style="width: 40px; height: 40px;"
+          >
+            <i class="bi bi-facebook"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/twiga-power-005b1a386?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            target="_blank"
+            class="d-inline-flex align-items-center justify-content-center rounded-circle bg-white text-primary"
+            style="width: 40px; height: 40px;"
+          >
+            <i class="bi bi-linkedin"></i>
+          </a>
+          <a
+            href="https://x.com/TwigaP73502?t=AWQTb66k7TsJzD50OswUdw&s=09"
+            target="_blank"
+            class="d-inline-flex align-items-center justify-content-center rounded-circle bg-white text-dark"
+            style="width: 40px; height: 40px;"
+          >
+            <i class="bi bi-twitter-x"></i>
+          </a>
+          <a
+            href="https://www.tiktok.com/@twiga.power?_t=ZM-90lXamRCgRs&_r=1"
+            target="_blank"
+            class="d-inline-flex align-items-center justify-content-center rounded-circle bg-white text-dark"
+            style="width: 40px; height: 40px;"
+          >
+            <i class="bi bi-tiktok"></i>
+          </a>
         </div>
       </div>
     </div>
   </div>
   <div class="text-center p-2">
-    <p class="fw-medium mt-3">© 2025 Twiga Power. Tous droits réservés.</p>
+    <p class="fw-medium mt-3">{% trans "© 2025 Twiga Power. Tous droits réservés." %}</p>
     <p class="mt-2 mb-0" style="font-size: 0.85rem; opacity: 0.8">
-      Design par
+      {% trans "Design par" %}
       <a href="mailto:elie.kisudiku@example.com" class="text-white text-decoration-none" style="opacity: 1"> Elie Kisudiku </a>
     </p>
   </div>

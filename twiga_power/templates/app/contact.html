@@ -1,10 +1,10 @@
 {% extends "base.html" %}
-{% load static %}
+{% load static i18n %}
 {% block base %}
 {% include "components/navbar.html" %}
 <div class="header-contact mb-4">
   <div class="d-flex justify-content-center align-items-center">
-    <h1 class="text-white"># Contactez-nous !</h1>
+    <h1 class="text-white"># {% trans "Contactez-nous !" %}</h1>
   </div>
 </div>
 <div class="container mb-5 p-5">
@@ -12,15 +12,14 @@
     <div class="col-md-10">
       <div class="row">
         <div class="col-md-7">
-          <h3 class="mb-2 text-color">Nous sommes à votre écoute !</h3>
+          <h3 class="mb-2 text-color">{% trans "Nous sommes à votre écoute !" %}</h3>
           <p class="text-muted">
-            Que ce soit pour une demande d'information, un devis ou un partenariat, n'hésitez pas à nous contacter via
-            ce formulaire.
+            {% blocktrans %}Que ce soit pour une demande d'information, un devis ou un partenariat, n'hésitez pas à nous contacter via ce formulaire.{% endblocktrans %}
           </p>
           {% if messages %}
           {% for message in messages %}
           <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
-            <strong>Message !</strong> {{ message }}
+            <strong>{% trans "Message !" %}</strong> {{ message }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
           {% endfor %}
@@ -30,38 +29,38 @@
             {% csrf_token %}
             <div class="row">
               <div class="col-md-6 my-2">
-                <input type="text" class="form-control" id="name" name="name" placeholder="Votre nom au complet"
+                <input type="text" class="form-control" id="name" name="name" placeholder="{% trans 'Votre nom au complet' %}"
                   required minlength="2" maxlength="100" pattern="^[^\d]+$" />
-                <div class="invalid-feedback">Nom requis !</div>
+                <div class="invalid-feedback">{% trans "Nom requis !" %}</div>
               </div>
               <div class="col-md-6 my-2">
-                <input type="email" class="form-control" id="email" name="email" placeholder="Votre adresse e-mail"
+                <input type="email" class="form-control" id="email" name="email" placeholder="{% trans 'Votre adresse e-mail' %}"
                   pattern="[\-a-zA-Z0-9~!$%^&*_=+\}\{'?]+(\.[\-a-zA-Z0-9~!$%^&*_=+\}\{'?]+)*@[a-zA-Z0-9_][\-a-zA-Z0-9_]*(\.[\-a-zA-Z0-9_]+)*\.[a-zA-Z]{2,5}"
                   required />
-                <div class="invalid-feedback">Email requis !</div>
+                <div class="invalid-feedback">{% trans "Email requis !" %}</div>
               </div>
             </div>
             <div class="row">
               <div class="col-md-6 my-2">
-                <input type="tel" class="form-control" id="telephone" name="telephone" placeholder="Téléphone" required
+                <input type="tel" class="form-control" id="telephone" name="telephone" placeholder="{% trans 'Téléphone' %}" required
                   pattern="^\+?[0-9]{9,15}$"
-                  title="Veuillez entrer un numéro de téléphone valide (9 à 15 chiffres, avec ou sans +)" />
+                  title="{% trans 'Veuillez entrer un numéro de téléphone valide (9 à 15 chiffres, avec ou sans +)' %}" />
                 <div class="invalid-feedback"></div>
               </div>
               <div class="col-md-6 my-2">
-                <input type="text" class="form-control" id="address" name="address" placeholder="Votre adresse" required
+                <input type="text" class="form-control" id="address" name="address" placeholder="{% trans 'Votre adresse' %}" required
                   minlength="2" maxlength="100" />
-                <div class="invalid-feedback">Adresse requise !</div>
+                <div class="invalid-feedback">{% trans "Adresse requise !" %}</div>
               </div>
             </div>
             <div class="row mb-3">
               <div class="col">
-                <textarea class="form-control" id="message" name="message" rows="5" placeholder="Votre message" required
+                <textarea class="form-control" id="message" name="message" rows="5" placeholder="{% trans 'Votre message' %}" required
                   minlength="10" maxlength="700"></textarea>
                 <div class="invalid-feedback"></div>
               </div>
             </div>
-            <button type="submit" class="btn btn-primary">Envoyer maintenant</button>
+            <button type="submit" class="btn btn-primary">{% trans "Envoyer maintenant" %}</button>
           </form>
         </div>
         <div class="col-md-5">

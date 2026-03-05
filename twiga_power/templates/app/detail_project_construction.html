@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static %}
+{% load static i18n %}
 {% block base %}
 {% include "components/navbar.html" %}
 <div class="header-contact">
@@ -19,12 +19,7 @@
                 <!-- Informations à droite -->
                 <div class="col-md-6">
                     <p class="h3 text-color">{{projet.nom}}</p>
-                    <p>{{ projet.description }}</p>
-                    <ul class="text-muted">
-                        <li class="mb-2">Rivière {{ projet.riviere }}</li>
-                        <li class="mb-2">{{ projet.ville }}</li>
-                        <li class="mb-2">Capacité de {{ projet.capacite }} MW</li>
-                    </ul>
+                    <p>{{ projet.description|linebreaksbr }}</p>
                 </div>
             </div>
         </div>

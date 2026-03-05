@@ -1,10 +1,10 @@
 {% extends "base.html" %}
-{% load static %}
+{% load static i18n %}
 {% block base %}
 {% include "components/navbar.html" %}
 <div class="header-contact">
     <div class="d-flex justify-content-center align-items-center">
-        <h1 class="text-white"># Nos projets pilotes</h1>
+        <h1 class="text-white"># {% trans "Nos projets pilotes" %}</h1>
     </div>
 </div>
 <section class="p-5 bg-body-secondary">
@@ -14,16 +14,12 @@
                 <div class="row justify-content-between align-items-center mb-3">
                     <div class="col-md-6">
                         <p class="text-color h3  text-start text-lg-end">
-                            Découvrez nos projets de construction hydroélectriques, un moteur d’autonomie et de lumière
-                            pour le Congo.
+                            {% blocktrans %}Découvrez nos projets de construction hydroélectriques, un moteur d’autonomie et de lumière pour le Congo.{% endblocktrans %}
                         </p>
                     </div>
                     <div class="col-md-5">
                         <p class="text-muted">
-                            Chaque initiative ouvre la voie vers un Congo mieux éclairé. Avec des solutions innovantes
-                            et des
-                            alliances solides,
-                            Twiga Power rapproche l’énergie des communautés et prépare un avenir durable pour tous.
+                            {% blocktrans %}Chaque initiative ouvre la voie vers un Congo mieux éclairé. Avec des solutions innovantes et des alliances solides, Twiga Power rapproche l’énergie des communautés et prépare un avenir durable pour tous.{% endblocktrans %}
                         </p>
                     </div>
                 </div>
@@ -33,7 +29,7 @@
                             <img src="{% static 'images/inkisi.webp' %}" class="card-img rounded" alt="Projet Solaire">
                             <div
                                 class="project-footer d-flex justify-content-between align-items-center p-2 rounded-bottom position-absolute w-100 bottom-0 bg-color">
-                                <p class="text-white mb-0">Site Kibombo</p>
+                                <p class="text-white mb-0">{% trans "Site Kibombo" %}</p>
                                 <a href="{% url 'detail_project' project_id=1 %}"
                                     class="btn btn-light rounded-circle d-flex align-items-center justify-content-center">
                                     <i class="bi bi-arrow-right-short"></i>
@@ -47,7 +43,7 @@
                                 alt="Projet Hydroélectrique">
                             <div
                                 class="project-footer d-flex justify-content-between align-items-center p-2 rounded-bottom position-absolute w-100 bottom-0 bg-color">
-                                <p class="text-white mb-0">Site Nondo</p>
+                                <p class="text-white mb-0">{% trans "Site Nondo" %}</p>
                                 <a href="{% url 'detail_project' project_id=2 %}"
                                     class="btn btn-light rounded-circle d-flex align-items-center justify-content-center">
                                     <i class="bi bi-arrow-right-short"></i>
@@ -61,7 +57,7 @@
                                 alt="Projet Distribution">
                             <div
                                 class="project-footer d-flex justify-content-between align-items-center p-2 rounded-bottom position-absolute w-100 bottom-0 bg-color">
-                                <p class="text-white mb-0">Site Kilwani</p>
+                                <p class="text-white mb-0">{% trans "Site Kilwani" %}</p>
                                 <a href="{% url 'detail_project' project_id=3 %}"
                                     class="btn btn-light rounded-circle d-flex align-items-center justify-content-center">
                                     <i class="bi bi-arrow-right-short"></i>

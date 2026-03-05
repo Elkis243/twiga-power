@@ -1,12 +1,19 @@
-{% load static %}
+{% load static i18n %}
+{% get_current_language as CURRENT_LANGUAGE %}
 <nav class="navbar navbar-expand-md bg-body-tertiary fixed-top">
   <div class="container">
     <a href="{% url 'home' %}" class="navbar-brand mx-3">
       <img src="{% static 'images/logo.png' %}" alt="Logo Twiga Power" height="auto" width="65" />
     </a>
-    <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="offcanvas"
-      data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false"
-      aria-label="Toggle navigation">
+    <button
+      class="navbar-toggler custom-toggler"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvasNavbar"
+      aria-controls="offcanvasNavbar"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar">
@@ -19,29 +26,88 @@
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 text-center">
           <li class="nav-item">
-            <a class="nav-link mx-2 px-2  py-2 {% if page == 'Home' %}active-link{% endif %}"
-              href="{% url 'home' %}">Home</a>
+            <a class="nav-link mx-2 px-2 py-2 {% if page == 'Home' %}active-link{% endif %}" href="{% url 'home' %}">{% trans "Home" %}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mx-2 px-2 py-2" id="services-link" href="{% url 'home' %}#services">Services</a>
+            <a class="nav-link mx-2 px-2 py-2" id="services-link" href="{% url 'home' %}#services">{% trans "Services" %}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mx-2 px-2 py-2 {% if page == 'Projets' %}active-link{% endif %}"
-              href="{% url 'projects' %}">Projets</a>
+            <a class="nav-link mx-2 px-2 py-2 {% if page == 'Projets' %}active-link{% endif %}" href="{% url 'projects' %}">{% trans "Projets" %}</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              A propos
-            </a>
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> {% trans "A propos" %} </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="{% url 'about' %}">Qui sommes-nous ?</a></li>
-              <li><a class="dropdown-item" href="{% url 'galerie' %}">Galerie</a></li>
+              <li><a class="dropdown-item" href="{% url 'about' %}">{% trans "Qui sommes-nous ?" %}</a></li>
+              <li><a class="dropdown-item" href="{% url 'galerie' %}">{% trans "Galerie" %}</a></li>
             </ul>
           </li>
-            <li class="nav-item">
-              <a class="nav-link mx-2 px-2 py-2 {% if page == 'Contact' %}active-link{% endif %}" href="{% url 'contact' %}">Nous
-                contacter</a>
-            </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2 px-2 py-2 {% if page == 'Contact' %}active-link{% endif %}" href="{% url 'contact' %}">{% trans "Nous contacter" %}</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle mx-2 px-2 py-2 d-flex align-items-center gap-2"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <span class="badge rounded-pill bg-primary-subtle text-primary border border-primary">
+                {% if CURRENT_LANGUAGE == "fr" %}
+                  {% trans "FR" %}
+                {% elif CURRENT_LANGUAGE == "en" %}
+                  {% trans "EN" %}
+                {% else %}
+                  {% trans "Lang" %}
+                {% endif %}
+              </span>
+              <span class="d-none d-md-inline">
+                {% if CURRENT_LANGUAGE == "fr" %}
+                  {% trans "Français" %}
+                {% elif CURRENT_LANGUAGE == "en" %}
+                  {% trans "English" %}
+                {% else %}
+                  {% trans "Langue" %}
+                {% endif %}
+              </span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li>
+                <form action="{% url 'set_language' %}" method="post" class="d-inline">
+                  {% csrf_token %}
+                  <input type="hidden" name="next" value="{{ request.path }}">
+                  <button
+                    type="submit"
+                    name="language"
+                    value="fr"
+                    class="dropdown-item d-flex align-items-center justify-content-between{% if CURRENT_LANGUAGE == 'fr' %} active{% endif %}"
+                  >
+                    <span>{% trans "Français" %}</span>
+                    {% if CURRENT_LANGUAGE == "fr" %}
+                      <i class="bi bi-check"></i>
+                    {% endif %}
+                  </button>
+                </form>
+              </li>
+              <li>
+                <form action="{% url 'set_language' %}" method="post" class="d-inline">
+                  {% csrf_token %}
+                  <input type="hidden" name="next" value="{{ request.path }}">
+                  <button
+                    type="submit"
+                    name="language"
+                    value="en"
+                    class="dropdown-item d-flex align-items-center justify-content-between{% if CURRENT_LANGUAGE == 'en' %} active{% endif %}"
+                  >
+                    <span>{% trans "English" %}</span>
+                    {% if CURRENT_LANGUAGE == "en" %}
+                      <i class="bi bi-check"></i>
+                    {% endif %}
+                  </button>
+                </form>
+              </li>
+            </ul>
+          </li>
         </ul>
       </div>
     </div>

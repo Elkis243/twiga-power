@@ -20,6 +20,7 @@ from django.urls import path, include
 from app import views
 from app import error_views
 from django.views.generic.base import RedirectView
+from django.views.i18n import set_language
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -29,6 +30,7 @@ urlpatterns = [
         RedirectView.as_view(url="/static/images/favicon/favicon.ico", permanent=True),
     ),
     path("", include("app.urls")),
+    path("i18n/set-language/", set_language, name="set_language"),
 ]
 
 # Configuration des handlers d'erreur personnalisés

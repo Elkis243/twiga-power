@@ -1,0 +1,90 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-05 12:45+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: app/views.py:84
+msgid "Site Kibombo"
+msgstr "Kibombo site"
+
+#: app/views.py:86
+msgid ""
+"La centrale hydroélectrique de Kibombo sur la rivière Inkisi utilise des "
+"technologies modernes pour produire une énergie stable et durable. Le projet "
+"soutient le développement local tout en respectant l’environnement.\n"
+"\n"
+"Rivière Inkisi – Kongo-Central – Capacité de 240 MW."
+msgstr ""
+"The Kibombo hydroelectric plant on the Inkisi River uses modern "
+"technologies to produce stable and sustainable energy. The project supports "
+"local development while respecting the environment.\n"
+"\n"
+"Inkisi River – Kongo-Central – Capacity of 240 MW."
+
+#: app/views.py:93
+msgid "Site Nondo"
+msgstr "Nondo site"
+
+#: app/views.py:95
+msgid ""
+"Le site hydroélectrique de Nondo sur la rivière Luvua, à Tanganyika, "
+"développe 1022 MW avec des installations modernes et durables. Le projet "
+"soutient le développement local et valorise le potentiel hydraulique de la "
+"région.\n"
+"\n"
+"Rivière Luvua – Tanganyika – Capacité de 1022 MW."
+msgstr ""
+"The Nondo hydroelectric site on the Luvua River, in Tanganyika, develops "
+"1022 MW with modern and sustainable facilities. The project supports local "
+"development and enhances the region's hydropower potential.\n"
+"\n"
+"Luvua River – Tanganyika – Capacity of 1,022 MW."
+
+#: app/views.py:102
+msgid "Site Kilwani"
+msgstr "Kilwani site"
+
+#: app/views.py:104
+msgid ""
+"Le site hydroélectrique de Kilwani sur la rivière Luvua, à Tanganyika, "
+"produit 153 MW grâce à des technologies efficaces et respectueuses de "
+"l’environnement. Il contribue également au développement économique et "
+"social local.\n"
+"\n"
+"Rivière Luvua – Tanganyika – Capacité de 153 MW."
+msgstr ""
+"The Kilwani hydroelectric site on the Luvua River, in Tanganyika, produces "
+"153 MW thanks to efficient and environmentally friendly technologies. It "
+"also contributes to local economic and social development.\n"
+"\n"
+"Luvua River – Tanganyika – Capacity of 153 MW."
+
+#: app/views.py:114
+msgid "Détails du projet"
+msgstr "Project details"
+
+#~ msgid "Inkisi"
+#~ msgstr "Inkisi"
+
+#~ msgid "Kongo-Central"
+#~ msgstr "Kongo-Central"
+
+#~ msgid "Luvua"
+#~ msgstr "Luvua"
+
+#~ msgid "Tanganyika"
+#~ msgstr "Tanganyika"
