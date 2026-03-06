@@ -163,3 +163,5 @@ def browserconfig_xml(request):
         "base_url": base_url,
     }
     return render(request, "browserconfig.xml", context, content_type="application/xml")
+
+# impplmentation d'un sy
