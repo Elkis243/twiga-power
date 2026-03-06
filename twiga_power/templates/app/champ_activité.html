@@ -1,95 +1,86 @@
-{% extends "base.html" %} {% load static %} {% block base %} {% include "components/navbar.html" %}
+{% extends "base.html" %} {% load static i18n %} {% block base %} {% include "components/navbar.html" %}
 <div class="header-contact mb-4">
   <div class="d-flex justify-content-center align-items-center">
-    <h1 class="text-white"># Notre champ d'activité !</h1>
+    <h1 class="text-white"># {% trans "Notre champ d'activité !" %}</h1>
   </div>
 </div>
-<section class="p-5 mt-5">
+<section class="mt-5 p-2 mb-5">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-10">
-        <p class="text-muted text-center mb-5 w-50 mx-auto">
-          Twiga Power Sarl intervient sur toute la chaîne de valeur de l’énergie électrique, assurant production, distribution et services fiables.
+        <p class="text-muted text-center mb-5 mx-auto">
+          {% blocktrans %}Twiga Power Sarl intervient sur toute la chaîne de valeur de l’énergie électrique, assurant production, distribution et services fiables.{% endblocktrans %}
         </p>
         <div class="accordion" id="accordionExample">
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                <strong>1. Production de l'énergie électrique</strong>
+                <strong>{% trans "1. Production de l'énergie électrique" %}</strong>
               </button>
             </h2>
             <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
               <div class="accordion-body">
-                La production constitue un pilier stratégique pour Twiga Power Sarl, qui développe des capacités basées sur l’eau (centrales hydroélectriques), la chaleur (solutions thermiques), le
-                vent (éolien), le soleil (photovoltaïque) et des solutions hybrides combinant plusieurs sources selon les besoins locaux. Cette diversification assure un approvisionnement énergétique
-                sûr, durable et résilient, tout en contribuant à la transition énergétique du pays.
+                {% blocktrans %}La production constitue un pilier stratégique pour Twiga Power Sarl, qui développe des capacités basées sur l’eau (centrales hydroélectriques), la chaleur (solutions thermiques), le vent (éolien), le soleil (photovoltaïque) et des solutions hybrides combinant plusieurs sources selon les besoins locaux. Cette diversification assure un approvisionnement énergétique sûr, durable et résilient, tout en contribuant à la transition énergétique du pays.{% endblocktrans %}
               </div>
             </div>
           </div>
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                <strong>2. Transport de l'énergie électrique</strong>
+                <strong>{% trans "2. Transport de l'énergie électrique" %}</strong>
               </button>
             </h2>
             <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
               <div class="accordion-body">
-                Le transport de l’électricité consiste à acheminer l’énergie produite ou importée vers les centres de consommation à travers des infrastructures haute et moyenne tension, en veillant à
-                la sécurité, à la performance des lignes et à la réduction des pertes techniques.
+                {% blocktrans %}Le transport de l’électricité consiste à acheminer l’énergie produite ou importée vers les centres de consommation à travers des infrastructures haute et moyenne tension, en veillant à la sécurité, à la performance des lignes et à la réduction des pertes techniques.{% endblocktrans %}
               </div>
             </div>
           </div>
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                <strong>3. Distribution de l'énergie électrique</strong>
+                <strong>{% trans "3. Distribution de l'énergie électrique" %}</strong>
               </button>
             </h2>
             <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
               <div class="accordion-body">
-                La distribution constitue le lien direct entre Twiga Power Sarl et les consommateurs finaux. L’entreprise déploie et exploite des réseaux adaptés aux réalités locales, en mettant
-                l’accent sur la fiabilité, la qualité du service et l’amélioration de l’accès à l’électricité pour les ménages et les entreprises, contribuant ainsi à la satisfaction des clients et à
-                la confiance des partenaires.
+                {% blocktrans %}La distribution constitue le lien direct entre Twiga Power Sarl et les consommateurs finaux. L’entreprise déploie et exploite des réseaux adaptés aux réalités locales, en mettant l’accent sur la fiabilité, la qualité du service et l’amélioration de l’accès à l’électricité pour les ménages et les entreprises, contribuant ainsi à la satisfaction des clients et à la confiance des partenaires.{% endblocktrans %}
               </div>
             </div>
           </div>
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                <strong>4. Commercialisation de l'énergie électrique</strong>
+                <strong>{% trans "4. Commercialisation de l'énergie électrique" %}</strong>
               </button>
             </h2>
             <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
               <div class="accordion-body">
-                La commercialisation regroupe la vente d’électricité, la relation client et la gestion de la consommation. Twiga Power Sarl adopte une approche client basée sur la transparence
-                tarifaire, la sensibilisation à une consommation responsable et la réduction des plaintes, contribuant ainsi à la satisfaction des clients et à la confiance des partenaires.
+                {% blocktrans %}La commercialisation regroupe la vente d’électricité, la relation client et la gestion de la consommation. Twiga Power Sarl adopte une approche client basée sur la transparence tarifaire, la sensibilisation à une consommation responsable et la réduction des plaintes, contribuant ainsi à la satisfaction des clients et à la confiance des partenaires.{% endblocktrans %}
               </div>
             </div>
           </div>
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                <strong>5. Exportation de l'énergie électrique</strong>
+                <strong>{% trans "5. Exportation de l'énergie électrique" %}</strong>
               </button>
             </h2>
             <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
               <div class="accordion-body">
-                Twiga Power Sarl développe également des activités d’exportation de l’énergie électrique visant à valoriser les capacités de production excédentaires et à participer aux échanges
-                énergétiques régionaux. Cette activité contribue au renforcement de la compétitivité de l’entreprise, à la création de valeur économique et au positionnement de la RDC comme un acteur
-                énergétique régional.
+                {% blocktrans %}Twiga Power Sarl développe également des activités d’exportation de l’énergie électrique visant à valoriser les capacités de production excédentaires et à participer aux échanges énergétiques régionaux. Cette activité contribue au renforcement de la compétitivité de l’entreprise, à la création de valeur économique et au positionnement de la RDC comme un acteur énergétique régional.{% endblocktrans %}
               </div>
             </div>
           </div>
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                <strong>6. Importation de l'énergie électrique</strong>
+                <strong>{% trans "6. Importation de l'énergie électrique" %}</strong>
               </button>
             </h2>
             <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
               <div class="accordion-body">
-                L’importation de l’énergie électrique constitue un levier stratégique pour Twiga Power Sarl. Elle permet de renforcer l’approvisionnement lorsque la production locale est insuffisante,
-                d’assurer la continuité et la stabilité du service, et de répondre efficacement aux pics de consommation.
+                {% blocktrans %}L’importation de l’énergie électrique constitue un levier stratégique pour Twiga Power Sarl. Elle permet de renforcer l’approvisionnement lorsque la production locale est insuffisante, d’assurer la continuité et la stabilité du service, et de répondre efficacement aux pics de consommation.{% endblocktrans %}
               </div>
             </div>
           </div>

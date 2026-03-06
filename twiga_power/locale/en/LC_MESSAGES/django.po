@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-05 12:45+0100\n"
+"POT-Creation-Date: 2026-03-06 15:15+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: twiga_power/templates/app/about.html:4
 #: twiga_power/templates/app/about.html:25
-#: twiga_power/templates/components/navbar.html:39
+#: twiga_power/templates/components/navbar.html:40
 msgid "Qui sommes-nous ?"
 msgstr "Who are we?"
 
@@ -54,8 +54,8 @@ msgstr ""
 
 #: twiga_power/templates/app/about.html:33
 #: twiga_power/templates/app/home.html:57
-#: twiga_power/templates/components/footer.html:40
-#: twiga_power/templates/components/navbar.html:44
+#: twiga_power/templates/components/footer.html:41
+#: twiga_power/templates/components/navbar.html:45
 msgid "Nous contacter"
 msgstr "Contact us"
 
@@ -210,6 +210,125 @@ msgstr ""
 "responsible use of electricity and contributing sustainably to social "
 "progress."
 
+#: twiga_power/templates/app/champ_activité.html:4
+msgid "Notre champ d'activité !"
+msgstr "Our field of activity!"
+
+#: twiga_power/templates/app/champ_activité.html:12
+msgid ""
+"Twiga Power Sarl intervient sur toute la chaîne de valeur de l’énergie "
+"électrique, assurant production, distribution et services fiables."
+msgstr ""
+"Twiga Power SARL operates across the entire electricity value chain, "
+"providing reliable generation, distribution and related services."
+
+#: twiga_power/templates/app/champ_activité.html:18
+msgid "1. Production de l'énergie électrique"
+msgstr "1. Electricity generation"
+
+#: twiga_power/templates/app/champ_activité.html:23
+msgid ""
+"La production constitue un pilier stratégique pour Twiga Power Sarl, qui "
+"développe des capacités basées sur l’eau (centrales hydroélectriques), la "
+"chaleur (solutions thermiques), le vent (éolien), le soleil (photovoltaïque) "
+"et des solutions hybrides combinant plusieurs sources selon les besoins "
+"locaux. Cette diversification assure un approvisionnement énergétique sûr, "
+"durable et résilient, tout en contribuant à la transition énergétique du "
+"pays."
+msgstr ""
+"Generation is a strategic pillar for Twiga Power SARL, which develops "
+"capacity based on water (hydroelectric plants), heat (thermal solutions), "
+"wind (wind power), the sun (photovoltaic) and hybrid solutions combining "
+"several sources according to local needs. This diversification ensures a "
+"secure, sustainable and resilient energy supply, while contributing to the "
+"country's energy transition."
+
+#: twiga_power/templates/app/champ_activité.html:30
+msgid "2. Transport de l'énergie électrique"
+msgstr "2. Electricity transmission"
+
+#: twiga_power/templates/app/champ_activité.html:35
+msgid ""
+"Le transport de l’électricité consiste à acheminer l’énergie produite ou "
+"importée vers les centres de consommation à travers des infrastructures "
+"haute et moyenne tension, en veillant à la sécurité, à la performance des "
+"lignes et à la réduction des pertes techniques."
+msgstr ""
+"Electricity transmission consists in carrying the energy produced or "
+"imported to consumption centres via high- and medium-voltage infrastructure, "
+"while ensuring safety, line performance and reduced technical losses."
+
+#: twiga_power/templates/app/champ_activité.html:42
+msgid "3. Distribution de l'énergie électrique"
+msgstr "3. Electricity distribution"
+
+#: twiga_power/templates/app/champ_activité.html:47
+msgid ""
+"La distribution constitue le lien direct entre Twiga Power Sarl et les "
+"consommateurs finaux. L’entreprise déploie et exploite des réseaux adaptés "
+"aux réalités locales, en mettant l’accent sur la fiabilité, la qualité du "
+"service et l’amélioration de l’accès à l’électricité pour les ménages et les "
+"entreprises, contribuant ainsi à la satisfaction des clients et à la "
+"confiance des partenaires."
+msgstr ""
+"Distribution is the direct link between Twiga Power SARL and end consumers. "
+"The company deploys and operates networks adapted to local realities, with a "
+"focus on reliability, quality of service and improving access to "
+"electricity for households and businesses, thereby contributing to customer "
+"satisfaction and partner confidence."
+
+#: twiga_power/templates/app/champ_activité.html:54
+msgid "4. Commercialisation de l'énergie électrique"
+msgstr "4. Electricity commercialization"
+
+#: twiga_power/templates/app/champ_activité.html:59
+msgid ""
+"La commercialisation regroupe la vente d’électricité, la relation client et "
+"la gestion de la consommation. Twiga Power Sarl adopte une approche client "
+"basée sur la transparence tarifaire, la sensibilisation à une consommation "
+"responsable et la réduction des plaintes, contribuant ainsi à la "
+"satisfaction des clients et à la confiance des partenaires."
+msgstr ""
+"Commercialization includes the sale of electricity, customer relations and "
+"consumption management. Twiga Power SARL adopts a customer-centric approach "
+"based on tariff transparency, awareness-raising on responsible consumption "
+"and reducing complaints, thereby contributing to customer satisfaction and "
+"partner confidence."
+
+#: twiga_power/templates/app/champ_activité.html:66
+msgid "5. Exportation de l'énergie électrique"
+msgstr "5. Export of electrical energy"
+
+#: twiga_power/templates/app/champ_activité.html:71
+msgid ""
+"Twiga Power Sarl développe également des activités d’exportation de "
+"l’énergie électrique visant à valoriser les capacités de production "
+"excédentaires et à participer aux échanges énergétiques régionaux. Cette "
+"activité contribue au renforcement de la compétitivité de l’entreprise, à la "
+"création de valeur économique et au positionnement de la RDC comme un acteur "
+"énergétique régional."
+msgstr ""
+"Twiga Power SARL is also developing electricity export activities to make "
+"use of surplus generation capacity and take part in regional energy "
+"exchanges. This activity helps strengthen the company's competitiveness, "
+"create economic value and position the DRC as a regional energy player."
+
+#: twiga_power/templates/app/champ_activité.html:78
+msgid "6. Importation de l'énergie électrique"
+msgstr "6. Import of electrical energy"
+
+#: twiga_power/templates/app/champ_activité.html:83
+msgid ""
+"L’importation de l’énergie électrique constitue un levier stratégique pour "
+"Twiga Power Sarl. Elle permet de renforcer l’approvisionnement lorsque la "
+"production locale est insuffisante, d’assurer la continuité et la stabilité "
+"du service, et de répondre efficacement aux pics de consommation."
+msgstr ""
+"Importing electrical energy is a strategic lever for Twiga Power SARL. It "
+"makes it possible to strengthen supply when local generation is "
+"insufficient, ensure continuity and stability of service, and respond "
+"effectively to peaks in consumption."
+
 #: twiga_power/templates/app/contact.html:7
 msgid "Contactez-nous !"
 msgstr "Contact us!"
@@ -321,7 +440,7 @@ msgstr ""
 "improve living conditions"
 
 #: twiga_power/templates/app/home.html:80
-#: twiga_power/templates/components/footer.html:37
+#: twiga_power/templates/components/footer.html:38
 msgid "Qui sommes nous ?"
 msgstr "Who are we?"
 
@@ -548,7 +667,7 @@ msgstr "Our pilot projects"
 msgid "Chargement..."
 msgstr "Loading..."
 
-#: twiga_power/templates/components/footer.html:7
+#: twiga_power/templates/components/footer.html:8
 msgid ""
 "Entreprise congolaise spécialisée dans l’électricité, offrant des solutions "
 "fiables et durables pour un développement responsable en RDC."
@@ -556,11 +675,11 @@ msgstr ""
 "Congolese company specialising in electricity, providing reliable and "
 "sustainable solutions for responsible development in the DRC."
 
-#: twiga_power/templates/components/footer.html:10
+#: twiga_power/templates/components/footer.html:11
 msgid "Coordonnées"
 msgstr "Contact details"
 
-#: twiga_power/templates/components/footer.html:11
+#: twiga_power/templates/components/footer.html:12
 msgid ""
 "Immeuble Luxury Tower, Local 1101, 148/A Boulevard du 30 Juin, Kinshasa-"
 "Gombe, RDC."
@@ -568,62 +687,64 @@ msgstr ""
 "Luxury Tower building, Office 1101, 148/A Boulevard du 30 Juin, Kinshasa-"
 "Gombe, DRC."
 
-#: twiga_power/templates/components/footer.html:22
+#: twiga_power/templates/components/footer.html:23
 msgid "Liens rapides"
 msgstr "Quick links"
 
-#: twiga_power/templates/components/footer.html:25
-#: twiga_power/templates/components/navbar.html:28
+#: twiga_power/templates/components/footer.html:26
+#: twiga_power/templates/components/navbar.html:29
 msgid "Home"
 msgstr "Home"
 
-#: twiga_power/templates/components/footer.html:28
-#: twiga_power/templates/components/navbar.html:31
+#: twiga_power/templates/components/footer.html:29
+#: twiga_power/templates/components/navbar.html:32
 msgid "Services"
 msgstr "Services"
 
-#: twiga_power/templates/components/footer.html:31
+#: twiga_power/templates/components/footer.html:32
 msgid "Champ d'activité"
 msgstr "Scope of activity"
 
-#: twiga_power/templates/components/footer.html:34
-#: twiga_power/templates/components/navbar.html:34
+#: twiga_power/templates/components/footer.html:35
+#: twiga_power/templates/components/navbar.html:35
 msgid "Projets"
 msgstr "Projects"
 
-#: twiga_power/templates/components/footer.html:43
-#: twiga_power/templates/components/navbar.html:40
+#: twiga_power/templates/components/footer.html:44
+#: twiga_power/templates/components/navbar.html:41
 msgid "Galerie"
 msgstr "Gallery"
 
-#: twiga_power/templates/components/footer.html:48
+#: twiga_power/templates/components/footer.html:49
 msgid "Suivez-nous"
 msgstr "Follow us"
 
-#: twiga_power/templates/components/footer.html:49
+#: twiga_power/templates/components/footer.html:50
 msgid "Suivez-nous sur nos réseaux sociaux :"
 msgstr "Follow us on our social networks:"
 
-#: twiga_power/templates/components/footer.html:62
+#: twiga_power/templates/components/footer.html:89
+#: twiga_power/templates/components/navbar.html:51
+msgid "Sélecteur de langue"
+msgstr "Language selector"
+
+#: twiga_power/templates/components/footer.html:121
 msgid "© 2025 Twiga Power. Tous droits réservés."
 msgstr "© 2025 Twiga Power. All rights reserved."
 
-#: twiga_power/templates/components/footer.html:64
+#: twiga_power/templates/components/footer.html:123
 msgid "Design par"
 msgstr "Design by"
 
-#: twiga_power/templates/components/navbar.html:37
+#: twiga_power/templates/components/navbar.html:38
 msgid "A propos"
 msgstr "About"
 
-#: twiga_power/templates/components/navbar.html:54
-msgid "Langue"
-msgstr "Language"
+#~ msgid "Langue"
+#~ msgstr "Language"
 
-#: twiga_power/templates/components/navbar.html:62
-msgid "Français"
-msgstr "French"
+#~ msgid "Français"
+#~ msgstr "French"
 
-#: twiga_power/templates/components/navbar.html:71
-msgid "English"
-msgstr "English"
+#~ msgid "English"
+#~ msgstr "English"

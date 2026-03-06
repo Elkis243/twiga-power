@@ -44,69 +44,37 @@
           <li class="nav-item">
             <a class="nav-link mx-2 px-2 py-2 {% if page == 'Contact' %}active-link{% endif %}" href="{% url 'contact' %}">{% trans "Nous contacter" %}</a>
           </li>
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle mx-2 px-2 py-2 d-flex align-items-center gap-2"
-              href="#"
-              role="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
+          <li class="nav-item d-flex align-items-center justify-content-center mx-2 mt-2 mt-md-0">
+            <div
+              class="btn-group btn-group-sm bg-primary bg-opacity-10 rounded-pill p-1"
+              role="group"
+              aria-label="{% trans 'Sélecteur de langue' %}"
             >
-              <span class="badge rounded-pill bg-primary-subtle text-primary border border-primary">
-                {% if CURRENT_LANGUAGE == "fr" %}
-                  {% trans "FR" %}
-                {% elif CURRENT_LANGUAGE == "en" %}
-                  {% trans "EN" %}
-                {% else %}
-                  {% trans "Lang" %}
-                {% endif %}
-              </span>
-              <span class="d-none d-md-inline">
-                {% if CURRENT_LANGUAGE == "fr" %}
-                  {% trans "Français" %}
-                {% elif CURRENT_LANGUAGE == "en" %}
-                  {% trans "English" %}
-                {% else %}
-                  {% trans "Langue" %}
-                {% endif %}
-              </span>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end">
-              <li>
-                <form action="{% url 'set_language' %}" method="post" class="d-inline">
-                  {% csrf_token %}
-                  <input type="hidden" name="next" value="{{ request.path }}">
-                  <button
-                    type="submit"
-                    name="language"
-                    value="fr"
-                    class="dropdown-item d-flex align-items-center justify-content-between{% if CURRENT_LANGUAGE == 'fr' %} active{% endif %}"
-                  >
-                    <span>{% trans "Français" %}</span>
-                    {% if CURRENT_LANGUAGE == "fr" %}
-                      <i class="bi bi-check"></i>
-                    {% endif %}
-                  </button>
-                </form>
-              </li>
-              <li>
-                <form action="{% url 'set_language' %}" method="post" class="d-inline">
-                  {% csrf_token %}
-                  <input type="hidden" name="next" value="{{ request.path }}">
-                  <button
-                    type="submit"
-                    name="language"
-                    value="en"
-                    class="dropdown-item d-flex align-items-center justify-content-between{% if CURRENT_LANGUAGE == 'en' %} active{% endif %}"
-                  >
-                    <span>{% trans "English" %}</span>
-                    {% if CURRENT_LANGUAGE == "en" %}
-                      <i class="bi bi-check"></i>
-                    {% endif %}
-                  </button>
-                </form>
-              </li>
-            </ul>
+              <form action="{% url 'set_language' %}" method="post" class="d-inline">
+                {% csrf_token %}
+                <input type="hidden" name="next" value="{{ request.path }}">
+                <button
+                  type="submit"
+                  name="language"
+                  value="fr"
+                  class="btn btn-outline-primary border-0 px-3 rounded-pill {% if CURRENT_LANGUAGE == 'fr' %}active bg-primary text-white{% endif %}"
+                >
+                  FR
+                </button>
+              </form>
+              <form action="{% url 'set_language' %}" method="post" class="d-inline">
+                {% csrf_token %}
+                <input type="hidden" name="next" value="{{ request.path }}">
+                <button
+                  type="submit"
+                  name="language"
+                  value="en"
+                  class="btn btn-outline-primary border-0 px-3 rounded-pill {% if CURRENT_LANGUAGE == 'en' %}active bg-primary text-white{% endif %}"
+                >
+                  EN
+                </button>
+              </form>
+            </div>
           </li>
         </ul>
       </div>
