@@ -465,96 +465,86 @@ msgstr ""
 "well-being for every Congolese citizen."
 
 #: twiga_power/templates/app/home.html:102
-msgid "Nos services Énergétiques Intégrées."
-msgstr "Our integrated energy services."
+msgid "Notre champ d'activité énergétique."
+msgstr "Our energy field of activity."
 
 #: twiga_power/templates/app/home.html:105
 msgid ""
-"Nous offrons des solutions complètes pour garantir une électricité fiable, "
-"durable et bénéfique pour les communautés comme pour l’environnement."
+"Twiga Power Sarl intervient sur l’ensemble de la chaîne de valeur de "
+"l’énergie électrique : production, transport, distribution, "
+"commercialisation et services associés."
 msgstr ""
-"We offer comprehensive solutions to ensure electricity that is reliable, "
-"sustainable and beneficial for both communities and the environment."
+"Twiga Power SARL operates across the entire electricity value chain: "
+"generation, transmission, distribution, commercialization and related "
+"services."
 
 #: twiga_power/templates/app/home.html:113
-msgid "Service d'importation"
-msgstr "Import service"
+msgid "Production de l'énergie électrique"
+msgstr "Electricity generation"
 
 #: twiga_power/templates/app/home.html:116
-msgid "Importation d’électricité depuis l’étranger"
-msgstr "Import of electricity from abroad"
+msgid "Capacités basées sur l’eau, la chaleur, le vent et le soleil"
+msgstr "Capacity based on water, heat, wind and sun"
 
 #: twiga_power/templates/app/home.html:117
-msgid "Alimentation des zones sans centrale"
-msgstr "Supply of areas without power plants"
+msgid "Solutions hybrides adaptées aux besoins locaux"
+msgstr "Hybrid solutions adapted to local needs"
 
 #: twiga_power/templates/app/home.html:118
-msgid "Transport sécurisé vers les régions ciblées"
-msgstr "Secure transmission to targeted regions"
-
-#: twiga_power/templates/app/home.html:120
-msgid "Optimisation des coûts et pertes énergétiques"
-msgstr "Optimisation of energy costs and losses"
+msgid "Approvisionnement énergétique sûr, durable et résilient"
+msgstr "Secure, sustainable and resilient energy supply"
 
 #: twiga_power/templates/app/home.html:131
-msgid "Service d'exportation"
-msgstr "Export service"
+msgid "Transport de l'énergie électrique"
+msgstr "Electricity transmission"
 
 #: twiga_power/templates/app/home.html:134
-msgid "Exportation d’électricité hydroélectrique"
-msgstr "Export of hydroelectric power"
+msgid "Acheminement de l’énergie vers les centres de consommation"
+msgstr "Routing energy to consumption centres"
 
 #: twiga_power/templates/app/home.html:135
-msgid "Alimentation des pays voisins"
-msgstr "Supply of neighbouring countries"
+msgid "Infrastructures haute et moyenne tension performantes"
+msgstr "High- and medium-voltage infrastructure with strong performance"
 
 #: twiga_power/templates/app/home.html:136
-msgid "Partenariats énergétiques régionaux"
-msgstr "Regional energy partnerships"
-
-#: twiga_power/templates/app/home.html:137
-msgid "Infrastructures transfrontalières"
-msgstr "Cross-border infrastructure"
+msgid "Réduction des pertes techniques et sécurisation des lignes"
+msgstr "Reduced technical losses and secure transmission lines"
 
 #: twiga_power/templates/app/home.html:147
-msgid "Service de Transport"
-msgstr "Transmission service"
+msgid "Distribution de l'énergie électrique"
+msgstr "Electricity distribution"
 
 #: twiga_power/templates/app/home.html:150
-msgid "Lignes de transmission haute/moyenne tension"
-msgstr "High- and medium-voltage transmission lines"
+msgid "Lien direct avec les consommateurs finaux"
+msgstr "Direct link with end consumers"
 
 #: twiga_power/templates/app/home.html:151
-msgid "Réseaux hybrides"
-msgstr "Hybrid networks"
+msgid "Réseaux adaptés aux réalités locales"
+msgstr "Networks adapted to local realities"
 
 #: twiga_power/templates/app/home.html:152
-msgid "Minimisation des pertes en ligne"
-msgstr "Minimising line losses"
-
-#: twiga_power/templates/app/home.html:153
-msgid "Supervision et sécurité du transport"
-msgstr "Supervision and security of transmission"
+msgid "Fiabilité et qualité du service pour ménages et entreprises"
+msgstr "Reliable, high-quality service for households and businesses"
 
 #: twiga_power/templates/app/home.html:163
-msgid "Service de Distribution & Commercialisation"
-msgstr "Distribution & marketing service"
+msgid "Commercialisation de l'énergie électrique"
+msgstr "Electricity commercialization"
 
 #: twiga_power/templates/app/home.html:166
-msgid "Distribution aux ménages, PME et industries"
-msgstr "Distribution to households, SMEs and industries"
+msgid "Vente d’électricité et gestion de la consommation"
+msgstr "Sale of electricity and consumption management"
 
 #: twiga_power/templates/app/home.html:167
-msgid "Comptage intelligent et prépayé"
-msgstr "Smart and prepaid metering"
+msgid "Relation client et transparence tarifaire"
+msgstr "Customer relations and tariff transparency"
 
 #: twiga_power/templates/app/home.html:168
-msgid "Gestion des abonnements"
-msgstr "Subscription management"
+msgid "Sensibilisation à une consommation responsable"
+msgstr "Awareness-raising on responsible consumption"
 
 #: twiga_power/templates/app/home.html:169
-msgid "Service client et assistance 24/7"
-msgstr "24/7 customer service and support"
+msgid "Réduction des plaintes et amélioration de la satisfaction"
+msgstr "Reduced complaints and improved customer satisfaction"
 
 #: twiga_power/templates/app/home.html:186
 msgid "Pourquoi choisir Twiga Power ?"
