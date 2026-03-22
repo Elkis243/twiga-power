@@ -1,0 +1,23 @@
+{% load static %}
+<ul class="partners-section__logos list-unstyled mb-0" role="list">
+  {% for logo in partner_logos %}
+  <li class="partners-section__item" role="listitem">
+    <a
+      href="{{ logo.url }}"
+      class="partners-section__link"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img
+        src="{% static logo.src %}"
+        alt="{{ logo.alt }}"
+        class="partners-section__logo img-fluid"
+        loading="lazy"
+        decoding="async"
+        width="200"
+        height="100"
+      />
+    </a>
+  </li>
+  {% endfor %}
+</ul>

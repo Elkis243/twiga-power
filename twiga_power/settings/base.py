@@ -35,6 +35,7 @@ DEBUG = os.getenv("DJANGO_DEBUG") == "True"
 
 # Application definition
 INSTALLED_APPS = [
+    "modeltranslation",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -116,12 +117,25 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
+# django-modeltranslation : langue source = fr, anglais en colonnes *_en
+MODELTRANSLATION_DEFAULT_LANGUAGE = "fr"
+MODELTRANSLATION_LANGUAGES = ("fr", "en")
+# Si une traduction anglaise est vide, reprendre le français
+MODELTRANSLATION_FALLBACK_LANGUAGES = ("fr",)
+
+# Traduction auto FR→EN à l’enregistrement (signaux + deep-translator). Désactiver : False ou env.
+AUTO_TRANSLATE_ENABLED = os.getenv("AUTO_TRANSLATE_ENABLED", "True") == "True"
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = "static/"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+
+# Formulaire candidature (CV en mémoire, pas de stockage disque)
+DATA_UPLOAD_MAX_MEMORY_SIZE = 10 * 1024 * 1024  # 10 Mo
+FILE_UPLOAD_MAX_MEMORY_SIZE = 10 * 1024 * 1024
 
 
 # bootstrap messages configuration

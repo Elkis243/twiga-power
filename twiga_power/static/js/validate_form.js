@@ -1,96 +1,103 @@
-// Exécution du script une fois que tout le DOM est chargé
-document.addEventListener('DOMContentLoaded', () => {
-    // Sélection du formulaire personnalisé avec validation
-    const form = document.querySelector('#customValidationForm');
-  
-    // Récupération de tous les champs du formulaire (inputs, textarea, select)
-    const inputs = form.querySelectorAll('input, textarea, select');
-  
-    // Gestion de la soumission du formulaire
-    form.addEventListener('submit', (event) => {
-        let isValid = true;
-  
-        // Parcours de tous les champs du formulaire
-        inputs.forEach((input) => {
-            // Si un champ est invalide, on le valide manuellement
-            if (!input.checkValidity()) {
-                isValid = false;
-                validateField(input); // Affiche les erreurs si présentes
-            }
-        });
-  
-        // Si au moins un champ est invalide, on empêche l’envoi du formulaire
-        if (!isValid) {
-            event.preventDefault();
-            event.stopPropagation();
-  
-            // Ajout d’une classe CSS pour styliser les champs invalides (ex: Bootstrap)
-            form.classList.add('was-validated');
-        }
-    });
-  
-    // Ajout d’écouteurs sur chaque champ pour valider automatiquement
-    // lors de la saisie (input) ou lorsqu'on quitte le champ (blur)
+// Validation Bootstrap — formulaires #customValidationForm (contact, postuler, etc.)
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.querySelector("#customValidationForm");
+  if (!form) return;
+
+  const inputs = form.querySelectorAll("input, textarea, select");
+
+  function getInvalidFeedback(field) {
+    let el = field.nextElementSibling;
+    while (el && !el.classList.contains("invalid-feedback")) {
+      el = el.nextElementSibling;
+    }
+    return el;
+  }
+
+  function validateField(field) {
+    const feedback = getInvalidFeedback(field);
+    if (!feedback) return;
+
+    if (field.validity.valid) {
+      field.classList.remove("is-invalid");
+      field.classList.add("is-valid");
+      feedback.textContent = "";
+    } else {
+      field.classList.remove("is-valid");
+      field.classList.add("is-invalid");
+
+      if (field.validity.valueMissing) {
+        feedback.textContent = "Ce champ ne peut pas être laissé vide !";
+      } else if (field.validity.customError) {
+        feedback.textContent = field.validationMessage;
+      } else if (field.validity.tooShort) {
+        feedback.textContent = `Ce champ doit contenir au moins ${field.minLength || 0} caractères !`;
+      } else if (field.validity.tooLong) {
+        feedback.textContent = `Ce champ ne doit pas dépasser ${field.maxLength || 0} caractères !`;
+      } else if (field.validity.patternMismatch) {
+        feedback.textContent = "Veuillez respecter le format requis pour ce champ !";
+      } else if (field.type === "radio" && !isRadioGroupValid(field)) {
+        feedback.textContent = "Ce champ ne peut pas être laissé vide !";
+      } else if (field.type === "checkbox" && !isCheckboxValid(field)) {
+        feedback.textContent = "Ce champ ne peut pas être laissé vide !";
+      } else {
+        feedback.textContent = "Ce champ est invalide !";
+      }
+    }
+  }
+
+  function isRadioGroupValid(radio) {
+    const radioGroup = document.querySelectorAll(`input[name="${radio.name}"]`);
+    return Array.from(radioGroup).some((r) => r.checked);
+  }
+
+  function isCheckboxValid(checkbox) {
+    return checkbox.checked;
+  }
+
+  form.addEventListener("submit", (event) => {
     inputs.forEach((input) => {
-        input.addEventListener('input', () => validateField(input));
-        input.addEventListener('blur', () => validateField(input));
-    });
-  
-    /**
-     * Fonction de validation personnalisée d’un champ
-     * @param {HTMLElement} field - Champ à valider
-     */
-    function validateField(field) {
-        let feedback = field.nextElementSibling; // Élément suivant pour le message d’erreur
-  
-        if (!feedback) return; // Si pas de feedback (ex: <div class="invalid-feedback">), on quitte
-  
-        // Si le champ est valide, on met les bonnes classes et on vide le message
-        if (feedback && field.validity.valid) {
-            field.classList.remove("is-invalid");
-            field.classList.add("is-valid");
-            feedback.textContent = '';
+      if (input.type === "file" && input.hasAttribute("data-max-bytes")) {
+        const max = parseInt(input.getAttribute("data-max-bytes"), 10);
+        if (input.files && input.files[0] && input.files[0].size > max) {
+          const msg =
+            input.getAttribute("data-msg-max-size") ||
+            "Le fichier ne doit pas dépasser 5 Mo.";
+          input.setCustomValidity(msg);
         } else {
-            // Sinon, on marque le champ comme invalide
-            field.classList.remove("is-valid");
-            field.classList.add("is-invalid");
-  
-            // Affichage de messages d’erreur personnalisés selon le type d'erreur
-            if (field.validity.valueMissing) {
-                feedback.textContent = `Ce champ ne peut pas être laissé vide !`;
-            } else if (field.validity.tooShort) {
-                feedback.textContent = `Ce champ doit contenir au moins ${field.minLength || 0} caractères !`;
-            } else if (field.validity.tooLong) {
-                feedback.textContent = `Ce champ ne doit pas dépasser ${field.maxLength || 0} caractères !`;
-            } else if (field.validity.patternMismatch) {
-                feedback.textContent = `Veuillez respecter le format requis pour ce champ !`;
-            } else if (field.type === 'radio' && !isRadioGroupValid(field)) {
-                feedback.textContent = `Ce champ ne peut pas être laissé vide !`;
-            } else if (field.type === 'checkbox' && !isCheckboxValid(field)) {
-                feedback.textContent = `Ce champ ne peut pas être laissé vide !`;
-            } else {
-                feedback.textContent = `Ce champ est invalide !`;
-            }
+          input.setCustomValidity("");
         }
-    }
-  
-    /**
-     * Vérifie si au moins une option est sélectionnée dans un groupe de boutons radio
-     * @param {HTMLInputElement} radio - Un des boutons radio du groupe
-     * @returns {boolean} - true si au moins un est coché
-     */
-    function isRadioGroupValid(radio) {
-        const radioGroup = document.querySelectorAll(`input[name="${radio.name}"]`);
-        return Array.from(radioGroup).some(radio => radio.checked);
-    }
-  
-    /**
-     * Vérifie si une case à cocher est bien cochée
-     * @param {HTMLInputElement} checkbox
-     * @returns {boolean}
-     */
-    function isCheckboxValid(checkbox) {
-        return checkbox.checked;
+      }
+    });
+
+    let isValid = true;
+    inputs.forEach((input) => {
+      if (!input.checkValidity()) {
+        isValid = false;
+        validateField(input);
+      } else {
+        validateField(input);
+      }
+    });
+
+    if (!isValid) {
+      event.preventDefault();
+      event.stopPropagation();
+      form.classList.add("was-validated");
     }
   });
-  
+
+  inputs.forEach((input) => {
+    const handler = () => {
+      if (input.type === "file") {
+        input.setCustomValidity("");
+      }
+      validateField(input);
+    };
+    if (input.type === "file") {
+      input.addEventListener("change", handler);
+    } else {
+      input.addEventListener("input", handler);
+    }
+    input.addEventListener("blur", () => validateField(input));
+  });
+});

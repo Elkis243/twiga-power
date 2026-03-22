@@ -2,7 +2,7 @@
 {% load static i18n %}
 {% block base %}
 {% include "components/navbar.html" %}
-<div id="heroCarousel" class="carousel slide hero-carousel mb-5" data-bs-ride="carousel" data-bs-interval="7000">
+<div id="heroCarousel" class="carousel slide hero-carousel mb-4" data-bs-ride="carousel" data-bs-interval="10000">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
     <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
@@ -13,10 +13,10 @@
       <div class="carousel-caption">
         <div class="row">
           <div class="col-9 col-md-8 mx-5">
-            <h1 class="lead fs-1 lh-sm mb-3" data-sal="slide-up" data-sal-duration="500" data-sal-delay="100">
+            <p class="display-5 fw-medium lh-sm mb-3" data-sal="slide-up" data-sal-duration="500" data-sal-delay="100">
               {% blocktrans %}Au coeur de la relance energétique de la RD Congo.{% endblocktrans %}
-            </h1>
-            <p data-sal="slide-up fs-4" data-sal-duration="800" data-sal-delay="100">
+            </p>
+            <p class="fs-4" data-sal="slide-up" data-sal-duration="800" data-sal-delay="100">
               {% blocktrans %}Découvrez comment Twiga Power transforme chaque watt en progrès et opportunités pour tous{% endblocktrans %}
             </p>
             <a href="{% url 'about' %}" class="btn btn-primary btn-arrow">
@@ -30,10 +30,10 @@
       <div class="carousel-caption">
         <div class="row">
           <div class="col-9 col-md-8 mx-5">
-            <h1 class="lead fs-1 lh-sm mb-3" data-sal="slide-up" data-sal-duration="500" data-sal-delay="100">
+            <p class="display-5 fw-medium lh-sm mb-3" data-sal="slide-up" data-sal-duration="500" data-sal-delay="100">
               {% blocktrans %}L’électricité qui unit villes et villages.{% endblocktrans %}
-            </h1>
-            <p data-sal="slide-up" data-sal-duration="800" data-sal-delay="100">
+            </p>
+            <p class="fs-4" data-sal="slide-up" data-sal-duration="800" data-sal-delay="100">
               {% blocktrans %}Des solutions modernes et durables pour connecter villes et villages à une électricité fiable{% endblocktrans %}
             </p>
             <a href="{% url 'home' %}#services" class="btn btn-primary btn-arrow">
@@ -47,10 +47,10 @@
       <div class="carousel-caption">
         <div class="row">
           <div class="col-9 col-md-8 mx-5">
-            <h1 class="lead fs-1 lh-sm mb-3" data-sal="slide-up" data-sal-duration="500" data-sal-delay="100">
+            <p class="display-5 fw-medium lh-sm mb-3" data-sal="slide-up" data-sal-duration="500" data-sal-delay="100">
               {% blocktrans %}Ensemble, faisons briller l’avenir.{% endblocktrans %}
-            </h1>
-            <p data-sal="slide-up" data-sal-duration="800" data-sal-delay="100">
+            </p>
+            <p class="fs-4" data-sal="slide-up" data-sal-duration="800" data-sal-delay="100">
               {% blocktrans %}Twiga Power, partenaire engagé pour stimuler le développement économique et améliorer les conditions de vie{% endblocktrans %}
             </p>
             <a href="{% url 'contact' %}" class="btn btn-primary btn-arrow">
@@ -164,7 +164,7 @@
               <li class="mb-2">{% trans "Réduction des plaintes et amélioration de la satisfaction" %}</li>
             </ul>
             <div class="mt-auto pt-2">
-              <a href="{% url 'champ_activité' %}#services" class="btn btn-outline-primary btn-sm w-100">En savoir plus</a>
+              <a href="{% url 'champ_activité' %}#services" class="btn btn-outline-primary btn-sm w-100">{% trans "En savoir plus" %}</a>
             </div>
           </div>
         </div>
@@ -172,7 +172,7 @@
     </div>
   </div>
 </section>
-<section class="bg-color p-5">
+<section class="bg-color py-5 px-3 px-md-4">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-10">
@@ -221,7 +221,7 @@
     </div>
   </div>
 </section>
-<section class="p-5 bg-body-secondary">
+<section class="py-5 px-3 px-md-4 bg-body-secondary">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-10">
@@ -244,9 +244,9 @@
               <div
                 class="project-footer d-flex justify-content-between align-items-center p-2 rounded-bottom position-absolute w-100 bottom-0 bg-color opacity-75">
                 <p class="text-white mb-0">{% trans "Site Kibombo" %}</p>
-                <a href="{% url 'detail_project' project_id=1 %}"
-                  class="btn btn-light rounded-circle d-flex align-items-center justify-content-center">
-                  <i class="bi bi-arrow-right-short"></i>
+                <a href="{% url 'detail_project' project_id=1 %}" class="project-card__link"
+                  aria-label="{% trans 'Voir le projet' %} — {% trans 'Site Kibombo' %}">
+                  <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
                 </a>
               </div>
             </div>
@@ -257,9 +257,9 @@
               <div
                 class="project-footer d-flex justify-content-between align-items-center p-2 rounded-bottom position-absolute w-100 bottom-0 bg-color opacity-75">
                 <p class="text-white mb-0">{% trans "Site Nondo" %}</p>
-                <a href="{% url 'detail_project' project_id=2 %}"
-                  class="btn btn-light rounded-circle d-flex align-items-center justify-content-center">
-                  <i class="bi bi-arrow-right-short"></i>
+                <a href="{% url 'detail_project' project_id=2 %}" class="project-card__link"
+                  aria-label="{% trans 'Voir le projet' %} — {% trans 'Site Nondo' %}">
+                  <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
                 </a>
               </div>
             </div>
@@ -270,9 +270,9 @@
               <div
                 class="project-footer d-flex justify-content-between align-items-center p-2 rounded-bottom position-absolute w-100 bottom-0 bg-color opacity-75">
                 <p class="text-white mb-0">{% trans "Site Kilwani" %}</p>
-                <a href="{% url 'detail_project' project_id=3 %}"
-                  class="btn btn-light rounded-circle d-flex align-items-center justify-content-center">
-                  <i class="bi bi-arrow-right-short"></i>
+                <a href="{% url 'detail_project' project_id=3 %}" class="project-card__link"
+                  aria-label="{% trans 'Voir le projet' %} — {% trans 'Site Kilwani' %}">
+                  <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
                 </a>
               </div>
             </div>
@@ -282,20 +282,57 @@
     </div>
   </div>
 </section>
-<section class="container p-5">
+<section id="partners" class="partners-section container px-4 mb-5 py-5" aria-labelledby="partners-heading">
   <div class="row justify-content-center">
     <div class="col-md-10">
-      <div class="row d-flex justify-content-between gap-1 gy-4 align-items-center h-100">
-        <div class="col-md-5" data-sal="slide-up" data-sal-duration="800" data-sal-delay="500">
-          <p class="text-color h3 text-start text-lg-end mb-3">
-            {% blocktrans %}Nous travaillons avec les meilleurs partenaires{% endblocktrans %}
+      <div class="row align-items-center g-4 g-xl-5">
+        <div class="col-12 col-lg-5 partners-section__text-col text-center text-lg-start">
+          <p class="partners-section__eyebrow text-uppercase mb-2">
+            {% trans "Nos partenaires" %}
           </p>
-          <p class="text-muted text-start text-lg-end">
+          <div class="partners-section__accent-line mx-auto mx-lg-0" aria-hidden="true"></div>
+          <h2 id="partners-heading" class="partners-section__title mt-3 mb-3">
+            {% blocktrans %}Nous travaillons avec les meilleurs partenaires{% endblocktrans %}
+          </h2>
+          <p class="partners-section__lead mb-0">
             {% blocktrans %}Avec nos partenaires de confiance, Twiga Power offre des solutions énergétiques fiables et durables pour construire un avenir meilleur.{% endblocktrans %}
           </p>
         </div>
-        <div class="col-md-6">
-          <img src="{% static 'images/partners.png' %}" alt="image partenaire" class="img-fluid" />
+        <div
+          class="col-12 col-lg-7 partners-section__logos-col text-center"
+          data-sal="fade"
+          data-sal-duration="600"
+          data-sal-delay="100"
+        >
+          {% include "components/partners_logos_grid.html" %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="devis" class="quote-cta mb-5" aria-labelledby="quote-cta-heading">
+  <div class="container px-4">
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        <div class="quote-cta__panel rounded-4 p-4 p-lg-5">
+          <div class="row align-items-center g-4 g-lg-5">
+            <div class="col-lg-8 text-center text-lg-start">
+              <p class="quote-cta__eyebrow text-uppercase mb-2">
+                {% trans "Votre projet" %}
+              </p>
+              <h2 id="quote-cta-heading" class="quote-cta__title text-white mb-3">
+                {% trans "Demander un devis" %}
+              </h2>
+              <p class="quote-cta__text text-white mb-0">
+                {% blocktrans %}Expliquez-nous votre besoin en énergie : notre équipe vous répondra avec une proposition adaptée à votre projet.{% endblocktrans %}
+              </p>
+            </div>
+            <div class="col-lg-4 text-center text-lg-end">
+              <a href="{% url 'contact' %}" class="btn btn-quote-accent">
+                {% trans "Demander un devis" %} <i class="bi bi-arrow-right-short"></i>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 {% load static i18n %}
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
   <head>
     <!-- Google tag (gtag.js) -->
@@ -57,7 +57,7 @@
     <meta name="twitter:image" content="https://{{ request.get_host }}{% static 'images/logo.png' %}" />
     <meta name="twitter:image:alt" content="Site officiel de Twiga Power SARL" />
 
-      <!-- Favicon - Configuration complète -->
+    <!-- Favicon - Configuration complète -->
     <!-- Favicon standard -->
     <link rel="icon" type="image/x-icon" href="{% static 'images/favicon/favicon.ico' %}" />
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon/favicon.ico' %}" />
@@ -73,7 +73,6 @@
 
     <!-- Web App Manifest -->
     <link rel="manifest" href="{% static 'images/favicon/site.webmanifest' %}" />
-
 
     <!-- Theme Colors -->
     <meta name="theme-color" content="#022f54" />
@@ -146,5 +145,6 @@
         easing: "ease-in-out",
       });
     </script>
+    {% block extra_js %}{% endblock %}
   </body>
 </html>

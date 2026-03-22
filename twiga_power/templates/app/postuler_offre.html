@@ -1,0 +1,139 @@
+{% extends "base.html" %} {% load static i18n %} {% block extra_js %}
+<script src="{% static 'js/cv-upload.js' %}"></script>
+<script src="{% static 'js/validate_form.js' %}"></script>
+{% endblock %} {% block base %} {% include "components/navbar.html" %}
+<div class="header-contact mb-4">
+  <div class="d-flex flex-column justify-content-center align-items-center text-center px-3">
+    <h1 class="text-white mb-0">{% trans "Postuler" %}</h1>
+    <div class="project-detail__title-accent mt-3" aria-hidden="true"></div>
+  </div>
+</div>
+<section class="recruitment-apply py-5 px-3 px-md-4">
+  <div class="container mb-5 px-3 px-md-4 py-4 py-md-5">
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        <div class="row">
+          <div class="col-md-6">
+            {% if messages %} {% for message in messages %}
+            <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
+              <strong>{% trans "Message !" %}</strong> {{ message }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %} {% endif %}
+            <h3 class="h5 text-color mb-3">{% trans "Votre candidature" %}</h3>
+            <form action="{% url 'postuler_offre' offre.slug %}" method="post" enctype="multipart/form-data" class="needs-validation" novalidate id="customValidationForm">
+              {% csrf_token %}
+              <div class="row">
+                <div class="col-md-6 my-2">
+                  <label for="prenom" class="form-label">{% trans "Prénom" %}</label>
+                  <input type="text" class="form-control" id="prenom" name="prenom" placeholder="{% trans 'Votre prénom' %}" required minlength="2" maxlength="100" pattern="^[^\d]+$" />
+                  <div class="invalid-feedback">{% trans "Prénom requis !" %}</div>
+                </div>
+                <div class="col-md-6 my-2">
+                  <label for="nom" class="form-label">{% trans "Nom" %}</label>
+                  <input type="text" class="form-control" id="nom" name="nom" placeholder="{% trans 'Votre nom' %}" required />
+                  <div class="invalid-feedback">{% trans "Nom requis !" %}</div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 my-2">
+                  <label for="telephone" class="form-label">{% trans "Téléphone" %}</label>
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="telephone"
+                    name="telephone"
+                    placeholder="{% trans 'Téléphone' %}"
+                    required
+                    pattern="^\+?[0-9]{9,15}$"
+                    title="{% trans 'Veuillez entrer un numéro de téléphone valide (9 à 15 chiffres, avec ou sans +)' %}"
+                  />
+                  <div class="invalid-feedback"></div>
+                </div>
+                <div class="col-md-6 my-2">
+                  <label for="address" class="form-label">{% trans "Adresse mail" %}</label>
+                  <input type="text" class="form-control" id="address" name="address" placeholder="{% trans 'Votre adresse' %}" required minlength="2" maxlength="100" />
+                  <div class="invalid-feedback">{% trans "Adresse requise !" %}</div>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col">
+                  <label for="lettre_motivation" class="form-label">{% trans "Lettre de motivation" %}</label>
+                  <textarea
+                    class="form-control"
+                    id="lettre_motivation"
+                    name="lettre_motivation"
+                    rows="5"
+                    placeholder="{% trans 'Présentez votre parcours et votre motivation pour ce poste…' %}"
+                    required
+                    minlength="10"
+                    maxlength="700"
+                  ></textarea>
+                  <div class="invalid-feedback"></div>
+                </div>
+              </div>
+              <div class="mb-4">
+                <p class="form-label mb-2" id="cv-field-label">{% trans "Curriculum vitae (5 Mo maximum)" %}</p>
+                <div class="cv-upload w-100" id="cv-upload-root" aria-labelledby="cv-field-label">
+                  <input
+                    type="file"
+                    name="cv"
+                    id="id_cv"
+                    class="cv-upload__input visually-hidden"
+                    accept=".pdf,application/pdf"
+                    required
+                    aria-label="{% trans 'Joindre votre CV au format PDF' %}"
+                    data-max-bytes="5242880"
+                    data-msg-max-size="{% trans 'Le fichier ne doit pas dépasser 5 Mo.' %}"
+                  />
+                  <div class="invalid-feedback d-block" id="cv-feedback-client" role="alert"></div>
+                  <label for="id_cv" class="cv-upload__drop mb-0">
+                    <span class="cv-upload__placeholder" id="cv-placeholder">
+                      <span class="cv-upload__drop-inner">
+                        <i class="bi bi-arrow-up cv-upload__arrow" aria-hidden="true"></i>
+                        <span class="cv-upload__intro-title">{% trans "Joindre votre CV au format PDF" %}</span>
+                      </span>
+                    </span>
+                    <span class="cv-upload__picked" id="cv-picked">
+                      <span class="cv-upload__filename" id="cv-filename-display">
+                        <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                        <span id="cv-filename-text"></span>
+                      </span>
+                      <span class="cv-upload__change-hint">{% trans "Cliquer pour remplacer le fichier" %}</span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary">{% trans "Envoyer ma candidature" %}</button>
+            </form>
+          </div>
+          <div class="col-md-6">
+            <div class="rounded-3 p-4 bg-white shadow-sm border-0 recruitment-apply__recap">
+              <h2 class="h5 text-color fw-semibold mb-3">{{ offre.titre }}</h2>
+              <p class="recruitment-offre-card__meta text-muted mb-2">
+                <i class="bi bi-geo-alt text-accent me-1"></i>{{ offre.lieu }} &nbsp;·&nbsp;
+                <span class="recruitment-offre-card__contract">{{ offre.get_type_contrat_display }}</span>
+              </p>
+              <p class="recruitment-offre-card__meta text-muted mb-3">
+                <i class="bi bi-calendar-event text-accent me-1"></i>
+                {% trans "Date limite" %} : {{ offre.date_limite|date:"d/m/Y" }} &nbsp;·&nbsp; {% trans "Postes" %} : {{ offre.nombre_postes }}
+              </p>
+              <div class="recruitment-offre-card__description text-muted mb-0 recruitment-apply__offer-body">{{ offre.description|linebreaksbr }}</div>
+              {% with profils=offre.profilerecherche_set.all %} {% if profils %}
+              <div class="recruitment-profiles recruitment-apply__profiles mt-3 pt-3 border-top">
+                <p class="recruitment-profiles__heading mb-2">{% trans "Profils recherchés" %}</p>
+                <ul class="list-unstyled recruitment-profiles__list mb-0">
+                  {% for p in profils %}
+                  <li class="mb-2 recruitment-profiles__item ps-1"><i class="bi bi-check2 text-accent me-1" aria-hidden="true"></i>{{ p.description }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+              {% endif %} {% endwith %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% include "components/footer.html" %} {% endblock base %}

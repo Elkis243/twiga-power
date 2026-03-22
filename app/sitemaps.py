@@ -35,6 +35,12 @@ class StaticViewSitemap(Sitemap):
                 7,
             ),  # Projets - haute priorité, mis à jour régulièrement
             (
+                "recrutement",
+                0.8,
+                "weekly",
+                7,
+            ),
+            (
                 "galerie",
                 0.8,
                 "weekly",

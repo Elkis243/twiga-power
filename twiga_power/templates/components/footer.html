@@ -35,7 +35,13 @@
             <a href="{% url 'projects' %}" class="text-white text-decoration-none"><i class="bi bi-chevron-right"></i> {% trans "Projets" %}</a>
           </li>
           <li>
+            <a href="{% url 'recrutement' %}" class="text-white text-decoration-none"><i class="bi bi-chevron-right"></i> {% trans "Recrutement" %}</a>
+          </li>
+          <li>
             <a href="{% url 'about' %}" class="text-white text-decoration-none"><i class="bi bi-chevron-right"></i> {% trans "Qui sommes nous ?" %}</a>
+          </li>
+          <li>
+            <a href="{% url 'home' %}#partners" class="text-white text-decoration-none"><i class="bi bi-chevron-right"></i> {% trans "Nos partenaires" %}</a>
           </li>
           <li>
             <a href="{% url 'contact' %}" class="text-white text-decoration-none"><i class="bi bi-chevron-right"></i> {% trans "Nous contacter" %}</a>
@@ -47,44 +53,56 @@
       </div>
       <div class="col-md-2">
         <p class="h5 lh-sm mb-3">{% trans "Suivez-nous" %}</p>
-        <p>{% trans "Suivez-nous sur nos réseaux sociaux :" %}</p>
-        <div class="d-flex flex-wrap gap-2">
-          <a
-            href="https://www.facebook.com/share/1BdbsnCLaK/"
-            target="_blank"
-            class="d-inline-flex align-items-center justify-content-center rounded-circle bg-white text-primary"
-            style="width: 40px; height: 40px;"
-          >
-            <i class="bi bi-facebook"></i>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/twiga-power-005b1a386?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-            target="_blank"
-            class="d-inline-flex align-items-center justify-content-center rounded-circle bg-white text-primary"
-            style="width: 40px; height: 40px;"
-          >
-            <i class="bi bi-linkedin"></i>
-          </a>
-          <a
-            href="https://x.com/TwigaP73502?t=AWQTb66k7TsJzD50OswUdw&s=09"
-            target="_blank"
-            class="d-inline-flex align-items-center justify-content-center rounded-circle bg-white text-dark"
-            style="width: 40px; height: 40px;"
-          >
-            <i class="bi bi-twitter-x"></i>
-          </a>
-          <a
-            href="https://www.tiktok.com/@twiga.power?_t=ZM-90lXamRCgRs&_r=1"
-            target="_blank"
-            class="d-inline-flex align-items-center justify-content-center rounded-circle bg-white text-dark"
-            style="width: 40px; height: 40px;"
-          >
-            <i class="bi bi-tiktok"></i>
-          </a>
-        </div>
+        <p class="small mb-3 text-white opacity-75">{% trans "Suivez-nous sur nos réseaux sociaux :" %}</p>
+        <ul class="social-links list-unstyled mb-0">
+          <li>
+            <a
+              href="https://www.facebook.com/share/1BdbsnCLaK/"
+              class="social-links__link"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+            >
+              <i class="bi bi-facebook" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/twiga-power-005b1a386?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+              class="social-links__link"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <i class="bi bi-linkedin" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://x.com/TwigaP73502?t=AWQTb66k7TsJzD50OswUdw&s=09"
+              class="social-links__link"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="X (Twitter)"
+            >
+              <i class="bi bi-twitter-x" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.tiktok.com/@twiga.power?_t=ZM-90lXamRCgRs&_r=1"
+              class="social-links__link"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="TikTok"
+            >
+              <i class="bi bi-tiktok" aria-hidden="true"></i>
+            </a>
+          </li>
+        </ul>
         <div class="mt-3">
           <div
-            class="btn-group btn-group-sm bg-white bg-opacity-10 rounded-pill p-1"
+            class="lang-switcher lang-switcher--footer"
             role="group"
             aria-label="{% trans 'Sélecteur de langue' %}"
           >
@@ -95,7 +113,7 @@
                 type="submit"
                 name="language"
                 value="fr"
-                class="btn btn-outline-light border-0 px-3 rounded-pill {% if CURRENT_LANGUAGE == 'fr' %}active{% endif %}"
+                class="lang-switcher__btn {% if CURRENT_LANGUAGE == 'fr' %}is-active{% endif %}"
               >
                 FR
               </button>
@@ -107,7 +125,7 @@
                 type="submit"
                 name="language"
                 value="en"
-                class="btn btn-outline-light border-0 px-3 rounded-pill {% if CURRENT_LANGUAGE == 'en' %}active{% endif %}"
+                class="lang-switcher__btn {% if CURRENT_LANGUAGE == 'en' %}is-active{% endif %}"
               >
                 EN
               </button>

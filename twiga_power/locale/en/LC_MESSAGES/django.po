@@ -17,11 +17,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: twiga_power/templates/app/about.html:4
-#: twiga_power/templates/app/about.html:25
 #: twiga_power/templates/components/navbar.html:40
 msgid "Qui sommes-nous ?"
 msgstr "Who are we?"
+
+#: app/views.py:102
+#: twiga_power/templates/app/about.html:4
+#: twiga_power/templates/app/about.html:25
+msgid "Notre histoire"
+msgstr "Our story"
 
 #: twiga_power/templates/app/about.html:17
 msgid "Directeur Général"
@@ -637,17 +641,59 @@ msgstr "Nondo site"
 msgid "Site Kilwani"
 msgstr "Kilwani site"
 
-#: twiga_power/templates/app/home.html:296
+#: twiga_power/templates/app/home.html:290
+#: twiga_power/templates/components/footer.html:41
+#: twiga_power/templates/components/navbar.html:41
+msgid "Nos partenaires"
+msgstr "Our partners"
+
+#: app/views.py:13
+msgid "Logo partenaire 1"
+msgstr "Partner 1 logo"
+
+#: app/views.py:14
+msgid "Logo partenaire 2"
+msgstr "Partner 2 logo"
+
+#: app/views.py:15
+msgid "Logo partenaire 3"
+msgstr "Partner 3 logo"
+
+#: app/views.py:16
+msgid "Logo partenaire 4"
+msgstr "Partner 4 logo"
+
+#: app/views.py:17
+msgid "Logo partenaire 5"
+msgstr "Partner 5 logo"
+
+#: twiga_power/templates/app/home.html:292
 msgid "Nous travaillons avec les meilleurs partenaires"
 msgstr "We work with the best partners"
 
-#: twiga_power/templates/app/home.html:299
+#: twiga_power/templates/app/home.html:295
 msgid ""
 "Avec nos partenaires de confiance, Twiga Power offre des solutions "
 "énergétiques fiables et durables pour construire un avenir meilleur."
 msgstr ""
 "With our trusted partners, Twiga Power provides reliable, sustainable energy "
 "solutions to build a better future."
+
+#: twiga_power/templates/app/home.html:321
+msgid "Votre projet"
+msgstr "Your project"
+
+#: twiga_power/templates/app/home.html:324 twiga_power/templates/app/home.html:332
+msgid "Demander un devis"
+msgstr "Request a quote"
+
+#: twiga_power/templates/app/home.html:327
+msgid ""
+"Expliquez-nous votre besoin en énergie : notre équipe vous répondra avec une "
+"proposition adaptée à votre projet."
+msgstr ""
+"Tell us about your energy needs: our team will respond with a proposal "
+"tailored to your project."
 
 #: twiga_power/templates/app/projects.html:7
 msgid "Nos projets pilotes"
@@ -705,6 +751,10 @@ msgstr "Projects"
 msgid "Galerie"
 msgstr "Gallery"
 
+#: twiga_power/templates/app/galerie.html
+msgid "Galerie de photos"
+msgstr "Photo gallery"
+
 #: twiga_power/templates/components/footer.html:49
 msgid "Suivez-nous"
 msgstr "Follow us"
@@ -729,6 +779,237 @@ msgstr "Design by"
 #: twiga_power/templates/components/navbar.html:38
 msgid "A propos"
 msgstr "About"
+
+#: twiga_power/templates/app/home.html
+#: twiga_power/templates/app/projects.html
+msgid "Voir le projet"
+msgstr "View project"
+
+#: twiga_power/templates/app/detail_project_construction.html
+msgid "Accueil"
+msgstr "Home"
+
+#: twiga_power/templates/app/detail_project_construction.html
+msgid "Centrale hydroélectrique"
+msgstr "Hydroelectric plant"
+
+#: twiga_power/templates/app/detail_project_construction.html
+msgid "Retour aux projets"
+msgstr "Back to projects"
+
+#: app/views.py
+msgid "Projet introuvable"
+msgstr "Project not found"
+
+#: twiga_power/templates/components/navbar.html
+#: twiga_power/templates/components/footer.html
+#: twiga_power/templates/app/recrutement.html
+msgid "Recrutement"
+msgstr "Careers"
+
+#: twiga_power/templates/app/recrutement.html
+msgid ""
+"Rejoignez des équipes engagées pour des projets d'énergie à fort impact sur "
+"le continent. Parcourez les postes ouverts ci-dessous et postulez en ligne."
+msgstr ""
+"Join teams working on high-impact energy projects across the continent. "
+"Browse open positions below and apply online."
+
+#: twiga_power/templates/app/recrutement.html
+msgid "Date limite"
+msgstr "Deadline"
+
+#: twiga_power/templates/app/recrutement.html
+msgid "Postes"
+msgstr "Positions"
+
+#: twiga_power/templates/app/recrutement.html
+msgid "Profils recherchés"
+msgstr "Profiles sought"
+
+#: twiga_power/templates/app/recrutement.html
+msgid "Afficher ou masquer les profils recherchés"
+msgstr "Show or hide sought profiles"
+
+#: twiga_power/templates/app/recrutement.html
+msgid "Postuler maintenant"
+msgstr "Apply now"
+
+#: app/views.py
+#: twiga_power/templates/app/postuler_offre.html
+msgid "Postuler"
+msgstr "Apply"
+
+#: twiga_power/templates/app/postuler_offre.html
+msgid "Offre"
+msgstr "Position"
+
+#: twiga_power/templates/app/postuler_offre.html
+msgid "Retour aux offres"
+msgstr "Back to openings"
+
+#: twiga_power/templates/app/postuler_offre.html
+msgid "Votre candidature"
+msgstr "Your application"
+
+#: twiga_power/templates/app/postuler_offre.html
+msgid ""
+"Renseignez le formulaire ci-dessous. Votre CV doit être au format PDF (5 Mo "
+"maximum)."
+msgstr ""
+"Fill in the form below. Your CV must be in PDF format (5 MB maximum)."
+
+#: twiga_power/templates/app/postuler_offre.html
+msgid "Envoyer ma candidature"
+msgstr "Submit my application"
+
+#: twiga_power/templates/app/postuler_offre.html
+msgid "Prénom"
+msgstr "First name"
+
+#: twiga_power/templates/app/postuler_offre.html
+msgid "Nom"
+msgstr "Last name"
+
+#: twiga_power/templates/app/postuler_offre.html
+msgid "Adresse e-mail"
+msgstr "Email address"
+
+#: twiga_power/templates/app/postuler_offre.html
+msgid "Lettre de motivation"
+msgstr "Cover letter"
+
+#: twiga_power/templates/app/postuler_offre.html
+msgid "Votre prénom"
+msgstr "Your first name"
+
+#: twiga_power/templates/app/postuler_offre.html
+msgid "Votre nom"
+msgstr "Your last name"
+
+#: twiga_power/templates/app/postuler_offre.html
+msgid "Votre numéro de téléphone"
+msgstr "Your phone number"
+
+#: twiga_power/templates/app/postuler_offre.html
+msgid "Présentez votre parcours et votre motivation pour ce poste…"
+msgstr "Describe your background and motivation for this role…"
+
+#: twiga_power/templates/app/postuler_offre.html
+msgid "CV"
+msgstr "CV"
+
+#: twiga_power/templates/app/postuler_offre.html
+msgid "Déposer le CV"
+msgstr "Drop your CV"
+
+#: twiga_power/templates/app/postuler_offre.html
+msgid "PDF · 5 Mo max"
+msgstr "PDF · 5 MB max"
+
+#: twiga_power/templates/app/postuler_offre.html
+msgid "Cliquer pour remplacer le fichier"
+msgstr "Click to replace the file"
+
+#: twiga_power/templates/app/postuler_offre.html
+msgid "Curriculum vitae (5 Mo maximum)"
+msgstr "Curriculum vitae (5 MB maximum)"
+
+#: twiga_power/templates/app/postuler_offre.html
+msgid "Joindre votre CV au format PDF"
+msgstr "Attach your CV in PDF format"
+
+#: twiga_power/templates/app/postuler_offre.html
+msgid "Prénom requis !"
+msgstr "First name required!"
+
+#: twiga_power/templates/app/postuler_offre.html
+msgid "Adresse mail"
+msgstr "Email address"
+
+#: twiga_power/templates/app/postuler_offre.html
+msgid "PDF uniquement, 5 Mo maximum."
+msgstr "PDF only, 5 MB maximum."
+
+#: app/views.py
+msgid "Le prénom est obligatoire."
+msgstr "First name is required."
+
+#: app/views.py
+msgid "Le nom est obligatoire."
+msgstr "Last name is required."
+
+#: app/views.py
+msgid "L’adresse e-mail est obligatoire."
+msgstr "Email address is required."
+
+#: app/views.py
+msgid "Adresse e-mail invalide."
+msgstr "Invalid email address."
+
+#: app/views.py
+msgid "Le téléphone est obligatoire."
+msgstr "Phone number is required."
+
+#: app/views.py
+msgid "La lettre de motivation est obligatoire."
+msgstr "Cover letter is required."
+
+#: app/views.py
+msgid "Veuillez joindre votre CV au format PDF."
+msgstr "Please attach your CV in PDF format."
+
+#: app/views.py
+msgid "Le fichier ne doit pas dépasser 5 Mo."
+msgstr "The file must not exceed 5 MB."
+
+#: app/views.py
+msgid "Seuls les fichiers PDF sont acceptés."
+msgstr "Only PDF files are accepted."
+
+#: app/views.py
+msgid "L’envoi de l’e-mail a échoué. Référence : %(err)s"
+msgstr "Sending the email failed. Reference: %(err)s"
+
+#: app/views.py
+msgid ""
+"Votre candidature a bien été envoyée. Nous vous contacterons dans les "
+"meilleurs délais."
+msgstr ""
+"Your application has been sent successfully. We will get back to you as "
+"soon as possible."
+
+#: twiga_power/templates/app/recrutement.html
+msgid ""
+"Aucune offre publiée pour le moment. Revenez bientôt ou contactez-nous pour "
+"une candidature spontanée."
+msgstr ""
+"There are no openings at the moment. Check back soon or contact us for an "
+"unsolicited application."
+
+#: app/models.py
+msgid "CDI"
+msgstr "Permanent contract"
+
+#: app/models.py
+msgid "CDD"
+msgstr "Fixed-term contract"
+
+#: app/models.py
+msgid "Stage"
+msgstr "Internship"
+
+#: app/models.py
+msgid "Brouillon"
+msgstr "Draft"
+
+#: app/models.py
+msgid "Publié"
+msgstr "Published"
+
+#: app/models.py
+msgid "Expiré"
+msgstr "Expired"
 
 #~ msgid "Langue"
 #~ msgstr "Language"

@@ -1,7 +1,8 @@
 {% extends "base.html" %} {% load static i18n %} {% block base %} {% include "components/navbar.html" %}
 <div class="header-contact mb-4">
-  <div class="d-flex justify-content-center align-items-center">
-    <h1 class="text-white"># {% trans "Notre champ d'activité !" %}</h1>
+  <div class="d-flex flex-column justify-content-center align-items-center text-center px-3">
+    <h1 class="text-white mb-0">{% trans "Notre champ d'activité !" %}</h1>
+    <div class="project-detail__title-accent mt-3" aria-hidden="true"></div>
   </div>
 </div>
 <section class="mt-5 p-2 mb-5">

@@ -16,6 +16,12 @@ urlpatterns = [
     path("about/", about, name="about"),
     path("champ_activité/", champ_activité, name="champ_activité"),
     path("projects/", projects, name="projects"),
+    path("recrutement/", recrutement, name="recrutement"),
+    path(
+        "recrutement/offre/<slug:slug>/postuler/",
+        postuler_offre,
+        name="postuler_offre",
+    ),
     path(
         "projet/<int:project_id>/",
         detail_project_construction,
