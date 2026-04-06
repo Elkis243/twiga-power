@@ -1,9 +1,24 @@
 {% load static i18n %}
-{% get_current_language as CURRENT_LANGUAGE %}
+<div class="top-contact-bar">
+  <div class="container top-contact-bar__inner">
+    <a href="tel:+243839302367" class="top-contact-bar__item" aria-label="Téléphone">
+      <i class="bi bi-phone" aria-hidden="true"></i>
+      <span>+243 839 302 367</span>
+    </a>
+    <span class="top-contact-bar__item top-contact-bar__item--address">
+      <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
+      <span>{% trans "Local 1101, Niveau 11 de l'immeuble Luxury Tower, 148/A, Boulevard du 30 juin, Gombe, Kinshasa."%}</span>
+    </span>
+    <a href="mailto:contact@twigapower.com" class="top-contact-bar__item" aria-label="Email de contact">
+      <i class="bi bi-envelope" aria-hidden="true"></i>
+      <span>contact@twigapower.com</span>
+    </a>
+  </div>
+</div>
 <nav class="navbar navbar-expand-md bg-body-tertiary fixed-top">
   <div class="container">
     <a href="{% url 'home' %}" class="navbar-brand mx-3">
-      <img src="{% static 'images/logo.png' %}" alt="Logo Twiga Power" height="auto" width="65" />
+      <img src="{% static 'images/logo.png' %}" alt="Logo Twiga Power" height="auto" width="75" />
     </a>
     <button
       class="navbar-toggler custom-toggler"
@@ -19,65 +34,47 @@
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar">
       <div class="offcanvas-header">
         <a href="" class="navbar-brand mx-3">
-          <img src="{% static 'images/logo.png' %}" alt="Logo Twiga Power" height="auto" width="65" />
+          <img src="{% static 'images/logo.png' %}" alt="Logo Twiga Power" height="auto" width="75" />
         </a>
         <button type="button" class="btn-close custom-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 text-center">
           <li class="nav-item">
-            <a class="nav-link mx-2 px-2 py-2 {% if page == 'Home' %}active-link{% endif %}" href="{% url 'home' %}">{% trans "Home" %}</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link mx-2 px-2 py-2" id="services-link" href="{% url 'home' %}#services">{% trans "Services" %}</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link mx-2 px-2 py-2 {% if page == 'Projets' %}active-link{% endif %}" href="{% url 'projects' %}">{% trans "Projets" %}</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link mx-2 px-2 py-2 {% if page == 'Recrutement' %}active-link{% endif %}" href="{% url 'recrutement' %}">{% trans "Recrutement" %}</a>
+            <a class="nav-link mx-2 px-2 py-2 {% if page == 'Home' %}active-link{% endif %}" href="{% url 'home' %}">{% trans "Accueil" %}</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> {% trans "A propos" %} </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="{% url 'about' %}">{% trans "Qui sommes-nous ?" %}</a></li>
-              <li><a class="dropdown-item" href="{% url 'galerie' %}">{% trans "Galerie" %}</a></li>
+            <a class="nav-link dropdown-toggle mx-2 px-2 py-2 {% if page == 'Notre histoire' %}active-link{% endif %}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+              >{% trans "Qui sommes nous" %}</a
+            >
+            <ul class="dropdown-menu navbar-about-menu dropdown-menu-lg-start mt-2 border-0 shadow-sm rounded-3 p-2">
+              <li>
+                <a class="dropdown-item navbar-about-item py-2 rounded-2" href="{% url 'about' %}#historique">{% trans "Historique" %}</a>
+              </li>
+              <li>
+                <a class="dropdown-item navbar-about-item py-2 rounded-2" href="{% url 'about' %}#presentation">{% trans "Présentation" %}</a>
+              </li>
+              <li>
+                <a class="dropdown-item navbar-about-item py-2 rounded-2" href="{% url 'about' %}#vision-mission">{% trans "Vision et mission" %}</a>
+              </li>
+              <li>
+                <a class="dropdown-item navbar-about-item py-2 rounded-2" href="{% url 'about' %}#ambition-valeurs">{% trans "Ambition et valeurs" %}</a>
+              </li>
+              <li>
+                <a class="dropdown-item navbar-about-item py-2 rounded-2" href="{% url 'about' %}#equipe-dirigeante">{% trans "Équipe dirigeante" %}</a>
+              </li>
             </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-2 px-2 py-2 {% if request.resolver_match.url_name == 'champ_activité' %}active-link{% endif %}" href="{% url 'champ_activité' %}">{% trans "Nos activites" %}</a>
           </li>
           <li class="nav-item">
             <a class="nav-link mx-2 px-2 py-2 {% if page == 'Contact' %}active-link{% endif %}" href="{% url 'contact' %}">{% trans "Nous contacter" %}</a>
           </li>
-          <li class="nav-item d-flex align-items-center justify-content-center mx-2 mt-2 mt-md-0">
-            <div
-              class="lang-switcher"
-              role="group"
-              aria-label="{% trans 'Sélecteur de langue' %}"
+          <li class="nav-item">
+            <a class="nav-link nav-link--alerts rounded-2 mx-2 px-2 py-2 {% if page == 'Recrutement' or page == 'Projets' %}active-link{% endif %}" href="{% url 'recrutement' %}"
+              >{% trans "Alertes et recrutements" %}</a
             >
-              <form action="{% url 'set_language' %}" method="post" class="d-inline">
-                {% csrf_token %}
-                <input type="hidden" name="next" value="{{ request.path }}">
-                <button
-                  type="submit"
-                  name="language"
-                  value="fr"
-                  class="lang-switcher__btn {% if CURRENT_LANGUAGE == 'fr' %}is-active{% endif %}"
-                >
-                  FR
-                </button>
-              </form>
-              <form action="{% url 'set_language' %}" method="post" class="d-inline">
-                {% csrf_token %}
-                <input type="hidden" name="next" value="{{ request.path }}">
-                <button
-                  type="submit"
-                  name="language"
-                  value="en"
-                  class="lang-switcher__btn {% if CURRENT_LANGUAGE == 'en' %}is-active{% endif %}"
-                >
-                  EN
-                </button>
-              </form>
-            </div>
           </li>
         </ul>
       </div>

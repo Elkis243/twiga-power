@@ -1,53 +1,78 @@
-{% load i18n %}
-{% get_current_language as CURRENT_LANGUAGE %}
+{% load i18n %} {% get_current_language as CURRENT_LANGUAGE %}
 <footer class="text-white bg-footer p-5">
   <div class="container">
     <div class="row">
       <div class="col-md-4">
         <p class="h5 lh-sm mb-3">Twiga Power</p>
-        <p>{% trans "Entreprise congolaise spécialisée dans l’électricité, offrant des solutions fiables et durables pour un développement responsable en RDC." %}</p>
+        <p>
+          {% trans "Entreprise congolaise spécialisée dans l’électricité, offrant des solutions fiables et durables pour
+          un développement responsable en RDC." %}
+        </p>
       </div>
       <div class="col-md-3">
         <p class="h5 lh-sm mb-3">{% trans "Coordonnées" %}</p>
-        <p class="mb-1"><i class="bi bi-geo-alt-fill"></i> {% trans "Immeuble Luxury Tower, Local 1101, 148/A Boulevard du 30 Juin, Kinshasa-Gombe, RDC." %}</p>
+        <p class="mb-1">
+          <i class="bi bi-geo-alt-fill"></i> {% trans "Local 1101, Niveau 11 de l'immeuble Luxury Tower, 148/A,
+          Boulevard du 30 juin, Gombe, Kinshasa." %}
+        </p>
         <p class="text-white fw-medium mb-1">
           <i class="bi bi-phone fs-5"></i>
           <a href="tel:+243839302367" class="text-decoration-none text-white" target="_blank">+243 839 302 367</a>
         </p>
         <p class="text-white fw-medium mb-1">
           <i class="bi bi-envelope fs-5"></i>
-          <a href="mailto:contact@twigapower.com" class="text-decoration-none text-white" target="_blank">contact@twigapower.com</a>
+          <a href="mailto:contact@twigapower.com" class="text-decoration-none text-white" target="_blank"
+            >contact@twigapower.com</a
+          >
         </p>
       </div>
       <div class="col-md-3">
         <p class="h5 lh-sm mb-3">{% trans "Liens rapides" %}</p>
         <ul class="list-unstyled">
           <li>
-            <a href="{% url 'home' %}" class="text-white text-decoration-none mb-3"><i class="bi bi-chevron-right"></i> {% trans "Home" %}</a>
+            <a href="{% url 'home' %}" class="text-white text-decoration-none mb-3"
+              ><i class="bi bi-chevron-right"></i> {% trans "Home" %}</a
+            >
           </li>
           <li>
-            <a href="{% url 'home' %}#services" class="text-white text-decoration-none"><i class="bi bi-chevron-right"></i> {% trans "Services" %}</a>
+            <a href="{% url 'home' %}#services" class="text-white text-decoration-none"
+              ><i class="bi bi-chevron-right"></i> {% trans "Services" %}</a
+            >
           </li>
           <li>
-            <a href="{% url 'champ_activité' %}" class="text-white text-decoration-none"><i class="bi bi-chevron-right"></i> {% trans "Champ d'activité" %}</a>
+            <a href="{% url 'champ_activité' %}" class="text-white text-decoration-none"
+              ><i class="bi bi-chevron-right"></i> {% trans "Champ d'activité" %}</a
+            >
           </li>
           <li>
-            <a href="{% url 'projects' %}" class="text-white text-decoration-none"><i class="bi bi-chevron-right"></i> {% trans "Projets" %}</a>
+            <a href="{% url 'projects' %}" class="text-white text-decoration-none"
+              ><i class="bi bi-chevron-right"></i> {% trans "Projets" %}</a
+            >
           </li>
           <li>
-            <a href="{% url 'recrutement' %}" class="text-white text-decoration-none"><i class="bi bi-chevron-right"></i> {% trans "Recrutement" %}</a>
+            <a href="{% url 'recrutement' %}" class="text-white text-decoration-none"
+              ><i class="bi bi-chevron-right"></i> {% trans "Recrutement" %}</a
+            >
           </li>
           <li>
-            <a href="{% url 'about' %}" class="text-white text-decoration-none"><i class="bi bi-chevron-right"></i> {% trans "Qui sommes nous ?" %}</a>
+            <a href="{% url 'about' %}" class="text-white text-decoration-none"
+              ><i class="bi bi-chevron-right"></i> {% trans "Qui sommes nous ?" %}</a
+            >
           </li>
           <li>
-            <a href="{% url 'home' %}#partners" class="text-white text-decoration-none"><i class="bi bi-chevron-right"></i> {% trans "Nos partenaires" %}</a>
+            <a href="{% url 'home' %}#partners" class="text-white text-decoration-none"
+              ><i class="bi bi-chevron-right"></i> {% trans "Nos partenaires" %}</a
+            >
           </li>
           <li>
-            <a href="{% url 'contact' %}" class="text-white text-decoration-none"><i class="bi bi-chevron-right"></i> {% trans "Nous contacter" %}</a>
+            <a href="{% url 'contact' %}" class="text-white text-decoration-none"
+              ><i class="bi bi-chevron-right"></i> {% trans "Nous contacter" %}</a
+            >
           </li>
           <li>
-            <a href="{% url 'galerie' %}" class="text-white text-decoration-none"><i class="bi bi-chevron-right"></i> {% trans "Galerie" %}</a>
+            <a href="{% url 'galerie' %}" class="text-white text-decoration-none"
+              ><i class="bi bi-chevron-right"></i> {% trans "Galerie" %}</a
+            >
           </li>
         </ul>
       </div>
@@ -101,14 +126,10 @@
           </li>
         </ul>
         <div class="mt-3">
-          <div
-            class="lang-switcher lang-switcher--footer"
-            role="group"
-            aria-label="{% trans 'Sélecteur de langue' %}"
-          >
+          <div class="lang-switcher lang-switcher--footer" role="group" aria-label="{% trans 'Sélecteur de langue' %}">
             <form action="{% url 'set_language' %}" method="post" class="d-inline">
               {% csrf_token %}
-              <input type="hidden" name="next" value="{{ request.path }}">
+              <input type="hidden" name="next" value="{{ request.path }}" />
               <button
                 type="submit"
                 name="language"
@@ -120,7 +141,7 @@
             </form>
             <form action="{% url 'set_language' %}" method="post" class="d-inline">
               {% csrf_token %}
-              <input type="hidden" name="next" value="{{ request.path }}">
+              <input type="hidden" name="next" value="{{ request.path }}" />
               <button
                 type="submit"
                 name="language"
@@ -139,7 +160,9 @@
     <p class="fw-medium mt-3">{% trans "© 2025 Twiga Power. Tous droits réservés." %}</p>
     <p class="mt-2 mb-0" style="font-size: 0.85rem; opacity: 0.8">
       {% trans "Design par" %}
-      <a href="mailto:elie.kisudiku@example.com" class="text-white text-decoration-none" style="opacity: 1"> Elie Kisudiku </a>
+      <a href="mailto:elie.kisudiku@example.com" class="text-white text-decoration-none" style="opacity: 1">
+        Elie Kisudiku
+      </a>
     </p>
   </div>
 </footer>

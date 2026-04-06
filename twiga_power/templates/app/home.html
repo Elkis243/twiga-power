@@ -1,7 +1,4 @@
-{% extends "base.html" %}
-{% load static i18n %}
-{% block base %}
-{% include "components/navbar.html" %}
+{% extends "base.html" %} {% load static i18n %} {% block base %} {% include "components/navbar.html" %}
 <div id="heroCarousel" class="carousel slide hero-carousel mb-4" data-bs-ride="carousel" data-bs-interval="10000">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
@@ -88,8 +85,7 @@
             </p>
             <p class="text-muted">
               {% blocktrans %}Notre mission est de rendre l’énergie fiable et accessible partout, des villes aux zones
-              reculées, en contribuant à un avenir de croissance, de progrès et de bien-être pour chaque Congolais.{%
-              endblocktrans %}
+              reculées, en contribuant à un avenir de croissance, de progrès et de bien-être pour chaque Congolais.{% endblocktrans %}
             </p>
             <a href="{% url 'about' %}" class="btn btn-primary btn-arrow">
               {% trans "En savoir plus" %} <i class="bi bi-arrow-right-short"></i>
@@ -126,8 +122,9 @@
               <li class="mb-2">{% trans "Approvisionnement énergétique sûr, durable et résilient" %}</li>
             </ul>
             <div class="mt-auto pt-2">
-              <a href="{% url 'champ_activité' %}#services" class="btn btn-outline-primary btn-sm w-100">{% trans "En
-                savoir plus" %}</a>
+              <a href="{% url 'champ_activité' %}#services" class="btn btn-outline-primary btn-sm w-100"
+                >{% trans "En savoir plus" %}</a
+              >
             </div>
           </div>
         </div>
@@ -142,8 +139,9 @@
               <li class="mb-2">{% trans "Réduction des pertes techniques et sécurisation des lignes" %}</li>
             </ul>
             <div class="mt-auto pt-2">
-              <a href="{% url 'champ_activité' %}#services" class="btn btn-outline-primary btn-sm w-100">{% trans "En
-                savoir plus" %}</a>
+              <a href="{% url 'champ_activité' %}#services" class="btn btn-outline-primary btn-sm w-100"
+                >{% trans "En savoir plus" %}</a
+              >
             </div>
           </div>
         </div>
@@ -158,8 +156,9 @@
               <li class="mb-2">{% trans "Fiabilité et qualité du service pour ménages et entreprises" %}</li>
             </ul>
             <div class="mt-auto pt-2">
-              <a href="{% url 'champ_activité' %}#services" class="btn btn-outline-primary btn-sm w-100">{% trans "En
-                savoir plus" %}</a>
+              <a href="{% url 'champ_activité' %}#services" class="btn btn-outline-primary btn-sm w-100"
+                >{% trans "En savoir plus" %}</a
+              >
             </div>
           </div>
         </div>
@@ -175,8 +174,9 @@
               <li class="mb-2">{% trans "Réduction des plaintes et amélioration de la satisfaction" %}</li>
             </ul>
             <div class="mt-auto pt-2">
-              <a href="{% url 'champ_activité' %}#services" class="btn btn-outline-primary btn-sm w-100">{% trans "En
-                savoir plus" %}</a>
+              <a href="{% url 'champ_activité' %}#services" class="btn btn-outline-primary btn-sm w-100"
+                >{% trans "En savoir plus" %}</a
+              >
             </div>
           </div>
         </div>
@@ -210,8 +210,10 @@
               <i class="bi bi-check-circle-fill text-primary me-3 fs-1"></i>
               <div class="container text-white">
                 <p class="fw-bold mb-1">{% trans "Solutions personnalisées" %}</p>
-                <p>{% trans "Des offres adaptées à vos besoins spécifiques, quelle que soit la taille de votre
-                  entreprise." %}</p>
+                <p>
+                  {% trans "Des offres adaptées à vos besoins spécifiques, quelle que soit la taille de votre
+                  entreprise." %}
+                </p>
               </div>
             </div>
             <div class="d-flex align-items-center" data-sal="slide-up" data-sal-duration="800" data-sal-delay="500">
@@ -241,7 +243,7 @@
       <div class="col-md-10">
         <div class="row justify-content-between align-items-center mb-3">
           <div class="col-md-6">
-            <p class="text-color h3  text-start text-lg-end">
+            <p class="text-color h3 text-start text-lg-end">
               {% blocktrans %}Découvrez nos projets de construction hydroélectriques, un moteur d’autonomie et de
               lumière pour le Congo.{% endblocktrans %}
             </p>
@@ -257,12 +259,16 @@
         <div class="row gy-3">
           <div class="col-md-4">
             <div class="card border-0 project-card position-relative">
-              <img src="{% static 'images/inkisi.webp' %}" class="card-img rounded" alt="Projet Solaire">
+              <img src="{% static 'images/inkisi.webp' %}" class="card-img rounded" alt="Projet Solaire" />
               <div
-                class="project-footer d-flex justify-content-between align-items-center p-2 rounded-bottom position-absolute w-100 bottom-0 bg-color opacity-75">
+                class="project-footer d-flex justify-content-between align-items-center p-2 rounded-bottom position-absolute w-100 bottom-0 bg-color opacity-75"
+              >
                 <p class="text-white mb-0">{% trans "Site Kibombo" %}</p>
-                <a href="{% url 'detail_project' project_id=1 %}" class="project-card__link"
-                  aria-label="{% trans 'Voir le projet' %} — {% trans 'Site Kibombo' %}">
+                <a
+                  href="{% url 'detail_project' project_id=1 %}"
+                  class="project-card__link"
+                  aria-label="{% trans 'Voir le projet' %} — {% trans 'Site Kibombo' %}"
+                >
                   <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
                 </a>
               </div>
@@ -270,12 +276,16 @@
           </div>
           <div class="col-md-4">
             <div class="card border-0 project-card position-relative">
-              <img src="{% static 'images/luvua.webp' %}" class="card-img rounded" alt="Projet Hydroélectrique">
+              <img src="{% static 'images/luvua.webp' %}" class="card-img rounded" alt="Projet Hydroélectrique" />
               <div
-                class="project-footer d-flex justify-content-between align-items-center p-2 rounded-bottom position-absolute w-100 bottom-0 bg-color opacity-75">
+                class="project-footer d-flex justify-content-between align-items-center p-2 rounded-bottom position-absolute w-100 bottom-0 bg-color opacity-75"
+              >
                 <p class="text-white mb-0">{% trans "Site Nondo" %}</p>
-                <a href="{% url 'detail_project' project_id=2 %}" class="project-card__link"
-                  aria-label="{% trans 'Voir le projet' %} — {% trans 'Site Nondo' %}">
+                <a
+                  href="{% url 'detail_project' project_id=2 %}"
+                  class="project-card__link"
+                  aria-label="{% trans 'Voir le projet' %} — {% trans 'Site Nondo' %}"
+                >
                   <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
                 </a>
               </div>
@@ -283,12 +293,16 @@
           </div>
           <div class="col-md-4">
             <div class="card border-0 project-card position-relative">
-              <img src="{% static 'images/luvua.webp' %}" class="card-img rounded" alt="Projet Distribution">
+              <img src="{% static 'images/luvua.webp' %}" class="card-img rounded" alt="Projet Distribution" />
               <div
-                class="project-footer d-flex justify-content-between align-items-center p-2 rounded-bottom position-absolute w-100 bottom-0 bg-color opacity-75">
+                class="project-footer d-flex justify-content-between align-items-center p-2 rounded-bottom position-absolute w-100 bottom-0 bg-color opacity-75"
+              >
                 <p class="text-white mb-0">{% trans "Site Kilwani" %}</p>
-                <a href="{% url 'detail_project' project_id=3 %}" class="project-card__link"
-                  aria-label="{% trans 'Voir le projet' %} — {% trans 'Site Kilwani' %}">
+                <a
+                  href="{% url 'detail_project' project_id=3 %}"
+                  class="project-card__link"
+                  aria-label="{% trans 'Voir le projet' %} — {% trans 'Site Kilwani' %}"
+                >
                   <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
                 </a>
               </div>
@@ -304,9 +318,7 @@
     <div class="col-md-10">
       <div class="row align-items-center g-4 g-xl-5">
         <div class="col-12 col-lg-5 partners-section__text-col text-center text-lg-start">
-          <p class="partners-section__eyebrow text-uppercase mb-2">
-            {% trans "Nos partenaires" %}
-          </p>
+          <p class="partners-section__eyebrow text-uppercase mb-2">{% trans "Nos partenaires" %}</p>
           <div class="partners-section__accent-line mx-auto mx-lg-0" aria-hidden="true"></div>
           <h2 id="partners-heading" class="partners-section__title mt-3 mb-3">
             {% blocktrans %}Nous travaillons avec les meilleurs partenaires{% endblocktrans %}
@@ -316,8 +328,12 @@
             durables pour construire un avenir meilleur.{% endblocktrans %}
           </p>
         </div>
-        <div class="col-12 col-lg-7 partners-section__logos-col text-center" data-sal="fade" data-sal-duration="600"
-          data-sal-delay="100">
+        <div
+          class="col-12 col-lg-7 partners-section__logos-col text-center"
+          data-sal="fade"
+          data-sal-duration="600"
+          data-sal-delay="100"
+        >
           {% include "components/partners_logos_grid.html" %}
         </div>
       </div>
@@ -331,12 +347,8 @@
         <div class="quote-cta__panel rounded-4 p-4 p-lg-5">
           <div class="row align-items-center g-4 g-lg-5">
             <div class="col-lg-8 text-center text-lg-start">
-              <p class="quote-cta__eyebrow text-uppercase mb-2">
-                {% trans "Votre projet" %}
-              </p>
-              <h2 id="quote-cta-heading" class="quote-cta__title text-white mb-3">
-                {% trans "Demander un devis" %}
-              </h2>
+              <p class="quote-cta__eyebrow text-uppercase mb-2">{% trans "Votre projet" %}</p>
+              <h2 id="quote-cta-heading" class="quote-cta__title text-white mb-3">{% trans "Demander un devis" %}</h2>
               <p class="quote-cta__text text-white mb-0">
                 {% blocktrans %}Expliquez-nous votre besoin en énergie : notre équipe vous répondra avec une proposition
                 adaptée à votre projet.{% endblocktrans %}
@@ -353,5 +365,4 @@
     </div>
   </div>
 </section>
-{% include "components/footer.html" %}
-{% endblock base %}
+{% include "components/footer.html" %} {% endblock base %}
