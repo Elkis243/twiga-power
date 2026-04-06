@@ -71,10 +71,23 @@
           <li class="nav-item">
             <a class="nav-link mx-2 px-2 py-2 {% if page == 'Contact' %}active-link{% endif %}" href="{% url 'contact' %}">{% trans "Nous contacter" %}</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link nav-link--alerts rounded-2 mx-2 px-2 py-2 {% if page == 'Recrutement' or page == 'Projets' %}active-link{% endif %}" href="{% url 'recrutement' %}"
-              >{% trans "Alertes et recrutements" %}</a
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link nav-link--alerts dropdown-toggle rounded-2 mx-2 px-2 py-2 {% if page == 'Recrutement' or page == 'Contact' %}active-link{% endif %}"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              >{% trans "Alertes et réclamations" %}</a
             >
+            <ul class="dropdown-menu navbar-about-menu dropdown-menu-lg-start mt-2 border-0 shadow-sm rounded-3 p-2">
+              <li>
+                <a class="dropdown-item navbar-about-item py-2 rounded-2" href="{% url 'contact' %}">{% trans "Alertes" %}</a>
+              </li>
+              <li>
+                <a class="dropdown-item navbar-about-item py-2 rounded-2" href="{% url 'recrutement' %}">{% trans "Recrutements" %}</a>
+              </li>
+            </ul>
           </li>
         </ul>
       </div>
