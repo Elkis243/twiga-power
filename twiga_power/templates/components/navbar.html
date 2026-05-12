@@ -41,7 +41,7 @@
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 text-center">
           <li class="nav-item">
-            <a class="nav-link mx-2 px-2 py-2 {% if page == 'Home' %}active-link{% endif %}" href="{% url 'home' %}">{% trans "Accueil" %}</a>
+            <a class="nav-link mx-2 px-2 py-2 {% if page == 'Home' %}active-link{% endif %}" href="{% url 'home' %}">Home</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle mx-2 px-2 py-2 {% if page == 'Notre histoire' %}active-link{% endif %}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
@@ -78,16 +78,22 @@
               role="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"
-              >{% trans "Alertes et réclamations" %}</a
+              >{% trans "Alertes et Recrutement" %}</a
             >
             <ul class="dropdown-menu navbar-about-menu dropdown-menu-lg-start mt-2 border-0 shadow-sm rounded-3 p-2">
               <li>
                 <a class="dropdown-item navbar-about-item py-2 rounded-2" href="{% url 'contact' %}">{% trans "Alertes" %}</a>
               </li>
               <li>
-                <a class="dropdown-item navbar-about-item py-2 rounded-2" href="{% url 'recrutement' %}">{% trans "Recrutements" %}</a>
+                <a class="dropdown-item navbar-about-item py-2 rounded-2" href="{% url 'recrutement' %}">{% trans "Recrutement" %}</a>
               </li>
             </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link--login d-flex align-items-center gap-1 px-3 py-2" href="#" tabindex="-1" aria-disabled="true">
+              <i class="bi bi-lock-fill" aria-hidden="true"></i>
+              {% trans "Se connecter" %}
+            </a>
           </li>
         </ul>
       </div>

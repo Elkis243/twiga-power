@@ -9,9 +9,9 @@ def main():
     """Run administrative tasks."""
 
     if base.DEBUG:
-        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'twiga_power.settings.local')
+        os.environ['DJANGO_SETTINGS_MODULE'] = 'twiga_power.settings.local'
     else:
-        os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'twiga_power.settings.production')
+        os.environ['DJANGO_SETTINGS_MODULE'] = 'twiga_power.settings.production'
 
     try:
         from django.core.management import execute_from_command_line

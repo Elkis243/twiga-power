@@ -1011,6 +1011,22 @@ msgstr "Published"
 msgid "Expiré"
 msgstr "Expired"
 
+#: twiga_power/templates/app/home.html
+msgid ""
+"Au cœur de la relance énergétique de la République Démocratique du Congo"
+msgstr ""
+"At the heart of the Democratic Republic of the Congo’s energy recovery"
+
+#: twiga_power/templates/app/home.html
+msgid ""
+"Twiga Power Sarl, expert en chaîne de valeur électrique en République "
+"Démocratique du Congo, accompagne le développement des infrastructures "
+"énergétiques à travers des solutions innovantes et durables."
+msgstr ""
+"Twiga Power Sarl, expert in the electricity value chain in the Democratic "
+"Republic of the Congo, supports the development of energy infrastructure "
+"through innovative and sustainable solutions."
+
 #~ msgid "Langue"
 #~ msgstr "Language"
 
