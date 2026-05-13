@@ -1,22 +1,22 @@
 {% extends "base.html" %} {% load static i18n %} {% block base %} {% include "components/navbar.html" %}
-<section class="hero-home mb-4">
-  <div class="container hero-home__content px-4">
+<section class="hero-home mb-4 position-relative d-flex align-items-center">
+  <div class="container hero-home__content px-4 position-relative z-2">
     <div class="row justify-content-center">
       <div class="col-md-10">
         <div class="row">
-          <div class="col-md-7 text-white">
-            <span class="hero-home__tag mb-3">Twiga Power Sarl</span>
-            <p class="display-5"><span class="texent">Au cœur de la relance énergétique</span> de la République Démocratique du Congo</p>
-            <p class="mb-0 fs-6">
-              Twiga Power Sarl, expert en chaîne de valeur électrique en République Démocratique du Congo, accompagne le développement des infrastructures énergétiques à travers des solutions
-              innovantes et durables.
-            </p>
+          <div class="col-md-8 mx-auto text-center text-white py-5">
+            <h1 class="display-6 fw-bold mb-3" data-sal="slide-up" data-sal-duration="2200" data-sal-delay="200" data-sal-easing="ease-out-cubic">Au cœur de la relance énergétique de la République Démocratique du Congo</h1>
+            <p class="mb-3 fs-6 mx-auto" style="max-width: 420px;" data-sal="slide-up" data-sal-duration="2200" data-sal-delay="650" data-sal-easing="ease-out-cubic">Des solutions innovantes et durables pour accompagner la transition énergétique et le développement en RDC.</p>
+            <a href="#" class="btn btn-warning text-dark fw-semibold hero-home__cta" role="button" aria-label="En savoir plus" data-sal="slide-up" data-sal-duration="2200" data-sal-delay="1400" data-sal-easing="ease-out-cubic">
+              En savoir plus
+              <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+            </a>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="hero-home__wave" aria-hidden="true">
+  <div class="hero-home__wave position-absolute bottom-0 w-100" aria-hidden="true" style="z-index:1;">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none" focusable="false">
       <path
         fill="#ffffff"

@@ -73,7 +73,7 @@ a.top-contact-bar__item:focus-visible {
 }
 
 * {
-  font-size: 14px;
+  font-size: 13.5px;
   font-family: 'Outfit', sans-serif;
   letter-spacing: 0.2px;
 }
@@ -111,8 +111,7 @@ svg {
   position: relative;
   isolation: isolate;
   margin-top: calc(-1 * (var(--topbar-height) + var(--navbar-height)));
-  min-height: 100vh;
-  min-height: 100svh;
+  min-height: 90vh;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -187,7 +186,44 @@ svg {
 }
 
 .hero-home__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1.2rem;
+  font-size: 0.95rem;
+  border-radius: 0.45rem;
+  line-height: 1.2;
+  border: none;
+  color: #1f1f1f !important;
   box-shadow: 0 18px 40px rgba(246, 175, 51, 0.22);
+}
+
+.hero-home__cta i {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.hero-home__cta:hover,
+.hero-home__cta:focus-visible {
+  background-color: #ffd078 !important;
+  color: #1f1f1f !important;
+}
+
+.hero-home__cta:hover i,
+.hero-home__cta:focus-visible i {
+  animation: heroCtaArrowMove 0.7s ease-in-out infinite;
+}
+
+@keyframes heroCtaArrowMove {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 .hero-home__wave {
@@ -206,12 +242,18 @@ svg {
 }
 
 /* Style spécial pour le lien Se connecter */
+
+/* Style bouton jaune discret pour Se connecter */
 .navbar .navbar-nav > .nav-item > .nav-link.nav-link--login {
   background-color: var(--accent) !important;
-  color: #fff !important;
+  color: #222 !important;
   border-radius: 0.375rem;
   font-weight: 600;
+  font-size: 0.98rem;
+  padding: 0.35rem 1.1rem;
   margin-left: 0.5rem;
+  box-shadow: none;
+  border: none;
   transition:
     background-color 0.2s,
     color 0.2s;
@@ -219,18 +261,18 @@ svg {
 .navbar .navbar-nav > .nav-item > .nav-link.nav-link--login:hover,
 .navbar .navbar-nav > .nav-item > .nav-link.nav-link--login:focus-visible {
   background-color: #ffd078 !important;
-  color: #fff !important;
+  color: #222 !important;
 }
 
 .navbar .navbar-nav > .nav-item > .nav-link:hover,
 .navbar .navbar-nav > .nav-item > .nav-link:focus-visible {
   background-color: transparent !important;
-  color: var(--blue) !important;
+  color: var(--accent) !important;
 }
 
-/* Lien actif Accueil = bleu, autres liens actifs = noir */
+/* Lien actif en jaune */
 .navbar .navbar-nav > .nav-item > .nav-link.active-link {
-  color: #111 !important;
+  color: var(--accent) !important;
   background: transparent !important;
   font-weight: 600;
 }
@@ -242,7 +284,7 @@ svg {
   gap: 0.65rem;
   padding: 0.65rem 1.25rem;
   border-radius: 0.5rem;
-  font-size: 1.05rem;
+  font-size: 12px;
   font-weight: 500;
   color: #1f2937;
   background: transparent;
@@ -283,22 +325,6 @@ svg {
     transform 0.18s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Ajout d'un accent visuel à gauche du sous-lien */
-.navbar .dropdown-menu.navbar-about-menu .navbar-about-item::before {
-  content: '';
-  display: block;
-  position: absolute;
-  left: 0.75rem;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent) 60%, #ffe6b0 100%);
-  opacity: 0.18;
-  transition: opacity 0.22s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
 .navbar .dropdown-menu.navbar-about-menu .navbar-about-item:hover,
 .navbar .dropdown-menu.navbar-about-menu .navbar-about-item:focus {
   background-color: rgba(246, 175, 51, 0.13) !important;
@@ -306,12 +332,41 @@ svg {
   transform: translateX(7px) scale(1.045);
 }
 
-.navbar .dropdown-menu.navbar-about-menu .navbar-about-item:hover::before,
-.navbar .dropdown-menu.navbar-about-menu .navbar-about-item:focus::before {
-  opacity: 0.45;
-}
-
 @media (min-width: 992px) {
+  .navbar .mobile-parent-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .navbar .mobile-parent-row .submenu-toggle-mobile {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: var(--accent);
+    line-height: 1;
+    transform: translateY(1px);
+    transition:
+      color 0.2s ease,
+      transform 0.24s ease;
+  }
+
+  .navbar .mobile-parent-row .submenu-toggle-mobile i {
+    font-size: 0.78rem;
+    transition: transform 0.24s ease;
+  }
+
+  .navbar .mobile-parent-row .submenu-toggle-mobile:hover,
+  .navbar .mobile-parent-row .submenu-toggle-mobile:focus-visible {
+    color: #ffd078;
+    outline: none;
+  }
+
   .navbar .nav-item.dropdown .dropdown-menu {
     display: block;
     opacity: 0;
@@ -331,6 +386,11 @@ svg {
     visibility: visible;
     transform: translateY(0);
     pointer-events: auto;
+  }
+
+  .navbar .nav-item.dropdown:hover .submenu-toggle-mobile i,
+  .navbar .nav-item.dropdown:focus-within .submenu-toggle-mobile i {
+    transform: rotate(180deg);
   }
 }
 
@@ -1362,9 +1422,52 @@ a.project-card__link:focus-visible {
     backdrop-filter: blur(5px);
   }
 
+  .offcanvas .offcanvas-body .navbar-nav {
+    text-align: left !important;
+  }
+
+  .offcanvas .mobile-parent-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.35rem;
+  }
+
+  .offcanvas .submenu-toggle-mobile {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: auto;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    padding: 0.15rem;
+    color: #f6af33;
+    transition: color 0.24s ease;
+  }
+
+  .offcanvas .submenu-toggle-mobile i {
+    font-size: 0.85rem;
+    transition: transform 0.24s ease;
+  }
+
+  .offcanvas .submenu-toggle-mobile:hover,
+  .offcanvas .submenu-toggle-mobile:focus-visible {
+    background: transparent;
+    color: #ffd078;
+    outline: none;
+  }
+
+  .offcanvas .mobile-accordion.is-open .submenu-toggle-mobile i {
+    transform: rotate(180deg);
+  }
+
   .navbar-nav > .nav-item > .nav-link {
     color: rgba(255, 255, 255, 0.95) !important;
     background: transparent !important;
+    text-align: left;
+    display: block;
   }
 
   /* Survol / focus / actif : même rendu — pas de fond, texte jaune */
@@ -1378,22 +1481,55 @@ a.project-card__link:focus-visible {
     font-weight: 600;
   }
 
-  /* Dropdown transparent avec blur */
-  .offcanvas .dropdown-menu {
-    background: rgba(255, 255, 255, 0.1) !important;
-    -webkit-backdrop-filter: blur(8px);
-    backdrop-filter: blur(8px);
+  /* Sous-listes inline pliables (pas de container séparé) */
+  .offcanvas .mobile-accordion > .dropdown-menu {
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-6px);
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
     box-shadow: none !important;
-    text-align: center;
-    margin-top: 0px;
-    max-width: 200px;
-    margin: 0 auto;
+    background: transparent !important;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    transition:
+      max-height 0.34s ease,
+      opacity 0.28s ease,
+      transform 0.28s ease,
+      margin 0.28s ease,
+      padding 0.28s ease;
   }
 
-  /* Items centrés + bordure légère */
+  .offcanvas .mobile-accordion.is-open > .dropdown-menu {
+    max-height: 26rem;
+    opacity: 1;
+    transform: translateY(0);
+    margin-top: 0.35rem !important;
+    padding: 0.1rem 0 !important;
+  }
+
+  /* Sous-liens légèrement indentés pour marquer la hiérarchie */
   .offcanvas .dropdown-menu .dropdown-item {
     color: white !important;
-    text-align: center;
+    text-align: left;
+    padding: 0.36rem 0.75rem 0.36rem 15px;
+    font-size: 12px;
+    line-height: 1.25;
+  }
+
+  .offcanvas .dropdown-menu li {
+    margin-bottom: 3px;
+  }
+
+  .offcanvas .dropdown-menu li:last-child {
+    margin-bottom: 0;
+  }
+
+  .offcanvas .dropdown-menu .navbar-about-item::before {
+    content: none;
   }
 
   /* Dropdown « À propos » : même logique que les liens (jaune, sans fond) */
@@ -1404,8 +1540,8 @@ a.project-card__link:focus-visible {
     font-weight: 600;
   }
 
-  .offcanvas ul li {
-    margin-bottom: 25px;
+  .offcanvas .navbar-nav > .nav-item {
+    margin-bottom: 10px;
     color: white;
   }
 
