@@ -5,9 +5,15 @@
       <div class="col-md-10">
         <div class="row">
           <div class="col-md-8 mx-auto text-center text-white py-5">
-            <h1 class="display-6 fw-bold mb-3" data-sal="slide-up" data-sal-duration="2200" data-sal-delay="200" data-sal-easing="ease-out-cubic">Au cœur de la relance énergétique de la République Démocratique du Congo</h1>
-            <p class="mb-3 fs-6 mx-auto" style="max-width: 420px;" data-sal="slide-up" data-sal-duration="2200" data-sal-delay="650" data-sal-easing="ease-out-cubic">Des solutions innovantes et durables pour accompagner la transition énergétique et le développement en RDC.</p>
-            <a href="#" class="btn btn-warning text-dark fw-semibold hero-home__cta" role="button" aria-label="En savoir plus" data-sal="slide-up" data-sal-duration="2200" data-sal-delay="1400" data-sal-easing="ease-out-cubic">
+            <h1 class="display-6 fw-bold mb-3" data-sal="slide-up" data-sal-duration="2200" data-sal-delay="200"
+              data-sal-easing="ease-out-cubic">Au cœur de la relance énergétique de la République Démocratique du Congo
+            </h1>
+            <p class="mb-3 fs-6 mx-auto" style="max-width: 420px;" data-sal="slide-up" data-sal-duration="2200"
+              data-sal-delay="650" data-sal-easing="ease-out-cubic">Des solutions innovantes et durables pour
+              accompagner la transition énergétique et le développement en RDC.</p>
+            <a href="#" class="btn btn-warning text-dark fw-semibold hero-home__cta" role="button"
+              aria-label="En savoir plus" data-sal="slide-up" data-sal-duration="2200" data-sal-delay="1400"
+              data-sal-easing="ease-out-cubic">
               En savoir plus
               <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
             </a>
@@ -16,13 +22,13 @@
       </div>
     </div>
   </div>
-  <div class="hero-home__wave position-absolute bottom-0 w-100" aria-hidden="true" style="z-index:1;">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none" focusable="false">
+  <div class="hero-home__wave" aria-hidden="true">
+    <svg class="hero-home__wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none" focusable="false">
       <path
-        fill="#ffffff"
-        fill-opacity="1"
-        d="M0,0L60,21.3C120,43,240,85,360,112C480,139,600,149,720,176C840,203,960,245,1080,256C1200,267,1320,245,1380,234.7L1440,224L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"
-      ></path>
+        fill="currentColor"
+        shape-rendering="geometricPrecision"
+        d="M0,52 C240,8 480,96 720,48 C960,0 1200,72 1440,40 L1440,120 L0,120 Z"
+      />
     </svg>
   </div>
 </section>
@@ -35,14 +41,17 @@
           <div class="container">
             <p class="h3 lh-sm text-color">{% trans "Qui sommes nous ?" %}</p>
             <p class="text-muted">
-              {% blocktrans %}Twiga Power, entreprise congolaise, assure l’importation, l’exportation, le transport, la distribution et la commercialisation d’électricité, en modernisant le secteur
+              {% blocktrans %}Twiga Power, entreprise congolaise, assure l’importation, l’exportation, le transport, la
+              distribution et la commercialisation d’électricité, en modernisant le secteur
               grâce à l’innovation et la durabilité.{% endblocktrans %}
             </p>
             <p class="text-muted">
-              {% blocktrans %}Notre mission est de rendre l’énergie fiable et accessible partout, des villes aux zones reculées, en contribuant à un avenir de croissance, de progrès et de bien-être
+              {% blocktrans %}Notre mission est de rendre l’énergie fiable et accessible partout, des villes aux zones
+              reculées, en contribuant à un avenir de croissance, de progrès et de bien-être
               pour chaque Congolais.{% endblocktrans %}
             </p>
-            <a href="{% url 'about' %}" class="btn btn-primary btn-arrow"> {% trans "En savoir plus" %} <i class="bi bi-arrow-right-short"></i> </a>
+            <a href="{% url 'about' %}" class="btn btn-primary btn-arrow"> {% trans "En savoir plus" %} <i
+                class="bi bi-arrow-right-short"></i> </a>
           </div>
         </div>
       </div>
@@ -54,9 +63,11 @@
     <div class="col-md-10">
       <div class="row">
         <div class="col-md-8 mb-4">
-          <p class="h3 lh-sm text-color mb-2" data-sal="slide-up" data-sal-duration="800" data-sal-delay="100">{% blocktrans %}Notre champ d'activité énergétique.{% endblocktrans %}</p>
+          <p class="h3 lh-sm text-color mb-2" data-sal="slide-up" data-sal-duration="800" data-sal-delay="100">
+            {% blocktrans %}Notre champ d'activité énergétique.{% endblocktrans %}</p>
           <p class="text-muted" data-sal="slide-up" data-sal-duration="800" data-sal-delay="100">
-            {% blocktrans %}Twiga Power Sarl intervient sur l’ensemble de la chaîne de valeur de l’énergie électrique : production, transport, distribution, commercialisation et services
+            {% blocktrans %}Twiga Power Sarl intervient sur l’ensemble de la chaîne de valeur de l’énergie électrique :
+            production, transport, distribution, commercialisation et services
             associés.{%endblocktrans %}
           </p>
         </div>
@@ -73,7 +84,8 @@
               <li class="mb-2">{% trans "Approvisionnement énergétique sûr, durable et résilient" %}</li>
             </ul>
             <div class="mt-auto pt-2">
-              <a href="{% url 'champ_activité' %}#services" class="btn btn-outline-primary btn-sm w-100">{% trans "En savoir plus" %}</a>
+              <a href="{% url 'champ_activité' %}#services"
+                class="btn btn-outline-primary btn-sm w-100">{% trans "En savoir plus" %}</a>
             </div>
           </div>
         </div>
@@ -88,7 +100,8 @@
               <li class="mb-2">{% trans "Réduction des pertes techniques et sécurisation des lignes" %}</li>
             </ul>
             <div class="mt-auto pt-2">
-              <a href="{% url 'champ_activité' %}#services" class="btn btn-outline-primary btn-sm w-100">{% trans "En savoir plus" %}</a>
+              <a href="{% url 'champ_activité' %}#services"
+                class="btn btn-outline-primary btn-sm w-100">{% trans "En savoir plus" %}</a>
             </div>
           </div>
         </div>
@@ -103,7 +116,8 @@
               <li class="mb-2">{% trans "Fiabilité et qualité du service pour ménages et entreprises" %}</li>
             </ul>
             <div class="mt-auto pt-2">
-              <a href="{% url 'champ_activité' %}#services" class="btn btn-outline-primary btn-sm w-100">{% trans "En savoir plus" %}</a>
+              <a href="{% url 'champ_activité' %}#services"
+                class="btn btn-outline-primary btn-sm w-100">{% trans "En savoir plus" %}</a>
             </div>
           </div>
         </div>
@@ -119,7 +133,8 @@
               <li class="mb-2">{% trans "Réduction des plaintes et amélioration de la satisfaction" %}</li>
             </ul>
             <div class="mt-auto pt-2">
-              <a href="{% url 'champ_activité' %}#services" class="btn btn-outline-primary btn-sm w-100">{% trans "En savoir plus" %}</a>
+              <a href="{% url 'champ_activité' %}#services"
+                class="btn btn-outline-primary btn-sm w-100">{% trans "En savoir plus" %}</a>
             </div>
           </div>
         </div>
@@ -134,7 +149,8 @@
         <div class="row mb-4">
           <div class="col-md-6">
             <p class="h2 mb-3 text-white">{% trans "Pourquoi choisir Twiga Power ?" %}</p>
-            <p class="text-white mb-3">{% blocktrans %}Votre satisfaction guidant notre service fiable, efficace et personnalisé quotidiennement.{% endblocktrans %}</p>
+            <p class="text-white mb-3">{% blocktrans %}Votre satisfaction guidant notre service fiable, efficace et
+              personnalisé quotidiennement.{% endblocktrans %}</p>
           </div>
         </div>
         <div class="row d-flex justify-content-between align-items-center gap-2">
@@ -150,7 +166,9 @@
               <i class="bi bi-check-circle-fill text-primary me-3 fs-1"></i>
               <div class="container text-white">
                 <p class="fw-bold mb-1">{% trans "Solutions personnalisées" %}</p>
-                <p>{% trans "Des offres adaptées à vos besoins spécifiques, quelle que soit la taille de votre entreprise." %}</p>
+                <p>
+                  {% trans "Des offres adaptées à vos besoins spécifiques, quelle que soit la taille de votre entreprise." %}
+                </p>
               </div>
             </div>
             <div class="d-flex align-items-center" data-sal="slide-up" data-sal-duration="800" data-sal-delay="500">
@@ -181,12 +199,14 @@
         <div class="row justify-content-between align-items-center mb-3">
           <div class="col-md-6">
             <p class="text-color h3 text-start text-lg-end">
-              {% blocktrans %}Découvrez nos projets de construction hydroélectriques, un moteur d’autonomie et de lumière pour le Congo.{% endblocktrans %}
+              {% blocktrans %}Découvrez nos projets de construction hydroélectriques, un moteur d’autonomie et de
+              lumière pour le Congo.{% endblocktrans %}
             </p>
           </div>
           <div class="col-md-5">
             <p class="text-muted">
-              {% blocktrans %}Chaque initiative ouvre la voie vers un Congo mieux éclairé. Avec des solutions innovantes et des alliances solides, Twiga Power rapproche l’énergie des communautés et
+              {% blocktrans %}Chaque initiative ouvre la voie vers un Congo mieux éclairé. Avec des solutions innovantes
+              et des alliances solides, Twiga Power rapproche l’énergie des communautés et
               prépare un avenir durable pour tous.{% endblocktrans %}
             </p>
           </div>
@@ -195,9 +215,11 @@
           <div class="col-md-4">
             <div class="card border-0 project-card position-relative">
               <img src="{% static 'images/inkisi.webp' %}" class="card-img rounded" alt="Projet Solaire" />
-              <div class="project-footer d-flex justify-content-between align-items-center p-2 rounded-bottom position-absolute w-100 bottom-0 bg-color opacity-75">
+              <div
+                class="project-footer d-flex justify-content-between align-items-center p-2 rounded-bottom position-absolute w-100 bottom-0 bg-color opacity-75">
                 <p class="text-white mb-0">{% trans "Site Kibombo" %}</p>
-                <a href="{% url 'detail_project' project_id=1 %}" class="project-card__link" aria-label="{% trans 'Voir le projet' %} — {% trans 'Site Kibombo' %}">
+                <a href="{% url 'detail_project' project_id=1 %}" class="project-card__link"
+                  aria-label="{% trans 'Voir le projet' %} — {% trans 'Site Kibombo' %}">
                   <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
                 </a>
               </div>
@@ -206,9 +228,11 @@
           <div class="col-md-4">
             <div class="card border-0 project-card position-relative">
               <img src="{% static 'images/luvua.webp' %}" class="card-img rounded" alt="Projet Hydroélectrique" />
-              <div class="project-footer d-flex justify-content-between align-items-center p-2 rounded-bottom position-absolute w-100 bottom-0 bg-color opacity-75">
+              <div
+                class="project-footer d-flex justify-content-between align-items-center p-2 rounded-bottom position-absolute w-100 bottom-0 bg-color opacity-75">
                 <p class="text-white mb-0">{% trans "Site Nondo" %}</p>
-                <a href="{% url 'detail_project' project_id=2 %}" class="project-card__link" aria-label="{% trans 'Voir le projet' %} — {% trans 'Site Nondo' %}">
+                <a href="{% url 'detail_project' project_id=2 %}" class="project-card__link"
+                  aria-label="{% trans 'Voir le projet' %} — {% trans 'Site Nondo' %}">
                   <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
                 </a>
               </div>
@@ -217,9 +241,11 @@
           <div class="col-md-4">
             <div class="card border-0 project-card position-relative">
               <img src="{% static 'images/luvua.webp' %}" class="card-img rounded" alt="Projet Distribution" />
-              <div class="project-footer d-flex justify-content-between align-items-center p-2 rounded-bottom position-absolute w-100 bottom-0 bg-color opacity-75">
+              <div
+                class="project-footer d-flex justify-content-between align-items-center p-2 rounded-bottom position-absolute w-100 bottom-0 bg-color opacity-75">
                 <p class="text-white mb-0">{% trans "Site Kilwani" %}</p>
-                <a href="{% url 'detail_project' project_id=3 %}" class="project-card__link" aria-label="{% trans 'Voir le projet' %} — {% trans 'Site Kilwani' %}">
+                <a href="{% url 'detail_project' project_id=3 %}" class="project-card__link"
+                  aria-label="{% trans 'Voir le projet' %} — {% trans 'Site Kilwani' %}">
                   <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
                 </a>
               </div>
@@ -237,12 +263,15 @@
         <div class="col-12 col-lg-5 partners-section__text-col text-center text-lg-start">
           <p class="partners-section__eyebrow text-uppercase mb-2">{% trans "Nos partenaires" %}</p>
           <div class="partners-section__accent-line mx-auto mx-lg-0" aria-hidden="true"></div>
-          <h2 id="partners-heading" class="partners-section__title mt-3 mb-3">{% blocktrans %}Nous travaillons avec les meilleurs partenaires{% endblocktrans %}</h2>
+          <h2 id="partners-heading" class="partners-section__title mt-3 mb-3">{% blocktrans %}Nous travaillons avec les
+            meilleurs partenaires{% endblocktrans %}</h2>
           <p class="partners-section__lead mb-0">
-            {% blocktrans %}Avec nos partenaires de confiance, Twiga Power offre des solutions énergétiques fiables et durables pour construire un avenir meilleur.{% endblocktrans %}
+            {% blocktrans %}Avec nos partenaires de confiance, Twiga Power offre des solutions énergétiques fiables et
+            durables pour construire un avenir meilleur.{% endblocktrans %}
           </p>
         </div>
-        <div class="col-12 col-lg-7 partners-section__logos-col text-center" data-sal="fade" data-sal-duration="600" data-sal-delay="100">{% include "components/partners_logos_grid.html" %}</div>
+        <div class="col-12 col-lg-7 partners-section__logos-col text-center" data-sal="fade" data-sal-duration="600"
+          data-sal-delay="100">{% include "components/partners_logos_grid.html" %}</div>
       </div>
     </div>
   </div>
@@ -257,11 +286,13 @@
               <p class="quote-cta__eyebrow text-uppercase mb-2">{% trans "Votre projet" %}</p>
               <h2 id="quote-cta-heading" class="quote-cta__title text-white mb-3">{% trans "Demander un devis" %}</h2>
               <p class="quote-cta__text text-white mb-0">
-                {% blocktrans %}Expliquez-nous votre besoin en énergie : notre équipe vous répondra avec une proposition adaptée à votre projet.{% endblocktrans %}
+                {% blocktrans %}Expliquez-nous votre besoin en énergie : notre équipe vous répondra avec une proposition
+                adaptée à votre projet.{% endblocktrans %}
               </p>
             </div>
             <div class="col-lg-4 text-center text-lg-end">
-              <a href="{% url 'contact' %}" class="btn btn-quote-accent"> {% trans "Demander un devis" %} <i class="bi bi-arrow-right-short"></i> </a>
+              <a href="{% url 'contact' %}" class="btn btn-quote-accent"> {% trans "Demander un devis" %} <i
+                  class="bi bi-arrow-right-short"></i> </a>
             </div>
           </div>
         </div>

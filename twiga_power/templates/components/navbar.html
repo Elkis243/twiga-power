@@ -1,105 +1,154 @@
 {% load static i18n %}
-<div class="top-contact-bar">
-  <div class="container top-contact-bar__inner">
-    <a href="tel:+243839302367" class="top-contact-bar__item" aria-label="Téléphone">
-      <i class="bi bi-phone" aria-hidden="true"></i>
-      <span>+243 839 302 367</span>
-    </a>
-    <span class="top-contact-bar__item top-contact-bar__item--address">
-      <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
-      <span>{% trans "Local 1101, Niveau 11 de l'immeuble Luxury Tower, 148/A, Boulevard du 30 juin, Gombe, Kinshasa."%}</span>
-    </span>
-    <a href="mailto:contact@twigapower.com" class="top-contact-bar__item" aria-label="Email de contact">
-      <i class="bi bi-envelope" aria-hidden="true"></i>
-      <span>contact@twigapower.com</span>
-    </a>
-  </div>
-</div>
-<nav class="navbar navbar-expand-md bg-body-tertiary fixed-top">
-  <div class="container">
-    <a href="{% url 'home' %}" class="navbar-brand mx-3">
-      <img src="{% static 'images/logo.png' %}" alt="Logo Twiga Power" height="auto" width="75" />
-    </a>
-    <button
-      class="navbar-toggler custom-toggler"
-      type="button"
-      data-bs-toggle="offcanvas"
-      data-bs-target="#offcanvasNavbar"
-      aria-controls="offcanvasNavbar"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar">
-      <div class="offcanvas-header">
-        <a href="" class="navbar-brand mx-3">
-          <img src="{% static 'images/logo.png' %}" alt="Logo Twiga Power" height="auto" width="75" />
-        </a>
-        <button type="button" class="btn-close custom-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3 text-center">
-          <li class="nav-item">
-            <a class="nav-link mx-2 px-2 py-2 {% if page == 'Home' %}active-link{% endif %}" href="{% url 'home' %}">Home</a>
-          </li>
-          <li class="nav-item dropdown mobile-accordion">
-            <div class="mobile-parent-row">
-              <a class="nav-link mx-2 px-2 py-2 {% if page == 'Notre histoire' %}active-link{% endif %}" href="#" role="button">{% trans "Qui sommes nous" %}</a>
-              <button type="button" class="submenu-toggle-mobile" aria-expanded="false" aria-label="Déplier le sous-menu Qui sommes nous">
-                <i class="bi bi-chevron-down" aria-hidden="true"></i>
-              </button>
-            </div>
-            <ul class="dropdown-menu navbar-about-menu dropdown-menu-lg-start mt-2 border-0 shadow-sm rounded-3 p-2">
-              <li>
-                <a class="dropdown-item navbar-about-item py-2 rounded-2" href="{% url 'about' %}#historique">{% trans "Historique" %}</a>
-              </li>
-              <li>
-                <a class="dropdown-item navbar-about-item py-2 rounded-2" href="{% url 'about' %}#presentation">{% trans "Présentation" %}</a>
-              </li>
-              <li>
-                <a class="dropdown-item navbar-about-item py-2 rounded-2" href="{% url 'about' %}#vision-mission">{% trans "Vision et mission" %}</a>
-              </li>
-              <li>
-                <a class="dropdown-item navbar-about-item py-2 rounded-2" href="{% url 'about' %}#ambition-valeurs">{% trans "Ambition et valeurs" %}</a>
-              </li>
-              <li>
-                <a class="dropdown-item navbar-about-item py-2 rounded-2" href="{% url 'about' %}#equipe-dirigeante">{% trans "Équipe dirigeante" %}</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link mx-2 px-2 py-2 {% if request.resolver_match.url_name == 'champ_activité' %}active-link{% endif %}" href="{% url 'champ_activité' %}">{% trans "Nos activites" %}</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link mx-2 px-2 py-2 {% if page == 'Contact' %}active-link{% endif %}" href="{% url 'contact' %}">{% trans "Nous contacter" %}</a>
-          </li>
-          <li class="nav-item dropdown mobile-accordion">
-            <div class="mobile-parent-row">
-              <a class="nav-link nav-link--alerts rounded-2 mx-2 px-2 py-2 {% if page == 'Recrutement' or page == 'Contact' %}active-link{% endif %}" href="#" role="button"
-                >{% trans "Alertes et Recrutement" %}</a
-              >
-              <button type="button" class="submenu-toggle-mobile" aria-expanded="false" aria-label="Déplier le sous-menu Alertes et Recrutement">
-                <i class="bi bi-chevron-down" aria-hidden="true"></i>
-              </button>
-            </div>
-            <ul class="dropdown-menu navbar-about-menu dropdown-menu-lg-start mt-2 border-0 shadow-sm rounded-3 p-2">
-              <li>
-                <a class="dropdown-item navbar-about-item py-2 rounded-2" href="{% url 'contact' %}">{% trans "Alertes" %}</a>
-              </li>
-              <li>
-                <a class="dropdown-item navbar-about-item py-2 rounded-2" href="{% url 'recrutement' %}">{% trans "Recrutement" %}</a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link nav-link--login d-flex align-items-center gap-1 px-3 py-2" href="#" tabindex="-1" aria-disabled="true">
-              <i class="bi bi-lock-fill" aria-hidden="true"></i>
-              {% trans "Se connecter" %}
-            </a>
-          </li>
-        </ul>
-      </div>
+<header class="site-header">
+  <div class="top-contact-bar">
+    <div class="container top-contact-bar__inner">
+      <a href="tel:+243839302367" class="top-contact-bar__item" aria-label="{% trans 'Téléphone' %}">
+        <i class="bi bi-phone" aria-hidden="true"></i>
+        <span>+243 839 302 367</span>
+      </a>
+      <span class="top-contact-bar__item top-contact-bar__item--address">
+        <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
+        <span>{% trans "Local 1101, Niveau 11 de l'immeuble Luxury Tower, 148/A, Boulevard du 30 juin, Gombe, Kinshasa." %}</span>
+      </span>
+      <a href="mailto:contact@twigapower.com" class="top-contact-bar__item" aria-label="{% trans 'Email de contact' %}">
+        <i class="bi bi-envelope" aria-hidden="true"></i>
+        <span>contact@twigapower.com</span>
+      </a>
     </div>
   </div>
-</nav>
+  <nav
+    class="navbar navbar-expand-lg navbar-light bg-white fixed-top site-navbar shadow-sm"
+    aria-label="{% trans 'Navigation principale' %}"
+  >
+    <div class="container">
+      <a class="navbar-brand py-2 me-2" href="{% url 'home' %}">
+        <img src="{% static 'images/logo.png' %}" alt="{% trans 'Logo Twiga Power' %}" width="62" height="auto" />
+      </a>
+      <button
+        class="navbar-toggler border-0 shadow-none"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#siteNavbar"
+        aria-controls="siteNavbar"
+        aria-label="{% trans 'Ouvrir le menu' %}"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="offcanvas offcanvas-start site-navbar__panel"
+        tabindex="-1"
+        id="siteNavbar"
+        aria-labelledby="siteNavbarLabel"
+      >
+        <div class="offcanvas-header border-bottom border-secondary border-opacity-25">
+          <span class="offcanvas-title visually-hidden" id="siteNavbarLabel">{% trans "Menu" %}</span>
+          <a class="navbar-brand py-0" href="{% url 'home' %}">
+            <img src="{% static 'images/logo.png' %}" alt="" width="62" height="auto" aria-hidden="true" />
+          </a>
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            data-bs-dismiss="offcanvas"
+            aria-label="{% trans 'Fermer le menu' %}"
+          ></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav ms-lg-auto align-items-lg-center gap-lg-1">
+            <li class="nav-item">
+              <a class="nav-link px-2 py-2 {% if page == 'Home' %}active-link{% endif %}" href="{% url 'home' %}">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle px-2 py-2 {% if page == 'Notre histoire' %}active-link{% endif %}"
+                href="#"
+                id="navbarAboutDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                {% trans "Qui sommes nous" %}
+              </a>
+              <ul class="dropdown-menu navbar-about-menu shadow-sm rounded-3 border-0 p-2" aria-labelledby="navbarAboutDropdown">
+                <li>
+                  <a class="dropdown-item navbar-about-item navbar-mobile-sublink py-2 rounded-2" href="{% url 'about' %}#historique">
+                    <i class="bi bi-chevron-right navbar-mobile-sublink__icon" aria-hidden="true"></i>
+                    {% trans "Historique" %}
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item navbar-about-item navbar-mobile-sublink py-2 rounded-2" href="{% url 'about' %}#presentation">
+                    <i class="bi bi-chevron-right navbar-mobile-sublink__icon" aria-hidden="true"></i>
+                    {% trans "Présentation" %}
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item navbar-about-item navbar-mobile-sublink py-2 rounded-2" href="{% url 'about' %}#vision-mission">
+                    <i class="bi bi-chevron-right navbar-mobile-sublink__icon" aria-hidden="true"></i>
+                    {% trans "Vision et mission" %}
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item navbar-about-item navbar-mobile-sublink py-2 rounded-2" href="{% url 'about' %}#ambition-valeurs">
+                    <i class="bi bi-chevron-right navbar-mobile-sublink__icon" aria-hidden="true"></i>
+                    {% trans "Ambition et valeurs" %}
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item navbar-about-item navbar-mobile-sublink py-2 rounded-2" href="{% url 'about' %}#equipe-dirigeante">
+                    <i class="bi bi-chevron-right navbar-mobile-sublink__icon" aria-hidden="true"></i>
+                    {% trans "Équipe dirigeante" %}
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link px-2 py-2 {% if request.resolver_match.url_name == 'champ_activité' %}active-link{% endif %}"
+                href="{% url 'champ_activité' %}"
+              >
+                {% trans "Nos activites" %}
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link px-2 py-2 {% if page == 'Contact' %}active-link{% endif %}" href="{% url 'contact' %}">{% trans "Nous contacter" %}</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle px-2 py-2 {% if page == 'Recrutement' or page == 'Contact' %}active-link{% endif %}"
+                href="#"
+                id="navbarAlertsDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                data-bs-auto-close="outside"
+                aria-expanded="false"
+              >
+                {% trans "Alertes et Recrutement" %}
+              </a>
+              <ul class="dropdown-menu navbar-about-menu shadow-sm rounded-3 border-0 p-2" aria-labelledby="navbarAlertsDropdown">
+                <li>
+                  <a class="dropdown-item navbar-about-item navbar-mobile-sublink py-2 rounded-2" href="{% url 'contact' %}">
+                    <i class="bi bi-chevron-right navbar-mobile-sublink__icon" aria-hidden="true"></i>
+                    {% trans "Alertes" %}
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item navbar-about-item navbar-mobile-sublink py-2 rounded-2" href="{% url 'recrutement' %}">
+                    <i class="bi bi-chevron-right navbar-mobile-sublink__icon" aria-hidden="true"></i>
+                    {% trans "Recrutement" %}
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link--login d-inline-flex align-items-center gap-1 px-3 py-2 ms-lg-2" href="#" tabindex="-1" aria-disabled="true">
+                <i class="bi bi-lock-fill" aria-hidden="true"></i>
+                {% trans "Se connecter" %}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

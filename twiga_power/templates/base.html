@@ -123,78 +123,25 @@
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         // Récupérer l'élément Offcanvas Bootstrap
-        const offcanvasElement = document.getElementById("offcanvasNavbar");
+        const offcanvasElement = document.getElementById("siteNavbar");
 
         if (offcanvasElement) {
-          // Récupérer ou créer l'instance Bootstrap
           const bsOffcanvas = bootstrap.Offcanvas.getOrCreateInstance(offcanvasElement);
+          const mobileMediaQuery = window.matchMedia("(max-width: 991.98px)");
 
-          // Récupérer le lien Services
-          const servicesLink = document.getElementById("services-link");
-
-          if (servicesLink) {
-            servicesLink.addEventListener("click", function () {
-              bsOffcanvas.hide();
-            });
-          }
-
-          const mobileMediaQuery = window.matchMedia("(max-width: 767.98px)");
-
-          const closeAllMobileAccordions = function () {
-            if (!offcanvasElement) return;
-            offcanvasElement.querySelectorAll(".mobile-accordion").forEach(function (item) {
-              item.classList.remove("is-open");
-              const toggleButton = item.querySelector(".submenu-toggle-mobile");
-              if (toggleButton) {
-                toggleButton.setAttribute("aria-expanded", "false");
-              }
-            });
-          };
-
-          offcanvasElement.querySelectorAll(".submenu-toggle-mobile").forEach(function (button) {
-            button.addEventListener("click", function (event) {
-              event.preventDefault();
-              event.stopPropagation();
-
-              if (!mobileMediaQuery.matches) {
-                return;
-              }
-
-              const parentItem = button.closest(".mobile-accordion");
-              if (!parentItem) {
-                return;
-              }
-
-              const isOpen = parentItem.classList.contains("is-open");
-
-              offcanvasElement.querySelectorAll(".mobile-accordion").forEach(function (item) {
-                item.classList.remove("is-open");
-                const btn = item.querySelector(".submenu-toggle-mobile");
-                if (btn) {
-                  btn.setAttribute("aria-expanded", "false");
-                }
-              });
-
-              if (!isOpen) {
-                parentItem.classList.add("is-open");
-                button.setAttribute("aria-expanded", "true");
-              }
-            });
-          });
-
-          offcanvasElement.querySelectorAll(".mobile-accordion .mobile-parent-row > .nav-link").forEach(function (link) {
-            link.addEventListener("click", function (event) {
-              if (mobileMediaQuery.matches) {
-                event.preventDefault();
-              }
-            });
-          });
-
-          offcanvasElement.addEventListener("hidden.bs.offcanvas", closeAllMobileAccordions);
-
-          mobileMediaQuery.addEventListener("change", function () {
+          offcanvasElement.addEventListener("click", function (event) {
             if (!mobileMediaQuery.matches) {
-              closeAllMobileAccordions();
+              return;
+            }
+
+            const navigableLink = event.target.closest("a.nav-link:not(.dropdown-toggle), a.dropdown-item");
+            if (!navigableLink) {
+              return;
+            }
+
+            const href = navigableLink.getAttribute("href");
+            if (href && href !== "#") {
+              bsOffcanvas.hide();
             }
           });
         }
