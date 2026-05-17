@@ -32,28 +32,58 @@
     </svg>
   </div>
 </section>
-<section class="container px-4 mb-5">
-  <div class="row justify-content-center">
-    <div class="col-md-10">
-      <div class="row align-items-center gy-4">
-        <div class="col-md-6 bg-image"></div>
-        <div class="col-md-6">
-          <div class="container">
-            <p class="h3 lh-sm text-color">{% trans "Qui sommes nous ?" %}</p>
-            <p class="text-muted">
-              {% blocktrans %}Twiga Power, entreprise congolaise, assure l’importation, l’exportation, le transport, la
-              distribution et la commercialisation d’électricité, en modernisant le secteur
-              grâce à l’innovation et la durabilité.{% endblocktrans %}
-            </p>
-            <p class="text-muted">
-              {% blocktrans %}Notre mission est de rendre l’énergie fiable et accessible partout, des villes aux zones
-              reculées, en contribuant à un avenir de croissance, de progrès et de bien-être
-              pour chaque Congolais.{% endblocktrans %}
-            </p>
-            <a href="{% url 'about' %}" class="btn btn-primary btn-arrow"> {% trans "En savoir plus" %} <i
-                class="bi bi-arrow-right-short"></i> </a>
+<section class="dg-message py-5 mb-5" aria-labelledby="dg-message-title">
+  <div class="container px-4">
+    <div class="row justify-content-center">
+      <div class="col-xl-10">
+        <article
+          class="dg-message__card card border-0 rounded-4 overflow-hidden shadow"
+          data-sal="fade"
+          data-sal-duration="900"
+        >
+          <div class="row g-0 align-items-stretch">
+            <div class="col-md-5">
+              <div
+                class="dg-message__media mb-0 h-100"
+                data-sal="slide-right"
+                data-sal-duration="850"
+                data-sal-delay="100"
+              >
+                <img
+                  src="{% static 'images/dg.webp' %}"
+                  class="dg-message__img w-100 h-100"
+                  alt="{% trans 'Papy Mvulazana Mbidi, Directeur Général de Twiga Power' %}"
+                  width="480"
+                  height="560"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            <div class="col-md-7 d-flex">
+              <div
+                class="dg-message__content p-4 p-md-5 d-flex flex-column justify-content-center"
+                data-sal="slide-left"
+                data-sal-duration="850"
+                data-sal-delay="200"
+              >
+                <p class="dg-message__label text-uppercase small fw-semibold mb-2">{% trans "Leadership" %}</p>
+                <h2 id="dg-message-title" class="dg-message__title h2 text-color mb-3">
+                  {% trans "Mot du Directeur Général" %}
+                </h2>
+                <div class="project-detail__title-accent mb-4" aria-hidden="true"></div>
+                <p class="text-muted mb-3">
+                  {% blocktrans %}C’est un réel plaisir de vous accueillir dans l’univers de twiga power sarl, une entreprise engagée dans la transformation énergétique de la république démocratique du congo à travers des solutions fiables, modernes et durables.{% endblocktrans %}
+                </p>
+                <p class="text-muted mb-4">
+                  {% blocktrans %}Notre mission est de faciliter l’accès à l’électricité, d’améliorer la qualité du service et de soutenir le développement économique et social du pays. grâce à nos projets, nous rapprochons chaque jour l’énergie des populations et des entreprises.{% endblocktrans %}
+                </p>
+                <p class="text-muted mb-4">
+                  {% blocktrans %}Chez twiga power, nous plaçons l’innovation, la rigueur technique et la satisfaction client au cœur de nos actions. nous croyons que l’énergie est un moteur de progrès et nous nous engageons à bâtir des relations de confiance avec nos partenaires, clients et institutions.{% endblocktrans %}
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
+        </article>
       </div>
     </div>
   </div>

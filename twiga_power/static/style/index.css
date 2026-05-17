@@ -1507,6 +1507,53 @@ a.project-card__link:focus-visible {
   }
 }
 
+/* Mot du Directeur Général — accueil */
+.dg-message {
+  background: linear-gradient(180deg, #ffffff 0%, #f4f7fb 100%);
+}
+
+.dg-message__card {
+  box-shadow: 0 22px 55px rgba(2, 47, 84, 0.1) !important;
+}
+
+.dg-message__media {
+  position: relative;
+  min-height: 300px;
+  overflow: hidden;
+}
+
+.dg-message__img {
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.45s ease;
+}
+
+.dg-message__media:hover .dg-message__img {
+  transform: scale(1.03);
+}
+
+.dg-message__label {
+  color: var(--accent);
+  letter-spacing: 0.14em;
+}
+
+.dg-message__title {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+@media (max-width: 767.98px) {
+  .dg-message__media {
+    min-height: 260px;
+    max-height: 340px;
+  }
+
+  .dg-message__content {
+    padding-top: 1.75rem !important;
+  }
+}
+
 .bg-image {
   background-image: linear-gradient(rgba(33, 84, 141, 0.8), rgba(17, 78, 136, 0)), url('../images/about.webp');
   background-size: cover;
