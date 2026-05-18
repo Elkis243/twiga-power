@@ -605,6 +605,204 @@ svg {
   scroll-margin-top: 80px;
 }
 
+/* Nos Activités — carousel */
+.activities-section {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+}
+
+.activities-section__eyebrow {
+  color: var(--accent);
+  letter-spacing: 0.14em;
+}
+
+.activities-section__title {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.activities-section__lead {
+  max-width: 40rem;
+}
+
+.activities-carousel {
+  position: relative;
+  max-width: 100%;
+  padding-inline: 2.5rem;
+}
+
+.activities-carousel .carousel-inner {
+  overflow: visible;
+}
+
+.activities-carousel__control.carousel-control-prev {
+  left: 0;
+}
+
+.activities-carousel__control.carousel-control-next {
+  right: 0;
+}
+
+.activities-carousel__indicators {
+  position: static;
+  margin: 0 0 0.85rem;
+  gap: 0.45rem;
+}
+
+.activities-carousel__indicators [data-bs-target] {
+  width: 0.55rem;
+  height: 0.55rem;
+  margin: 0 0.2rem;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(2, 47, 84, 0.22);
+  opacity: 1;
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.activities-carousel__indicators .active {
+  background-color: var(--accent);
+  transform: scale(1.2);
+}
+
+.activities-carousel__control {
+  width: 2.65rem;
+  height: 2.65rem;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 1;
+}
+
+.activities-carousel__control-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.65rem;
+  height: 2.65rem;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--accent);
+  color: var(--blue);
+  font-size: 1.15rem;
+  box-shadow: 0 8px 22px rgba(246, 175, 51, 0.35);
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.activities-carousel__control:hover .activities-carousel__control-icon,
+.activities-carousel__control:focus-visible .activities-carousel__control-icon {
+  background-color: #ffd078;
+  border-color: #ffd078;
+  color: var(--blue);
+  transform: scale(1.06);
+  box-shadow: 0 10px 28px rgba(246, 175, 51, 0.45);
+}
+
+.activities-carousel__control:focus-visible .activities-carousel__control-icon {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.activity-card {
+  position: relative;
+  width: 100%;
+  background: #f4f7fb;
+  box-shadow: 0 12px 36px rgba(2, 47, 84, 0.08);
+  transition:
+    transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.activity-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 48px rgba(2, 47, 84, 0.14);
+}
+
+.activity-card__media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+}
+
+.activity-card__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.45s ease;
+}
+
+.activity-card:hover .activity-card__img {
+  transform: scale(1.06);
+}
+
+.activity-card__title {
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.activity-card__text {
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.activity-card__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  font-weight: 600;
+  color: var(--blue);
+  background-color: var(--accent);
+  border: 2px solid var(--accent);
+  box-shadow: 0 4px 14px rgba(246, 175, 51, 0.3);
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.activity-card__btn:hover,
+.activity-card__btn:focus-visible {
+  background-color: #ffd078;
+  border-color: #ffd078;
+  color: var(--blue);
+  box-shadow: 0 6px 18px rgba(246, 175, 51, 0.4);
+  transform: translateX(3px);
+}
+
+.activity-card__btn:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.activity-card__btn i {
+  transition: transform 0.25s ease;
+}
+
+.activity-card__btn:hover i,
+.activity-card__btn:focus-visible i {
+  transform: translateX(3px);
+}
+
+@media (max-width: 575.98px) {
+  .activities-carousel {
+    padding-inline: 0;
+  }
+
+  .activities-carousel__control {
+    display: none;
+  }
+}
+
 #partners {
   scroll-margin-top: 80px;
 }
