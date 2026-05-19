@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block base %}
+{% include "components/navbar.html" %}
+
+<header class="header-contact header-contact--historique" aria-labelledby="equipe-dirigeante-page-title">
+  <div class="historique-hero__pattern" aria-hidden="true"></div>
+  <div class="container historique-hero__inner px-3 px-md-4">
+    <nav class="historique-hero__breadcrumb" aria-label="{% trans "Fil d'Ariane" %}">
+      <ol class="historique-hero__breadcrumb-list list-unstyled d-flex flex-wrap justify-content-center gap-2 mb-0">
+        <li>
+          <a href="{% url 'home' %}" class="historique-hero__breadcrumb-link">{% trans "Qui sommes nous" %}</a>
+        </li>
+        <li class="historique-hero__breadcrumb-sep" aria-hidden="true">/</li>
+        <li class="historique-hero__breadcrumb-current" aria-current="page">{% trans "Équipe dirigeante" %}</li>
+      </ol>
+    </nav>
+    <div
+      class="historique-hero__content text-center mx-auto"
+      data-sal="fade"
+      data-sal-duration="800"
+      data-sal-delay="100"
+      data-sal-easing="ease-out-cubic"
+    >
+      <h1 id="equipe-dirigeante-page-title" class="historique-hero__title mb-3">{% trans "Équipe dirigeante" %}</h1>
+      <div class="project-detail__title-accent mx-auto mb-3" aria-hidden="true"></div>
+      <p class="historique-hero__lead mb-0 fs-6 mx-auto">
+        {% blocktrans %}L'équipe de direction au service de l'énergie en RDC.{% endblocktrans %}
+      </p>
+    </div>
+  </div>
+  <div class="historique-hero__wave" aria-hidden="true">
+    <svg class="historique-hero__wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none" focusable="false">
+      <path
+        fill="currentColor"
+        shape-rendering="geometricPrecision"
+        d="M0,52 C240,8 480,96 720,48 C960,0 1200,72 1440,40 L1440,120 L0,120 Z"
+      />
+    </svg>
+  </div>
+</header>
+
+<section id="equipe-dirigeante" class="equipe-dirigeante-section equipe-dirigeante-section--team" aria-labelledby="equipe-dirigeante-block-title">
+  <div class="container px-3 px-md-4">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <header
+          class="equipe-dirigeante-section__header text-center mx-auto mb-3"
+          data-sal="fade"
+          data-sal-duration="700"
+        >
+          <p class="equipe-dirigeante-section__eyebrow text-uppercase small fw-semibold mb-1">{% trans "Direction" %}</p>
+          <h2 id="equipe-dirigeante-block-title" class="equipe-dirigeante-section__title h2 text-color mb-2">
+            {% trans "Notre équipe dirigeante" %}
+          </h2>
+          <div class="project-detail__title-accent mx-auto" aria-hidden="true"></div>
+        </header>
+
+        <div class="equipe-dirigeante-members-wrap mx-auto">
+          <div class="equipe-dirigeante-members">
+            {% for member in equipe_members %}
+            <article
+              class="equipe-member text-center"
+              data-sal="slide-up"
+              data-sal-duration="700"
+              data-sal-delay="{% widthratio forloop.counter0 1 80 %}"
+              data-sal-easing="ease-out-cubic"
+            >
+              <img
+                src="{% static member.src %}"
+                class="equipe-member__img"
+                alt="{% if member.name %}{{ member.name }}, {{ member.role }}{% else %}{{ member.role }}{% endif %}"
+                width="280"
+                height="350"
+                loading="lazy"
+              />
+              <p class="equipe-member__role mb-1">{{ member.role }}</p>
+              {% if member.name %}
+              <p class="equipe-member__name mb-0">{{ member.name }}</p>
+              {% endif %}
+            </article>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include "components/footer.html" %}
+{% endblock base %}

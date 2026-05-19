@@ -768,9 +768,9 @@ msgstr "Follow us on our social networks:"
 msgid "Sélecteur de langue"
 msgstr "Language selector"
 
-#: twiga_power/templates/components/footer.html:121
-msgid "© 2025 Twiga Power. Tous droits réservés."
-msgstr "© 2025 Twiga Power. All rights reserved."
+#: twiga_power/templates/components/footer.html:123
+msgid "© 2026 Twiga Power SARL. Tous droits réservés."
+msgstr "© 2026 Twiga Power SARL. All rights reserved."
 
 #: twiga_power/templates/components/footer.html:123
 msgid "Design par"
@@ -818,6 +818,10 @@ msgstr ""
 #: twiga_power/templates/app/recrutement.html
 msgid "Date limite"
 msgstr "Deadline"
+
+#: twiga_power/templates/app/recrutement.html
+msgid "Date de publication"
+msgstr "Publication date"
 
 #: twiga_power/templates/app/recrutement.html
 msgid "Postes"
@@ -876,8 +880,17 @@ msgid "Adresse e-mail"
 msgstr "Email address"
 
 #: twiga_power/templates/app/postuler_offre.html
-msgid "Lettre de motivation"
-msgstr "Cover letter"
+msgid "Motivation"
+msgstr "Motivation"
+
+#: twiga_power/templates/app/postuler_offre.html
+msgid "Effectif"
+msgstr "Headcount"
+
+#: twiga_power/templates/app/postuler_offre.html
+#, python-format
+msgid "Effectif : %(count)s"
+msgstr "Headcount: %(count)s"
 
 #: twiga_power/templates/app/postuler_offre.html
 msgid "Votre prénom"

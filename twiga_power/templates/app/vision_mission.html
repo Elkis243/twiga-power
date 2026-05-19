@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block base %}
+{% include "components/navbar.html" %}
+
+<header class="header-contact header-contact--historique" aria-labelledby="vision-mission-page-title">
+  <div class="historique-hero__pattern" aria-hidden="true"></div>
+  <div class="container historique-hero__inner px-3 px-md-4">
+    <nav class="historique-hero__breadcrumb" aria-label="{% trans "Fil d'Ariane" %}">
+      <ol class="historique-hero__breadcrumb-list list-unstyled d-flex flex-wrap justify-content-center gap-2 mb-0">
+        <li>
+          <a href="{% url 'about' %}" class="historique-hero__breadcrumb-link">{% trans "Qui sommes nous" %}</a>
+        </li>
+        <li class="historique-hero__breadcrumb-sep" aria-hidden="true">/</li>
+        <li class="historique-hero__breadcrumb-current" aria-current="page">{% trans "Vision et mission" %}</li>
+      </ol>
+    </nav>
+    <div
+      class="historique-hero__content text-center mx-auto"
+      data-sal="fade"
+      data-sal-duration="800"
+      data-sal-delay="100"
+      data-sal-easing="ease-out-cubic"
+    >
+      <h1 id="vision-mission-page-title" class="historique-hero__title mb-3">{% trans "Vision et mission" %}</h1>
+      <div class="project-detail__title-accent mx-auto mb-3" aria-hidden="true"></div>
+      <p class="historique-hero__lead mb-0 fs-6 mx-auto">
+        {% blocktrans %}Notre ambition et nos engagements pour l'énergie en République Démocratique du Congo.{% endblocktrans %}
+      </p>
+    </div>
+  </div>
+  <div class="historique-hero__wave" aria-hidden="true">
+    <svg class="historique-hero__wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none" focusable="false">
+      <path
+        fill="currentColor"
+        shape-rendering="geometricPrecision"
+        d="M0,52 C240,8 480,96 720,48 C960,0 1200,72 1440,40 L1440,120 L0,120 Z"
+      />
+    </svg>
+  </div>
+</header>
+
+<section id="notre-vision" class="vision-mission-vision" aria-labelledby="vision-block-title">
+  <div class="vision-mission-vision__blobs" aria-hidden="true">
+    <svg class="vision-mission-vision__blob vision-mission-vision__blob--blue" viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg" focusable="false">
+      <path fill="currentColor" d="M156,18 C228,22 286,78 298,148 C310,218 252,268 178,272 C98,276 28,218 22,148 C16,78 78,14 156,18 Z" />
+    </svg>
+    <svg class="vision-mission-vision__blob vision-mission-vision__blob--gold" viewBox="0 0 280 260" xmlns="http://www.w3.org/2000/svg" focusable="false">
+      <path fill="currentColor" d="M138,12 C198,8 252,52 268,112 C284,172 242,232 172,248 C102,264 36,220 18,158 C0,96 58,16 138,12 Z" />
+    </svg>
+  </div>
+  <div class="container px-3 px-md-4 position-relative">
+    <div class="row justify-content-center">
+      <div class="col-xl-8 col-lg-9 text-center">
+        <header
+          class="vision-mission-vision__header mx-auto mb-4 mb-lg-5"
+          data-sal="fade"
+          data-sal-duration="700"
+        >
+          <p class="vision-mission-vision__eyebrow text-uppercase small fw-semibold mb-2">{% trans "Vision" %}</p>
+          <h2 id="vision-block-title" class="vision-mission-vision__title h3 text-color mb-0">{% trans "Notre vision" %}</h2>
+        </header>
+
+        <figure
+          class="vision-mission-vision__quote mx-auto"
+          data-sal="slide-up"
+          data-sal-duration="700"
+          data-sal-delay="80"
+        >
+          <blockquote class="vision-mission-vision__quote-body mb-0">
+            <p class="vision-mission-vision__statement mb-0">
+              {% blocktrans %}Être une référence nationale et un acteur central de la relance énergétique durable en République Démocratique du Congo.{% endblocktrans %}
+            </p>
+          </blockquote>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="nos-missions" class="vision-mission-missions-section py-5 mb-0" aria-labelledby="missions-block-title">
+  <div class="container px-3 px-md-4">
+    <div class="row justify-content-center">
+      <div class="col-xl-10 vision-mission-layout">
+        <article class="vision-mission-missions">
+          <header
+            class="vision-mission-missions__header mb-4 mb-lg-5"
+            data-sal="fade"
+            data-sal-duration="700"
+          >
+            <p class="vision-mission-missions__eyebrow text-uppercase small fw-semibold mb-2">{% trans "Missions" %}</p>
+            <h2 id="missions-block-title" class="vision-mission-missions__title h3 mb-0">{% trans "Nos missions" %}</h2>
+          </header>
+
+          <div class="vision-mission-missions__grid">
+            <div
+              class="vision-mission-mission"
+              data-sal="slide-up"
+              data-sal-duration="700"
+              data-sal-delay="80"
+              data-sal-easing="ease-out-cubic"
+            >
+              <span class="vision-mission-mission__index" aria-hidden="true">01</span>
+              <p class="vision-mission-mission__text mb-0">
+                {% blocktrans %}Répondre à l'un des besoins fondamentaux de la population : l'accès fiable, sécurisé et durable à l'énergie électrique.{% endblocktrans %}
+              </p>
+            </div>
+            <div
+              class="vision-mission-mission"
+              data-sal="slide-up"
+              data-sal-duration="700"
+              data-sal-delay="160"
+              data-sal-easing="ease-out-cubic"
+            >
+              <span class="vision-mission-mission__index" aria-hidden="true">02</span>
+              <p class="vision-mission-mission__text mb-0">
+                {% blocktrans %}Contribuer de manière responsable au développement économique, environnemental et social de la République Démocratique du Congo.{% endblocktrans %}
+              </p>
+            </div>
+            <div
+              class="vision-mission-mission"
+              data-sal="slide-up"
+              data-sal-duration="700"
+              data-sal-delay="240"
+              data-sal-easing="ease-out-cubic"
+            >
+              <span class="vision-mission-mission__index" aria-hidden="true">03</span>
+              <p class="vision-mission-mission__text mb-0">
+                {% blocktrans %}Aller au-delà du rôle d'énergéticien en sensibilisant les consommateurs à une utilisation responsable de l'électricité pour renforcer leur satisfaction.{% endblocktrans %}
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include "components/footer.html" %}
+{% endblock base %}

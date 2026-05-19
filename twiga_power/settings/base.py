@@ -152,6 +152,10 @@ MESSAGE_TAGS = {
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+LOGIN_URL = "/connexion/"
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
+
 # Email configuration
 # https://docs.djangoproject.com/en/5.1/topics/email/
 # This is useful for local development and testing

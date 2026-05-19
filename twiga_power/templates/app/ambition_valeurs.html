@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block base %}
+{% include "components/navbar.html" %}
+
+<header class="header-contact header-contact--historique" aria-labelledby="ambition-valeurs-page-title">
+  <div class="historique-hero__pattern" aria-hidden="true"></div>
+  <div class="container historique-hero__inner px-3 px-md-4">
+    <nav class="historique-hero__breadcrumb" aria-label="{% trans "Fil d'Ariane" %}">
+      <ol class="historique-hero__breadcrumb-list list-unstyled d-flex flex-wrap justify-content-center gap-2 mb-0">
+        <li>
+          <a href="{% url 'home' %}" class="historique-hero__breadcrumb-link">{% trans "Qui sommes nous" %}</a>
+        </li>
+        <li class="historique-hero__breadcrumb-sep" aria-hidden="true">/</li>
+        <li class="historique-hero__breadcrumb-current" aria-current="page">{% trans "Ambition et valeurs" %}</li>
+      </ol>
+    </nav>
+    <div
+      class="historique-hero__content text-center mx-auto"
+      data-sal="fade"
+      data-sal-duration="800"
+      data-sal-delay="100"
+      data-sal-easing="ease-out-cubic"
+    >
+      <h1 id="ambition-valeurs-page-title" class="historique-hero__title mb-3">{% trans "Ambition et valeurs" %}</h1>
+      <div class="project-detail__title-accent mx-auto mb-3" aria-hidden="true"></div>
+      <p class="historique-hero__lead mb-0 fs-6 mx-auto">
+        {% blocktrans %}Les principes et l'ambition qui nous guident au quotidien en République Démocratique du Congo.{% endblocktrans %}
+      </p>
+    </div>
+  </div>
+  <div class="historique-hero__wave" aria-hidden="true">
+    <svg class="historique-hero__wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none" focusable="false">
+      <path
+        fill="currentColor"
+        shape-rendering="geometricPrecision"
+        d="M0,52 C240,8 480,96 720,48 C960,0 1200,72 1440,40 L1440,120 L0,120 Z"
+      />
+    </svg>
+  </div>
+</header>
+
+<section id="notre-ambition" class="ambition-valeurs-section ambition-valeurs-section--ambition pt-5 pb-0" aria-labelledby="ambition-block-title">
+  <div class="container px-3 px-md-4">
+    <div class="row justify-content-center">
+      <div class="col-xl-10">
+        <header
+          class="ambition-valeurs-section__header text-center mx-auto mb-4 mb-lg-5"
+          data-sal="slide-up"
+          data-sal-duration="700"
+          data-sal-delay="80"
+          data-sal-easing="ease-out-cubic"
+        >
+          <p class="ambition-valeurs-section__eyebrow text-uppercase small fw-semibold mb-2">{% trans "Ambition" %}</p>
+          <h2 id="ambition-block-title" class="ambition-valeurs-section__title h2 text-color mb-3">{% trans "Notre ambition" %}</h2>
+          <div class="project-detail__title-accent mx-auto mb-3" aria-hidden="true"></div>
+          <p class="ambition-valeurs-section__lead text-muted mb-0 mx-auto">
+            {% blocktrans %}Marquer durablement son empreinte dans l'industrie énergétique congolaise en alliant vision stratégique, excellence opérationnelle et impact social, tout en valorisant l'identité et l'esprit distinctif de Twiga Power Sarl.{% endblocktrans %}
+          </p>
+        </header>
+      </div>
+    </div>
+  </div>
+  <div class="ambition-valeurs-section__wave" aria-hidden="true">
+    <svg class="ambition-valeurs-section__wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none" focusable="false">
+      <path
+        fill="currentColor"
+        shape-rendering="geometricPrecision"
+        d="M0,52 C240,8 480,96 720,48 C960,0 1200,72 1440,40 L1440,120 L0,120 Z"
+      />
+    </svg>
+  </div>
+</section>
+
+<section id="nos-valeurs" class="vision-mission-missions-section py-5 mb-0" aria-labelledby="valeurs-block-title">
+  <div class="container px-3 px-md-4">
+    <div class="row justify-content-center">
+      <div class="col-xl-10 vision-mission-layout">
+        <article class="vision-mission-missions">
+          <header
+            class="vision-mission-missions__header mb-4 mb-lg-5"
+            data-sal="fade"
+            data-sal-duration="700"
+          >
+            <p class="vision-mission-missions__eyebrow text-uppercase small fw-semibold mb-2">{% trans "Valeurs" %}</p>
+            <h2 id="valeurs-block-title" class="vision-mission-missions__title h3 mb-0">{% trans "Nos valeurs" %}</h2>
+          </header>
+
+          <div class="vision-mission-missions__grid vision-mission-missions__grid--four">
+            <div
+              class="vision-mission-mission"
+              data-sal="slide-up"
+              data-sal-duration="700"
+              data-sal-delay="80"
+              data-sal-easing="ease-out-cubic"
+            >
+              <h3 class="vision-mission-mission__label mb-0">{% trans "Respect" %}</h3>
+              <p class="vision-mission-mission__text mb-0">
+                {% blocktrans %}Écoute des populations, engagements tenus et respect strict du cadre légal.{% endblocktrans %}
+              </p>
+            </div>
+            <div
+              class="vision-mission-mission"
+              data-sal="slide-up"
+              data-sal-duration="700"
+              data-sal-delay="160"
+              data-sal-easing="ease-out-cubic"
+            >
+              <h3 class="vision-mission-mission__label mb-0">{% trans "Excellence" %}</h3>
+              <p class="vision-mission-mission__text mb-0">
+                {% blocktrans %}Standards techniques élevés, amélioration continue et développement des compétences.{% endblocktrans %}
+              </p>
+            </div>
+            <div
+              class="vision-mission-mission"
+              data-sal="slide-up"
+              data-sal-duration="700"
+              data-sal-delay="240"
+              data-sal-easing="ease-out-cubic"
+            >
+              <h3 class="vision-mission-mission__label mb-0">{% trans "Sécurité" %}</h3>
+              <p class="vision-mission-mission__text mb-0">
+                {% blocktrans %}Protection des personnes et des infrastructures ; prévention des risques à chaque étape.{% endblocktrans %}
+              </p>
+            </div>
+            <div
+              class="vision-mission-mission"
+              data-sal="slide-up"
+              data-sal-duration="700"
+              data-sal-delay="320"
+              data-sal-easing="ease-out-cubic"
+            >
+              <h3 class="vision-mission-mission__label mb-0">{% trans "Engagement social" %}</h3>
+              <p class="vision-mission-mission__text mb-0">
+                {% blocktrans %}Accompagnement des communautés et promotion d'une consommation responsable de l'électricité.{% endblocktrans %}
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include "components/footer.html" %}
+{% endblock base %}

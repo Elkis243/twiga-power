@@ -3,7 +3,12 @@
 {% block base %}
 {% include "components/navbar.html" %}
 <div class="header-contact">
-    <div class="d-flex flex-column justify-content-center align-items-center text-center px-3">
+    <div
+        class="d-flex flex-column justify-content-center align-items-center text-center px-3"
+        data-sal="fade"
+        data-sal-duration="800"
+        data-sal-easing="ease-out-cubic"
+    >
         <h1 class="text-white mb-0">{% trans "Nos projets pilotes" %}</h1>
         <div class="project-detail__title-accent mt-3" aria-hidden="true"></div>
     </div>
@@ -13,19 +18,37 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="row justify-content-between align-items-center mb-3">
-                    <div class="col-md-6">
+                    <div
+                        class="col-md-6"
+                        data-sal="slide-up"
+                        data-sal-duration="700"
+                        data-sal-delay="80"
+                        data-sal-easing="ease-out-cubic"
+                    >
                         <p class="text-color h3  text-start text-lg-end">
                             {% blocktrans %}Découvrez nos projets de construction hydroélectriques, un moteur d’autonomie et de lumière pour le Congo.{% endblocktrans %}
                         </p>
                     </div>
-                    <div class="col-md-5">
+                    <div
+                        class="col-md-5"
+                        data-sal="slide-up"
+                        data-sal-duration="700"
+                        data-sal-delay="160"
+                        data-sal-easing="ease-out-cubic"
+                    >
                         <p class="text-muted">
                             {% blocktrans %}Chaque initiative ouvre la voie vers un Congo mieux éclairé. Avec des solutions innovantes et des alliances solides, Twiga Power rapproche l’énergie des communautés et prépare un avenir durable pour tous.{% endblocktrans %}
                         </p>
                     </div>
                 </div>
                 <div class="row gy-3">
-                    <div class="col-md-4">
+                    <div
+                        class="col-md-4"
+                        data-sal="slide-up"
+                        data-sal-duration="700"
+                        data-sal-delay="80"
+                        data-sal-easing="ease-out-cubic"
+                    >
                         <div class="card border-0 project-card position-relative">
                             <img src="{% static 'images/inkisi.webp' %}" class="card-img rounded" alt="Projet Solaire">
                             <div
@@ -38,7 +61,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div
+                        class="col-md-4"
+                        data-sal="slide-up"
+                        data-sal-duration="700"
+                        data-sal-delay="160"
+                        data-sal-easing="ease-out-cubic"
+                    >
                         <div class="card border-0 project-card position-relative">
                             <img src="{% static 'images/luvua.webp' %}" class="card-img rounded"
                                 alt="Projet Hydroélectrique">
@@ -52,7 +81,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div
+                        class="col-md-4"
+                        data-sal="slide-up"
+                        data-sal-duration="700"
+                        data-sal-delay="240"
+                        data-sal-easing="ease-out-cubic"
+                    >
                         <div class="card border-0 project-card position-relative">
                             <img src="{% static 'images/luvua.webp' %}" class="card-img rounded"
                                 alt="Projet Distribution">

@@ -12,16 +12,12 @@ def send_contact_email(
     *,
     name: str,
     email: str,
-    phone: str,
-    address: str,
     message: str,
 ) -> None:
     subject = f"Nouveau message de {name}"
     body = (
         f"Nom complet: {name}\n"
-        f"Email: {email}\n"
-        f"Téléphone: {phone}\n"
-        f"Adresse: {address}\n\n"
+        f"Email: {email}\n\n"
         f"Message:\n{message}"
     )
     mail_kwargs = {

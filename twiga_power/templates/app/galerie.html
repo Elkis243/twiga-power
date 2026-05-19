@@ -5,7 +5,12 @@
 {% include "components/navbar.html" %}
 
 <div class="header-contact">
-    <div class="d-flex flex-column justify-content-center align-items-center text-center px-3">
+    <div
+        class="d-flex flex-column justify-content-center align-items-center text-center px-3"
+        data-sal="fade"
+        data-sal-duration="800"
+        data-sal-easing="ease-out-cubic"
+    >
         <h1 class="text-white mb-0">{% trans "Galerie de photos" %}</h1>
         <div class="project-detail__title-accent mt-3" aria-hidden="true"></div>
     </div>
@@ -106,6 +111,10 @@
     galleryData.forEach((item, index) => {
         const galleryItem = document.createElement('div');
         galleryItem.className = 'col-md-3 mb-4 gallery-item';
+        galleryItem.setAttribute('data-sal', 'fade');
+        galleryItem.setAttribute('data-sal-duration', '600');
+        galleryItem.setAttribute('data-sal-delay', String(60 + (index % 8) * 50));
+        galleryItem.setAttribute('data-sal-easing', 'ease-out-cubic');
         galleryItem.innerHTML = `
             <div class="card border-0 project-card position-relative">
                 <img src="${item.src}" alt="${item.title}" class="card-img rounded gallery-image">
@@ -117,6 +126,10 @@
         galleryItem.addEventListener('click', () => openLightbox(index));
         gallery.appendChild(galleryItem);
     });
+
+    if (typeof window.refreshPageAnimations === 'function') {
+        window.refreshPageAnimations();
+    }
 
     function openLightbox(index) {
         currentIndex = index;

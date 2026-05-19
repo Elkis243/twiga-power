@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block base %}
+{% include "components/navbar.html" %}
+
+<header class="header-contact header-contact--historique header-contact--historique--compact" aria-labelledby="mon-espace-page-title">
+  <div class="historique-hero__pattern" aria-hidden="true"></div>
+  <div class="container historique-hero__inner px-3 px-md-4">
+    <nav class="historique-hero__breadcrumb" aria-label="{% trans "Fil d'Ariane" %}">
+      <ol class="historique-hero__breadcrumb-list list-unstyled d-flex flex-wrap justify-content-center gap-2 mb-0">
+        <li>
+          <a href="{% url 'home' %}" class="historique-hero__breadcrumb-link">{% trans "Accueil" %}</a>
+        </li>
+        <li class="historique-hero__breadcrumb-sep" aria-hidden="true">/</li>
+        <li class="historique-hero__breadcrumb-current" aria-current="page">{% trans "Mon espace" %}</li>
+      </ol>
+    </nav>
+    <div class="historique-hero__content text-center mx-auto">
+      <h1 id="mon-espace-page-title" class="historique-hero__title mb-2">{% trans "Mon espace" %}</h1>
+      <div class="project-detail__title-accent mx-auto mb-2" aria-hidden="true"></div>
+      <p class="historique-hero__lead mb-0 fs-6 mx-auto">
+        {% blocktrans with name=display_name %}Bienvenue, {{ name }}.{% endblocktrans %}
+      </p>
+    </div>
+  </div>
+  <div class="historique-hero__wave" aria-hidden="true">
+    <svg class="historique-hero__wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none" focusable="false">
+      <path
+        fill="currentColor"
+        shape-rendering="geometricPrecision"
+        d="M0,52 C240,8 480,96 720,48 C960,0 1200,72 1440,40 L1440,120 L0,120 Z"
+      />
+    </svg>
+  </div>
+</header>
+
+<section class="mon-espace-section activities-section py-4 mb-5" aria-label="{% trans 'Services' %}">
+  <div class="container px-4">
+    <div class="row justify-content-center">
+      <div class="col-xl-10">
+        <div class="row g-3 align-items-stretch justify-content-center">
+          {% for service in services %}
+          <div
+            class="col-12 col-md-6 col-lg-4 d-flex"
+            data-sal="slide-up"
+            data-sal-duration="700"
+            data-sal-delay="{% widthratio forloop.counter0 1 80 %}"
+            data-sal-easing="ease-out-cubic"
+          >
+            {% include "components/activity_card.html" with title=service.title description=service.description media_tone=service.media_tone media_icon=service.media_icon link_url=service.link_url button_label=service.button_label hide_button_icon=True only %}
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include "components/footer.html" %}
+{% endblock base %}

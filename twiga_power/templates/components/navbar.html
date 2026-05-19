@@ -22,7 +22,7 @@
   >
     <div class="container">
       <a class="navbar-brand py-2 me-2" href="{% url 'home' %}">
-        <img src="{% static 'images/logo.png' %}" alt="{% trans 'Logo Twiga Power' %}" width="62" height="auto" />
+        <img src="{% static 'images/logo.png' %}" alt="{% trans 'Logo Twiga Power' %}" width="74" height="auto" />
       </a>
       <button
         class="navbar-toggler border-0 shadow-none"
@@ -43,7 +43,7 @@
         <div class="offcanvas-header border-bottom border-secondary border-opacity-25">
           <span class="offcanvas-title visually-hidden" id="siteNavbarLabel">{% trans "Menu" %}</span>
           <a class="navbar-brand py-0" href="{% url 'home' %}">
-            <img src="{% static 'images/logo.png' %}" alt="" width="62" height="auto" aria-hidden="true" />
+            <img src="{% static 'images/logo.png' %}" alt="" width="74" height="auto" aria-hidden="true" />
           </a>
           <button
             type="button"
@@ -59,7 +59,7 @@
             </li>
             <li class="nav-item dropdown">
               <a
-                class="nav-link dropdown-toggle px-2 py-2 {% if page == 'Notre histoire' %}active-link{% endif %}"
+                class="nav-link dropdown-toggle px-2 py-2 {% if page == 'Notre histoire' or page == 'Historique' or page == 'Vision et mission' or page == 'Ambition et valeurs' or page == 'Équipe dirigeante' %}active-link{% endif %}"
                 href="#"
                 id="navbarAboutDropdown"
                 role="button"
@@ -71,31 +71,37 @@
               </a>
               <ul class="dropdown-menu navbar-about-menu shadow-sm rounded-3 border-0 p-2" aria-labelledby="navbarAboutDropdown">
                 <li>
-                  <a class="dropdown-item navbar-about-item navbar-mobile-sublink py-2 rounded-2" href="{% url 'about' %}#historique">
+                  <a
+                    class="dropdown-item navbar-about-item navbar-mobile-sublink py-2 rounded-2 {% if page == 'Historique' %}active{% endif %}"
+                    href="{% url 'historique' %}"
+                  >
                     <i class="bi bi-chevron-right navbar-mobile-sublink__icon" aria-hidden="true"></i>
                     {% trans "Historique" %}
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item navbar-about-item navbar-mobile-sublink py-2 rounded-2" href="{% url 'about' %}#presentation">
-                    <i class="bi bi-chevron-right navbar-mobile-sublink__icon" aria-hidden="true"></i>
-                    {% trans "Présentation" %}
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item navbar-about-item navbar-mobile-sublink py-2 rounded-2" href="{% url 'about' %}#vision-mission">
+                  <a
+                    class="dropdown-item navbar-about-item navbar-mobile-sublink py-2 rounded-2 {% if page == 'Vision et mission' %}active{% endif %}"
+                    href="{% url 'vision_mission' %}"
+                  >
                     <i class="bi bi-chevron-right navbar-mobile-sublink__icon" aria-hidden="true"></i>
                     {% trans "Vision et mission" %}
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item navbar-about-item navbar-mobile-sublink py-2 rounded-2" href="{% url 'about' %}#ambition-valeurs">
+                  <a
+                    class="dropdown-item navbar-about-item navbar-mobile-sublink py-2 rounded-2 {% if page == 'Ambition et valeurs' %}active{% endif %}"
+                    href="{% url 'ambition_valeurs' %}"
+                  >
                     <i class="bi bi-chevron-right navbar-mobile-sublink__icon" aria-hidden="true"></i>
                     {% trans "Ambition et valeurs" %}
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item navbar-about-item navbar-mobile-sublink py-2 rounded-2" href="{% url 'about' %}#equipe-dirigeante">
+                  <a
+                    class="dropdown-item navbar-about-item navbar-mobile-sublink py-2 rounded-2 {% if page == 'Équipe dirigeante' %}active{% endif %}"
+                    href="{% url 'equipe_dirigeante' %}"
+                  >
                     <i class="bi bi-chevron-right navbar-mobile-sublink__icon" aria-hidden="true"></i>
                     {% trans "Équipe dirigeante" %}
                   </a>
@@ -115,7 +121,7 @@
             </li>
             <li class="nav-item dropdown">
               <a
-                class="nav-link dropdown-toggle px-2 py-2 {% if page == 'Recrutement' or page == 'Contact' %}active-link{% endif %}"
+                class="nav-link dropdown-toggle px-2 py-2 {% if page == 'Recrutement' or page == 'Postuler' %}active-link{% endif %}"
                 href="#"
                 id="navbarAlertsDropdown"
                 role="button"
@@ -127,13 +133,19 @@
               </a>
               <ul class="dropdown-menu navbar-about-menu shadow-sm rounded-3 border-0 p-2" aria-labelledby="navbarAlertsDropdown">
                 <li>
-                  <a class="dropdown-item navbar-about-item navbar-mobile-sublink py-2 rounded-2" href="{% url 'contact' %}">
+                  <a
+                    class="dropdown-item navbar-about-item navbar-mobile-sublink py-2 rounded-2"
+                    href="{% url 'contact' %}"
+                  >
                     <i class="bi bi-chevron-right navbar-mobile-sublink__icon" aria-hidden="true"></i>
                     {% trans "Alertes" %}
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item navbar-about-item navbar-mobile-sublink py-2 rounded-2" href="{% url 'recrutement' %}">
+                  <a
+                    class="dropdown-item navbar-about-item navbar-mobile-sublink py-2 rounded-2 {% if page == 'Recrutement' or page == 'Postuler' %}active{% endif %}"
+                    href="{% url 'recrutement' %}"
+                  >
                     <i class="bi bi-chevron-right navbar-mobile-sublink__icon" aria-hidden="true"></i>
                     {% trans "Recrutement" %}
                   </a>
@@ -141,10 +153,32 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link nav-link--login d-inline-flex align-items-center gap-1 px-3 py-2 ms-lg-2" href="#" tabindex="-1" aria-disabled="true">
+              {% if user.is_authenticated %}
+              <a
+                class="nav-link px-2 py-2{% if request.resolver_match.url_name == 'mon_espace' %} active-link{% endif %}"
+                href="{% url 'mon_espace' %}"
+              >
+                {% trans "Mon espace" %}
+              </a>
+              {% endif %}
+            </li>
+            <li class="nav-item">
+              {% if user.is_authenticated %}
+              <form method="post" action="{% url 'logout' %}" class="site-navbar__logout-form d-inline-flex ms-lg-2">
+                {% csrf_token %}
+                <button
+                  type="submit"
+                  class="nav-link nav-link--logout d-inline-flex align-items-center px-3 py-2 border-0"
+                >
+                  {% trans "Se déconnecter" %}
+                </button>
+              </form>
+              {% else %}
+              <a class="nav-link nav-link--login d-inline-flex align-items-center gap-1 px-3 py-2 ms-lg-2" href="{% url 'login' %}">
                 <i class="bi bi-lock-fill" aria-hidden="true"></i>
                 {% trans "Se connecter" %}
               </a>
+              {% endif %}
             </li>
           </ul>
         </div>

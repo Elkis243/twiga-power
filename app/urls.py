@@ -12,8 +12,16 @@ sitemaps = {
 
 urlpatterns = [
     path("", home, name="home"),
+    path("mon-espace/", mon_espace, name="mon_espace"),
+    path("connexion/", ConnexionView.as_view(), name="login"),
+    path("deconnexion/", LogoutView.as_view(), name="logout"),
+    path("inscription/", register, name="register"),
     path("contact/", contact, name="contact"),
     path("about/", about, name="about"),
+    path("historique/", historique, name="historique"),
+    path("vision-mission/", vision_mission, name="vision_mission"),
+    path("ambition-valeurs/", ambition_valeurs, name="ambition_valeurs"),
+    path("equipe-dirigeante/", equipe_dirigeante, name="equipe_dirigeante"),
     path("champ_activité/", champ_activité, name="champ_activité"),
     path("projects/", projects, name="projects"),
     path("recrutement/", recrutement, name="recrutement"),

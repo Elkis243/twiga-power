@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block base %}
+{% include "components/navbar.html" %}
+
+<header class="header-contact header-contact--historique" aria-labelledby="historique-page-title">
+  <div class="historique-hero__pattern" aria-hidden="true"></div>
+  <div class="container historique-hero__inner px-3 px-md-4">
+    <nav class="historique-hero__breadcrumb" aria-label="{% trans "Fil d'Ariane" %}">
+      <ol class="historique-hero__breadcrumb-list list-unstyled d-flex flex-wrap justify-content-center gap-2 mb-0">
+        <li>
+          <a href="{% url 'about' %}" class="historique-hero__breadcrumb-link">{% trans "Qui sommes nous" %}</a>
+        </li>
+        <li class="historique-hero__breadcrumb-sep" aria-hidden="true">/</li>
+        <li class="historique-hero__breadcrumb-current" aria-current="page">{% trans "Historique" %}</li>
+      </ol>
+    </nav>
+    <div
+      class="historique-hero__content text-center mx-auto"
+      data-sal="fade"
+      data-sal-duration="800"
+      data-sal-delay="100"
+      data-sal-easing="ease-out-cubic"
+    >
+      <h1 id="historique-page-title" class="historique-hero__title mb-3">{% trans "Historique" %}</h1>
+      <div class="project-detail__title-accent mx-auto mb-3" aria-hidden="true"></div>
+      <p class="historique-hero__lead mb-0 fs-6 mx-auto">
+        {% blocktrans %}Notre histoire au service d'une énergie fiable en RDC.{% endblocktrans %}
+      </p>
+    </div>
+  </div>
+  <div class="historique-hero__wave" aria-hidden="true">
+    <svg class="historique-hero__wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none" focusable="false">
+      <path
+        fill="currentColor"
+        shape-rendering="geometricPrecision"
+        d="M0,52 C240,8 480,96 720,48 C960,0 1200,72 1440,40 L1440,120 L0,120 Z"
+      />
+    </svg>
+  </div>
+</header>
+
+<section id="historique" class="historique-section py-5 mb-5" aria-labelledby="historique-content-title">
+  <div class="container px-3 px-md-4">
+    <div class="row justify-content-center">
+      <div class="col-xl-10">
+        <article class="historique-story">
+          <div class="row g-4 g-lg-5 align-items-start">
+            <div
+              class="col-md-6 col-lg-6 d-flex"
+              data-sal="slide-right"
+              data-sal-duration="750"
+              data-sal-delay="120"
+              data-sal-easing="ease-out-cubic"
+            >
+              <div class="historique-story__media w-100">
+                <img
+                  src="{% static 'images/luvua.webp' %}"
+                  class="historique-story__img w-100"
+                  alt="{% trans 'Production hydroélectrique — Twiga Power' %}"
+                  width="560"
+                  height="640"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-6"
+              data-sal="slide-left"
+              data-sal-duration="750"
+              data-sal-delay="200"
+              data-sal-easing="ease-out-cubic"
+            >
+              <div class="historique-story__content">
+                <h2 id="historique-content-title" class="historique-story__title h2 text-color mb-3">
+                  {% trans "Notre histoire" %}
+                </h2>
+                <div class="project-detail__title-accent mb-4" aria-hidden="true"></div>
+                <p class="historique-story__text text-muted mb-0">
+                  {% blocktrans %}Créée en novembre 2024, Twiga Power est une société de droit congolais légalement constituée sous la forme d'une Société à Responsabilité Limitée. Elle est née d'une vision ambitieuse visant à contribuer au développement du secteur énergétique en République Démocratique du Congo à travers des solutions modernes, fiables et durables. Dans un contexte marqué par une demande croissante en électricité et la nécessité d'améliorer l'accès à une énergie stable et de qualité, l'entreprise s'engage à proposer des services performants répondant aux besoins des ménages, des entreprises et des institutions.{% endblocktrans %}
+                </p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include "components/footer.html" %}
+{% endblock base %}

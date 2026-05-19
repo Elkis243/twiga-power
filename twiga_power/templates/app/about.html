@@ -1,6 +1,11 @@
 {% extends "base.html" %} {% load static i18n %} {% block base %} {% include "components/navbar.html" %}
 <div class="header-contact">
-  <div class="d-flex flex-column justify-content-center align-items-center text-center px-3">
+  <div
+    class="d-flex flex-column justify-content-center align-items-center text-center px-3"
+    data-sal="fade"
+    data-sal-duration="800"
+    data-sal-easing="ease-out-cubic"
+  >
     <h1 class="text-white mb-0">{% trans "Notre histoire" %}</h1>
     <div class="project-detail__title-accent mt-3" aria-hidden="true"></div>
   </div>
@@ -9,20 +14,9 @@
   <div class="row justify-content-center">
     <div class="col-md-10">
       <div class="row gy-5">
-        <div id="equipe-dirigeante" class="col-md-6">
-          <div class="card border-0 project-card position-relative">
-            <img src="{% static 'images/dg.webp' %}" class="card-img rounded" alt="Projet Solaire" />
-            <div
-              class="project-footer d-flex justify-content-between align-items-center p-2 rounded-bottom position-absolute w-100 bottom-0 bg-color opacity-75"
-            >
-              <div>
-                <p class="text-white mb-0">Papy Mvulazana Mbidi</p>
-                <small>{% trans "Directeur Général" %}</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 d-flex align-items-center">
+        <div
+          class="col-12" data-sal="slide-up" data-sal-duration="750" data-sal-delay="120" data-sal-easing="ease-out-cubic"
+        >
           <div>
             <div id="presentation" class="mb-4">
               <p class="text-color h3 lh-sm mb-3">{% trans "Notre histoire" %}</p>
@@ -53,7 +47,13 @@
     <div class="row justify-content-center">
       <div class="col-md-10">
         <div class="row justify-content-between gy-3">
-          <div class="col-md-6">
+          <div
+            class="col-md-6"
+            data-sal="slide-up"
+            data-sal-duration="700"
+            data-sal-delay="80"
+            data-sal-easing="ease-out-cubic"
+          >
             <div class="container">
               <h3 class="mb-3 text-color">{% trans "Notre Mission" %}</h3>
               <p>
@@ -74,13 +74,18 @@
                 <li class="mb-2">
                   <i class="bi bi-check-circle text-accent me-2"></i>
                   {% blocktrans %}Aller au-delà du rôle d’énergéticien en accompagnant et en sensibilisant les
-                  consommateurs à une utilisation responsable de l’électricité, afin de renforcer leur satisfaction.{%
-                  endblocktrans %}
+                  consommateurs à une utilisation responsable de l’électricité, afin de renforcer leur satisfaction.{% endblocktrans %}
                 </li>
               </ul>
             </div>
           </div>
-          <div class="col-md-6">
+          <div
+            class="col-md-6"
+            data-sal="slide-up"
+            data-sal-duration="700"
+            data-sal-delay="160"
+            data-sal-easing="ease-out-cubic"
+          >
             <div class="container">
               <h3 class="mb-3 text-color">{% trans "Notre Vision" %}</h3>
               <p>
@@ -104,71 +109,6 @@
                   de qualité.{% endblocktrans %}
                 </li>
               </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section id="ambition-valeurs" class="py-5 px-3 px-md-4 mt-5">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-10">
-        <h3 class="mb-4 text-center text-color">{% trans "Nos Valeurs" %}</h3>
-        <p class="text-muted text-center mb-5 col-12 col-lg-8 mx-auto">
-          {% blocktrans %}Ces valeurs guident chaque décision et chaque action de Twiga Power SARL dans la construction
-          d’un système énergétique fiable, durable et responsable.{% endblocktrans %}
-        </p>
-        <div class="row g-4">
-          <div class="col-md-6">
-            <div class="h-100 border-0 rounded-3 p-4 bg-body-secondary">
-              <h5 class="text-color mb-2">
-                <i class="bi bi-check-circle-fill me-2 text-accent"></i>{% trans "Respect" %}
-              </h5>
-              <p class="mb-0 text-muted">
-                {% blocktrans %}Le respect constitue le socle des relations de Twiga Power SARL avec les clients, les
-                partenaires, les communautés locales et les autorités publiques. Il se traduit par la prise en compte
-                des besoins des populations, le respect des engagements contractuels et l’observation stricte du cadre
-                légal dans l’ensemble de ses activités énergétiques.{% endblocktrans %}
-              </p>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="h-100 border-0 rounded-3 p-4 bg-body-secondary">
-              <h5 class="text-color mb-2">
-                <i class="bi bi-check-circle-fill me-2 text-accent"></i>{% trans "Excellence" %}
-              </h5>
-              <p class="mb-0 text-muted">
-                {% blocktrans %}L’excellence guide les pratiques opérationnelles et managériales de Twiga Power SARL.
-                Elle se traduit par l’adoption de standards techniques élevés, l’amélioration continue des processus et
-                le développement des compétences humaines et technologiques.{% endblocktrans %}
-              </p>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="h-100 border-0 rounded-3 p-4 bg-body-secondary">
-              <h5 class="text-color mb-2">
-                <i class="bi bi-check-circle-fill me-2 text-accent"></i>{% trans "Sécurité" %}
-              </h5>
-              <p class="mb-0 text-muted">
-                {% blocktrans %}La sécurité est une priorité absolue dans toutes nos opérations. Elle vise la protection
-                des personnes, des installations et des infrastructures électriques, afin de prévenir les risques
-                techniques, humains et environnementaux liés à la production, au transport et à la distribution de
-                l’énergie électrique.{% endblocktrans %}
-              </p>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="h-100 border-0 rounded-3 p-4 bg-body-secondary">
-              <h5 class="text-color mb-2">
-                <i class="bi bi-check-circle-fill me-2 text-accent"></i>{% trans "Engagement social" %}
-              </h5>
-              <p class="mb-0 text-muted">
-                {% blocktrans %}Twiga Power SARL considère l’énergie comme un levier de développement. L’entreprise
-                s’engage à accompagner les communautés, à sensibiliser les consommateurs à une utilisation responsable
-                de l’électricité et à contribuer durablement au progrès social.{% endblocktrans %}
-              </p>
             </div>
           </div>
         </div>

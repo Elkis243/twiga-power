@@ -1,4 +1,5 @@
-{% load static %}
+{% load static i18n %}
+
 <ul class="partners-section__logos list-unstyled mb-0" role="list">
   {% for logo in partner_logos %}
   <li class="partners-section__item" role="listitem">
@@ -7,10 +8,11 @@
       class="partners-section__link"
       target="_blank"
       rel="noopener noreferrer"
+      aria-label="{{ logo.alt }}"
     >
       <img
         src="{% static logo.src %}"
-        alt="{{ logo.alt }}"
+        alt=""
         class="partners-section__logo img-fluid"
         loading="lazy"
         decoding="async"

@@ -1,0 +1,160 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block title %}{% trans "Inscription" %} - Twiga Power{% endblock title %}
+
+{% block meta_description %}{% trans "Créez votre compte sur le portail Twiga Power." %}{% endblock meta_description %}
+
+{% block body_class %}login-page-body{% endblock body_class %}
+
+{% block extra_css %}
+<link href="{% static 'style/login.css' %}" rel="stylesheet" />
+{% endblock extra_css %}
+
+{% block base %}
+<main class="login-page" id="main-content">
+  <section class="login-page__brand" aria-labelledby="register-brand-title">
+    <div class="login-page__brand-pattern" aria-hidden="true"></div>
+    <svg class="login-page__brand-curves" viewBox="0 0 400 800" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      <path d="M-20,120 C120,40 200,200 380,80" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" />
+      <path d="M-40,280 C140,180 220,360 420,220" fill="none" stroke="rgba(246,175,51,0.35)" stroke-width="1.5" />
+      <path d="M0,480 C160,380 240,560 400,420" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1.5" />
+      <path d="M-30,640 C130,540 210,720 390,600" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" />
+    </svg>
+    <div class="login-page__brand-inner">
+      <h1 id="register-brand-title" class="login-page__brand-title">
+        {% trans "Rejoignez le portail Twiga Power et gérez vos activités en ligne." %}
+      </h1>
+      <p class="login-page__brand-lead">
+        {% blocktrans %}Créez votre compte en quelques instants pour accéder à vos informations, suivre vos services et bénéficier d’un espace personnel sécurisé.{% endblocktrans %}
+      </p>
+      <nav class="login-page__breadcrumb" aria-label="{% trans "Fil d'Ariane" %}">
+        <ol class="login-page__breadcrumb-list list-unstyled d-flex flex-wrap align-items-center gap-2 mb-0">
+          <li>
+            <a href="{% url 'home' %}" class="login-page__breadcrumb-link">{% trans "Accueil" %}</a>
+          </li>
+          <li class="login-page__breadcrumb-sep" aria-hidden="true">/</li>
+          <li class="login-page__breadcrumb-current" aria-current="page">{% trans "Inscription" %}</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <section class="login-page__panel login-page__panel--register" aria-labelledby="register-form-title">
+    <div class="login-page__panel-inner">
+      <header class="login-page__header">
+        <h2 id="register-form-title" class="login-page__title">{% trans "Créer un compte" %}</h2>
+        <p class="login-page__subtitle">
+          {% trans "Renseignez vos informations pour activer votre accès au portail personnel." %}
+        </p>
+      </header>
+
+      {% if messages %}
+      {% for message in messages %}
+      <div class="alert {{ message.tags }} login-page__alert" role="alert">{{ message }}</div>
+      {% endfor %}
+      {% endif %}
+
+      {% if form.non_field_errors %}
+      <div class="alert alert-danger login-page__alert" role="alert">
+        {% for error in form.non_field_errors %}
+        <p class="mb-0">{{ error }}</p>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <form method="post" action="{% url 'register' %}" class="contact-page__form login-page__form" novalidate>
+        {% csrf_token %}
+
+        <div class="contact-page__field">
+          <label class="contact-page__field-label" for="id_full_name">{% trans "Nom complet" %}</label>
+          <input
+            type="text"
+            name="full_name"
+            id="id_full_name"
+            class="contact-page__input form-control{% if form.full_name.errors %} is-invalid{% endif %}"
+            value="{{ form.full_name.value|default:'' }}"
+            placeholder="{% trans 'Votre nom complet' %}"
+            autocomplete="name"
+            required
+            autofocus
+          />
+          {% if form.full_name.errors %}
+          <div class="invalid-feedback d-block">{{ form.full_name.errors.0 }}</div>
+          {% endif %}
+        </div>
+
+        <div class="contact-page__field">
+          <label class="contact-page__field-label" for="id_email">{% trans "Adresse e-mail" %}</label>
+          <input
+            type="email"
+            name="email"
+            id="id_email"
+            class="contact-page__input form-control{% if form.email.errors %} is-invalid{% endif %}"
+            value="{{ form.email.value|default:'' }}"
+            placeholder="{% trans 'Votre adresse e-mail' %}"
+            autocomplete="email"
+            required
+          />
+          {% if form.email.errors %}
+          <div class="invalid-feedback d-block">{{ form.email.errors.0 }}</div>
+          {% endif %}
+        </div>
+
+        <div class="contact-page__field">
+          <label class="contact-page__field-label" for="id_password1">{% trans "Mot de passe" %}</label>
+          <input
+            type="password"
+            name="password1"
+            id="id_password1"
+            class="contact-page__input form-control{% if form.password1.errors %} is-invalid{% endif %}"
+            placeholder="{% trans 'Choisissez un mot de passe' %}"
+            autocomplete="new-password"
+            required
+          />
+          {% if form.password1.errors %}
+          <div class="invalid-feedback d-block">{{ form.password1.errors.0 }}</div>
+          {% endif %}
+        </div>
+
+        <div class="contact-page__field">
+          <label class="contact-page__field-label" for="id_password2">{% trans "Confirmer le mot de passe" %}</label>
+          <input
+            type="password"
+            name="password2"
+            id="id_password2"
+            class="contact-page__input form-control{% if form.password2.errors %} is-invalid{% endif %}"
+            placeholder="{% trans 'Confirmez votre mot de passe' %}"
+            autocomplete="new-password"
+            required
+          />
+          {% if form.password2.errors %}
+          <div class="invalid-feedback d-block">{{ form.password2.errors.0 }}</div>
+          {% endif %}
+        </div>
+
+        <button type="submit" class="btn login-page__submit recruitment-offer__cta btn-arrow w-100">
+          {% trans "Créer mon compte" %}
+          <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+        </button>
+      </form>
+
+      <p class="login-page__switch mb-0">
+        {% trans "Vous avez déjà un compte ?" %}
+        <a href="{% url 'login' %}" class="login-page__switch-link">{% trans "Se connecter" %}</a>
+      </p>
+    </div>
+  </section>
+</main>
+{% endblock base %}
+
+{% block extra_js %}
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var overlay = document.getElementById("loading");
+    if (overlay) {
+      overlay.style.display = "none";
+    }
+  });
+</script>
+{% endblock %}

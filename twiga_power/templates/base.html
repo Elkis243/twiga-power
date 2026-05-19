@@ -105,7 +105,7 @@
     {% block extra_css %}{% endblock extra_css %}
   </head>
 
-  <body>
+  <body class="{% block body_class %}{% endblock body_class %}">
     <div id="loading" class="loading-overlay">
       <img src="{% static 'images/animate.gif' %}" alt="{% trans 'Chargement...' %}" class="loading-image" width="150" />
     </div>
@@ -119,6 +119,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://unpkg.com/sal.js/dist/sal.js"></script>
+    <script src="{% static 'js/sal-init.js' %}"></script>
     <script src="{% static 'js/loader.js' %}"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
@@ -145,11 +146,6 @@
             }
           });
         }
-      });
-      sal({
-        threshold: 0.1,
-        once: false,
-        easing: "ease-in-out",
       });
     </script>
     {% block extra_js %}{% endblock %}

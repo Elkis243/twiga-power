@@ -1,79 +1,156 @@
-{% extends "base.html" %} {% load static i18n %} {% block extra_js %}
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block extra_js %}
 <script src="{% static 'js/cv-upload.js' %}"></script>
 <script src="{% static 'js/validate_form.js' %}"></script>
-{% endblock %} {% block base %} {% include "components/navbar.html" %}
-<div class="header-contact mb-4">
-  <div class="d-flex flex-column justify-content-center align-items-center text-center px-3">
-    <h1 class="text-white mb-0">{% trans "Postuler" %}</h1>
-    <div class="project-detail__title-accent mt-3" aria-hidden="true"></div>
+{% endblock %}
+
+{% block base %}
+{% include "components/navbar.html" %}
+
+<header class="header-contact header-contact--historique header-contact--historique--compact" aria-labelledby="postuler-page-title">
+  <div class="historique-hero__pattern" aria-hidden="true"></div>
+  <div class="container historique-hero__inner px-3 px-md-4">
+    <nav class="historique-hero__breadcrumb" aria-label="{% trans "Fil d'Ariane" %}">
+      <ol class="historique-hero__breadcrumb-list list-unstyled d-flex flex-wrap justify-content-center gap-2 mb-0">
+        <li>
+          <a href="{% url 'home' %}" class="historique-hero__breadcrumb-link">{% trans "Accueil" %}</a>
+        </li>
+        <li class="historique-hero__breadcrumb-sep" aria-hidden="true">/</li>
+        <li>
+          <a href="{% url 'recrutement' %}" class="historique-hero__breadcrumb-link">{% trans "Recrutement" %}</a>
+        </li>
+        <li class="historique-hero__breadcrumb-sep" aria-hidden="true">/</li>
+        <li class="historique-hero__breadcrumb-current" aria-current="page">{% trans "Postuler" %}</li>
+      </ol>
+    </nav>
+    <div
+      class="historique-hero__content text-center mx-auto"
+      data-sal="fade"
+      data-sal-duration="800"
+      data-sal-delay="100"
+      data-sal-easing="ease-out-cubic"
+    >
+      <h1 id="postuler-page-title" class="historique-hero__title mb-2">{% trans "Postuler" %}</h1>
+      <div class="project-detail__title-accent mx-auto mb-2" aria-hidden="true"></div>
+      <p class="historique-hero__lead mb-0 fs-6 mx-auto">{{ offre.titre }}</p>
+    </div>
   </div>
-</div>
-<section class="recruitment-apply py-5 px-3 px-md-4">
-  <div class="container mb-5 px-3 px-md-4 py-4 py-md-5">
+  <div class="historique-hero__wave" aria-hidden="true">
+    <svg class="historique-hero__wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none" focusable="false">
+      <path
+        fill="currentColor"
+        shape-rendering="geometricPrecision"
+        d="M0,52 C240,8 480,96 720,48 C960,0 1200,72 1440,40 L1440,120 L0,120 Z"
+      />
+    </svg>
+  </div>
+</header>
+
+<section class="recruitment-apply-section recruitment-apply" aria-labelledby="postuler-page-title">
+  <div class="container px-3 px-md-4">
     <div class="row justify-content-center">
-      <div class="col-md-10">
-        <div class="row">
-          <div class="col-md-6">
+      <div class="col-xl-10">
+        <div class="row g-3 g-lg-4 align-items-start contact-page__layout">
+          <div
+            class="col-lg-7 order-2 order-lg-2"
+            data-sal="slide-left"
+            data-sal-duration="700"
+            data-sal-delay="180"
+            data-sal-easing="ease-out-cubic"
+          >
             {% if messages %} {% for message in messages %}
             <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
               <strong>{% trans "Message !" %}</strong> {{ message }}
               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             {% endfor %} {% endif %}
-            <h3 class="h5 text-color mb-3">{% trans "Votre candidature" %}</h3>
-            <form action="{% url 'postuler_offre' offre.slug %}" method="post" enctype="multipart/form-data" class="needs-validation" novalidate id="customValidationForm">
+            <h2 class="contact-page__field-label h5 mb-3">{% trans "Votre candidature" %}</h2>
+            <form
+              action="{% url 'postuler_offre' offre.slug %}"
+              method="post"
+              enctype="multipart/form-data"
+              class="contact-page__form needs-validation"
+              novalidate
+              id="customValidationForm"
+            >
               {% csrf_token %}
-              <div class="row">
-                <div class="col-md-6 my-2">
-                  <label for="prenom" class="form-label">{% trans "Prénom" %}</label>
-                  <input type="text" class="form-control" id="prenom" name="prenom" placeholder="{% trans 'Votre prénom' %}" required minlength="2" maxlength="100" pattern="^[^\d]+$" />
+              <div class="row g-3 g-md-4">
+                <div class="col-md-6">
+                  <label class="contact-page__field-label" for="prenom">{% trans "Prénom" %}</label>
+                  <input
+                    type="text"
+                    class="contact-page__input form-control"
+                    id="prenom"
+                    name="prenom"
+                    placeholder="{% trans 'Votre prénom' %}"
+                    required
+                    minlength="2"
+                    maxlength="100"
+                    pattern="^[^\d]+$"
+                  />
                   <div class="invalid-feedback">{% trans "Prénom requis !" %}</div>
                 </div>
-                <div class="col-md-6 my-2">
-                  <label for="nom" class="form-label">{% trans "Nom" %}</label>
-                  <input type="text" class="form-control" id="nom" name="nom" placeholder="{% trans 'Votre nom' %}" required />
+                <div class="col-md-6">
+                  <label class="contact-page__field-label" for="nom">{% trans "Nom" %}</label>
+                  <input
+                    type="text"
+                    class="contact-page__input form-control"
+                    id="nom"
+                    name="nom"
+                    placeholder="{% trans 'Votre nom' %}"
+                    required
+                  />
                   <div class="invalid-feedback">{% trans "Nom requis !" %}</div>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-md-6 my-2">
-                  <label for="telephone" class="form-label">{% trans "Téléphone" %}</label>
+              <div class="row g-3 g-md-4">
+                <div class="col-md-6">
+                  <label class="contact-page__field-label" for="telephone">{% trans "Téléphone" %}</label>
                   <input
                     type="tel"
-                    class="form-control"
+                    class="contact-page__input form-control"
                     id="telephone"
                     name="telephone"
-                    placeholder="{% trans 'Téléphone' %}"
+                    placeholder="{% trans 'Votre numéro de téléphone' %}"
                     required
                     pattern="^\+?[0-9]{9,15}$"
                     title="{% trans 'Veuillez entrer un numéro de téléphone valide (9 à 15 chiffres, avec ou sans +)' %}"
                   />
                   <div class="invalid-feedback"></div>
                 </div>
-                <div class="col-md-6 my-2">
-                  <label for="address" class="form-label">{% trans "Adresse mail" %}</label>
-                  <input type="text" class="form-control" id="address" name="address" placeholder="{% trans 'Votre adresse' %}" required minlength="2" maxlength="100" />
-                  <div class="invalid-feedback">{% trans "Adresse requise !" %}</div>
-                </div>
-              </div>
-              <div class="row mb-3">
-                <div class="col">
-                  <label for="lettre_motivation" class="form-label">{% trans "Lettre de motivation" %}</label>
-                  <textarea
-                    class="form-control"
-                    id="lettre_motivation"
-                    name="lettre_motivation"
-                    rows="5"
-                    placeholder="{% trans 'Présentez votre parcours et votre motivation pour ce poste…' %}"
+                <div class="col-md-6">
+                  <label class="contact-page__field-label" for="address">{% trans "Adresse e-mail" %}</label>
+                  <input
+                    type="email"
+                    class="contact-page__input form-control"
+                    id="address"
+                    name="address"
+                    placeholder="{% trans 'Votre adresse e-mail' %}"
                     required
-                    minlength="10"
-                    maxlength="700"
-                  ></textarea>
-                  <div class="invalid-feedback"></div>
+                    minlength="2"
+                    maxlength="100"
+                  />
+                  <div class="invalid-feedback">{% trans "Adresse e-mail requise !" %}</div>
                 </div>
               </div>
-              <div class="mb-4">
-                <p class="form-label mb-2" id="cv-field-label">{% trans "Curriculum vitae (5 Mo maximum)" %}</p>
+              <div class="contact-page__field">
+                <label class="contact-page__field-label" for="lettre_motivation">{% trans "Motivation" %}</label>
+                <textarea
+                  class="contact-page__input contact-page__input--textarea form-control"
+                  id="lettre_motivation"
+                  name="lettre_motivation"
+                  rows="5"
+                  placeholder="{% trans 'Présentez votre parcours et votre motivation pour ce poste…' %}"
+                  required
+                  minlength="10"
+                  maxlength="700"
+                ></textarea>
+                <div class="invalid-feedback"></div>
+              </div>
+              <div class="contact-page__field">
+                <label class="contact-page__field-label" id="cv-field-label">{% trans "Curriculum vitae (5 Mo maximum)" %}</label>
                 <div class="cv-upload w-100" id="cv-upload-root" aria-labelledby="cv-field-label">
                   <input
                     type="file"
@@ -104,36 +181,62 @@
                   </label>
                 </div>
               </div>
-              <button type="submit" class="btn btn-primary">{% trans "Envoyer ma candidature" %}</button>
+              <button type="submit" class="contact-page__submit btn w-100">{% trans "Envoyer ma candidature" %}</button>
             </form>
           </div>
-          <div class="col-md-6">
-            <div class="rounded-3 p-4 bg-white shadow-sm border-0 recruitment-apply__recap">
-              <h2 class="h5 text-color fw-semibold mb-3">{{ offre.titre }}</h2>
-              <p class="recruitment-offre-card__meta text-muted mb-2">
-                <i class="bi bi-geo-alt text-accent me-1"></i>{{ offre.lieu }} &nbsp;·&nbsp;
-                <span class="recruitment-offre-card__contract">{{ offre.get_type_contrat_display }}</span>
-              </p>
-              <p class="recruitment-offre-card__meta text-muted mb-3">
-                <i class="bi bi-calendar-event text-accent me-1"></i>
-                {% trans "Date limite" %} : {{ offre.date_limite|date:"d/m/Y" }} &nbsp;·&nbsp; {% trans "Postes" %} : {{ offre.nombre_postes }}
-              </p>
-              <div class="recruitment-offre-card__description text-muted mb-0 recruitment-apply__offer-body">{{ offre.description|linebreaksbr }}</div>
-              {% with profils=offre.profilerecherche_set.all %} {% if profils %}
+          <div
+            class="col-lg-5 order-1 order-lg-1"
+            data-sal="slide-right"
+            data-sal-duration="700"
+            data-sal-delay="100"
+            data-sal-easing="ease-out-cubic"
+          >
+            <article class="recruitment-offre-card recruitment-apply__recap h-100 border-0">
+              <div class="recruitment-offre-card__accent" aria-hidden="true"></div>
+              <div class="recruitment-offre-card__body">
+                <h2 class="recruitment-offre-card__title h5">{{ offre.titre }}</h2>
+                <ul class="recruitment-offre-card__tags list-unstyled d-flex flex-wrap align-items-center gap-2 mb-3">
+                  <li class="recruitment-offre-card__tag">{{ offre.lieu }}</li>
+                  <li>
+                    <span class="recruitment-offre-card__contract">{{ offre.get_type_contrat_display }}</span>
+                  </li>
+                  <li>
+                    <span
+                      class="recruitment-offre-card__effectif"
+                      title="{% trans 'Effectif' %}"
+                      aria-label="{% blocktrans with count=offre.nombre_postes %}Effectif : {{ count }}{% endblocktrans %}"
+                    >
+                      {{ offre.nombre_postes }}
+                    </span>
+                  </li>
+                </ul>
+                <div class="recruitment-offre-card__description recruitment-apply__offer-body mb-0">{{ offre.description|linebreaksbr }}</div>
+              {% with profils=offre.profilerecherche_set.all %}
+              {% if profils %}
               <div class="recruitment-profiles recruitment-apply__profiles mt-3 pt-3 border-top">
-                <p class="recruitment-profiles__heading mb-2">{% trans "Profils recherchés" %}</p>
                 <ul class="list-unstyled recruitment-profiles__list mb-0">
                   {% for p in profils %}
-                  <li class="mb-2 recruitment-profiles__item ps-1"><i class="bi bi-check2 text-accent me-1" aria-hidden="true"></i>{{ p.description }}</li>
+                  <li class="mb-2 recruitment-profiles__item ps-1">
+                    <i class="bi bi-check2 text-accent me-1" aria-hidden="true"></i>{{ p.description }}
+                  </li>
                   {% endfor %}
                 </ul>
               </div>
-              {% endif %} {% endwith %}
-            </div>
+              {% endif %}
+              {% endwith %}
+              </div>
+              <footer class="recruitment-offre-card__footer recruitment-apply__recap-footer">
+                <div class="recruitment-apply__deadline">
+                  <span class="recruitment-offre-card__detail-label">{% trans "Date limite" %}</span>
+                  <time class="recruitment-offre-card__detail-value" datetime="{{ offre.date_limite|date:'Y-m-d' }}">{{ offre.date_limite|date:"d/m/Y" }}</time>
+                </div>
+              </footer>
+            </article>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-{% include "components/footer.html" %} {% endblock base %}
+{% include "components/footer.html" %}
+{% endblock base %}

@@ -28,6 +28,10 @@ class StaticViewSitemap(Sitemap):
                 0,
             ),  # Page d'accueil - priorité maximale, mise à jour quotidienne
             ("about", 0.9, "monthly", 30),  # À propos - haute priorité
+            ("historique", 0.85, "monthly", 30),
+            ("vision_mission", 0.85, "monthly", 30),
+            ("ambition_valeurs", 0.85, "monthly", 30),
+            ("equipe_dirigeante", 0.85, "monthly", 30),
             (
                 "projects",
                 0.9,

@@ -1,6 +1,8 @@
 from datetime import datetime
 
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.views import LoginView, LogoutView
 from django.http import Http404
 from django.shortcuts import get_object_or_404, HttpResponseRedirect, redirect, render
 from django.urls import reverse
@@ -9,6 +11,7 @@ from django.utils.translation import gettext_lazy as _
 
 PDF_MAX_CANDIDATURE_BYTES = 5 * 1024 * 1024
 
+from .forms import RegisterForm, TwigaAuthenticationForm
 from .models import Offre
 from .utils.mail import send_candidature_email, send_contact_email
 
@@ -63,20 +66,25 @@ def contact(request):
     context = {"page": page}
 
     if request.method == "POST":
-        name = request.POST.get("name")
-        email = request.POST.get("email")
-        phone = request.POST.get("telephone")
-        address = request.POST.get("address")
-        message = request.POST.get("message")
+        name = (request.POST.get("name") or "").strip()
+        email = (request.POST.get("email") or "").strip()
+        message = (request.POST.get("message") or "").strip()
+
+        if len(name) < 2:
+            messages.error(request, "Veuillez indiquer votre nom (au moins 2 caractères).")
+            return HttpResponseRedirect("/contact/")
+        if not email:
+            messages.error(request, "Veuillez indiquer votre adresse e-mail.")
+            return HttpResponseRedirect("/contact/")
+        if len(message) < 10:
+            messages.error(
+                request,
+                "Votre message doit contenir au moins 10 caractères.",
+            )
+            return HttpResponseRedirect("/contact/")
 
         try:
-            send_contact_email(
-                name=name,
-                email=email or "",
-                phone=phone or "",
-                address=address or "",
-                message=message or "",
-            )
+            send_contact_email(name=name, email=email, message=message)
             messages.success(
                 request,
                 "Votre message a été envoyé avec succès. Nous vous répondrons bientôt !",
@@ -98,6 +106,52 @@ def about(request):
     return render(request, "app/about.html", context)
 
 
+def historique(request):
+    page = "Historique"
+    context = {"page": page}
+    return render(request, "app/historique.html", context)
+
+
+def vision_mission(request):
+    page = "Vision et mission"
+    context = {"page": page}
+    return render(request, "app/vision_mission.html", context)
+
+
+def ambition_valeurs(request):
+    page = "Ambition et valeurs"
+    context = {"page": page}
+    return render(request, "app/ambition_valeurs.html", context)
+
+
+EQUIPE_DIRIGEANTE_MEMBERS = [
+    {
+        "src": "images/dg.webp",
+        "role": _("Directeur Général"),
+        "name": "Papy Mvulazana Mbidi",
+    },
+    {
+        "src": "images/dg.webp",
+        "role": _("Directeur technique"),
+        "name": "Patrick Ilunga",
+    },
+    {
+        "src": "images/dg.webp",
+        "role": _("Directeur RH"),
+        "name": "Chantal Nsimba",
+    },
+]
+
+
+def equipe_dirigeante(request):
+    page = "Équipe dirigeante"
+    context = {
+        "page": page,
+        "equipe_members": EQUIPE_DIRIGEANTE_MEMBERS,
+    }
+    return render(request, "app/equipe_dirigeante.html", context)
+
+
 def projects(request):
     page = "Projets"
     context = {"page": page}
@@ -114,7 +168,6 @@ def recrutement(request):
                 active=True,
                 date_limite__gte=timezone.now().date(),
             )
-            .prefetch_related("profilerecherche_set")
             .order_by("-created_at")
         )
     except Exception:
@@ -272,3 +325,102 @@ def browserconfig_xml(request):
         "base_url": base_url,
     }
     return render(request, "browserconfig.xml", context, content_type="application/xml")
+
+
+class ConnexionView(LoginView):
+    template_name = "app/login.html"
+    authentication_form = TwigaAuthenticationForm
+    redirect_authenticated_user = True
+
+    def form_valid(self, form):
+        remember_me = self.request.POST.get("remember_me")
+        if remember_me:
+            self.request.session.set_expiry(None)
+        else:
+            self.request.session.set_expiry(0)
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        redirect_to = self.get_redirect_url()
+        if redirect_to:
+            return redirect_to
+        return reverse("home")
+
+
+MON_ESPACE_SERVICES = [
+    {
+        "slug": "reclamation",
+        "title": _("Demande de réclamation"),
+        "description": _(
+            "Signalez un problème ou une insatisfaction liée à nos services pour un traitement rapide."
+        ),
+        "media_tone": "reclamation",
+        "media_icon": "bi-exclamation-circle",
+        "button_label": _("Nouvelle demande de réclamation"),
+    },
+    {
+        "slug": "suggestion",
+        "title": _("Suggestion"),
+        "description": _(
+            "Partagez une idée ou une amélioration pour nous aider à mieux vous accompagner."
+        ),
+        "media_tone": "suggestion",
+        "media_icon": "bi-lightbulb",
+        "button_label": _("Nouvelle suggestion"),
+    },
+    {
+        "slug": "service",
+        "title": _("Demande de service"),
+        "description": _(
+            "Formulez une nouvelle demande d’assistance ou d’intervention auprès de nos équipes."
+        ),
+        "media_tone": "service",
+        "media_icon": "bi-bag",
+        "button_label": _("Nouvelle demande de service"),
+    },
+]
+
+
+@login_required
+def mon_espace(request):
+    page = _("Mon espace")
+    display_name = request.user.get_full_name().strip() or request.user.email
+    contact_base = reverse("contact")
+    services = [
+        {
+            **service,
+            "link_url": f"{contact_base}?service={service['slug']}",
+        }
+        for service in MON_ESPACE_SERVICES
+    ]
+    return render(
+        request,
+        "app/mon_espace.html",
+        {
+            "page": page,
+            "display_name": display_name,
+            "services": services,
+        },
+    )
+
+
+def register(request):
+    if request.user.is_authenticated:
+        return redirect(reverse("home"))
+
+    page = _("Inscription")
+    form = RegisterForm(request.POST or None)
+
+    if request.method == "POST" and form.is_valid():
+        form.save()
+        messages.success(
+            request,
+            _("Votre compte a été créé. Connectez-vous pour accéder au portail."),
+        )
+        return redirect(reverse("login"))
+
+    return render(
+        request,
+        "app/register.html",
+        {"page": page, "form": form},
+    )

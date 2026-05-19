@@ -1,95 +1,118 @@
-{% extends "base.html" %} {% load static i18n %} {% block base %} {% include "components/navbar.html" %}
-<div class="header-contact">
-  <div class="d-flex flex-column justify-content-center align-items-center text-center px-3">
-    <h1 class="text-white mb-0">{% trans "Recrutement" %}</h1>
-    <div class="project-detail__title-accent mt-3" aria-hidden="true"></div>
-  </div>
-</div>
+{% extends "base.html" %}
+{% load static i18n %}
 
-<section class="recruitment-offers py-5 px-3 px-md-4 bg-body-secondary">
-  <div class="container">
+{% block base %}
+{% include "components/navbar.html" %}
+
+<header class="header-contact header-contact--historique" aria-labelledby="recrutement-page-title">
+  <div class="historique-hero__pattern" aria-hidden="true"></div>
+  <div class="container historique-hero__inner px-3 px-md-4">
+    <nav class="historique-hero__breadcrumb" aria-label="{% trans "Fil d'Ariane" %}">
+      <ol class="historique-hero__breadcrumb-list list-unstyled d-flex flex-wrap justify-content-center gap-2 mb-0">
+        <li>
+          <a href="{% url 'home' %}" class="historique-hero__breadcrumb-link">{% trans "Accueil" %}</a>
+        </li>
+        <li class="historique-hero__breadcrumb-sep" aria-hidden="true">/</li>
+        <li class="historique-hero__breadcrumb-current" aria-current="page">{% trans "Recrutement" %}</li>
+      </ol>
+    </nav>
+    <div
+      class="historique-hero__content text-center mx-auto"
+      data-sal="fade"
+      data-sal-duration="800"
+      data-sal-delay="100"
+      data-sal-easing="ease-out-cubic"
+    >
+      <h1 id="recrutement-page-title" class="historique-hero__title mb-3">{% trans "Recrutement" %}</h1>
+      <div class="project-detail__title-accent mx-auto mb-3" aria-hidden="true"></div>
+      <p class="historique-hero__lead mb-0 fs-6 mx-auto">
+        {% blocktrans %}Rejoignez des équipes engagées pour des projets d'énergie à fort impact en RDC.{% endblocktrans %}
+      </p>
+    </div>
+  </div>
+  <div class="historique-hero__wave" aria-hidden="true">
+    <svg class="historique-hero__wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none" focusable="false">
+      <path
+        fill="currentColor"
+        shape-rendering="geometricPrecision"
+        d="M0,52 C240,8 480,96 720,48 C960,0 1200,72 1440,40 L1440,120 L0,120 Z"
+      />
+    </svg>
+  </div>
+</header>
+
+<section class="recruitment-page-section recruitment-offers py-4 py-lg-5 mb-5" aria-labelledby="recrutement-page-title">
+  <div class="container px-3 px-md-4">
     <div class="row justify-content-center">
-      <div class="col-md-10">
+      <div class="col-xl-10">
         {% if messages %}
-        {% for message in messages %}
-        <div class="alert {{ message.tags }} alert-dismissible fade show mb-4" role="alert">
-          {{ message }}
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        {% endfor %}
-        {% endif %}
-        <div class="row justify-content-center mb-4 mb-md-5">
-          <div class="col-lg-8 col-xl-7 text-center">
-            <h6 class="text-muted mb-0 lh-base fw-normal">
-              {% blocktrans trimmed %}
-              Rejoignez des équipes engagées pour des projets d'énergie à fort impact sur le continent. Parcourez les postes ouverts ci-dessous et postulez en ligne.
-              {% endblocktrans %}
-            </h6>
+          {% for message in messages %}
+          <div class="alert {{ message.tags }} alert-dismissible fade show mb-4" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
-        </div>
+          {% endfor %}
+        {% endif %}
+
 
         {% if offres %}
         <div class="row gy-4 justify-content-center">
           {% for offre in offres %}
-          <div class="col-12 col-md-6 col-lg-4">
-            <article class="recruitment-offre-card h-100 border-0 rounded-3 p-4 bg-white shadow-sm">
-              <h3 class="h5 text-color mb-2 fw-semibold">{{ offre.titre }}</h3>
-              <p class="recruitment-offre-card__meta text-muted mb-2">
-                <i class="bi bi-geo-alt text-accent me-1"></i>{{ offre.lieu }} &nbsp;·&nbsp;
-                <span class="recruitment-offre-card__contract">{{ offre.get_type_contrat_display }}</span>
-              </p>
-              <p class="recruitment-offre-card__meta text-muted mb-3">
-                <i class="bi bi-calendar-event text-accent me-1"></i>
-                {% trans "Date limite" %} : {{ offre.date_limite|date:"d/m/Y" }} &nbsp;·&nbsp; {% trans "Postes" %} : {{ offre.nombre_postes }}
-              </p>
-              <div class="recruitment-offre-card__description text-muted mb-3">{{ offre.description|linebreaksbr }}</div>
-
-              {% with profils=offre.profilerecherche_set.all %} {% if profils %}
-              <div class="recruitment-profiles mt-3">
-                <div class="d-flex justify-content-end align-items-center mb-1">
-                  <button
-                    type="button"
-                    class="recruitment-profiles__icon-btn"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#profils-offre-{{ offre.id }}"
-                    aria-expanded="false"
-                    aria-controls="profils-offre-{{ offre.id }}"
-                    title="{% trans 'Profils recherchés' %}"
-                    aria-label="{% trans 'Afficher ou masquer les profils recherchés' %}"
-                  >
-                    <i class="bi bi-chevron-down recruitment-profiles__chevron" aria-hidden="true"></i>
-                  </button>
-                </div>
-                <div class="collapse recruitment-profiles__panel" id="profils-offre-{{ offre.id }}">
-                  <p class="recruitment-profiles__heading mb-2">{% trans "Profils recherchés" %}</p>
-                  <ul class="list-unstyled recruitment-profiles__list mb-0">
-                    {% for p in profils %}
-                    <li class="mb-2 recruitment-profiles__item ps-1"><i class="bi bi-check2 text-accent me-1"></i>{{ p.description }}</li>
-                    {% endfor %}
-                  </ul>
-                </div>
+          <div
+            class="col-12 col-md-6 col-lg-4"
+            data-sal="slide-up"
+            data-sal-duration="700"
+            data-sal-delay="{% widthratio forloop.counter0 1 80 %}"
+            data-sal-easing="ease-out-cubic"
+          >
+            <article class="recruitment-offre-card h-100">
+              <div class="recruitment-offre-card__accent" aria-hidden="true"></div>
+              <div class="recruitment-offre-card__body">
+                <h3 class="recruitment-offre-card__title">{{ offre.titre }}</h3>
+                <ul class="recruitment-offre-card__tags list-unstyled d-flex flex-wrap gap-2 mb-3">
+                  <li class="recruitment-offre-card__tag">{{ offre.lieu }}</li>
+                  <li>
+                    <span class="recruitment-offre-card__contract">{{ offre.get_type_contrat_display }}</span>
+                  </li>
+                </ul>
+                <div class="recruitment-offre-card__description">{{ offre.description|linebreaksbr }}</div>
               </div>
-              {% endif %} {% endwith %}
-
-              <div class="mt-3 pt-1">
-                <a href="{% url 'postuler_offre' offre.slug %}" class="btn recruitment-offer__cta btn-arrow w-100"> {% trans "Postuler maintenant" %} <i class="bi bi-arrow-right-short"></i> </a>
-              </div>
+              <footer class="recruitment-offre-card__footer">
+                <p class="recruitment-offre-card__published mb-2 mb-md-3">
+                  <span class="recruitment-offre-card__detail-label">{% trans "Date de publication" %}</span>
+                  <time class="recruitment-offre-card__detail-value" datetime="{{ offre.created_at|date:'Y-m-d' }}">{{ offre.created_at|date:"d/m/Y" }}</time>
+                </p>
+                <a href="{% url 'postuler_offre' offre.slug %}" class="btn recruitment-offer__cta btn-arrow w-100">
+                  {% trans "Postuler maintenant" %}
+                  <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+                </a>
+              </footer>
             </article>
           </div>
           {% endfor %}
         </div>
         {% else %}
-        <div class="row justify-content-center">
-          <div class="col-lg-8">
-            <div class="rounded-3 p-4 bg-white border text-center text-muted">
-              <p class="mb-0">{% trans "Aucune offre publiée pour le moment. Revenez bientôt ou contactez-nous pour une candidature spontanée." %}</p>
-              <a href="{% url 'contact' %}" class="btn btn-primary btn-arrow mt-3"> {% trans "Nous contacter" %} <i class="bi bi-arrow-right-short"></i> </a>
-            </div>
-          </div>
+        <div
+          class="recruitment-empty text-center"
+          role="status"
+          data-sal="fade"
+          data-sal-duration="700"
+        >
+          <span class="recruitment-empty__icon" aria-hidden="true">
+            <i class="bi bi-briefcase"></i>
+          </span>
+          <h2 class="recruitment-empty__title text-color">
+            {% trans "Aucune offre disponible" %}
+          </h2>
+          <p class="recruitment-empty__text mb-0">
+            {% trans "Nous n'avons pas de poste ouvert pour le moment. Revenez prochainement pour découvrir nos opportunités." %}
+          </p>
         </div>
         {% endif %}
       </div>
     </div>
   </div>
 </section>
-{% include "components/footer.html" %} {% endblock base %}
+
+{% include "components/footer.html" %}
+{% endblock base %}
