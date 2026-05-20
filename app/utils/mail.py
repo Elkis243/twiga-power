@@ -32,6 +32,36 @@ def send_contact_email(
     mail.send(fail_silently=False)
 
 
+def send_mon_espace_request_email(
+    *,
+    request_subject: str,
+    name: str,
+    email: str,
+    message: str,
+    account_email: str | None = None,
+) -> None:
+    subject = f"{request_subject} — {name}"
+    body_lines = [
+        f"Type de demande : {request_subject}",
+        f"Nom complet : {name}",
+        f"E-mail : {email}",
+    ]
+    if account_email:
+        body_lines.append(f"Compte connecté : {account_email}")
+    body_lines.extend(["", f"Message :", message])
+    body = "\n".join(body_lines)
+    mail_kwargs = {
+        "subject": subject,
+        "body": body,
+        "from_email": settings.EMAIL_HOST_USER,
+        "to": [settings.EMAIL_HOST_USER],
+    }
+    if email:
+        mail_kwargs["reply_to"] = [email]
+    mail = EmailMessage(**mail_kwargs)
+    mail.send(fail_silently=False)
+
+
 def send_candidature_email(
     offre: Offre,
     *,

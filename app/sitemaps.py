@@ -32,6 +32,7 @@ class StaticViewSitemap(Sitemap):
             ("vision_mission", 0.85, "monthly", 30),
             ("ambition_valeurs", 0.85, "monthly", 30),
             ("equipe_dirigeante", 0.85, "monthly", 30),
+            ("activite", 0.9, "monthly", 30),
             (
                 "projects",
                 0.9,

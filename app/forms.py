@@ -11,10 +11,21 @@ User = get_user_model()
 class TwigaAuthenticationForm(AuthenticationForm):
     error_messages = {
         "invalid_login": _(
-            "Adresse e-mail ou mot de passe incorrect. Veuillez réessayer."
+            "Identifiant ou mot de passe incorrect. Veuillez réessayer."
         ),
         "inactive": _("Ce compte est inactif."),
     }
+
+    def clean(self):
+        username = self.cleaned_data.get("username")
+        password = self.cleaned_data.get("password")
+
+        if isinstance(username, str):
+            self.cleaned_data["username"] = username.strip()
+        if isinstance(password, str):
+            self.cleaned_data["password"] = password.strip()
+
+        return super().clean()
 
 
 class RegisterForm(forms.Form):

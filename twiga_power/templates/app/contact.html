@@ -152,7 +152,7 @@
         <form
           action="{% url 'contact' %}"
           method="post"
-          class="contact-page__form needs-validation"
+          class="contact-page__form needs-validation js-contact-form"
           novalidate
           id="customValidationForm"
           aria-labelledby="contact-form-title"
@@ -199,6 +199,7 @@
               required
               minlength="10"
               maxlength="700"
+              data-msg-empty="{% trans 'Message requis !' %}"
             ></textarea>
             <div class="invalid-feedback">{% trans "Message requis !" %}</div>
           </div>

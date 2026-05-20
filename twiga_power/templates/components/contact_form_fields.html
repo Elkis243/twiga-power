@@ -1,0 +1,48 @@
+{% load i18n %}
+<div class="row g-3 g-md-4">
+  <div class="col-md-6">
+    <label class="contact-page__field-label" for="{{ field_prefix }}name">{% trans "Votre nom" %}</label>
+    <input
+      type="text"
+      class="contact-page__input form-control"
+      id="{{ field_prefix }}name"
+      name="name"
+      value="{{ default_name|default:'' }}"
+      placeholder="{% trans 'Votre nom complet' %}"
+      required
+      minlength="2"
+      maxlength="100"
+      pattern="^[^\d]+$"
+    />
+    <div class="invalid-feedback">{% trans "Nom requis !" %}</div>
+  </div>
+  <div class="col-md-6">
+    <label class="contact-page__field-label" for="{{ field_prefix }}email">{% trans "Adresse e-mail" %}</label>
+    <input
+      type="email"
+      class="contact-page__input form-control"
+      id="{{ field_prefix }}email"
+      name="email"
+      value="{{ default_email|default:'' }}"
+      placeholder="{% trans 'Votre adresse e-mail' %}"
+      required
+    />
+    <div class="invalid-feedback">{% trans "Email requis !" %}</div>
+  </div>
+</div>
+<div class="contact-page__field">
+  <label class="contact-page__field-label" for="{{ field_prefix }}message">
+    {% if message_label %}{{ message_label }}{% else %}{% trans "Message" %}{% endif %}
+  </label>
+  <textarea
+    class="contact-page__input contact-page__input--textarea form-control"
+    id="{{ field_prefix }}message"
+    name="message"
+    rows="6"
+    placeholder="{% if message_placeholder %}{{ message_placeholder }}{% else %}{% trans 'Écrivez votre message…' %}{% endif %}"
+    required
+    minlength="10"
+    maxlength="700"
+  ></textarea>
+  <div class="invalid-feedback">{% trans "Message requis !" %}</div>
+</div>

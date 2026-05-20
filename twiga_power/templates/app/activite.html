@@ -4,7 +4,7 @@
 {% block base %}
 {% include "components/navbar.html" %}
 
-<header class="header-contact header-contact--historique header-contact--historique--compact" aria-labelledby="mon-espace-page-title">
+<header class="header-contact header-contact--historique header-contact--historique--compact" aria-labelledby="activite-page-title">
   <div class="historique-hero__pattern" aria-hidden="true"></div>
   <div class="container historique-hero__inner px-3 px-md-4">
     <nav class="historique-hero__breadcrumb" aria-label="{% trans "Fil d'Ariane" %}">
@@ -13,14 +13,14 @@
           <a href="{% url 'home' %}" class="historique-hero__breadcrumb-link">{% trans "Accueil" %}</a>
         </li>
         <li class="historique-hero__breadcrumb-sep" aria-hidden="true">/</li>
-        <li class="historique-hero__breadcrumb-current" aria-current="page">{% trans "Mon espace" %}</li>
+        <li class="historique-hero__breadcrumb-current" aria-current="page">{% trans "Activités" %}</li>
       </ol>
     </nav>
     <div class="historique-hero__content text-center mx-auto">
-      <h1 id="mon-espace-page-title" class="historique-hero__title mb-2">{% trans "Mon espace" %}</h1>
+      <h1 id="activite-page-title" class="historique-hero__title mb-2">{% trans "Nos activités" %}</h1>
       <div class="project-detail__title-accent mx-auto mb-2" aria-hidden="true"></div>
       <p class="historique-hero__lead mb-0 fs-6 mx-auto">
-        {% blocktrans with name=display_name %}Bienvenue, {{ name }}.{% endblocktrans %}
+        {% blocktrans %}Twiga Power Sarl intervient sur toute la chaîne de valeur de l'énergie électrique, assurant production, distribution et services fiables.{% endblocktrans %}
       </p>
     </div>
   </div>
@@ -35,32 +35,19 @@
   </div>
 </header>
 
-<section class="mon-espace-section activities-section py-4 mb-5" aria-label="{% trans 'Services' %}">
+<section class="activities-section activite-page py-4 mb-5" aria-label="{% trans 'Liste des activités' %}">
   <div class="container px-4">
-    {% if messages %}
-    <div class="row justify-content-center mb-4">
-      <div class="col-xl-10">
-        {% for message in messages %}
-        <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
-          {{ message }}
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="{% trans 'Fermer' %}"></button>
-        </div>
-        {% endfor %}
-      </div>
-    </div>
-    {% endif %}
     <div class="row justify-content-center">
       <div class="col-xl-10">
-        <div class="row g-3 align-items-stretch justify-content-center">
-          {% for service in services %}
-          <div
-            class="col-12 col-md-6 col-lg-4 d-flex"
+        <div class="row g-3 align-items-stretch">
+          {% for activity in activities %}
+          <div class="col-12 col-md-6 col-lg-4 d-flex"
             data-sal="slide-up"
             data-sal-duration="700"
             data-sal-delay="{% widthratio forloop.counter0 1 80 %}"
             data-sal-easing="ease-out-cubic"
           >
-            {% include "components/activity_card.html" with title=service.title description=service.description media_tone=service.media_tone media_icon=service.media_icon modal_target=service.modal_target button_label=service.button_label hide_button_icon=True only %}
+            {% include "components/activity_card.html" with title=activity.title description=activity.description image=activity.image image_alt=activity.image_alt card_id=activity.slug hide_button=True only %}
           </div>
           {% endfor %}
         </div>
@@ -69,11 +56,5 @@
   </div>
 </section>
 
-{% for service in services %}
-{% include "components/mon_espace_request_modal.html" %}
-{% endfor %}
-
 {% include "components/footer.html" %}
-<script src="{% static 'js/validate_form.js' %}"></script>
-<script src="{% static 'js/mon_espace.js' %}"></script>
 {% endblock base %}

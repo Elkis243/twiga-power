@@ -110,8 +110,8 @@
             </li>
             <li class="nav-item">
               <a
-                class="nav-link px-2 py-2 {% if request.resolver_match.url_name == 'champ_activité' %}active-link{% endif %}"
-                href="{% url 'champ_activité' %}"
+                class="nav-link px-2 py-2 {% if request.resolver_match.url_name == 'activite' %}active-link{% endif %}"
+                href="{% url 'activite' %}"
               >
                 {% trans "Nos activites" %}
               </a>
@@ -154,12 +154,21 @@
             </li>
             <li class="nav-item">
               {% if user.is_authenticated %}
+                {% if user_is_super_admin %}
+              <a
+                class="nav-link px-2 py-2{% if request.path|slice:':7' == '/admin/' %} active-link{% endif %}"
+                href="{% url 'admin:index' %}"
+              >
+                {% trans "Administration" %}
+              </a>
+                {% else %}
               <a
                 class="nav-link px-2 py-2{% if request.resolver_match.url_name == 'mon_espace' %} active-link{% endif %}"
                 href="{% url 'mon_espace' %}"
               >
                 {% trans "Mon espace" %}
               </a>
+                {% endif %}
               {% endif %}
             </li>
             <li class="nav-item">

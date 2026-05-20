@@ -70,15 +70,16 @@
         {% endif %}
 
         <div class="contact-page__field">
-          <label class="contact-page__field-label" for="id_username">{% trans "Adresse e-mail" %}</label>
+          <label class="contact-page__field-label" for="id_username">{% trans "Adresse e-mail ou identifiant" %}</label>
           <input
-            type="email"
+            type="text"
             name="username"
             id="id_username"
             class="contact-page__input form-control{% if form.username.errors %} is-invalid{% endif %}"
             value="{{ form.username.value|default:'' }}"
-            placeholder="{% trans 'Votre adresse e-mail' %}"
+            placeholder="{% trans 'E-mail ou identifiant' %}"
             autocomplete="username"
+            inputmode="email"
             required
             autofocus
           />

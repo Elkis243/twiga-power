@@ -1,0 +1,26 @@
+{% load static i18n %}
+<button
+  type="button"
+  class="activity-card card gallery-card h-100 w-100 border-0 rounded-4 overflow-hidden text-start p-0"
+  data-gallery-card
+  data-gallery-index="{{ gallery_index }}"
+  data-src="{% static image %}"
+  data-title="{{ caption }}"
+  aria-label="{% blocktrans with title=caption %}Agrandir : {{ title }}{% endblocktrans %}"
+>
+  <div class="activity-card__media overflow-hidden">
+    <img
+      src="{% static image %}"
+      class="activity-card__img w-100"
+      alt="{{ image_alt|default:caption }}"
+      width="400"
+      height="240"
+      loading="lazy"
+    />
+  </div>
+  <div class="card-body d-flex flex-column p-3 pt-2">
+    <p class="activity-card__text text-muted mb-0 flex-grow-1"{% if description_words %} title="{{ caption }}"{% endif %}>
+      {% if description_words %}{{ caption|truncatewords:description_words }}{% else %}{{ caption }}{% endif %}
+    </p>
+  </div>
+</button>

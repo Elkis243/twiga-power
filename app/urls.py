@@ -22,7 +22,11 @@ urlpatterns = [
     path("vision-mission/", vision_mission, name="vision_mission"),
     path("ambition-valeurs/", ambition_valeurs, name="ambition_valeurs"),
     path("equipe-dirigeante/", equipe_dirigeante, name="equipe_dirigeante"),
-    path("champ_activité/", champ_activité, name="champ_activité"),
+    path("activite/", activite, name="activite"),
+    path(
+        "champ_activité/",
+        RedirectView.as_view(pattern_name="activite", permanent=True),
+    ),
     path("projects/", projects, name="projects"),
     path("recrutement/", recrutement, name="recrutement"),
     path(

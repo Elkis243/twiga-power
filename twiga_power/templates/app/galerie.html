@@ -4,256 +4,89 @@
 {% block base %}
 {% include "components/navbar.html" %}
 
-<div class="header-contact">
-    <div
-        class="d-flex flex-column justify-content-center align-items-center text-center px-3"
-        data-sal="fade"
-        data-sal-duration="800"
-        data-sal-easing="ease-out-cubic"
+<header class="header-contact header-contact--historique" aria-labelledby="galerie-page-title">
+  <div class="historique-hero__pattern" aria-hidden="true"></div>
+  <div class="container historique-hero__inner px-3 px-md-4">
+    <nav class="historique-hero__breadcrumb" aria-label="{% trans "Fil d'Ariane" %}">
+      <ol class="historique-hero__breadcrumb-list list-unstyled d-flex flex-wrap justify-content-center gap-2 mb-0">
+        <li>
+          <a href="{% url 'home' %}" class="historique-hero__breadcrumb-link">{% trans "Accueil" %}</a>
+        </li>
+        <li class="historique-hero__breadcrumb-sep" aria-hidden="true">/</li>
+        <li class="historique-hero__breadcrumb-current" aria-current="page">{% trans "Galerie" %}</li>
+      </ol>
+    </nav>
+    <div class="historique-hero__content text-center mx-auto"
+      data-sal="fade"
+      data-sal-duration="800"
+      data-sal-delay="100"
+      data-sal-easing="ease-out-cubic"
     >
-        <h1 class="text-white mb-0">{% trans "Galerie de photos" %}</h1>
-        <div class="project-detail__title-accent mt-3" aria-hidden="true"></div>
+      <h1 id="galerie-page-title" class="historique-hero__title mb-3">{% trans "Galerie photos" %}</h1>
+      <div class="project-detail__title-accent mx-auto mb-3" aria-hidden="true"></div>
+      <p class="historique-hero__lead mb-0 fs-6 mx-auto">
+        {% blocktrans %}Découvrez en images nos projets, nos terrains et les communautés que nous accompagnons en République Démocratique du Congo.{% endblocktrans %}
+      </p>
     </div>
-</div>
+  </div>
+  <div class="historique-hero__wave" aria-hidden="true">
+    <svg class="historique-hero__wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none" focusable="false">
+      <path
+        fill="currentColor"
+        shape-rendering="geometricPrecision"
+        d="M0,52 C240,8 480,96 720,48 C960,0 1200,72 1440,40 L1440,120 L0,120 Z"
+      />
+    </svg>
+  </div>
+</header>
 
-<section class="container px-3 px-md-4 py-4 py-md-5">
-    <div class="row justify-content-center align-items-center">
-        <div class="col-md-12">
-            <div class="row gallery"></div>
+<section id="gallery-grid" class="gallery-page py-4 mb-5" aria-label="{% trans 'Galerie photos' %}">
+  <div class="container px-4">
+    <div class="row justify-content-center">
+      <div class="col-xl-10">
+        {% with gallery_description_words=18 %}
+        <div class="row g-3 align-items-stretch justify-content-center gallery-page__grid">
+          {% for item in page_obj %}
+          <div
+            class="col-12 col-md-6 col-lg-4 d-flex"
+            data-sal="fade"
+            data-sal-duration="600"
+            data-sal-delay="{% widthratio forloop.counter0 1 80 %}"
+            data-sal-easing="ease-out-cubic"
+          >
+            {% include "components/gallery_card.html" with image=item.image caption=item.title gallery_index=forloop.counter0 description_words=gallery_description_words only %}
+          </div>
+          {% empty %}
+          <div class="col-12 text-center text-muted py-4">
+            <p class="mb-0">{% trans "Aucune image à afficher." %}</p>
+          </div>
+          {% endfor %}
         </div>
+        {% include "components/gallery_pagination.html" %}
+        {% endwith %}
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- Lightbox avec carrousel -->
-<div class="lightbox">
-    <span class="lightbox-close">&times;</span>
-    <div class="lightbox-content">
-        <button class="lightbox-prev border-0 bg-transparent text-white">
-            <i class="bi bi-chevron-left fs-4"></i>
-        </button>
-        <img src="" alt="" class="lightbox-image">
-        <button class="lightbox-next border-0 bg-transparent text-white">
-            <i class="bi bi-chevron-right fs-4"></i>
-        </button>
-    </div>
+<div class="gallery-lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="{% trans 'Visionneuse photo' %}">
+  <button type="button" class="gallery-lightbox__close" aria-label="{% trans 'Fermer' %}">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <div class="gallery-lightbox__content">
+    <button type="button" class="gallery-lightbox__nav gallery-lightbox__nav--prev" aria-label="{% trans 'Photo précédente' %}">
+      <i class="bi bi-chevron-left" aria-hidden="true"></i>
+    </button>
+    <figure class="gallery-lightbox__figure">
+      <img src="" alt="" class="gallery-lightbox__image" />
+      <figcaption class="gallery-lightbox__caption"></figcaption>
+    </figure>
+    <button type="button" class="gallery-lightbox__nav gallery-lightbox__nav--next" aria-label="{% trans 'Photo suivante' %}">
+      <i class="bi bi-chevron-right" aria-hidden="true"></i>
+    </button>
+  </div>
 </div>
 
-<script>
-    const galleryData = [
-        {
-            src: "{% static 'images/picture7.webp' %}",
-            title: "Obtention de la licence d’importation et de commercialisation de l’électricité – ARE-RDC",
-            description: "Obtention de la licence d’importation et de commercialisation de l’électricité – ARE-RDC"
-        },
-        {
-            src: "{% static 'images/picture12.webp' %}",
-            title: "Obtention de la licence d’importation et de commercialisation de l’électricité – ARE-RDC",
-            description: "Obtention de la licence d’importation et de commercialisation de l’électricité – ARE-RDC"
-        },
-        {
-            src: "{% static 'images/picture13.webp' %}",
-            title: "Obtention de la licence d’importation et de commercialisation de l’électricité – ARE-RDC",
-            description: "Obtention de la licence d’importation et de commercialisation de l’électricité – ARE-RDC"
-        },
-        {
-            src: "{% static 'images/picture10.webp' %}",
-            title: "Pont en liasse, rivière inkisi, village Mbata Nkulusu",
-            description: "Pont en liasse, rivière inkisi, village Mbata Nkulusu"
-        },
-        {
-            src: "{% static 'images/picture2.webp' %}",
-            title: "Rapide rivière inkisi",
-            description: "Rapide rivière inkisi"
-        },
-        {
-            src: "{% static 'images/picture8.webp' %}",
-            title: "Rivière Inkisi, site de kibombo",
-            description: "Rivière Inkisi, site de kibombo, Kongo-central"
-        },
-        {
-            src: "{% static 'images/picture9.webp' %}",
-            title: "Les enfants du Village Mbata Nkulusu",
-            description: "Les enfants du Village Mbata Nkulusu"
-        },
-        {
-            src: "{% static 'images/picture5.webp' %}",
-            title: "Communauté locale",
-            description: "Communauté locale"
-        },
-        {
-            src: "{% static 'images/picture11.webp' %}",
-            title: "Visite du site avec les spécialistes",
-            description: "Visite du site avec les spécialistes"
-        },
-        {
-            src: "{% static 'images/picture14.webp' %}",
-            title: "Visite du site avec les spécialistes",
-            description: "Visite du site avec les spécialistes"
-        },
-         {
-            src: "{% static 'images/picture15.webp' %}",
-            title: "Visite du site avec les spécialistes",
-            description: "Visite du site avec les spécialistes"
-        },
-    ];
-
-    const gallery = document.querySelector('.gallery');
-    const lightbox = document.querySelector('.lightbox');
-    const lightboxImage = document.querySelector('.lightbox-image');
-    const lightboxCaption = document.querySelector('.lightbox-caption');
-    const lightboxClose = document.querySelector('.lightbox-close');
-    const prevBtn = document.querySelector('.lightbox-prev');
-    const nextBtn = document.querySelector('.lightbox-next');
-
-    let currentIndex = 0;
-
-    // Générer la galerie
-    galleryData.forEach((item, index) => {
-        const galleryItem = document.createElement('div');
-        galleryItem.className = 'col-md-3 mb-4 gallery-item';
-        galleryItem.setAttribute('data-sal', 'fade');
-        galleryItem.setAttribute('data-sal-duration', '600');
-        galleryItem.setAttribute('data-sal-delay', String(60 + (index % 8) * 50));
-        galleryItem.setAttribute('data-sal-easing', 'ease-out-cubic');
-        galleryItem.innerHTML = `
-            <div class="card border-0 project-card position-relative">
-                <img src="${item.src}" alt="${item.title}" class="card-img rounded gallery-image">
-                <div class="project-footer d-flex justify-content-between align-items-center p-2 rounded-bottom position-absolute w-100 bottom-0 bg-color opacity-75">
-                    <small class="text-whit">${item.description}</small>
-                </div>
-            </div>
-        `;
-        galleryItem.addEventListener('click', () => openLightbox(index));
-        gallery.appendChild(galleryItem);
-    });
-
-    if (typeof window.refreshPageAnimations === 'function') {
-        window.refreshPageAnimations();
-    }
-
-    function openLightbox(index) {
-        currentIndex = index;
-        updateLightbox();
-        lightbox.style.display = 'flex';
-    }
-
-    function updateLightbox() {
-        const item = galleryData[currentIndex];
-        lightboxImage.src = item.src;
-    }
-
-    function closeLightbox() {
-        lightbox.style.display = 'none';
-    }
-
-    function showPrev() {
-        currentIndex = (currentIndex - 1 + galleryData.length) % galleryData.length;
-        updateLightbox();
-    }
-
-    function showNext() {
-        currentIndex = (currentIndex + 1) % galleryData.length;
-        updateLightbox();
-    }
-
-    lightboxClose.addEventListener('click', closeLightbox);
-    prevBtn.addEventListener('click', showPrev);
-    nextBtn.addEventListener('click', showNext);
-    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
-</script>
-
-<style>
-    .gallery-item {
-        cursor: pointer;
-        transition: transform 0.3s ease;
-    }
-
-    .gallery-item:hover {
-        transform: scale(1.02);
-    }
-
-    .gallery-image {
-        height: 250px;
-        object-fit: cover;
-        width: 100%;
-    }
-
-    .project-card {
-        overflow: hidden;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: box-shadow 0.3s ease;
-    }
-
-    .project-card:hover {
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
-
-    .bg-color {
-        background-color: #2c3e50;
-    }
-
-    .lightbox {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.9);
-        z-index: 1000;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .lightbox-content {
-        position: relative;
-        max-width: 90%;
-        max-height: 90%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .lightbox-image {
-        max-width: 100%;
-        max-height: 80vh;
-        margin-bottom: 15px;
-    }
-
-    .lightbox-caption {
-        color: white;
-        text-align: center;
-        font-size: 1.2rem;
-    }
-
-    .lightbox-close {
-        position: absolute;
-        top: 20px;
-        right: 30px;
-        color: white;
-        font-size: 40px;
-        cursor: pointer;
-    }
-
-    .lightbox-prev,
-    .lightbox-next {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 30px;
-        cursor: pointer;
-    }
-
-    .lightbox-prev {
-        left: 30px;
-    }
-
-    .lightbox-next {
-        right: 30px;
-    }
-</style>
-
 {% include "components/footer.html" %}
-<script src="{% static 'js/validate_form.js' %}"></script>
+<script src="{% static 'js/galerie.js' %}"></script>
 {% endblock base %}
-
