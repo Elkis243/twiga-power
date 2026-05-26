@@ -41,6 +41,7 @@
   <div class="container px-4">
     <div class="row justify-content-center">
       <div class="col-xl-10">
+        {% if page_obj.paginator.count %}
         <div class="row g-4 align-items-stretch justify-content-center">
           {% for item in page_obj %}
           <div
@@ -75,15 +76,24 @@
               </div>
             </article>
           </div>
-          {% empty %}
-          <div class="col-12">
-            <p class="text-center text-muted py-5 mb-0">
-              {% trans "Aucune actualité pour le moment." %}
-            </p>
-          </div>
           {% endfor %}
         </div>
         {% include "components/alertes_pagination.html" %}
+        {% else %}
+        <div
+          class="section-empty text-center"
+          role="status"
+          data-sal="fade"
+          data-sal-duration="700"
+        >
+          <h2 class="section-empty__title text-color">
+            {% trans "Aucune actualité disponible" %}
+          </h2>
+          <p class="section-empty__text mb-0">
+            {% trans "Nous n'avons pas d'actualité publiée pour le moment. Revenez prochainement pour découvrir nos alertes." %}
+          </p>
+        </div>
+        {% endif %}
       </div>
     </div>
   </div>

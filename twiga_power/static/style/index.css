@@ -1509,25 +1509,15 @@ a.project-card__link:focus-visible {
   line-height: 1.65;
 }
 
+/* État vide partagé (recrutement, alertes, etc.) */
+.section-empty,
 .recruitment-empty {
-  max-width: 26rem;
+  max-width: 28rem;
   margin: 0 auto;
   padding: 2.5rem 1rem 3rem;
 }
 
-.recruitment-empty__icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 4rem;
-  height: 4rem;
-  margin-bottom: 1.25rem;
-  border: 2px solid rgba(246, 175, 51, 0.45);
-  border-radius: 50%;
-  color: var(--accent);
-  font-size: 1.65rem;
-}
-
+.section-empty__title,
 .recruitment-empty__title {
   margin-bottom: 0.75rem;
   font-size: clamp(1.25rem, 2.5vw, 1.5rem);
@@ -1536,6 +1526,7 @@ a.project-card__link:focus-visible {
   line-height: 1.25;
 }
 
+.section-empty__text,
 .recruitment-empty__text {
   font-size: 0.95rem;
   line-height: 1.65;
