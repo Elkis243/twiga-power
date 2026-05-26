@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block title %}{% trans "Alertes" %} – {% trans "Actualités" %} - Twiga Power{% endblock title %}
+
+{% block base %}
+{% include "components/navbar.html" %}
+
+<header class="header-contact header-contact--historique header-contact--historique--compact" aria-labelledby="alertes-page-title">
+  <div class="historique-hero__pattern" aria-hidden="true"></div>
+  <div class="container historique-hero__inner px-3 px-md-4">
+    <nav class="historique-hero__breadcrumb" aria-label="{% trans "Fil d'Ariane" %}">
+      <ol class="historique-hero__breadcrumb-list list-unstyled d-flex flex-wrap justify-content-center gap-2 mb-0">
+        <li>
+          <a href="{% url 'home' %}" class="historique-hero__breadcrumb-link">{% trans "Accueil" %}</a>
+        </li>
+        <li class="historique-hero__breadcrumb-sep" aria-hidden="true">/</li>
+        <li class="historique-hero__breadcrumb-current" aria-current="page">{% trans "Alertes" %}</li>
+      </ol>
+    </nav>
+    <div class="historique-hero__content text-center mx-auto">
+      <h1 id="alertes-page-title" class="historique-hero__title mb-2">{% trans "Alertes" %}</h1>
+      <div class="project-detail__title-accent mx-auto mb-2" aria-hidden="true"></div>
+      <p class="historique-hero__lead mb-0 fs-6 mx-auto">
+        {% blocktrans %}Actualités et communiqués de Twiga Power.{% endblocktrans %}
+      </p>
+    </div>
+  </div>
+  <div class="historique-hero__wave" aria-hidden="true">
+    <svg class="historique-hero__wave-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" preserveAspectRatio="none" focusable="false">
+      <path
+        fill="currentColor"
+        shape-rendering="geometricPrecision"
+        d="M0,52 C240,8 480,96 720,48 C960,0 1200,72 1440,40 L1440,120 L0,120 Z"
+      />
+    </svg>
+  </div>
+</header>
+
+<section id="alertes-grid" class="alertes-page py-4 mb-5" aria-label="{% trans 'Liste des actualités' %}">
+  <div class="container px-4">
+    <div class="row justify-content-center">
+      <div class="col-xl-10">
+        <div class="row g-4 align-items-stretch justify-content-center">
+          {% for item in page_obj %}
+          <div
+            class="col-12 col-md-6 col-lg-4 d-flex"
+            data-sal="fade"
+            data-sal-duration="600"
+            data-sal-delay="{% widthratio forloop.counter0 1 80 %}"
+            data-sal-easing="ease-out-cubic"
+          >
+            <article class="activity-card card alerte-card h-100 w-100 border-0 rounded-4 overflow-hidden">
+              <div class="activity-card__media overflow-hidden">
+                <img
+                  src="{{ item.image.url }}"
+                  alt="{{ item.titre }}"
+                  class="activity-card__img w-100"
+                  width="400"
+                  height="240"
+                  loading="lazy"
+                />
+              </div>
+              <div class="card-body d-flex flex-column p-3 pt-2">
+                <p class="alerte-card__date text-muted small mb-2 mb-lg-3">
+                  <i class="bi bi-calendar3 me-1" aria-hidden="true"></i>
+                  {{ item.date_publication|date:"d/m/Y" }}
+                </p>
+                <h2 class="activity-card__title h5 text-color mb-2">{{ item.titre }}</h2>
+                <p class="activity-card__text text-muted mb-3 flex-grow-1">{{ item.resume|truncatewords:28 }}</p>
+                <a href="{{ item.get_absolute_url }}" class="btn btn-sm activity-card__btn align-self-start mt-auto">
+                  {% trans "Lire la suite" %}
+                  <i class="bi bi-arrow-right-short" aria-hidden="true"></i>
+                </a>
+              </div>
+            </article>
+          </div>
+          {% empty %}
+          <div class="col-12">
+            <p class="text-center text-muted py-5 mb-0">
+              {% trans "Aucune actualité pour le moment." %}
+            </p>
+          </div>
+          {% endfor %}
+        </div>
+        {% include "components/alertes_pagination.html" %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include "components/footer.html" %}
+{% endblock base %}

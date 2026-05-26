@@ -134,6 +134,10 @@ AUTO_TRANSLATE_ENABLED = os.getenv("AUTO_TRANSLATE_ENABLED", "True") == "True"
 STATIC_URL = "static/"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
+# Fichiers uploadés (images des actualités / alertes)
+MEDIA_URL = "media/"
+MEDIA_ROOT = BASE_DIR / "media"
+
 # Formulaire candidature (CV en mémoire, pas de stockage disque)
 DATA_UPLOAD_MAX_MEMORY_SIZE = 10 * 1024 * 1024  # 10 Mo
 FILE_UPLOAD_MAX_MEMORY_SIZE = 10 * 1024 * 1024

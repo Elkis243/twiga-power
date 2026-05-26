@@ -1,13 +1,14 @@
 from django.urls import path
 from .views import *
 from django.contrib.sitemaps.views import sitemap
-from .sitemaps import StaticViewSitemap, ProjectSitemap
+from .sitemaps import ActualiteSitemap, ProjectSitemap, StaticViewSitemap
 from django.contrib.staticfiles.storage import staticfiles_storage
 from django.views.generic.base import RedirectView
 
 sitemaps = {
     "static": StaticViewSitemap,
     "projects": ProjectSitemap,
+    "actualites": ActualiteSitemap,
 }
 
 urlpatterns = [
@@ -17,6 +18,8 @@ urlpatterns = [
     path("deconnexion/", LogoutView.as_view(), name="logout"),
     path("inscription/", register, name="register"),
     path("contact/", contact, name="contact"),
+    path("alertes/", alertes, name="alertes"),
+    path("alertes/<slug:slug>/", alerte_detail, name="alerte_detail"),
     path("about/", about, name="about"),
     path("historique/", historique, name="historique"),
     path("vision-mission/", vision_mission, name="vision_mission"),

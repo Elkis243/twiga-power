@@ -121,7 +121,7 @@
             </li>
             <li class="nav-item dropdown">
               <a
-                class="nav-link dropdown-toggle px-2 py-2 {% if page == 'Recrutement' or page == 'Postuler' %}active-link{% endif %}"
+                class="nav-link dropdown-toggle px-2 py-2 {% if request.resolver_match.url_name == 'recrutement' or request.resolver_match.url_name == 'postuler_offre' or request.resolver_match.url_name == 'alertes' or request.resolver_match.url_name == 'alerte_detail' %}active-link{% endif %}"
                 href="#"
                 id="navbarAlertsDropdown"
                 role="button"
@@ -134,8 +134,8 @@
               <ul class="dropdown-menu navbar-about-menu shadow-sm rounded-3 border-0 p-2" aria-labelledby="navbarAlertsDropdown">
                 <li>
                   <a
-                    class="dropdown-item navbar-about-item navbar-mobile-sublink py-2 rounded-2"
-                    href="{% url 'contact' %}"
+                    class="dropdown-item navbar-about-item navbar-mobile-sublink py-2 rounded-2 {% if request.resolver_match.url_name == 'alertes' or request.resolver_match.url_name == 'alerte_detail' %}active{% endif %}"
+                    href="{% url 'alertes' %}"
                   >
                     <i class="bi bi-chevron-right navbar-mobile-sublink__icon" aria-hidden="true"></i>
                     {% trans "Alertes" %}

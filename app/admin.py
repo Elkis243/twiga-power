@@ -1,10 +1,12 @@
 from django.contrib import admin
+from django.utils.html import format_html
+from django.utils.translation import gettext_lazy as _
 from modeltranslation.admin import TranslationAdmin, TranslationTabularInline
 
 # Avant TranslationAdmin : l’autodiscover admin s’exécute avant app.ready()
 from . import translation  # noqa: F401
 
-from .models import Offre, ProfileRecherche
+from .models import Actualite, Offre, ProfileRecherche
 
 
 class ProfileRechercheInline(TranslationTabularInline):
@@ -112,3 +114,63 @@ class ProfileRechercheAdmin(TranslationAdmin):
     def apercu_description(self, obj):
         text = (obj.description or "")[:80]
         return f"{text}…" if len(obj.description or "") > 80 else text
+
+
+@admin.register(Actualite)
+class ActualiteAdmin(TranslationAdmin):
+    list_display = (
+        "titre",
+        "image_thumb",
+        "slug",
+        "date_publication",
+        "published",
+        "updated_at",
+    )
+    list_filter = ("published", ("date_publication", admin.DateFieldListFilter))
+    search_fields = (
+        "titre",
+        "titre_en",
+        "slug",
+        "resume",
+        "resume_en",
+        "contenu",
+        "contenu_en",
+    )
+    prepopulated_fields = {"slug": ("titre",)}
+    date_hierarchy = "date_publication"
+    ordering = ("-date_publication", "-created_at")
+    readonly_fields = ("created_at", "updated_at")
+
+    fieldsets = (
+        (
+            None,
+            {
+                "fields": (
+                    "titre",
+                    "image",
+                    "slug",
+                    "resume",
+                    "contenu",
+                    "date_publication",
+                    "published",
+                )
+            },
+        ),
+        (
+            "Dates",
+            {
+                "fields": ("created_at", "updated_at"),
+                "classes": ("collapse",),
+            },
+        ),
+    )
+
+    @admin.display(description=_("Image"))
+    def image_thumb(self, obj):
+        if not getattr(obj, "image", None) or not obj.image.name:
+            return "—"
+        return format_html(
+            '<img src="{}" width="52" height="52" alt="" '
+            'style="object-fit:cover;border-radius:6px;" loading="lazy" />',
+            obj.image.url,
+        )

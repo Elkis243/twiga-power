@@ -1,0 +1,69 @@
+{% load i18n %}
+{% if page_obj.paginator.num_pages > 1 %}
+<nav class="alertes-pagination gallery-pagination mt-4 pt-2" aria-label="{% trans 'Pagination des actualités' %}">
+  <ul class="pagination pagination-sm flex-wrap justify-content-center gap-1 mb-0">
+  {% if page_obj.has_previous %}
+    <li class="page-item">
+      <a
+        class="page-link gallery-pagination__link"
+        href="?page={{ page_obj.previous_page_number }}#alertes-grid"
+        aria-label="{% trans 'Page précédente' %}"
+      >
+        <i class="bi bi-chevron-left" aria-hidden="true"></i>
+        <span class="d-none d-sm-inline ms-1">{% trans "Précédent" %}</span>
+      </a>
+    </li>
+  {% else %}
+    <li class="page-item disabled">
+      <span class="page-link gallery-pagination__link" aria-hidden="true">
+        <i class="bi bi-chevron-left" aria-hidden="true"></i>
+        <span class="d-none d-sm-inline ms-1">{% trans "Précédent" %}</span>
+      </span>
+    </li>
+  {% endif %}
+
+  {% for page_num in page_obj.paginator.page_range %}
+    {% if page_num == page_obj.number %}
+    <li class="page-item active" aria-current="page">
+      <span class="page-link gallery-pagination__link">{{ page_num }}</span>
+    </li>
+    {% else %}
+    <li class="page-item">
+      <a
+        class="page-link gallery-pagination__link"
+        href="?page={{ page_num }}#alertes-grid"
+        aria-label="{% blocktrans %}Page {{ page_num }}{% endblocktrans %}"
+      >
+        {{ page_num }}
+      </a>
+    </li>
+    {% endif %}
+  {% endfor %}
+
+  {% if page_obj.has_next %}
+    <li class="page-item">
+      <a
+        class="page-link gallery-pagination__link"
+        href="?page={{ page_obj.next_page_number }}#alertes-grid"
+        aria-label="{% trans 'Page suivante' %}"
+      >
+        <span class="d-none d-sm-inline me-1">{% trans "Suivant" %}</span>
+        <i class="bi bi-chevron-right" aria-hidden="true"></i>
+      </a>
+    </li>
+  {% else %}
+    <li class="page-item disabled">
+      <span class="page-link gallery-pagination__link" aria-hidden="true">
+        <span class="d-none d-sm-inline me-1">{% trans "Suivant" %}</span>
+        <i class="bi bi-chevron-right" aria-hidden="true"></i>
+      </span>
+    </li>
+  {% endif %}
+  </ul>
+  <p class="gallery-pagination__status text-center text-muted small mb-0 mt-3">
+    {% blocktrans with current=page_obj.number total=page_obj.paginator.num_pages %}
+    Page {{ current }} sur {{ total }}
+    {% endblocktrans %}
+  </p>
+</nav>
+{% endif %}

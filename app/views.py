@@ -13,7 +13,7 @@ from django.utils.translation import gettext_lazy as _
 PDF_MAX_CANDIDATURE_BYTES = 5 * 1024 * 1024
 
 from .forms import RegisterForm, TwigaAuthenticationForm
-from .models import Offre
+from .models import Actualite, Offre
 from .utils.mail import (
     send_candidature_email,
     send_contact_email,
@@ -166,6 +166,45 @@ def about(request):
     return render(request, "app/about.html", context)
 
 
+ALERTES_PER_PAGE = 6
+
+
+def alertes(request):
+    queryset = Actualite.objects.filter(published=True)
+    paginator = Paginator(queryset, ALERTES_PER_PAGE)
+    page_number = request.GET.get("page", 1)
+    try:
+        page_obj = paginator.page(page_number)
+    except PageNotAnInteger:
+        page_obj = paginator.page(1)
+    except EmptyPage:
+        page_obj = paginator.page(paginator.num_pages)
+
+    return render(
+        request,
+        "app/alertes.html",
+        {
+            "page": _("Alertes"),
+            "page_obj": page_obj,
+        },
+    )
+
+
+def alerte_detail(request, slug):
+    actualite = get_object_or_404(
+        Actualite.objects.filter(published=True),
+        slug=slug,
+    )
+    return render(
+        request,
+        "app/alerte_detail.html",
+        {
+            "page": _("Alertes"),
+            "actualite": actualite,
+        },
+    )
+
+
 def historique(request):
     page = "Historique"
     context = {"page": page}
@@ -186,17 +225,17 @@ def ambition_valeurs(request):
 
 EQUIPE_DIRIGEANTE_MEMBERS = [
     {
-        "src": "images/dg.webp",
+        "src": "images/Equipe Dg.webp",
         "role": _("Directeur Général"),
         "name": "Papy Mvulazana Mbidi",
     },
     {
-        "src": "images/dg.webp",
+        "src": "images/Equipe Dt.webp",
         "role": _("Directeur technique"),
         "name": "Patrick Ilunga",
     },
     {
-        "src": "images/dg.webp",
+        "src": "images/Equipe Rh.webp",
         "role": _("Directeur RH"),
         "name": "Chantal Nsimba",
     },

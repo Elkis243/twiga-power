@@ -1,7 +1,9 @@
 from django.contrib.sitemaps import Sitemap
 from django.urls import reverse
 from datetime import datetime, timedelta
-from django.conf import settings
+from django.utils import timezone
+
+from app.models import Actualite
 
 
 # Sitemap pour les pages statiques
@@ -57,6 +59,12 @@ class StaticViewSitemap(Sitemap):
                 "yearly",
                 365,
             ),  # Contact - priorité moyenne, rarement modifié
+            (
+                "alertes",
+                0.82,
+                "weekly",
+                7,
+            ),
         ]
 
     def location(self, item):
@@ -146,5 +154,35 @@ class ProjectSitemap(Sitemap):
                 "title": f"{projet_nom} - Twiga Power",
                 "caption": f"Centrale hydroélectrique {projet_nom} - Production d'énergie renouvelable",
                 "geo_location": "République Démocratique du Congo",
+            }
+        ]
+
+
+class ActualiteSitemap(Sitemap):
+    """Actualités publiées (pages détail depuis Alertes)."""
+
+    changefreq = "weekly"
+    priority = 0.75
+    protocol = "https"
+    limit = 5000
+
+    def items(self):
+        return list(
+            Actualite.objects.filter(published=True).order_by("-date_publication")
+        )
+
+    def location(self, obj):
+        return reverse("alerte_detail", kwargs={"slug": obj.slug})
+
+    def lastmod(self, obj):
+        return timezone.localtime(obj.updated_at).date()
+
+    def images(self, obj):
+        if not obj.image or not obj.image.name:
+            return []
+        return [
+            {
+                "loc": obj.image.url,
+                "title": str(obj.titre),
             }
         ]

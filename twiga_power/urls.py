@@ -15,12 +15,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
+from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-from app import views
-from app import error_views
+from django.utils.translation import gettext_lazy as _
 from django.views.generic.base import RedirectView
 from django.views.i18n import set_language
+
+from app import error_views
+
+admin.site.site_header = _("Twiga Power — Administration")
+admin.site.site_title = _("Twiga Power")
+admin.site.index_title = _("Tableau de bord")
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -38,3 +45,6 @@ handler400 = error_views.handler400
 handler403 = error_views.handler403
 handler404 = error_views.handler404
 handler500 = error_views.handler500
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
