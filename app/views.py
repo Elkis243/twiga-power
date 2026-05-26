@@ -167,6 +167,7 @@ def about(request):
 
 
 ALERTES_PER_PAGE = 6
+AUTRES_ALERTES_SIDEBAR_LIMIT = 4
 
 
 def alertes(request):
@@ -195,12 +196,18 @@ def alerte_detail(request, slug):
         Actualite.objects.filter(published=True),
         slug=slug,
     )
+    autres_actualites = (
+        Actualite.objects.filter(published=True)
+        .exclude(pk=actualite.pk)
+        .order_by("-date_publication", "-created_at")[:AUTRES_ALERTES_SIDEBAR_LIMIT]
+    )
     return render(
         request,
         "app/alerte_detail.html",
         {
             "page": _("Alertes"),
             "actualite": actualite,
+            "autres_actualites": autres_actualites,
         },
     )
 

@@ -41,32 +41,60 @@
 <article class="alerte-detail py-4 mb-5" aria-label="{{ actualite.titre }}">
   <div class="container px-4">
     <div class="row justify-content-center">
-      <div class="col-xl-10 col-lg-9">
-        <figure class="alerte-detail__figure mb-4 mb-lg-5">
-          <img
-            src="{{ actualite.image.url }}"
-            alt="{{ actualite.titre }}"
-            class="alerte-detail__featured-img w-100 rounded-4 shadow-sm"
-            width="1200"
-            height="675"
-            loading="eager"
-            fetchpriority="high"
-          />
-        </figure>
-        <div
-          class="alerte-detail__body text-muted"
-          data-sal="fade"
-          data-sal-duration="700"
-          data-sal-easing="ease-out-cubic"
-        >
-          {{ actualite.contenu|linebreaks }}
+      <div class="col-xl-10">
+        <div class="row g-4 g-lg-5 align-items-start">
+          <div class="col-lg-8">
+            <figure class="alerte-detail__figure mb-4 mb-lg-4">
+              <div class="alerte-card__media alerte-detail__media overflow-hidden rounded-4 shadow-sm">
+                <img
+                  src="{{ actualite.image.url }}"
+                  alt="{{ actualite.titre }}"
+                  class="alerte-detail__featured-img w-100"
+                  width="1200"
+                  height="675"
+                  loading="eager"
+                  fetchpriority="high"
+                />
+                <time
+                  class="alerte-date-badge"
+                  datetime="{{ actualite.date_publication|date:'Y-m-d' }}"
+                >
+                  <span class="alerte-date-day">{{ actualite.date_publication|date:"d" }}</span>
+                  <span class="alerte-date-rest">{{ actualite.date_publication|date:"m/y" }}</span>
+                </time>
+              </div>
+            </figure>
+            <div
+              class="alerte-detail__body text-muted"
+              data-sal="fade"
+              data-sal-duration="700"
+              data-sal-easing="ease-out-cubic"
+            >
+              {{ actualite.contenu|linebreaks }}
+            </div>
+          </div>
+
+          <aside class="col-lg-4" aria-labelledby="alerte-detail-sidebar-title">
+            <div class="alerte-detail-sidebar">
+              <h2 id="alerte-detail-sidebar-title" class="alerte-detail-sidebar__title h5 text-color mb-3">
+                {% trans "Autres actualités" %}
+              </h2>
+              {% if autres_actualites %}
+              <ul class="alerte-detail-sidebar__list list-unstyled mb-0">
+                {% for item in autres_actualites %}
+                <li class="alerte-detail-sidebar__item">
+                  {% include "components/alerte_card.html" with item=item horizontal=True resume_words=14 %}
+                </li>
+                {% endfor %}
+              </ul>
+              {% else %}
+              <p class="alerte-detail-sidebar__empty text-muted small mb-0">
+                {% trans "Aucune autre actualité pour le moment." %}
+              </p>
+              {% endif %}
+            </div>
+          </aside>
         </div>
-        <p class="mt-4 mb-0">
-          <a href="{% url 'alertes' %}" class="btn btn-sm activity-card__btn">
-            <i class="bi bi-arrow-left-short" aria-hidden="true"></i>
-            {% trans "Toutes les actualités" %}
-          </a>
-        </p>
       </div>
     </div>
   </div>
