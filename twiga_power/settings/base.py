@@ -162,9 +162,16 @@ AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
 ]
 
-LOGIN_URL = "/connexion/"
-LOGIN_REDIRECT_URL = "/"
-LOGOUT_REDIRECT_URL = "/"
+# Auth: utiliser le nom d'URL pour rester compatible avec /en/
+LOGIN_URL = "login"
+LOGIN_REDIRECT_URL = "home"
+LOGOUT_REDIRECT_URL = "home"
+
+# Mémoriser la langue (session + cookie). LocaleMiddleware utilisera d'abord la session,
+# puis le cookie, puis l'en-tête Accept-Language.
+LANGUAGE_COOKIE_NAME = "twiga_language"
+LANGUAGE_COOKIE_AGE = 60 * 60 * 24 * 365  # 1 an
+LANGUAGE_COOKIE_SAMESITE = "Lax"
 
 # Email configuration
 # https://docs.djangoproject.com/en/5.1/topics/email/

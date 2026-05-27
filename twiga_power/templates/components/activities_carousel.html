@@ -45,16 +45,16 @@
           <div class="carousel-inner pb-1">
             <div class="carousel-item active">
               <div class="row g-3 align-items-stretch">
-                <div class="col-lg-4 d-flex">{% include "components/activity_card.html" with title=act1_title description=act1_desc description_words=activity_description_words image="images/activite1.webp" anchor="production" image_alt="Production hydroélectrique" only %}</div>
-                <div class="col-lg-4 d-flex">{% include "components/activity_card.html" with title=act2_title description=act2_desc description_words=activity_description_words image="images/activite2.webp" anchor="transport" image_alt="Transport d'énergie électrique" only %}</div>
-                <div class="col-lg-4 d-flex">{% include "components/activity_card.html" with title=act3_title description=act3_desc description_words=activity_description_words image="images/activite3.webp" anchor="distribution" image_alt="Distribution d'énergie électrique" only %}</div>
+                <div class="col-lg-4 d-flex">{% include "components/activity_card.html" with title=act1_title description=act1_desc description_words=activity_description_words image="images/activite1.webp" anchor="production" image_alt=_("Production hydroélectrique") only %}</div>
+                <div class="col-lg-4 d-flex">{% include "components/activity_card.html" with title=act2_title description=act2_desc description_words=activity_description_words image="images/activite2.webp" anchor="transport" image_alt=_("Transport d'énergie électrique") only %}</div>
+                <div class="col-lg-4 d-flex">{% include "components/activity_card.html" with title=act3_title description=act3_desc description_words=activity_description_words image="images/activite3.webp" anchor="distribution" image_alt=_("Distribution d'énergie électrique") only %}</div>
               </div>
             </div>
             <div class="carousel-item">
               <div class="row g-3 align-items-stretch">
-                <div class="col-lg-4 d-flex">{% include "components/activity_card.html" with title=act4_title description=act4_desc description_words=activity_description_words image="images/activite4.webp" anchor="commercialisation" image_alt="Commercialisation d'énergie électrique" only %}</div>
-                <div class="col-lg-4 d-flex">{% include "components/activity_card.html" with title=act5_title description=act5_desc description_words=activity_description_words image="images/activite5.webp" anchor="exportation" image_alt="Exportation d'énergie électrique" only %}</div>
-                <div class="col-lg-4 d-flex">{% include "components/activity_card.html" with title=act6_title description=act6_desc description_words=activity_description_words image="images/activite6.webp" anchor="importation" image_alt="Importation d'énergie électrique" only %}</div>
+                <div class="col-lg-4 d-flex">{% include "components/activity_card.html" with title=act4_title description=act4_desc description_words=activity_description_words image="images/activite4.webp" anchor="commercialisation" image_alt=_("Commercialisation d'énergie électrique") only %}</div>
+                <div class="col-lg-4 d-flex">{% include "components/activity_card.html" with title=act5_title description=act5_desc description_words=activity_description_words image="images/activite5.webp" anchor="exportation" image_alt=_("Exportation d'énergie électrique") only %}</div>
+                <div class="col-lg-4 d-flex">{% include "components/activity_card.html" with title=act6_title description=act6_desc description_words=activity_description_words image="images/activite6.webp" anchor="importation" image_alt=_("Importation d'énergie électrique") only %}</div>
               </div>
             </div>
           </div>
@@ -84,12 +84,12 @@
             <button type="button" data-bs-target="#activitiesCarouselMobile" data-bs-slide-to="5" aria-label="{% trans 'Activité' %} 6"></button>
           </div>
           <div class="carousel-inner pb-1">
-            <div class="carousel-item active"><div class="d-flex">{% include "components/activity_card.html" with title=act1_title description=act1_desc description_words=activity_description_words image="images/activite1.webp" anchor="production" image_alt="Production hydroélectrique" only %}</div></div>
-            <div class="carousel-item"><div class="d-flex">{% include "components/activity_card.html" with title=act2_title description=act2_desc description_words=activity_description_words image="images/activite2.webp" anchor="transport" image_alt="Transport d'énergie électrique" only %}</div></div>
-            <div class="carousel-item"><div class="d-flex">{% include "components/activity_card.html" with title=act3_title description=act3_desc description_words=activity_description_words image="images/activite3.webp" anchor="distribution" image_alt="Distribution d'énergie électrique" only %}</div></div>
-            <div class="carousel-item"><div class="d-flex">{% include "components/activity_card.html" with title=act4_title description=act4_desc description_words=activity_description_words image="images/activite4.webp" anchor="commercialisation" image_alt="Commercialisation d'énergie électrique" only %}</div></div>
-            <div class="carousel-item"><div class="d-flex">{% include "components/activity_card.html" with title=act5_title description=act5_desc description_words=activity_description_words image="images/activite5.webp" anchor="exportation" image_alt="Exportation d'énergie électrique" only %}</div></div>
-            <div class="carousel-item"><div class="d-flex">{% include "components/activity_card.html" with title=act6_title description=act6_desc description_words=activity_description_words image="images/activite6.webp" anchor="importation" image_alt="Importation d'énergie électrique" only %}</div></div>
+            <div class="carousel-item active"><div class="d-flex">{% include "components/activity_card.html" with title=act1_title description=act1_desc description_words=activity_description_words image="images/activite1.webp" anchor="production" image_alt=_("Production hydroélectrique") only %}</div></div>
+            <div class="carousel-item"><div class="d-flex">{% include "components/activity_card.html" with title=act2_title description=act2_desc description_words=activity_description_words image="images/activite2.webp" anchor="transport" image_alt=_("Transport d'énergie électrique") only %}</div></div>
+            <div class="carousel-item"><div class="d-flex">{% include "components/activity_card.html" with title=act3_title description=act3_desc description_words=activity_description_words image="images/activite3.webp" anchor="distribution" image_alt=_("Distribution d'énergie électrique") only %}</div></div>
+            <div class="carousel-item"><div class="d-flex">{% include "components/activity_card.html" with title=act4_title description=act4_desc description_words=activity_description_words image="images/activite4.webp" anchor="commercialisation" image_alt=_("Commercialisation d'énergie électrique") only %}</div></div>
+            <div class="carousel-item"><div class="d-flex">{% include "components/activity_card.html" with title=act5_title description=act5_desc description_words=activity_description_words image="images/activite5.webp" anchor="exportation" image_alt=_("Exportation d'énergie électrique") only %}</div></div>
+            <div class="carousel-item"><div class="d-flex">{% include "components/activity_card.html" with title=act6_title description=act6_desc description_words=activity_description_words image="images/activite6.webp" anchor="importation" image_alt=_("Importation d'énergie électrique") only %}</div></div>
           </div>
           <button class="carousel-control-prev activities-carousel__control" type="button" data-bs-target="#activitiesCarouselMobile" data-bs-slide="prev">
             <span class="activities-carousel__control-icon" aria-hidden="true"><i class="bi bi-chevron-left"></i></span>

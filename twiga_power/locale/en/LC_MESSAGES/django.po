@@ -3,1048 +3,1634 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-03-06 15:15+0100\n"
+"POT-Creation-Date: 2026-05-27 04:16+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: en\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: twiga_power/templates/components/navbar.html:40
-msgid "Qui sommes-nous ?"
-msgstr "Who are we?"
+#: app/admin.py:168 app/models.py:68
+msgid "Image"
+msgstr "Image"
 
-#: app/views.py:102
-#: twiga_power/templates/app/about.html:4
-#: twiga_power/templates/app/about.html:25
-msgid "Notre histoire"
-msgstr "Our story"
+#: app/forms.py:14
+msgid "Identifiant ou mot de passe incorrect. Veuillez réessayer."
+msgstr "Incorrect username or password. Please try again."
 
-#: twiga_power/templates/app/about.html:17
-msgid "Directeur Général"
-msgstr "Managing Director"
+#: app/forms.py:16
+msgid "Ce compte est inactif."
+msgstr "This account is inactive."
 
-#: twiga_power/templates/app/about.html:27
-msgid ""
-"Créée en novembre 2024, Twiga Power SARL est une société de droit congolais "
-"constituée sous la forme d’une Société à Responsabilité Limitée (SARL). Elle "
-"s’inscrit dans une dynamique de développement énergétique visant à apporter "
-"des solutions innovantes et adaptées au contexte de la République "
-"Démocratique du Congo."
-msgstr ""
-"Created in November 2024, Twiga Power SARL is a Congolese company "
-"incorporated as a Limited Liability Company (SARL). It is part of an energy "
-"development dynamic aimed at providing innovative solutions adapted to the "
-"context of the Democratic Republic of Congo."
+#: app/forms.py:33 twiga_power/templates/app/register.html:70
+msgid "Nom complet"
+msgstr "Full name"
 
-#: twiga_power/templates/app/about.html:30
-msgid ""
-"Animée par la volonté de fournir une énergie fiable, économiquement "
-"accessible et durable, Twiga Power SARL œuvre pour soutenir la croissance "
-"économique et répondre efficacement aux besoins croissants en électricité, "
-"tout en contribuant à l’amélioration des conditions de vie des communautés."
-msgstr ""
-"Driven by the desire to provide reliable, affordable and sustainable energy, "
-"Twiga Power SARL works to support economic growth and effectively meet the "
-"growing demand for electricity, while helping to improve living conditions "
-"in communities."
+#: twiga_power/templates/components/contact_form_fields.html:11
+msgid "Votre nom complet"
+msgstr "Your full name"
 
-#: twiga_power/templates/app/about.html:33
-#: twiga_power/templates/app/home.html:57
-#: twiga_power/templates/components/footer.html:41
-#: twiga_power/templates/components/navbar.html:45
-msgid "Nous contacter"
-msgstr "Contact us"
+#: twiga_power/templates/components/contact_form_fields.html:20
+msgid "Adresse e-mail"
+msgstr "Email address"
 
-#: twiga_power/templates/app/about.html:49
-msgid "Notre Mission"
-msgstr "Our Mission"
+#: twiga_power/templates/components/contact_form_fields.html:27
+msgid "Votre adresse e-mail"
+msgstr "Your email address"
 
-#: twiga_power/templates/app/about.html:51
-msgid ""
-"Fournir des solutions énergétiques durables et accessibles qui contribuent "
-"au développement économique et social de la République Démocratique du Congo."
-msgstr ""
-"Provide sustainable and accessible energy solutions that contribute to the "
-"economic and social development of the Democratic Republic of Congo."
+#: twiga_power/templates/app/register.html:105
+msgid "Mot de passe"
+msgstr "Password"
 
-#: twiga_power/templates/app/about.html:56
-msgid ""
-"Répondre aux besoins fondamentaux de la population en garantissant un accès "
-"fiable, sécurisé et durable à l’énergie électrique."
-msgstr ""
-"Meet the fundamental needs of the population by guaranteeing reliable, "
-"secure and sustainable access to electrical energy."
+#: app/forms.py:58 twiga_power/templates/app/register.html:111
+msgid "Choisissez un mot de passe"
+msgstr "Choose a password"
 
-#: twiga_power/templates/app/about.html:60
-msgid ""
-"Contribuer de manière responsable au développement économique, social et "
-"environnemental de la République Démocratique du Congo."
-msgstr ""
-"Contribute responsibly to the economic, social and environmental development "
-"of the Democratic Republic of Congo."
+#: app/forms.py:64 twiga_power/templates/app/register.html:121
+msgid "Confirmer le mot de passe"
+msgstr "Confirm password"
 
-#: twiga_power/templates/app/about.html:64
-msgid ""
-"Aller au-delà du rôle d’énergéticien en accompagnant et en sensibilisant les "
-"consommateurs à une utilisation responsable de l’électricité, afin de "
-"renforcer leur satisfaction."
-msgstr ""
-"Go beyond the role of energy provider by supporting and raising consumer "
-"awareness of the responsible use of electricity, in order to increase their "
-"satisfaction."
+#: app/forms.py:68 twiga_power/templates/app/register.html:127
+msgid "Confirmez votre mot de passe"
+msgstr "Confirm your password"
 
-#: twiga_power/templates/app/about.html:71
-msgid "Notre Vision"
-msgstr "Our Vision"
+#: app/forms.py:77
+msgid "Veuillez saisir votre nom complet."
+msgstr "Please enter your full name."
 
-#: twiga_power/templates/app/about.html:73
-msgid ""
-"Être une référence nationale et un acteur central de la relance énergétique "
-"durable en République Démocratique du Congo"
-msgstr ""
-"To be a national reference and a key player in sustainable energy recovery "
-"in the Democratic Republic of Congo"
+#: app/forms.py:86
+msgid "Un compte existe déjà avec cette adresse e-mail."
+msgstr "An account already exists with this email address."
 
-#: twiga_power/templates/app/about.html:78
-msgid ""
-"Électrifier les zones rurales et urbaines afin de réduire les inégalités "
-"d’accès à l’électricité."
-msgstr ""
-"Electrify rural and urban areas to reduce inequalities in access to "
-"electricity."
+#: app/forms.py:103
+msgid "Les mots de passe ne correspondent pas."
+msgstr "Passwords do not match."
 
-#: twiga_power/templates/app/about.html:82
-msgid ""
-"Promouvoir les énergies renouvelables et l’innovation pour des solutions "
-"modernes et durables."
-msgstr ""
-"Promote renewable energy and innovation for modern and sustainable solutions."
+#: app/models.py:10
+msgid "CDI"
+msgstr "Permanent contract"
 
-#: twiga_power/templates/app/about.html:86
-msgid ""
-"Former la main-d’œuvre locale afin de renforcer les compétences et garantir "
-"un service de qualité."
-msgstr ""
-"Train the local workforce to strengthen skills and ensure quality service."
+#: app/models.py:11
+msgid "CDD"
+msgstr "Fixed-term contract"
 
-#: twiga_power/templates/app/about.html:100
-msgid "Nos Valeurs"
-msgstr "Our Values"
+#: app/models.py:12
+msgid "Stage"
+msgstr "Internship"
 
-#: twiga_power/templates/app/about.html:102
-msgid ""
-"Ces valeurs guident chaque décision et chaque action de Twiga Power SARL "
-"dans la construction d’un système énergétique fiable, durable et responsable."
-msgstr ""
-"These values guide every decision and every action of Twiga Power SARL in "
-"building a reliable, sustainable and responsible energy system."
+#: app/models.py:16
+msgid "Brouillon"
+msgstr "Draft"
 
-#: twiga_power/templates/app/about.html:107
-msgid "Respect"
-msgstr "Respect"
+#: app/models.py:17 app/models.py:81
+msgid "Publié"
+msgstr "Published"
 
-#: twiga_power/templates/app/about.html:109
-msgid ""
-"Le respect constitue le socle des relations de Twiga Power SARL avec les "
-"clients, les partenaires, les communautés locales et les autorités "
-"publiques. Il se traduit par la prise en compte des besoins des populations, "
-"le respect des engagements contractuels et l’observation stricte du cadre "
-"légal dans l’ensemble de ses activités énergétiques."
-msgstr ""
-"Respect forms the foundation of Twiga Power SARL's relationships with "
-"customers, partners, local communities and public authorities. It is "
-"reflected in taking into account the needs of the population, honouring "
-"contractual commitments and strictly observing the legal framework in all "
-"its energy activities."
+#: app/models.py:18
+msgid "Expiré"
+msgstr "Expired"
 
-#: twiga_power/templates/app/about.html:115
-msgid "Excellence"
-msgstr "Excellence"
+#: app/models.py:65
+msgid "Titre"
+msgstr "Title"
 
-#: twiga_power/templates/app/about.html:117
-msgid ""
-"L’excellence guide les pratiques opérationnelles et managériales de Twiga "
-"Power SARL. Elle se traduit par l’adoption de standards techniques élevés, "
-"l’amélioration continue des processus et le développement des compétences "
-"humaines et technologiques."
-msgstr ""
-"Excellence guides the operational and managerial practices of Twiga Power "
-"SARL. It is reflected in the adoption of high technical standards, the "
-"continuous improvement of processes and the development of human and "
-"technological skills."
+#: app/models.py:66
+msgid "Slug"
+msgstr "Slug"
 
-#: twiga_power/templates/app/about.html:123
-msgid "Sécurité"
-msgstr "Safety"
+#: app/models.py:70
+msgid "Image illustrant l’actualité (obligatoire)."
+msgstr "Image illustrating the news item (required)."
 
-#: twiga_power/templates/app/about.html:125
-msgid ""
-"La sécurité est une priorité absolue dans toutes nos opérations. Elle vise "
-"la protection des personnes, des installations et des infrastructures "
-"électriques, afin de prévenir les risques techniques, humains et "
-"environnementaux liés à la production, au transport et à la distribution de "
-"l’énergie électrique."
-msgstr ""
-"Safety is an absolute priority in all our operations. It focuses on "
-"protecting people, installations and electrical infrastructure, in order to "
-"prevent technical, human and environmental risks associated with the "
-"production, transmission and distribution of electrical energy."
+#: app/models.py:73
+msgid "Résumé"
+msgstr "Summary"
 
-#: twiga_power/templates/app/about.html:131
-msgid "Engagement social"
-msgstr "Social commitment"
+#: app/models.py:74
+msgid "Texte court affiché dans la liste des actualités."
+msgstr "Short text displayed in the news list."
 
-#: twiga_power/templates/app/about.html:133
-msgid ""
-"Twiga Power SARL considère l’énergie comme un levier de développement. "
-"L’entreprise s’engage à accompagner les communautés, à sensibiliser les "
-"consommateurs à une utilisation responsable de l’électricité et à contribuer "
-"durablement au progrès social."
-msgstr ""
-"Twiga Power SARL considers energy to be a lever for development. The company "
-"is committed to supporting communities, raising consumer awareness of the "
-"responsible use of electricity and contributing sustainably to social "
-"progress."
+#: app/models.py:77
+msgid "Contenu"
+msgstr "Content"
 
-#: twiga_power/templates/app/champ_activité.html:4
-msgid "Notre champ d'activité !"
-msgstr "Our field of activity!"
+#: app/models.py:78
+msgid "Texte complet de l’actualité (retours à la ligne conservés)."
+msgstr "Full text of the news item (line breaks preserved)."
 
-#: twiga_power/templates/app/champ_activité.html:12
-msgid ""
-"Twiga Power Sarl intervient sur toute la chaîne de valeur de l’énergie "
-"électrique, assurant production, distribution et services fiables."
-msgstr ""
-"Twiga Power SARL operates across the entire electricity value chain, "
-"providing reliable generation, distribution and related services."
+#: app/models.py:80 twiga_power/templates/app/recrutement.html:82
+msgid "Date de publication"
+msgstr "Publication date"
 
-#: twiga_power/templates/app/champ_activité.html:18
-msgid "1. Production de l'énergie électrique"
-msgstr "1. Electricity generation"
+#: app/models.py:88
+msgid "Actualité"
+msgstr "News item"
 
-#: twiga_power/templates/app/champ_activité.html:23
+#: app/models.py:89 twiga_power/templates/app/alertes.html:4
+msgid "Actualités"
+msgstr "News"
+
+#: app/views.py:28
+msgid "Logo partenaire 1"
+msgstr "Partner logo 1"
+
+#: app/views.py:33
+msgid "Logo partenaire 2"
+msgstr "Partner logo 2"
+
+#: app/views.py:38
+msgid "Logo partenaire 3"
+msgstr "Partner logo 3"
+
+#: app/views.py:43
+msgid "Logo partenaire 4"
+msgstr "Partner logo 4"
+
+#: app/views.py:48
+msgid "Logo partenaire 5"
+msgstr "Partner logo 5"
+
+#: app/views.py:56 twiga_power/templates/components/activities_carousel.html:3
+msgid "Production de l'énergie électrique"
+msgstr "Electricity generation"
+
+#: app/views.py:58
 msgid ""
 "La production constitue un pilier stratégique pour Twiga Power Sarl, qui "
-"développe des capacités basées sur l’eau (centrales hydroélectriques), la "
+"développe des capacités basées sur l'eau (centrales hydroélectriques), la "
 "chaleur (solutions thermiques), le vent (éolien), le soleil (photovoltaïque) "
 "et des solutions hybrides combinant plusieurs sources selon les besoins "
 "locaux. Cette diversification assure un approvisionnement énergétique sûr, "
 "durable et résilient, tout en contribuant à la transition énergétique du "
 "pays."
 msgstr ""
-"Generation is a strategic pillar for Twiga Power SARL, which develops "
-"capacity based on water (hydroelectric plants), heat (thermal solutions), "
-"wind (wind power), the sun (photovoltaic) and hybrid solutions combining "
-"several sources according to local needs. This diversification ensures a "
-"secure, sustainable and resilient energy supply, while contributing to the "
-"country's energy transition."
+"Generation is a strategic pillar for Twiga Power SARL,"
+"whichdevelopscapacity based on water (hydroelectric plants),"
+"heat(thermalsolutions), wind, solar (photovoltaic) and hybrid"
+"solutionscombiningseveral sources according to local needs."
+"Thisdiversificationensures a safe, sustainable and resilient"
+"energysupply whilecontributing to the country's energy transition."
 
-#: twiga_power/templates/app/champ_activité.html:30
-msgid "2. Transport de l'énergie électrique"
-msgstr "2. Electricity transmission"
+#: app/views.py:61
+msgid "Production d'énergie électrique"
+msgstr "Electricity generation"
 
-#: twiga_power/templates/app/champ_activité.html:35
+#: app/views.py:65 twiga_power/templates/components/activities_carousel.html:5
+msgid "Transport de l'énergie électrique"
+msgstr "Electricity transmission"
+
+#: app/views.py:67
 msgid ""
-"Le transport de l’électricité consiste à acheminer l’énergie produite ou "
+"Le transport de l'électricité consiste à acheminer l'énergie produite ou "
 "importée vers les centres de consommation à travers des infrastructures "
 "haute et moyenne tension, en veillant à la sécurité, à la performance des "
 "lignes et à la réduction des pertes techniques."
 msgstr ""
-"Electricity transmission consists in carrying the energy produced or "
-"imported to consumption centres via high- and medium-voltage infrastructure, "
-"while ensuring safety, line performance and reduced technical losses."
+"Electricity transmission means delivering energy produced"
+"orimportedto consumption centres through high-"
+"andmedium-voltageinfrastructure, while ensuring safety, line"
+"performanceand reducedtechnical losses."
 
-#: twiga_power/templates/app/champ_activité.html:42
-msgid "3. Distribution de l'énergie électrique"
-msgstr "3. Electricity distribution"
+#: twiga_power/templates/components/activities_carousel.html:88
+msgid "Transport d'énergie électrique"
+msgstr "Electricity transmission"
 
-#: twiga_power/templates/app/champ_activité.html:47
+#: app/views.py:74 twiga_power/templates/components/activities_carousel.html:7
+msgid "Distribution de l'énergie électrique"
+msgstr "Electricity distribution"
+
+#: app/views.py:76
 msgid ""
 "La distribution constitue le lien direct entre Twiga Power Sarl et les "
-"consommateurs finaux. L’entreprise déploie et exploite des réseaux adaptés "
-"aux réalités locales, en mettant l’accent sur la fiabilité, la qualité du "
-"service et l’amélioration de l’accès à l’électricité pour les ménages et les "
+"consommateurs finaux. L'entreprise déploie et exploite des réseaux adaptés "
+"aux réalités locales, en mettant l'accent sur la fiabilité, la qualité du "
+"service et l'amélioration de l'accès à l'électricité pour les ménages et les "
 "entreprises, contribuant ainsi à la satisfaction des clients et à la "
 "confiance des partenaires."
 msgstr ""
-"Distribution is the direct link between Twiga Power SARL and end consumers. "
-"The company deploys and operates networks adapted to local realities, with a "
-"focus on reliability, quality of service and improving access to "
-"electricity for households and businesses, thereby contributing to customer "
-"satisfaction and partner confidence."
+"Distribution is the direct link between Twiga Power SARL"
+"andendconsumers. The company deploys and operates networks adapted"
+"tolocalrealities, focusing on reliability, service quality"
+"andimprovedelectricity access for households and"
+"businesses,therebystrengthening customer satisfaction and partner"
+"trust."
 
-#: twiga_power/templates/app/champ_activité.html:54
-msgid "4. Commercialisation de l'énergie électrique"
-msgstr "4. Electricity commercialization"
+#: twiga_power/templates/components/activities_carousel.html:89
+msgid "Distribution d'énergie électrique"
+msgstr "Electricity distribution"
 
-#: twiga_power/templates/app/champ_activité.html:59
+#: app/views.py:83 twiga_power/templates/components/activities_carousel.html:9
+msgid "Commercialisation de l'énergie électrique"
+msgstr "Electricity marketing"
+
+#: app/views.py:85
 msgid ""
-"La commercialisation regroupe la vente d’électricité, la relation client et "
+"La commercialisation regroupe la vente d'électricité, la relation client et "
 "la gestion de la consommation. Twiga Power Sarl adopte une approche client "
 "basée sur la transparence tarifaire, la sensibilisation à une consommation "
 "responsable et la réduction des plaintes, contribuant ainsi à la "
 "satisfaction des clients et à la confiance des partenaires."
 msgstr ""
-"Commercialization includes the sale of electricity, customer relations and "
-"consumption management. Twiga Power SARL adopts a customer-centric approach "
-"based on tariff transparency, awareness-raising on responsible consumption "
-"and reducing complaints, thereby contributing to customer satisfaction and "
-"partner confidence."
+"Marketing covers electricity sales, customer relations"
+"andconsumptionmanagement. Twiga Power SARL adopts a customer"
+"approachbased ontariff transparency, responsible consumption"
+"awareness andfewercomplaints, strengthening customer satisfaction and"
+"partnertrust."
 
-#: twiga_power/templates/app/champ_activité.html:66
-msgid "5. Exportation de l'énergie électrique"
-msgstr "5. Export of electrical energy"
+#: twiga_power/templates/components/activities_carousel.html:90
+msgid "Commercialisation d'énergie électrique"
+msgstr "Electricity marketing"
 
-#: twiga_power/templates/app/champ_activité.html:71
+#: app/views.py:92 twiga_power/templates/components/activities_carousel.html:11
+msgid "Exportation de l'énergie électrique"
+msgstr "Electricity export"
+
+#: app/views.py:94
 msgid ""
-"Twiga Power Sarl développe également des activités d’exportation de "
-"l’énergie électrique visant à valoriser les capacités de production "
+"Twiga Power Sarl développe également des activités d'exportation de "
+"l'énergie électrique visant à valoriser les capacités de production "
 "excédentaires et à participer aux échanges énergétiques régionaux. Cette "
-"activité contribue au renforcement de la compétitivité de l’entreprise, à la "
+"activité contribue au renforcement de la compétitivité de l'entreprise, à la "
 "création de valeur économique et au positionnement de la RDC comme un acteur "
 "énergétique régional."
 msgstr ""
-"Twiga Power SARL is also developing electricity export activities to make "
-"use of surplus generation capacity and take part in regional energy "
-"exchanges. This activity helps strengthen the company's competitiveness, "
-"create economic value and position the DRC as a regional energy player."
+"Twiga Power SARL also develops electricity export"
+"activitiestoleverage surplus production capacity and participate"
+"inregionalenergy exchanges. This strengthens the"
+"company'scompetitiveness,creates economic value and positions the DRC"
+"as aregional energyplayer."
 
-#: twiga_power/templates/app/champ_activité.html:78
-msgid "6. Importation de l'énergie électrique"
-msgstr "6. Import of electrical energy"
+#: twiga_power/templates/components/activities_carousel.html:91
+msgid "Exportation d'énergie électrique"
+msgstr "Electricity export"
 
-#: twiga_power/templates/app/champ_activité.html:83
+#: twiga_power/templates/components/activities_carousel.html:13
+msgid "Importation de l'énergie électrique"
+msgstr "Electricity import"
+
+#: app/views.py:103
 msgid ""
-"L’importation de l’énergie électrique constitue un levier stratégique pour "
-"Twiga Power Sarl. Elle permet de renforcer l’approvisionnement lorsque la "
-"production locale est insuffisante, d’assurer la continuité et la stabilité "
+"L'importation de l'énergie électrique constitue un levier stratégique pour "
+"Twiga Power Sarl. Elle permet de renforcer l'approvisionnement lorsque la "
+"production locale est insuffisante, d'assurer la continuité et la stabilité "
 "du service, et de répondre efficacement aux pics de consommation."
 msgstr ""
-"Importing electrical energy is a strategic lever for Twiga Power SARL. It "
-"makes it possible to strengthen supply when local generation is "
-"insufficient, ensure continuity and stability of service, and respond "
-"effectively to peaks in consumption."
+"Electricity import is a strategic lever for Twiga Power"
+"SARL.Itstrengthens supply when local production is"
+"insufficient,ensuresservice continuity and stability, and effectively"
+"meetsconsumptionpeaks."
 
-#: twiga_power/templates/app/contact.html:7
-msgid "Contactez-nous !"
-msgstr "Contact us!"
+#: twiga_power/templates/components/activities_carousel.html:92
+msgid "Importation d'énergie électrique"
+msgstr "Electricity import"
 
-#: twiga_power/templates/app/contact.html:15
-msgid "Nous sommes à votre écoute !"
-msgstr "We are here to listen to you!"
+#: twiga_power/templates/components/navbar.html:58
+msgid "Accueil"
+msgstr "Home"
 
-#: twiga_power/templates/app/contact.html:17
+#: app/views.py:121 twiga_power/templates/app/activite.html:16
+msgid "Activités"
+msgstr "Activities"
+
+#: twiga_power/templates/app/contact.html:26
+msgid "Contact"
+msgstr "Contact"
+
+#: app/views.py:150
+msgid "Votre message a été envoyé avec succès. Nous vous répondrons bientôt !"
+msgstr "Your message has been sent successfully. We will reply soon!"
+
+#: twiga_power/templates/app/historique.html:76
+msgid "Notre histoire"
+msgstr "Our story"
+
+#: twiga_power/templates/components/navbar.html:141
+msgid "Alertes"
+msgstr "News"
+
+#: twiga_power/templates/components/navbar.html:79
+msgid "Historique"
+msgstr "History"
+
+#: twiga_power/templates/components/navbar.html:88
+msgid "Vision et mission"
+msgstr "Vision and mission"
+
+#: twiga_power/templates/components/navbar.html:97
+msgid "Ambition et valeurs"
+msgstr "Ambition and values"
+
+#: app/views.py:236
+msgid "Directeur Général"
+msgstr "Managing Director"
+
+#: app/views.py:241
+msgid "Directeur technique"
+msgstr "Technical Director"
+
+#: app/views.py:246
+msgid "Directeur RH"
+msgstr "HR Director"
+
+#: twiga_power/templates/components/navbar.html:106
+msgid "Équipe dirigeante"
+msgstr "Leadership team"
+
+#: app/views.py:262
+msgid "Projets"
+msgstr "Projects"
+
+#: twiga_power/templates/components/navbar.html:150
+msgid "Recrutement"
+msgstr "Careers"
+
+#: app/views.py:321
+msgid "Votre candidature a été envoyée avec succès."
+msgstr "Your application has been sent successfully."
+
+#: twiga_power/templates/app/projects.html:58
+msgid "Site Kibombo"
+msgstr "Kibombo site"
+
+#: app/views.py:340
 msgid ""
-"Que ce soit pour une demande d'information, un devis ou un partenariat, "
-"n'hésitez pas à nous contacter via ce formulaire."
+"La centrale hydroélectrique de Kibombo sur la rivière Inkisi utilise des "
+"technologies modernes pour produire une énergie stable et durable. Le projet "
+"soutient le développement local tout en respectant l’environnement.\n"
+"\n"
+"Rivière Inkisi – Kongo-Central – Capacité de 240 MW."
 msgstr ""
-"Whether for a request for information, a quote or a partnership, feel free "
-"to contact us using this form."
+"The Kibombo hydroelectric plant on the Inkisi River"
+"usesmoderntechnologies to produce stable, sustainable energy."
+"Theprojectsupports local development while"
+"respectingtheenvironment.\n\nInkisi River – Kongo-Central – Capacity"
+"of 240 MW."
 
-#: twiga_power/templates/app/contact.html:22
+#: twiga_power/templates/app/projects.html:78
+msgid "Site Nondo"
+msgstr "Nondo site"
+
+#: app/views.py:349
+msgid ""
+"Le site hydroélectrique de Nondo sur la rivière Luvua, à Tanganyika, "
+"développe 1022 MW avec des installations modernes et durables. Le projet "
+"soutient le développement local et valorise le potentiel hydraulique de la "
+"région.\n"
+"\n"
+"Rivière Luvua – Tanganyika – Capacité de 1022 MW."
+msgstr ""
+"The Nondo hydroelectric site on the Luvua River in"
+"Tanganyikadevelops1,022 MW with modern, sustainable facilities. The"
+"projectsupportslocal development and leverages the"
+"region'shydropowerpotential.\n\nLuvua River – Tanganyika – Capacity"
+"of 1,022MW."
+
+#: twiga_power/templates/app/projects.html:98
+msgid "Site Kilwani"
+msgstr "Kilwani site"
+
+#: app/views.py:358
+msgid ""
+"Le site hydroélectrique de Kilwani sur la rivière Luvua, à Tanganyika, "
+"produit 153 MW grâce à des technologies efficaces et respectueuses de "
+"l’environnement. Il contribue également au développement économique et "
+"social local.\n"
+"\n"
+"Rivière Luvua – Tanganyika – Capacité de 153 MW."
+msgstr ""
+"The Kilwani hydroelectric site on the Luvua River"
+"inTanganyikaproduces 153 MW using efficient,"
+"environmentallyfriendlytechnologies. It also contributes to local"
+"economic andsocialdevelopment.\n\nLuvua River – Tanganyika – Capacity"
+"of 153 MW."
+
+#: app/views.py:368
+msgid "Projet introuvable"
+msgstr "Project not found"
+
+#: app/views.py:405 app/views.py:411 app/views.py:417
+msgid ""
+"Obtention de la licence d'importation et de commercialisation de "
+"l'électricité – ARE-RDC"
+msgstr "Obtaining the electricity import and marketing licence – ARE-RDC"
+
+#: app/views.py:422
+msgid "Pont en liasse, rivière Inkisi, village Mbata Nkulusu"
+msgstr "Cable-stayed bridge, Inkisi River, Mbata Nkulusu village"
+
+#: app/views.py:426
+msgid "Rapide rivière Inkisi"
+msgstr "Inkisi River rapids"
+
+#: app/views.py:430
+msgid "Rivière Inkisi, site de Kibombo, Kongo-central"
+msgstr "Inkisi River, Kibombo site, Kongo-Central"
+
+#: app/views.py:434
+msgid "Les enfants du village Mbata Nkulusu"
+msgstr "Children of Mbata Nkulusu village"
+
+#: app/views.py:438
+msgid "Communauté locale"
+msgstr "Local community"
+
+#: app/views.py:442 app/views.py:446 app/views.py:450
+msgid "Visite du site avec les spécialistes"
+msgstr "Site visit with specialists"
+
+#: twiga_power/templates/components/footer.html:114
+msgid "Galerie"
+msgstr "Gallery"
+
+#: app/views.py:531 app/views.py:532
+msgid "Demande de réclamation"
+msgstr "Complaint request"
+
+#: app/views.py:534
+msgid ""
+"Signalez un problème ou une insatisfaction liée à nos services pour un "
+"traitement rapide."
+msgstr ""
+"Report a problem or dissatisfaction with our services"
+"forprompthandling."
+
+#: app/views.py:538
+msgid "Nouvelle demande de réclamation"
+msgstr "New complaint"
+
+#: app/views.py:539
+msgid "Votre réclamation"
+msgstr "Your complaint"
+
+#: app/views.py:540
+msgid "Décrivez le problème ou l'insatisfaction rencontrée…"
+msgstr "Describe the problem or dissatisfaction…"
+
+#: app/views.py:541
+msgid "Envoyer la réclamation"
+msgstr "Submit complaint"
+
+#: app/views.py:545 app/views.py:546
+msgid "Suggestion"
+msgstr "Suggestion"
+
+#: app/views.py:548
+msgid ""
+"Partagez une idée ou une amélioration pour nous aider à mieux vous "
+"accompagner."
+msgstr "Share an idea or improvement to help us serve you better."
+
+#: app/views.py:552
+msgid "Nouvelle suggestion"
+msgstr "New suggestion"
+
+#: app/views.py:553
+msgid "Votre suggestion"
+msgstr "Your suggestion"
+
+#: app/views.py:554
+msgid "Partagez votre idée ou amélioration…"
+msgstr "Share your idea or improvement…"
+
+#: app/views.py:555
+msgid "Envoyer la suggestion"
+msgstr "Submit suggestion"
+
+#: app/views.py:559 app/views.py:560
+msgid "Demande de service"
+msgstr "Service request"
+
+#: app/views.py:562
+msgid ""
+"Formulez une nouvelle demande d'assistance ou d'intervention auprès de nos "
+"équipes."
+msgstr "Submit a new request for assistance or intervention to our teams."
+
+#: app/views.py:566
+msgid "Nouvelle demande de service"
+msgstr "New service request"
+
+#: app/views.py:567
+msgid "Votre demande"
+msgstr "Your request"
+
+#: app/views.py:568
+msgid "Précisez le service ou l'intervention souhaitée…"
+msgstr "Specify the service or intervention required…"
+
+#: app/views.py:569
+msgid "Envoyer la demande"
+msgstr "Submit request"
+
+#: app/views.py:580
+msgid "Veuillez indiquer votre nom (au moins 2 caractères)."
+msgstr "Please enter your name (at least 2 characters)."
+
+#: app/views.py:582
+msgid "Veuillez indiquer votre adresse e-mail."
+msgstr "Please enter your email address."
+
+#: app/views.py:584
+msgid "Votre message doit contenir au moins 10 caractères."
+msgstr "Your message must be at least 10 characters long."
+
+#: twiga_power/templates/components/navbar.html:169
+msgid "Mon espace"
+msgstr "My space"
+
+#: app/views.py:601
+msgid "Type de demande invalide."
+msgstr "Invalid request type."
+
+#: app/views.py:605
+msgid "Votre compte ne possède pas d'adresse e-mail."
+msgstr "Your account does not have an email address."
+
+#: app/views.py:618
+msgid "Votre demande a été envoyée avec succès. Nous vous répondrons bientôt !"
+msgstr "Your request has been sent successfully. We will reply soon!"
+
+#: app/views.py:623
+msgid "Une erreur est survenue lors de l'envoi : %(error)s"
+msgstr "An error occurred while sending: %(error)s"
+
+#: twiga_power/templates/app/register.html:37
+msgid "Inscription"
+msgstr "Register"
+
+#: app/views.py:659
+msgid "Votre compte a été créé. Connectez-vous pour accéder au portail."
+msgstr "Your account has been created. Sign in to access the portal."
+
+#: twiga_power/templates/admin/base_site.html:4
+msgid "Django site admin"
+msgstr "Django site admin"
+
+#: twiga_power/templates/admin/base_site.html:7
+msgid "Django administration"
+msgstr "Django administration"
+
+#: twiga_power/templates/app/about.html:24
+msgid ""
+"Créée en novembre 2024, Twiga Power SARL est une société de droit congolais "
+"constituée\n"
+"                sous la forme d’une Société à Responsabilité Limitée (SARL). "
+"Elle s’inscrit dans une dynamique de\n"
+"                développement énergétique visant à apporter des solutions "
+"innovantes et adaptées au contexte de la\n"
+"                République Démocratique du Congo."
+msgstr ""
+"Founded in November 2024, Twiga Power SARL is a Congolese company"
+"incorporated as a limited liability company (SARL). It is part of an"
+"energy development drive to deliver innovative solutions suited to"
+"the Democratic Republic of the Congo."
+
+#: twiga_power/templates/app/about.html:30
+msgid ""
+"Animée par la volonté de fournir une énergie fiable, économiquement "
+"accessible et\n"
+"                durable, Twiga Power SARL œuvre pour soutenir la croissance "
+"économique et répondre efficacement aux\n"
+"                besoins croissants en électricité, tout en contribuant à "
+"l’amélioration des conditions de vie des\n"
+"                communautés."
+msgstr ""
+"Driven by the will to provide reliable, economically accessible and"
+"sustainable energy, Twiga Power SARL works to support economic growth"
+"and meet growing electricity needs while improving living conditions"
+"in communities."
+
+#: twiga_power/templates/components/navbar.html:120
+msgid "Nous contacter"
+msgstr "Contact us"
+
+#: twiga_power/templates/app/about.html:58
+msgid "Notre Mission"
+msgstr "Our Mission"
+
+#: twiga_power/templates/app/about.html:60
+msgid ""
+"Fournir des solutions énergétiques durables et accessibles qui contribuent "
+"au\n"
+"                développement économique et social de la République "
+"Démocratique du Congo."
+msgstr ""
+"To provide sustainable and accessible energy solutions that"
+"contribute to the economic and social development of the Democratic"
+"Republic of the Congo."
+
+#: twiga_power/templates/app/about.html:66
+msgid ""
+"Répondre aux besoins fondamentaux de la population en garantissant un accès "
+"fiable,\n"
+"                  sécurisé et durable à l’énergie électrique."
+msgstr ""
+"To meet the population's fundamental needs by guaranteeing reliable,"
+"secure and sustainable access to electricity."
+
+#: twiga_power/templates/app/about.html:71
+msgid ""
+"Contribuer de manière responsable au développement économique, social et\n"
+"                  environnemental de la République Démocratique du Congo."
+msgstr ""
+"To contribute responsibly to the economic, social and environmental"
+"development of the Democratic Republic of the Congo."
+
+#: twiga_power/templates/app/about.html:76
+msgid ""
+"Aller au-delà du rôle d’énergéticien en accompagnant et en sensibilisant "
+"les\n"
+"                  consommateurs à une utilisation responsable de "
+"l’électricité, afin de renforcer leur satisfaction."
+msgstr ""
+"To go beyond the role of energy provider by supporting and raising"
+"consumer awareness of responsible electricity use to strengthen their"
+"satisfaction."
+
+#: twiga_power/templates/app/about.html:90
+msgid "Notre Vision"
+msgstr "Our Vision"
+
+#: twiga_power/templates/app/about.html:92
+msgid ""
+"Être une référence nationale et un acteur central de la relance énergétique "
+"durable en\n"
+"                République Démocratique du Congo"
+msgstr ""
+"To be a national reference and a central player in sustainable energy"
+"recovery in the Democratic Republic of the Congo"
+
+#: twiga_power/templates/app/about.html:98
+msgid ""
+"Électrifier les zones rurales et urbaines afin de réduire les inégalités "
+"d’accès à\n"
+"                  l’électricité."
+msgstr ""
+"To electrify rural and urban areas in order to reduce inequalities in"
+"access to electricity."
+
+#: twiga_power/templates/app/about.html:103
+msgid ""
+"Promouvoir les énergies renouvelables et l’innovation pour des solutions "
+"modernes et\n"
+"                  durables."
+msgstr ""
+"To promote renewable energy and innovation for modern, sustainable"
+"solutions."
+
+#: twiga_power/templates/app/about.html:108
+msgid ""
+"Former la main-d’œuvre locale afin de renforcer les compétences et garantir "
+"un service\n"
+"                  de qualité."
+msgstr ""
+"To train the local workforce to strengthen skills and ensure quality"
+"service."
+
+#: twiga_power/templates/app/vision_mission.html:10
+msgid "Fil d'Ariane"
+msgstr "Breadcrumb"
+
+#: twiga_power/templates/components/navbar.html:116
+msgid "Nos activités"
+msgstr "Our activities"
+
+#: twiga_power/templates/app/activite.html:23
+msgid ""
+"Twiga Power Sarl intervient sur toute la chaîne de valeur de l'énergie "
+"électrique, assurant production, distribution et services fiables."
+msgstr ""
+"Twiga Power SARL operates across the entire electricity"
+"valuechain,providing reliable generation, distribution and services."
+
+#: twiga_power/templates/app/activite.html:38
+msgid "Liste des activités"
+msgstr "Activity list"
+
+#: twiga_power/templates/app/alerte_detail.html:80
+msgid "Autres actualités"
+msgstr "Other news"
+
+#: twiga_power/templates/app/alerte_detail.html:92
+msgid "Aucune autre actualité pour le moment."
+msgstr "No other news at the moment."
+
+#: twiga_power/templates/app/alertes.html:25
+msgid "Actualités et communiqués de Twiga Power."
+msgstr "News and press releases from Twiga Power."
+
+#: twiga_power/templates/app/alertes.html:40
+msgid "Liste des actualités"
+msgstr "News list"
+
+#: twiga_power/templates/app/alertes.html:67
+msgid "Aucune actualité disponible"
+msgstr "No news available"
+
+#: twiga_power/templates/app/alertes.html:70
+msgid ""
+"Nous n'avons pas d'actualité publiée pour le moment. Revenez prochainement "
+"pour découvrir nos alertes."
+msgstr ""
+"We have no published news at the moment. Check back soontodiscoverour"
+"updates."
+
+#: twiga_power/templates/app/vision_mission.html:13
+msgid "Qui sommes nous"
+msgstr "About us"
+
+#: twiga_power/templates/app/ambition_valeurs.html:29
+msgid ""
+"Les principes et l'ambition qui nous guident au quotidien en République "
+"Démocratique du Congo."
+msgstr ""
+"The principles and ambition that guide us every day in"
+"theDemocraticRepublic of the Congo."
+
+#: twiga_power/templates/app/ambition_valeurs.html:55
+msgid "Ambition"
+msgstr "Ambition"
+
+#: twiga_power/templates/app/ambition_valeurs.html:56
+msgid "Notre ambition"
+msgstr "Our ambition"
+
+#: twiga_power/templates/app/ambition_valeurs.html:59
+msgid ""
+"Marquer durablement son empreinte dans l'industrie énergétique congolaise en "
+"alliant vision stratégique, excellence opérationnelle et impact social, tout "
+"en valorisant l'identité et l'esprit distinctif de Twiga Power Sarl."
+msgstr ""
+"Make a lasting mark on the Congolese energy"
+"industrybycombiningstrategic vision, operational excellence and"
+"socialimpact,whilecelebrating the distinctive identity and spirit of"
+"TwigaPowerSARL."
+
+#: twiga_power/templates/app/ambition_valeurs.html:86
+msgid "Valeurs"
+msgstr "Our Values"
+
+#: twiga_power/templates/app/ambition_valeurs.html:87
+msgid "Nos valeurs"
+msgstr "Our Values"
+
+#: twiga_power/templates/app/ambition_valeurs.html:98
+msgid "Respect"
+msgstr "Respect"
+
+#: twiga_power/templates/app/ambition_valeurs.html:100
+msgid ""
+"Écoute des populations, engagements tenus et respect strict du cadre légal."
+msgstr ""
+"Listening to communities, honouring commitments and"
+"strictrespectforthe legal framework."
+
+#: twiga_power/templates/app/ambition_valeurs.html:110
+msgid "Excellence"
+msgstr "Excellence"
+
+#: twiga_power/templates/app/ambition_valeurs.html:112
+msgid ""
+"Standards techniques élevés, amélioration continue et développement des "
+"compétences."
+msgstr "High technical standards, continuous improvement andskillsdevelopment."
+
+#: twiga_power/templates/app/ambition_valeurs.html:122
+msgid "Sécurité"
+msgstr "Safety"
+
+#: twiga_power/templates/app/ambition_valeurs.html:124
+msgid ""
+"Protection des personnes et des infrastructures ; prévention des risques à "
+"chaque étape."
+msgstr "Protection of people and infrastructure; risk prevention ateverystage."
+
+#: twiga_power/templates/app/ambition_valeurs.html:134
+msgid "Engagement social"
+msgstr "Social commitment"
+
+#: twiga_power/templates/app/ambition_valeurs.html:136
+msgid ""
+"Accompagnement des communautés et promotion d'une consommation responsable "
+"de l'électricité."
+msgstr "Supporting communities and promotingresponsibleelectricityconsumption."
+
+#: twiga_power/templates/app/contact.html:29
+msgid ""
+"Une question, un devis ou un partenariat : écrivez-nous, nous vous "
+"répondrons rapidement."
+msgstr ""
+"A question, a quote or a partnership: write to us and"
+"wewillrespondpromptly."
+
+#: twiga_power/templates/app/contact.html:59
+msgid "Restons en contact"
+msgstr "Contact us"
+
+#: twiga_power/templates/app/contact.html:62
+msgid ""
+"Ravis d'échanger avec vous. Écrivez-nous via le formulaire ci-contre, nous "
+"vous répondrons rapidement."
+msgstr ""
+"We look forward to hearing from you. Contact us using the"
+"formontheright and we will respond promptly."
+
+#: twiga_power/templates/app/contact.html:66
+msgid "E-mail"
+msgstr "Email"
+
+#: twiga_power/templates/components/navbar.html:5
+msgid "Téléphone"
+msgstr "Phone"
+
+#: twiga_power/templates/app/contact.html:76
+msgid "Adresse"
+msgstr "Address"
+
+#: twiga_power/templates/app/contact.html:78
+msgid "Immeuble Luxury Tower, Local 1101 — 11e étage"
+msgstr "Luxury Tower building, Office 1101 — 11th floor"
+
+#: twiga_power/templates/app/contact.html:79
+msgid "148/A, Boulevard du 30 juin"
+msgstr "148/A, Boulevard du 30 Juin"
+
+#: twiga_power/templates/app/contact.html:80
+msgid "Gombe, Kinshasa — RDC"
+msgstr "Gombe, Kinshasa — DRC"
+
+#: twiga_power/templates/app/contact.html:85
+msgid "Suivez-nous"
+msgstr "Follow us"
+
+#: twiga_power/templates/components/footer.html:59
+msgid "Réseaux sociaux"
+msgstr "Social media"
+
+#: twiga_power/templates/app/postuler_offre.html:65
 msgid "Message !"
 msgstr "Message!"
 
-#: twiga_power/templates/app/contact.html:32
-msgid "Votre nom au complet"
-msgstr "Your full name"
+#: twiga_power/templates/app/contact.html:160
+msgid "Formulaire de contact"
+msgstr "Contact form"
 
-#: twiga_power/templates/app/contact.html:34
+#: twiga_power/templates/components/contact_form_fields.html:4
+msgid "Votre nom"
+msgstr "Your name"
+
+#: twiga_power/templates/components/contact_form_fields.html:17
 msgid "Nom requis !"
 msgstr "Name required!"
 
-#: twiga_power/templates/app/contact.html:37
-msgid "Votre adresse e-mail"
-msgstr "Your email address"
-
-#: twiga_power/templates/app/contact.html:40
+#: twiga_power/templates/components/contact_form_fields.html:30
 msgid "Email requis !"
 msgstr "Email required!"
 
-#: twiga_power/templates/app/contact.html:45
-msgid "Téléphone"
-msgstr "Phone number"
+#: twiga_power/templates/components/mon_espace_form_fields.html:4
+msgid "Message"
+msgstr "Message"
 
-#: twiga_power/templates/app/contact.html:47
+#: twiga_power/templates/components/mon_espace_form_fields.html:11
+msgid "Écrivez votre message…"
+msgstr "Your message"
+
+#: twiga_power/templates/components/mon_espace_form_fields.html:17
+msgid "Message requis !"
+msgstr "Message required!"
+
+#: twiga_power/templates/app/contact.html:207
+msgid "Envoyer le message"
+msgstr "Send message"
+
+#: twiga_power/templates/app/detail_project_construction.html:29
+msgid "Retour aux projets"
+msgstr "Back to projects"
+
+#: twiga_power/templates/app/equipe_dirigeante.html:29
+msgid "L'équipe de direction au service de l'énergie en RDC."
+msgstr "The leadership team serving energy in the DRC."
+
+#: twiga_power/templates/app/equipe_dirigeante.html:53
+msgid "Direction"
+msgstr "Management"
+
+#: twiga_power/templates/app/equipe_dirigeante.html:55
+msgid "Notre équipe dirigeante"
+msgstr "Our leadership team"
+
+#: twiga_power/templates/app/galerie.html:43
+msgid "Galerie photos"
+msgstr "Photo gallery"
+
+#: twiga_power/templates/app/galerie.html:28
+msgid ""
+"Découvrez en images nos projets, nos terrains et les communautés que nous "
+"accompagnons en République Démocratique du Congo."
+msgstr ""
+"Discover our projects, sites and the communities we"
+"supportacrosstheDemocratic Republic of the Congo in pictures."
+
+#: twiga_power/templates/app/galerie.html:61
+msgid "Aucune image à afficher."
+msgstr "No images to display."
+
+#: twiga_power/templates/app/galerie.html:72
+msgid "Visionneuse photo"
+msgstr "Photo viewer"
+
+#: twiga_power/templates/components/mon_espace_request_modal.html:15
+msgid "Fermer"
+msgstr "Close"
+
+#: twiga_power/templates/app/galerie.html:77
+msgid "Photo précédente"
+msgstr "Previous photo"
+
+#: twiga_power/templates/app/galerie.html:84
+msgid "Photo suivante"
+msgstr "Next photo"
+
+#: twiga_power/templates/app/historique.html:29
+msgid "Notre histoire au service d'une énergie fiable en RDC."
+msgstr "Our story in support of reliable energy in the DRC."
+
+#: twiga_power/templates/app/historique.html:61
+msgid "Production hydroélectrique — Twiga Power"
+msgstr "Hydroelectric generation — Twiga Power"
+
+#: twiga_power/templates/app/historique.html:80
+msgid ""
+"Créée en novembre 2024, Twiga Power est une société de droit congolais "
+"légalement constituée sous la forme d'une Société à Responsabilité Limitée. "
+"Elle est née d'une vision ambitieuse visant à contribuer au développement du "
+"secteur énergétique en République Démocratique du Congo à travers des "
+"solutions modernes, fiables et durables. Dans un contexte marqué par une "
+"demande croissante en électricité et la nécessité d'améliorer l'accès à une "
+"énergie stable et de qualité, l'entreprise s'engage à proposer des services "
+"performants répondant aux besoins des ménages, des entreprises et des "
+"institutions."
+msgstr ""
+"Founded in November 2024, Twiga Power is a"
+"Congolesecompanylegallyincorporated as a limited liability company"
+"(SARL). Itwasborn froman ambitious vision to contribute to the"
+"development oftheenergysector in the Democratic Republic of the"
+"Congothroughmodern,reliable and sustainable solutions. In a"
+"contextofgrowingelectricity demand and the need to improve access"
+"tostable,qualitypower, the company is committed"
+"todeliveringhigh-performanceservices that meet the needs"
+"ofhouseholds,businesses andinstitutions."
+
+#: twiga_power/templates/app/home.html:16
+msgid ""
+"Au cœur de la relance énergétique de la République Démocratique du Congo"
+msgstr "At the heart of the Democratic Republic of the Congo's energy recovery"
+
+#: twiga_power/templates/app/home.html:25
+msgid ""
+"Des solutions innovantes et durables pour accompagner la transition "
+"énergétique et le développement en RDC."
+msgstr ""
+"Innovative, sustainable solutions to support the energy"
+"transitionanddevelopment in the DRC."
+
+#: twiga_power/templates/app/home.html:37
+msgid "Découvrir nos activités"
+msgstr "Discover our activities"
+
+#: twiga_power/templates/components/navbar.html:162
+msgid "Administration"
+msgstr "Administration"
+
+#: twiga_power/templates/app/home.html:104
+msgid "Papy Mvulazana Mbidi, Directeur Général de Twiga Power"
+msgstr "Papy Mvulazana Mbidi, Managing Director of Twiga Power"
+
+#: twiga_power/templates/app/home.html:118
+msgid "Leadership"
+msgstr "Leadership"
+
+#: twiga_power/templates/app/home.html:120
+msgid "Mot du Directeur Général"
+msgstr "Message from the Managing Director"
+
+#: twiga_power/templates/app/home.html:124
+msgid ""
+"C’est un réel plaisir de vous accueillir dans l’univers de twiga power sarl, "
+"une entreprise engagée dans la transformation énergétique de la république "
+"démocratique du congo à travers des solutions fiables, modernes et durables."
+msgstr ""
+"It is a real pleasure to welcome you to Twiga Power SARL,"
+"acompanycommitted to transforming energy in the Democratic Republic"
+"oftheCongo through reliable, modern and sustainable solutions."
+
+#: twiga_power/templates/app/home.html:127
+msgid ""
+"Notre mission est de faciliter l’accès à l’électricité, d’améliorer la "
+"qualité du service et de soutenir le développement économique et social du "
+"pays. grâce à nos projets, nous rapprochons chaque jour l’énergie des "
+"populations et des entreprises."
+msgstr ""
+"Our mission is to facilitate access to electricity,"
+"improveservicequality and support the country's economic and"
+"socialdevelopment.Through our projects, we bring energy closer"
+"tocommunities andbusinesses every day."
+
+#: twiga_power/templates/app/home.html:130
+msgid ""
+"Chez twiga power, nous plaçons l’innovation, la rigueur technique et la "
+"satisfaction client au cœur de nos actions. nous croyons que l’énergie est "
+"un moteur de progrès et nous nous engageons à bâtir des relations de "
+"confiance avec nos partenaires, clients et institutions."
+msgstr ""
+"At Twiga Power, we place innovation, technical rigour"
+"andcustomersatisfaction at the heart of our work. We believe energy"
+"isan engineof progress and we are committed to building trust with"
+"ourpartners,customers and institutions."
+
+#: twiga_power/templates/app/login.html:37
+msgid "Connexion"
+msgstr "Sign in"
+
+#: twiga_power/templates/app/login.html:6
+msgid "Espace de connexion sécurisé Twiga Power."
+msgstr "Secure Twiga Power sign-in area."
+
+#: twiga_power/templates/app/login.html:26
+msgid ""
+"Profitez pleinement des fonctionnalités offertes par votre portail personnel "
+"en toute simplicité."
+msgstr "Enjoy all the features of your personal portal with ease."
+
+#: twiga_power/templates/app/login.html:29
+msgid ""
+"Accédez à vos informations, gérez vos services et profitez d’une expérience "
+"fluide, rapide et sécurisée grâce aux outils intégrés à votre portail "
+"personnel."
+msgstr ""
+"Access your information, manage your services and enjoy"
+"asmooth,fastand secure experience with the tools built into"
+"yourpersonalportal."
+
+#: twiga_power/templates/app/login.html:46
+msgid "Bon retour !"
+msgstr "Welcome back!"
+
+#: twiga_power/templates/app/login.html:48
+msgid ""
+"Connectez-vous avec votre adresse e-mail pour accéder à votre espace de "
+"gestion."
+msgstr "Sign in with your email address to access your account area."
+
+#: twiga_power/templates/app/login.html:73
+msgid "Adresse e-mail ou identifiant"
+msgstr "Email address or username"
+
+#: twiga_power/templates/app/login.html:80
+msgid "E-mail ou identifiant"
+msgstr "Email or username"
+
+#: twiga_power/templates/app/login.html:98
+msgid "Votre mot de passe"
+msgstr "Your password"
+
+#: twiga_power/templates/app/login.html:116
+msgid "Se souvenir de moi"
+msgstr "Remember me"
+
+#: twiga_power/templates/components/navbar.html:188
+msgid "Se connecter"
+msgstr "Sign in"
+
+#: twiga_power/templates/app/login.html:127
+msgid "Pas encore de compte ?"
+msgstr "Don't have an account yet?"
+
+#: twiga_power/templates/app/register.html:46
+msgid "Créer un compte"
+msgstr "Create an account"
+
+#: twiga_power/templates/app/mon_espace.html:23
+msgid "Bienvenue, %(name)s."
+msgstr "Welcome, %(name)s."
+
+#: twiga_power/templates/app/mon_espace.html:38
+msgid "Services"
+msgstr "Services"
+
+#: twiga_power/templates/app/postuler_offre.html:35
+msgid "Postuler"
+msgstr "Apply"
+
+#: twiga_power/templates/app/postuler_offre.html:69
+msgid "Votre candidature"
+msgstr "Your application"
+
+#: twiga_power/templates/app/postuler_offre.html:81
+msgid "Prénom"
+msgstr "First name"
+
+#: twiga_power/templates/app/postuler_offre.html:87
+msgid "Votre prénom"
+msgstr "Your first name"
+
+#: twiga_power/templates/app/postuler_offre.html:93
+msgid "Prénom requis !"
+msgstr "First name required!"
+
+#: twiga_power/templates/app/postuler_offre.html:96
+msgid "Nom"
+msgstr "Last name"
+
+#: twiga_power/templates/app/postuler_offre.html:116
+msgid "Votre numéro de téléphone"
+msgstr "Your phone number"
+
+#: twiga_power/templates/app/postuler_offre.html:119
 msgid ""
 "Veuillez entrer un numéro de téléphone valide (9 à 15 chiffres, avec ou sans "
 "+)"
-msgstr "Please enter a valid phone number (9 to 15 digits, with or without +)."
+msgstr "Please enter a valid phone number (9 to 15 digits, with or without +)"
 
-#: twiga_power/templates/app/contact.html:51
-msgid "Votre adresse"
-msgstr "Your address"
-
-#: twiga_power/templates/app/contact.html:53
-msgid "Adresse requise !"
+#: twiga_power/templates/app/postuler_offre.html:135
+msgid "Adresse e-mail requise !"
 msgstr "Address required!"
 
-#: twiga_power/templates/app/contact.html:58
-msgid "Votre message"
-msgstr "Your message"
+#: twiga_power/templates/app/postuler_offre.html:139
+msgid "Motivation"
+msgstr "Motivation"
 
-#: twiga_power/templates/app/contact.html:63
-msgid "Envoyer maintenant"
-msgstr "Send now"
+#: twiga_power/templates/app/postuler_offre.html:145
+msgid "Présentez votre parcours et votre motivation pour ce poste…"
+msgstr "Describe your background and motivation for this role…"
 
-#: twiga_power/templates/app/home.html:17
-msgid "Au coeur de la relance energétique de la RD Congo."
-msgstr "At the heart of the DRC's energy recovery."
+#: twiga_power/templates/app/postuler_offre.html:153
+msgid "Curriculum vitae (5 Mo maximum)"
+msgstr "Curriculum vitae (5 MB maximum)"
 
-#: twiga_power/templates/app/home.html:20
-msgid ""
-"Découvrez comment Twiga Power transforme chaque watt en progrès et "
-"opportunités pour tous"
-msgstr ""
-"Discover how Twiga Power transforms every watt into progress and "
-"opportunities for all"
+#: twiga_power/templates/app/postuler_offre.html:171
+msgid "Joindre votre CV au format PDF"
+msgstr "Attach your CV in PDF format"
 
-#: twiga_power/templates/app/home.html:23
-#: twiga_power/templates/app/home.html:88
-#: twiga_power/templates/app/home.html:124
-#: twiga_power/templates/app/home.html:140
-#: twiga_power/templates/app/home.html:156
-msgid "En savoir plus"
-msgstr "Learn more"
+#: twiga_power/templates/app/postuler_offre.html:164
+msgid "Le fichier ne doit pas dépasser 5 Mo."
+msgstr "The file must not exceed 5 MB."
 
-#: twiga_power/templates/app/home.html:34
-msgid "L’électricité qui unit villes et villages."
-msgstr "Electricity that connects cities and villages."
+#: twiga_power/templates/app/postuler_offre.html:179
+msgid "Cliquer pour remplacer le fichier"
+msgstr "Click to replace the file"
 
-#: twiga_power/templates/app/home.html:37
-msgid ""
-"Des solutions modernes et durables pour connecter villes et villages à une "
-"électricité fiable"
-msgstr ""
-"Modern and sustainable solutions to connect cities and villages with "
-"reliable electricity"
+#: twiga_power/templates/app/postuler_offre.html:184
+msgid "Envoyer ma candidature"
+msgstr "Submit my application"
 
-#: twiga_power/templates/app/home.html:40
-msgid "Explorer nos services"
-msgstr "Explore our services"
+#: twiga_power/templates/app/postuler_offre.html:206
+msgid "Effectif"
+msgstr "Headcount"
 
-#: twiga_power/templates/app/home.html:51
-msgid "Ensemble, faisons briller l’avenir."
-msgstr "Together, let's light up the future."
+#: twiga_power/templates/app/postuler_offre.html:207
+msgid "Effectif : %(count)s"
+msgstr "Headcount: %(count)s"
 
-#: twiga_power/templates/app/home.html:54
-msgid ""
-"Twiga Power, partenaire engagé pour stimuler le développement économique et "
-"améliorer les conditions de vie"
-msgstr ""
-"Twiga Power, a committed partner helping to drive economic development and "
-"improve living conditions"
+#: twiga_power/templates/app/postuler_offre.html:230
+msgid "Date limite"
+msgstr "Deadline"
 
-#: twiga_power/templates/app/home.html:80
-#: twiga_power/templates/components/footer.html:38
-msgid "Qui sommes nous ?"
-msgstr "Who are we?"
+#: twiga_power/templates/app/projects.html:12
+msgid "Nos projets pilotes"
+msgstr "Our pilot projects"
 
-#: twiga_power/templates/app/home.html:82
-msgid ""
-"Twiga Power, entreprise congolaise, assure l’importation, l’exportation, le "
-"transport, la distribution et la commercialisation d’électricité, en "
-"modernisant le secteur grâce à l’innovation et la durabilité."
-msgstr ""
-"Twiga Power, a Congolese company, is responsible for importing, exporting, "
-"transmitting, distributing and marketing electricity, modernising the sector "
-"through innovation and sustainability."
-
-#: twiga_power/templates/app/home.html:85
-msgid ""
-"Notre mission est de rendre l’énergie fiable et accessible partout, des "
-"villes aux zones reculées, en contribuant à un avenir de croissance, de "
-"progrès et de bien-être pour chaque Congolais."
-msgstr ""
-"Our mission is to make energy reliable and accessible everywhere, from "
-"cities to remote areas, contributing to a future of growth, progress and "
-"well-being for every Congolese citizen."
-
-#: twiga_power/templates/app/home.html:102
-msgid "Notre champ d'activité énergétique."
-msgstr "Our energy field of activity."
-
-#: twiga_power/templates/app/home.html:105
-msgid ""
-"Twiga Power Sarl intervient sur l’ensemble de la chaîne de valeur de "
-"l’énergie électrique : production, transport, distribution, "
-"commercialisation et services associés."
-msgstr ""
-"Twiga Power SARL operates across the entire electricity value chain: "
-"generation, transmission, distribution, commercialization and related "
-"services."
-
-#: twiga_power/templates/app/home.html:113
-msgid "Production de l'énergie électrique"
-msgstr "Electricity generation"
-
-#: twiga_power/templates/app/home.html:116
-msgid "Capacités basées sur l’eau, la chaleur, le vent et le soleil"
-msgstr "Capacity based on water, heat, wind and sun"
-
-#: twiga_power/templates/app/home.html:117
-msgid "Solutions hybrides adaptées aux besoins locaux"
-msgstr "Hybrid solutions adapted to local needs"
-
-#: twiga_power/templates/app/home.html:118
-msgid "Approvisionnement énergétique sûr, durable et résilient"
-msgstr "Secure, sustainable and resilient energy supply"
-
-#: twiga_power/templates/app/home.html:131
-msgid "Transport de l'énergie électrique"
-msgstr "Electricity transmission"
-
-#: twiga_power/templates/app/home.html:134
-msgid "Acheminement de l’énergie vers les centres de consommation"
-msgstr "Routing energy to consumption centres"
-
-#: twiga_power/templates/app/home.html:135
-msgid "Infrastructures haute et moyenne tension performantes"
-msgstr "High- and medium-voltage infrastructure with strong performance"
-
-#: twiga_power/templates/app/home.html:136
-msgid "Réduction des pertes techniques et sécurisation des lignes"
-msgstr "Reduced technical losses and secure transmission lines"
-
-#: twiga_power/templates/app/home.html:147
-msgid "Distribution de l'énergie électrique"
-msgstr "Electricity distribution"
-
-#: twiga_power/templates/app/home.html:150
-msgid "Lien direct avec les consommateurs finaux"
-msgstr "Direct link with end consumers"
-
-#: twiga_power/templates/app/home.html:151
-msgid "Réseaux adaptés aux réalités locales"
-msgstr "Networks adapted to local realities"
-
-#: twiga_power/templates/app/home.html:152
-msgid "Fiabilité et qualité du service pour ménages et entreprises"
-msgstr "Reliable, high-quality service for households and businesses"
-
-#: twiga_power/templates/app/home.html:163
-msgid "Commercialisation de l'énergie électrique"
-msgstr "Electricity commercialization"
-
-#: twiga_power/templates/app/home.html:166
-msgid "Vente d’électricité et gestion de la consommation"
-msgstr "Sale of electricity and consumption management"
-
-#: twiga_power/templates/app/home.html:167
-msgid "Relation client et transparence tarifaire"
-msgstr "Customer relations and tariff transparency"
-
-#: twiga_power/templates/app/home.html:168
-msgid "Sensibilisation à une consommation responsable"
-msgstr "Awareness-raising on responsible consumption"
-
-#: twiga_power/templates/app/home.html:169
-msgid "Réduction des plaintes et amélioration de la satisfaction"
-msgstr "Reduced complaints and improved customer satisfaction"
-
-#: twiga_power/templates/app/home.html:186
-msgid "Pourquoi choisir Twiga Power ?"
-msgstr "Why choose Twiga Power?"
-
-#: twiga_power/templates/app/home.html:188
-msgid ""
-"Votre satisfaction guidant notre service fiable, efficace et personnalisé "
-"quotidiennement."
-msgstr ""
-"Your satisfaction guides our reliable, efficient and personalised service "
-"every day."
-
-#: twiga_power/templates/app/home.html:197
-msgid "Énergie garantie 24/7"
-msgstr "Power guaranteed 24/7"
-
-#: twiga_power/templates/app/home.html:198
-msgid ""
-"Une alimentation continue et fiable, même dans les conditions les plus "
-"exigeantes."
-msgstr ""
-"A continuous and reliable power supply, even in the most demanding "
-"conditions."
-
-#: twiga_power/templates/app/home.html:204
-msgid "Solutions personnalisées"
-msgstr "Tailor-made solutions"
-
-#: twiga_power/templates/app/home.html:205
-msgid ""
-"Des offres adaptées à vos besoins spécifiques, quelle que soit la taille de "
-"votre entreprise."
-msgstr ""
-"Offers tailored to your specific needs, whatever the size of your business."
-
-#: twiga_power/templates/app/home.html:211
-msgid "Maintenance rapide et efficace"
-msgstr "Fast and efficient maintenance"
-
-#: twiga_power/templates/app/home.html:212
-msgid ""
-"Un service d’intervention réactif pour réduire au minimum les interruptions."
-msgstr "A responsive intervention service to keep interruptions to a minimum."
-
-#: twiga_power/templates/app/home.html:218
-msgid "Équipe d’experts locaux"
-msgstr "Team of local experts"
-
-#: twiga_power/templates/app/home.html:219
-msgid ""
-"Des professionnels qualifiés qui comprennent les réalités et défis du marché "
-"local."
-msgstr ""
-"Qualified professionals who understand the realities and challenges of the "
-"local market."
-
-#: twiga_power/templates/app/home.html:236
-#: twiga_power/templates/app/projects.html:17
+#: twiga_power/templates/app/projects.html:29
 msgid ""
 "Découvrez nos projets de construction hydroélectriques, un moteur "
 "d’autonomie et de lumière pour le Congo."
 msgstr ""
-"Discover our hydroelectric construction projects, a driving force for self-"
-"sufficiency and light for the Congo."
+"Discover our hydroelectric construction projects, a"
+"drivingforceforself-sufficiency and light for the Congo."
 
-#: twiga_power/templates/app/home.html:241
-#: twiga_power/templates/app/projects.html:22
+#: twiga_power/templates/app/projects.html:40
 msgid ""
 "Chaque initiative ouvre la voie vers un Congo mieux éclairé. Avec des "
 "solutions innovantes et des alliances solides, Twiga Power rapproche "
 "l’énergie des communautés et prépare un avenir durable pour tous."
 msgstr ""
-"Each initiative paves the way for a brighter Congo. With innovative "
-"solutions and strong partnerships, Twiga Power brings energy closer to "
-"communities and prepares a sustainable future for all."
+"Each initiative paves the way for a brighter"
+"Congo.Withinnovativesolutions and strong partnerships, Twiga"
+"Powerbringsenergy closerto communities and prepares a sustainable"
+"futurefor all."
 
-#: twiga_power/templates/app/home.html:251
-#: twiga_power/templates/app/projects.html:32
-msgid "Site Kibombo"
-msgstr "Kibombo site"
-
-#: twiga_power/templates/app/home.html:264
-#: twiga_power/templates/app/projects.html:46
-msgid "Site Nondo"
-msgstr "Nondo site"
-
-#: twiga_power/templates/app/home.html:277
-#: twiga_power/templates/app/projects.html:60
-msgid "Site Kilwani"
-msgstr "Kilwani site"
-
-#: twiga_power/templates/app/home.html:290
-#: twiga_power/templates/components/footer.html:41
-#: twiga_power/templates/components/navbar.html:41
-msgid "Nos partenaires"
-msgstr "Our partners"
-
-#: app/views.py:13
-msgid "Logo partenaire 1"
-msgstr "Partner 1 logo"
-
-#: app/views.py:14
-msgid "Logo partenaire 2"
-msgstr "Partner 2 logo"
-
-#: app/views.py:15
-msgid "Logo partenaire 3"
-msgstr "Partner 3 logo"
-
-#: app/views.py:16
-msgid "Logo partenaire 4"
-msgstr "Partner 4 logo"
-
-#: app/views.py:17
-msgid "Logo partenaire 5"
-msgstr "Partner 5 logo"
-
-#: twiga_power/templates/app/home.html:292
-msgid "Nous travaillons avec les meilleurs partenaires"
-msgstr "We work with the best partners"
-
-#: twiga_power/templates/app/home.html:295
-msgid ""
-"Avec nos partenaires de confiance, Twiga Power offre des solutions "
-"énergétiques fiables et durables pour construire un avenir meilleur."
-msgstr ""
-"With our trusted partners, Twiga Power provides reliable, sustainable energy "
-"solutions to build a better future."
-
-#: twiga_power/templates/app/home.html:321
-msgid "Votre projet"
-msgstr "Your project"
-
-#: twiga_power/templates/app/home.html:324 twiga_power/templates/app/home.html:332
-msgid "Demander un devis"
-msgstr "Request a quote"
-
-#: twiga_power/templates/app/home.html:327
-msgid ""
-"Expliquez-nous votre besoin en énergie : notre équipe vous répondra avec une "
-"proposition adaptée à votre projet."
-msgstr ""
-"Tell us about your energy needs: our team will respond with a proposal "
-"tailored to your project."
-
-#: twiga_power/templates/app/projects.html:7
-msgid "Nos projets pilotes"
-msgstr "Our pilot projects"
-
-#: twiga_power/templates/base.html:111
-msgid "Chargement..."
-msgstr "Loading..."
-
-#: twiga_power/templates/components/footer.html:8
-msgid ""
-"Entreprise congolaise spécialisée dans l’électricité, offrant des solutions "
-"fiables et durables pour un développement responsable en RDC."
-msgstr ""
-"Congolese company specialising in electricity, providing reliable and "
-"sustainable solutions for responsible development in the DRC."
-
-#: twiga_power/templates/components/footer.html:11
-msgid "Coordonnées"
-msgstr "Contact details"
-
-#: twiga_power/templates/components/footer.html:12
-msgid ""
-"Immeuble Luxury Tower, Local 1101, 148/A Boulevard du 30 Juin, Kinshasa-"
-"Gombe, RDC."
-msgstr ""
-"Luxury Tower building, Office 1101, 148/A Boulevard du 30 Juin, Kinshasa-"
-"Gombe, DRC."
-
-#: twiga_power/templates/components/footer.html:23
-msgid "Liens rapides"
-msgstr "Quick links"
-
-#: twiga_power/templates/components/footer.html:26
-#: twiga_power/templates/components/navbar.html:29
-msgid "Home"
-msgstr "Home"
-
-#: twiga_power/templates/components/footer.html:29
-#: twiga_power/templates/components/navbar.html:32
-msgid "Services"
-msgstr "Services"
-
-#: twiga_power/templates/components/footer.html:32
-msgid "Champ d'activité"
-msgstr "Scope of activity"
-
-#: twiga_power/templates/components/footer.html:35
-#: twiga_power/templates/components/navbar.html:35
-msgid "Projets"
-msgstr "Projects"
-
-#: twiga_power/templates/components/footer.html:44
-#: twiga_power/templates/components/navbar.html:41
-msgid "Galerie"
-msgstr "Gallery"
-
-#: twiga_power/templates/app/galerie.html
-msgid "Galerie de photos"
-msgstr "Photo gallery"
-
-#: twiga_power/templates/components/footer.html:49
-msgid "Suivez-nous"
-msgstr "Follow us"
-
-#: twiga_power/templates/components/footer.html:50
-msgid "Suivez-nous sur nos réseaux sociaux :"
-msgstr "Follow us on our social networks:"
-
-#: twiga_power/templates/components/footer.html:89
-#: twiga_power/templates/components/navbar.html:51
-msgid "Sélecteur de langue"
-msgstr "Language selector"
-
-#: twiga_power/templates/components/footer.html:123
-msgid "© 2026 Twiga Power SARL. Tous droits réservés."
-msgstr "© 2026 Twiga Power SARL. All rights reserved."
-
-#: twiga_power/templates/components/footer.html:123
-msgid "Design par"
-msgstr "Design by"
-
-#: twiga_power/templates/components/navbar.html:38
-msgid "A propos"
-msgstr "About"
-
-#: twiga_power/templates/app/home.html
-#: twiga_power/templates/app/projects.html
+#: twiga_power/templates/app/projects.html:98
 msgid "Voir le projet"
 msgstr "View project"
 
-#: twiga_power/templates/app/detail_project_construction.html
-msgid "Accueil"
-msgstr "Home"
-
-#: twiga_power/templates/app/detail_project_construction.html
-msgid "Centrale hydroélectrique"
-msgstr "Hydroelectric plant"
-
-#: twiga_power/templates/app/detail_project_construction.html
-msgid "Retour aux projets"
-msgstr "Back to projects"
-
-#: app/views.py
-msgid "Projet introuvable"
-msgstr "Project not found"
-
-#: twiga_power/templates/components/navbar.html
-#: twiga_power/templates/components/footer.html
-#: twiga_power/templates/app/recrutement.html
-msgid "Recrutement"
-msgstr "Careers"
-
-#: twiga_power/templates/app/recrutement.html
+#: twiga_power/templates/app/recrutement.html:29
 msgid ""
-"Rejoignez des équipes engagées pour des projets d'énergie à fort impact sur "
-"le continent. Parcourez les postes ouverts ci-dessous et postulez en ligne."
-msgstr ""
-"Join teams working on high-impact energy projects across the continent. "
-"Browse open positions below and apply online."
+"Rejoignez des équipes engagées pour des projets d'énergie à fort impact en "
+"RDC."
+msgstr "Join teams committed to high-impact energy projects in the DRC."
 
-#: twiga_power/templates/app/recrutement.html
-msgid "Date limite"
-msgstr "Deadline"
-
-#: twiga_power/templates/app/recrutement.html
-msgid "Date de publication"
-msgstr "Publication date"
-
-#: twiga_power/templates/app/recrutement.html
-msgid "Postes"
-msgstr "Positions"
-
-#: twiga_power/templates/app/recrutement.html
-msgid "Profils recherchés"
-msgstr "Profiles sought"
-
-#: twiga_power/templates/app/recrutement.html
-msgid "Afficher ou masquer les profils recherchés"
-msgstr "Show or hide sought profiles"
-
-#: twiga_power/templates/app/recrutement.html
+#: twiga_power/templates/app/recrutement.html:86
 msgid "Postuler maintenant"
 msgstr "Apply now"
 
-#: app/views.py
-#: twiga_power/templates/app/postuler_offre.html
-msgid "Postuler"
-msgstr "Apply"
+#: twiga_power/templates/app/recrutement.html:102
+msgid "Aucune offre disponible"
+msgstr "No positions available"
 
-#: twiga_power/templates/app/postuler_offre.html
-msgid "Offre"
-msgstr "Position"
-
-#: twiga_power/templates/app/postuler_offre.html
-msgid "Retour aux offres"
-msgstr "Back to openings"
-
-#: twiga_power/templates/app/postuler_offre.html
-msgid "Votre candidature"
-msgstr "Your application"
-
-#: twiga_power/templates/app/postuler_offre.html
+#: twiga_power/templates/app/recrutement.html:105
 msgid ""
-"Renseignez le formulaire ci-dessous. Votre CV doit être au format PDF (5 Mo "
-"maximum)."
+"Nous n'avons pas de poste ouvert pour le moment. Revenez prochainement pour "
+"découvrir nos opportunités."
 msgstr ""
-"Fill in the form below. Your CV must be in PDF format (5 MB maximum)."
+"We have no open positions at the moment. Check back soontodiscoverour"
+"opportunities."
 
-#: twiga_power/templates/app/postuler_offre.html
-msgid "Envoyer ma candidature"
-msgstr "Submit my application"
+#: twiga_power/templates/app/register.html:6
+msgid "Créez votre compte sur le portail Twiga Power."
+msgstr "Create your account on the Twiga Power portal."
 
-#: twiga_power/templates/app/postuler_offre.html
-msgid "Prénom"
-msgstr "First name"
+#: twiga_power/templates/app/register.html:26
+msgid "Rejoignez le portail Twiga Power et gérez vos activités en ligne."
+msgstr "Join the Twiga Power portal and manage your activities online."
 
-#: twiga_power/templates/app/postuler_offre.html
-msgid "Nom"
-msgstr "Last name"
-
-#: twiga_power/templates/app/postuler_offre.html
-msgid "Adresse e-mail"
-msgstr "Email address"
-
-#: twiga_power/templates/app/postuler_offre.html
-msgid "Motivation"
-msgstr "Motivation"
-
-#: twiga_power/templates/app/postuler_offre.html
-msgid "Effectif"
-msgstr "Headcount"
-
-#: twiga_power/templates/app/postuler_offre.html
-#, python-format
-msgid "Effectif : %(count)s"
-msgstr "Headcount: %(count)s"
-
-#: twiga_power/templates/app/postuler_offre.html
-msgid "Votre prénom"
-msgstr "Your first name"
-
-#: twiga_power/templates/app/postuler_offre.html
-msgid "Votre nom"
-msgstr "Your last name"
-
-#: twiga_power/templates/app/postuler_offre.html
-msgid "Votre numéro de téléphone"
-msgstr "Your phone number"
-
-#: twiga_power/templates/app/postuler_offre.html
-msgid "Présentez votre parcours et votre motivation pour ce poste…"
-msgstr "Describe your background and motivation for this role…"
-
-#: twiga_power/templates/app/postuler_offre.html
-msgid "CV"
-msgstr "CV"
-
-#: twiga_power/templates/app/postuler_offre.html
-msgid "Déposer le CV"
-msgstr "Drop your CV"
-
-#: twiga_power/templates/app/postuler_offre.html
-msgid "PDF · 5 Mo max"
-msgstr "PDF · 5 MB max"
-
-#: twiga_power/templates/app/postuler_offre.html
-msgid "Cliquer pour remplacer le fichier"
-msgstr "Click to replace the file"
-
-#: twiga_power/templates/app/postuler_offre.html
-msgid "Curriculum vitae (5 Mo maximum)"
-msgstr "Curriculum vitae (5 MB maximum)"
-
-#: twiga_power/templates/app/postuler_offre.html
-msgid "Joindre votre CV au format PDF"
-msgstr "Attach your CV in PDF format"
-
-#: twiga_power/templates/app/postuler_offre.html
-msgid "Prénom requis !"
-msgstr "First name required!"
-
-#: twiga_power/templates/app/postuler_offre.html
-msgid "Adresse mail"
-msgstr "Email address"
-
-#: twiga_power/templates/app/postuler_offre.html
-msgid "PDF uniquement, 5 Mo maximum."
-msgstr "PDF only, 5 MB maximum."
-
-#: app/views.py
-msgid "Le prénom est obligatoire."
-msgstr "First name is required."
-
-#: app/views.py
-msgid "Le nom est obligatoire."
-msgstr "Last name is required."
-
-#: app/views.py
-msgid "L’adresse e-mail est obligatoire."
-msgstr "Email address is required."
-
-#: app/views.py
-msgid "Adresse e-mail invalide."
-msgstr "Invalid email address."
-
-#: app/views.py
-msgid "Le téléphone est obligatoire."
-msgstr "Phone number is required."
-
-#: app/views.py
-msgid "La lettre de motivation est obligatoire."
-msgstr "Cover letter is required."
-
-#: app/views.py
-msgid "Veuillez joindre votre CV au format PDF."
-msgstr "Please attach your CV in PDF format."
-
-#: app/views.py
-msgid "Le fichier ne doit pas dépasser 5 Mo."
-msgstr "The file must not exceed 5 MB."
-
-#: app/views.py
-msgid "Seuls les fichiers PDF sont acceptés."
-msgstr "Only PDF files are accepted."
-
-#: app/views.py
-msgid "L’envoi de l’e-mail a échoué. Référence : %(err)s"
-msgstr "Sending the email failed. Reference: %(err)s"
-
-#: app/views.py
+#: twiga_power/templates/app/register.html:29
 msgid ""
-"Votre candidature a bien été envoyée. Nous vous contacterons dans les "
-"meilleurs délais."
+"Créez votre compte en quelques instants pour accéder à vos informations, "
+"suivre vos services et bénéficier d’un espace personnel sécurisé."
 msgstr ""
-"Your application has been sent successfully. We will get back to you as "
-"soon as possible."
+"Create your account in a few steps to access"
+"yourinformation,trackyour services and benefit from a secure"
+"personalarea."
 
-#: twiga_power/templates/app/recrutement.html
+#: twiga_power/templates/app/register.html:48
 msgid ""
-"Aucune offre publiée pour le moment. Revenez bientôt ou contactez-nous pour "
-"une candidature spontanée."
-msgstr ""
-"There are no openings at the moment. Check back soon or contact us for an "
-"unsolicited application."
+"Renseignez vos informations pour activer votre accès au portail personnel."
+msgstr "Enter your details to activate access to your personal portal."
 
-#: app/models.py
-msgid "CDI"
-msgstr "Permanent contract"
+#: twiga_power/templates/app/register.html:137
+msgid "Créer mon compte"
+msgstr "Create my account"
 
-#: app/models.py
-msgid "CDD"
-msgstr "Fixed-term contract"
+#: twiga_power/templates/app/register.html:143
+msgid "Vous avez déjà un compte ?"
+msgstr "Already have an account?"
 
-#: app/models.py
-msgid "Stage"
-msgstr "Internship"
-
-#: app/models.py
-msgid "Brouillon"
-msgstr "Draft"
-
-#: app/models.py
-msgid "Publié"
-msgstr "Published"
-
-#: app/models.py
-msgid "Expiré"
-msgstr "Expired"
-
-#: twiga_power/templates/app/home.html
+#: twiga_power/templates/app/vision_mission.html:29
 msgid ""
-"Au cœur de la relance énergétique de la République Démocratique du Congo"
+"Notre ambition et nos engagements pour l'énergie en République Démocratique "
+"du Congo."
 msgstr ""
-"At the heart of the Democratic Republic of the Congo’s energy recovery"
+"Our ambition and commitments for energy in the Democratic"
+"Republicofthe Congo."
 
-#: twiga_power/templates/app/home.html
+#: twiga_power/templates/app/vision_mission.html:61
+msgid "Vision"
+msgstr "Our Vision"
+
+#: twiga_power/templates/app/vision_mission.html:62
+msgid "Notre vision"
+msgstr "Our Vision"
+
+#: twiga_power/templates/app/vision_mission.html:73
 msgid ""
-"Twiga Power Sarl, expert en chaîne de valeur électrique en République "
-"Démocratique du Congo, accompagne le développement des infrastructures "
-"énergétiques à travers des solutions innovantes et durables."
+"Être une référence nationale et un acteur central de la relance énergétique "
+"durable en République Démocratique du Congo."
 msgstr ""
-"Twiga Power Sarl, expert in the electricity value chain in the Democratic "
-"Republic of the Congo, supports the development of energy infrastructure "
-"through innovative and sustainable solutions."
+"To be a national reference and a central player in"
+"sustainableenergyrecovery in the Democratic Republic of the Congo."
 
-#~ msgid "Langue"
-#~ msgstr "Language"
+#: twiga_power/templates/app/vision_mission.html:92
+msgid "Missions"
+msgstr "Our Mission"
 
-#~ msgid "Français"
-#~ msgstr "French"
+#: twiga_power/templates/app/vision_mission.html:93
+msgid "Nos missions"
+msgstr "Our Mission"
 
-#~ msgid "English"
-#~ msgstr "English"
+#: twiga_power/templates/app/vision_mission.html:106
+msgid ""
+"Répondre à l'un des besoins fondamentaux de la population : l'accès fiable, "
+"sécurisé et durable à l'énergie électrique."
+msgstr ""
+"To meet one of the population's fundamental needs: reliable,secureand"
+"sustainable access to electricity."
+
+#: twiga_power/templates/app/vision_mission.html:118
+msgid ""
+"Contribuer de manière responsable au développement économique, "
+"environnemental et social de la République Démocratique du Congo."
+msgstr ""
+"To contribute responsibly to the economic, environmental"
+"andsocialdevelopment of the Democratic Republic of the Congo."
+
+#: twiga_power/templates/app/vision_mission.html:130
+msgid ""
+"Aller au-delà du rôle d'énergéticien en sensibilisant les consommateurs à "
+"une utilisation responsable de l'électricité pour renforcer leur "
+"satisfaction."
+msgstr ""
+"To go beyond the role of energy provider by raising"
+"consumerawarenessof responsible electricity use to strengthen"
+"theirsatisfaction."
+
+#: twiga_power/templates/base.html:110
+msgid "Chargement..."
+msgstr "Loading..."
+
+#: twiga_power/templates/components/activities_carousel.html:4
+msgid ""
+"Nous développons des capacités de production exclusivement basées sur "
+"l'énergie hydroélectrique afin de garantir une énergie durable, fiable et "
+"résiliente."
+msgstr ""
+"We develop generation capacity based exclusively onhydroelectricpower"
+"to guarantee sustainable, reliable and resilientenergy."
+
+#: twiga_power/templates/components/activities_carousel.html:6
+msgid ""
+"Nous acheminons l'énergie produite ou importée vers les centres de "
+"consommation via des réseaux haute et moyenne tension avec un haut niveau de "
+"sécurité et de performance."
+msgstr ""
+"We deliver energy produced or imported to consumption centresviahigh-"
+"and medium-voltage networks with a high level of safetyandperformance."
+
+#: twiga_power/templates/components/activities_carousel.html:8
+msgid ""
+"Nous assurons la distribution de l'électricité aux ménages et entreprises "
+"grâce à des réseaux fiables et adaptés aux réalités locales."
+msgstr ""
+"We distribute electricity to households and businessesthroughreliable"
+"networks adapted to local realities."
+
+#: twiga_power/templates/components/activities_carousel.html:10
+msgid ""
+"Nous gérons la vente d'électricité, la relation client et la gestion de la "
+"consommation avec une approche basée sur la transparence et la satisfaction "
+"client."
+msgstr ""
+"We manage electricity sales, customer relations and consumptionwithan"
+"approach based on transparency and customer satisfaction."
+
+#: twiga_power/templates/components/activities_carousel.html:12
+msgid ""
+"Nous participons aux échanges énergétiques régionaux afin de valoriser les "
+"capacités de production excédentaires et renforcer la compétitivité "
+"énergétique."
+msgstr ""
+"We participate in regional energy exchanges to"
+"leveragesurplusproduction capacity and strengthen energy"
+"competitiveness."
+
+#: twiga_power/templates/components/activities_carousel.html:14
+msgid ""
+"Nous renforçons l'approvisionnement énergétique grâce à l'importation "
+"stratégique d'électricité afin d'assurer la continuité et la stabilité du "
+"service."
+msgstr ""
+"We strengthen energy supply through strategic electricity"
+"importstoensure service continuity and stability."
+
+#: twiga_power/templates/components/activities_carousel.html:25
+msgid "Énergie"
+msgstr "Energy"
+
+#: twiga_power/templates/components/activities_carousel.html:26
+msgid "Nos Activités"
+msgstr "Our activities"
+
+#: twiga_power/templates/components/activities_carousel.html:29
+msgid ""
+"Nous intervenons sur l'ensemble de la chaîne de valeur de l'énergie "
+"électrique, de la production à la commercialisation."
+msgstr ""
+"We operate across the entire electricity value chain,"
+"fromgenerationto marketing."
+
+#: twiga_power/templates/components/activities_carousel.html:76
+msgid "Carrousel des activités"
+msgstr "Activities carousel"
+
+#: twiga_power/templates/components/activities_carousel.html:42
+msgid "Groupe 1"
+msgstr "Group 1"
+
+#: twiga_power/templates/components/activities_carousel.html:43
+msgid "Groupe 2"
+msgstr "Group 2"
+
+#: twiga_power/templates/components/activities_carousel.html:87
+msgid "Production hydroélectrique"
+msgstr "Electricity generation"
+
+#: twiga_power/templates/components/gallery_pagination.html:20
+msgid "Précédent"
+msgstr "Previous"
+
+#: twiga_power/templates/components/gallery_pagination.html:57
+msgid "Suivant"
+msgstr "Next"
+
+#: twiga_power/templates/components/activities_carousel.html:84
+msgid "Activité"
+msgstr "Activity"
+
+#: twiga_power/templates/components/alerte_card.html:64
+msgid "En savoir plus"
+msgstr "Learn more"
+
+#: twiga_power/templates/components/alerte_card.html:39
+msgid "Lire l'actualité : %(title)s"
+msgstr "Read article: %(title)s"
+
+#: twiga_power/templates/components/alertes_pagination.html:3
+msgid "Pagination des actualités"
+msgstr "News pagination"
+
+#: twiga_power/templates/components/gallery_pagination.html:10
+msgid "Page précédente"
+msgstr "Previous page"
+
+#: twiga_power/templates/components/gallery_pagination.html:35
+msgid "Page %(page_num)s"
+msgstr "Page %(page_num)s"
+
+#: twiga_power/templates/components/gallery_pagination.html:48
+msgid "Page suivante"
+msgstr "Next page"
+
+#: twiga_power/templates/components/gallery_pagination.html:64
+msgid ""
+"\n"
+"    Page %(current)s sur %(total)s\n"
+"    "
+msgstr "\n    Page %(current)s of %(total)s\n    "
+
+#: twiga_power/templates/components/footer.html:3
+msgid "Pied de page"
+msgstr "Footer"
+
+#: twiga_power/templates/components/footer.html:10
+msgid ""
+"Entreprise congolaise spécialisée dans l'électricité, offrant des solutions "
+"fiables et durables pour un développement responsable en RDC."
+msgstr ""
+"Congolese company specialising in electricity, offering"
+"reliableandsustainable solutions for responsible development in the"
+"DRC."
+
+#: twiga_power/templates/components/footer.html:12
+msgid "Sélecteur de langue"
+msgstr "Language selector"
+
+#: twiga_power/templates/components/navbar.html:11
+msgid ""
+"Local 1101, Niveau 11 de l'immeuble Luxury Tower, 148/A, Boulevard du 30 "
+"juin, Gombe, Kinshasa."
+msgstr ""
+"Office 1101, 11th floor, Luxury Tower building, 148/A,"
+"Boulevarddu30Juin, Gombe, Kinshasa."
+
+#: twiga_power/templates/components/footer.html:124
+msgid "© 2026 Twiga Power SARL. Tous droits réservés."
+msgstr "© 2026 Twiga Power SARL. All rights reserved."
+
+#: twiga_power/templates/components/footer.html:126
+msgid "Design par"
+msgstr "Design by"
+
+#: twiga_power/templates/components/gallery_card.html:9
+msgid "Agrandir : %(title)s"
+msgstr "Enlarge: %(title)s"
+
+#: twiga_power/templates/components/gallery_pagination.html:3
+msgid "Pagination de la galerie"
+msgstr "Gallery pagination"
+
+#: twiga_power/templates/components/navbar.html:13
+msgid "Email de contact"
+msgstr "Contact email"
+
+#: twiga_power/templates/components/navbar.html:21
+msgid "Navigation principale"
+msgstr "Main navigation"
+
+#: twiga_power/templates/components/navbar.html:25
+msgid "Logo Twiga Power"
+msgstr "Twiga Power logo"
+
+#: twiga_power/templates/components/navbar.html:33
+msgid "Ouvrir le menu"
+msgstr "Open menu"
+
+#: twiga_power/templates/components/navbar.html:44
+msgid "Menu"
+msgstr "Menu"
+
+#: twiga_power/templates/components/navbar.html:52
+msgid "Fermer le menu"
+msgstr "Close menu"
+
+#: twiga_power/templates/components/navbar.html:70
+msgid "Qui sommes-nous"
+msgstr "About us"
+
+#: twiga_power/templates/components/navbar.html:132
+msgid "Alertes et Recrutement"
+msgstr "News and careers"
+
+#: twiga_power/templates/components/navbar.html:182
+msgid "Se déconnecter"
+msgstr "Sign out"
+
+#: twiga_power/templates/components/partners_section.html:12
+msgid "Nos partenaires"
+msgstr "Our partners"
+
+#: twiga_power/templates/components/partners_section.html:14
+msgid "Nous travaillons avec les meilleurs partenaires"
+msgstr "We work with the best partners"
+
+#: twiga_power/templates/components/partners_section.html:18
+msgid "Ensemble pour une énergie fiable et durable."
+msgstr "Together for reliable and sustainable energy."
+
+#: twiga_power/templates/components/why_twiga_section.html:12
+msgid "Engagement"
+msgstr "Social commitment"
+
+#: twiga_power/templates/components/why_twiga_section.html:14
+msgid "Pourquoi choisir Twiga Power ?"
+msgstr "Why choose Twiga Power?"
+
+#: twiga_power/templates/components/why_twiga_section.html:18
+msgid "Votre satisfaction guide notre service fiable, efficace"
+msgstr "Your satisfaction guides our reliable, efficient"
+
+#: twiga_power/templates/components/why_twiga_section.html:19
+msgid "et personnalisé au quotidien."
+msgstr "and personalised every day."
+
+#: twiga_power/templates/components/why_twiga_section.html:34
+msgid "Énergie garantie 24/7"
+msgstr "Power guaranteed 24/7"
+
+#: twiga_power/templates/components/why_twiga_section.html:36
+msgid ""
+"Une alimentation continue et fiable, même dans les conditions les plus "
+"exigeantes."
+msgstr "A continuous and reliable supply, even in the mostdemandingconditions."
+
+#: twiga_power/templates/components/why_twiga_section.html:51
+msgid "Solutions personnalisées"
+msgstr "Tailor-made solutions"
+
+#: twiga_power/templates/components/why_twiga_section.html:53
+msgid ""
+"Des offres adaptées à vos besoins spécifiques, quelle que soit la taille de "
+"votre entreprise."
+msgstr ""
+"Offers tailored to your specific needs, whatever the"
+"sizeofyourbusiness."
+
+#: twiga_power/templates/components/why_twiga_section.html:68
+msgid "Maintenance rapide et efficace"
+msgstr "Fast and efficient maintenance"
+
+#: twiga_power/templates/components/why_twiga_section.html:70
+msgid ""
+"Un service d'intervention réactif pour réduire au minimum les interruptions."
+msgstr "A responsive intervention service to keep interruptions to a minimum."
+
+#: twiga_power/templates/components/why_twiga_section.html:85
+msgid "Équipe d'experts locaux"
+msgstr "Team of local experts"
+
+#: twiga_power/templates/components/why_twiga_section.html:87
+msgid ""
+"Des professionnels qualifiés qui comprennent les réalités et défis du marché "
+"local."
+msgstr ""
+"Qualified professionals who understand the realities"
+"andchallengesofthe local market."
+
+#: twiga_power/urls.py:28
+msgid "Twiga Power — Administration"
+msgstr "Twiga Power — Administration"
+
+#: twiga_power/urls.py:29
+msgid "Twiga Power"
+msgstr "Twiga Power"
+
+#: twiga_power/urls.py:30
+msgid "Tableau de bord"
+msgstr "Dashboard"
+
