@@ -109,7 +109,7 @@ ACTIVITIES = [
 
 
 def home(request):
-    page = "Home"
+    page = _("Accueil")
     context = {
         "page": page,
         "partner_logos": PARTNER_LOGOS,
@@ -130,7 +130,7 @@ def activite(request):
 
 
 def contact(request):
-    page = "Contact"
+    page = _("Contact")
     context = {"page": page}
 
     if request.method == "POST":
@@ -141,27 +141,27 @@ def contact(request):
         validation_error = _validate_contact_fields(name, email, message)
         if validation_error:
             messages.error(request, validation_error)
-            return HttpResponseRedirect("/contact/")
+            return redirect("contact")
 
         try:
             send_contact_email(name=name, email=email, message=message)
             messages.success(
                 request,
-                "Votre message a été envoyé avec succès. Nous vous répondrons bientôt !",
+                _("Votre message a été envoyé avec succès. Nous vous répondrons bientôt !"),
             )
-            return HttpResponseRedirect("/contact/")
+            return redirect("contact")
 
         except Exception as e:
             messages.error(
                 request, f"Une erreur est survenue lors de l'envoi du message : {e}"
             )
-            return HttpResponseRedirect("/contact/")
+            return redirect("contact")
 
     return render(request, "app/contact.html", context)
 
 
 def about(request):
-    page = "Notre histoire"
+    page = _("Notre histoire")
     context = {"page": page}
     return render(request, "app/about.html", context)
 
@@ -213,19 +213,19 @@ def alerte_detail(request, slug):
 
 
 def historique(request):
-    page = "Historique"
+    page = _("Historique")
     context = {"page": page}
     return render(request, "app/historique.html", context)
 
 
 def vision_mission(request):
-    page = "Vision et mission"
+    page = _("Vision et mission")
     context = {"page": page}
     return render(request, "app/vision_mission.html", context)
 
 
 def ambition_valeurs(request):
-    page = "Ambition et valeurs"
+    page = _("Ambition et valeurs")
     context = {"page": page}
     return render(request, "app/ambition_valeurs.html", context)
 
@@ -239,18 +239,18 @@ EQUIPE_DIRIGEANTE_MEMBERS = [
     {
         "src": "images/Equipe Dt.webp",
         "role": _("Directeur technique"),
-        "name": "Patrick Ilunga",
+        "name": "Kevin Lobota",
     },
     {
         "src": "images/Equipe Rh.webp",
         "role": _("Directeur RH"),
-        "name": "Chantal Nsimba",
+        "name": "Olivier Luwando",
     },
 ]
 
 
 def equipe_dirigeante(request):
-    page = "Équipe dirigeante"
+    page = _("Équipe dirigeante")
     context = {
         "page": page,
         "equipe_members": EQUIPE_DIRIGEANTE_MEMBERS,
@@ -259,13 +259,13 @@ def equipe_dirigeante(request):
 
 
 def projects(request):
-    page = "Projets"
+    page = _("Projets")
     context = {"page": page}
     return render(request, "app/projects.html", context)
 
 
 def recrutement(request):
-    page = "Recrutement"
+    page = _("Recrutement")
     context = {"page": page}
     try:
         context["offres"] = (
