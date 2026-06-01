@@ -41,6 +41,7 @@ msgid "Votre nom complet"
 msgstr "Your full name"
 
 #: app/forms.py:44 twiga_power/templates/app/contact.html:179
+#: twiga_power/templates/app/login.html:73
 #: twiga_power/templates/app/postuler_offre.html:124
 #: twiga_power/templates/app/register.html:88
 #: twiga_power/templates/components/contact_form_fields.html:20
@@ -1240,10 +1241,6 @@ msgid ""
 "Connectez-vous avec votre adresse e-mail pour accéder à votre espace de "
 "gestion."
 msgstr "Sign in with your email address to access your account area."
-
-#: twiga_power/templates/app/login.html:73
-msgid "Adresse e-mail ou identifiant"
-msgstr "Email address or username"
 
 #: twiga_power/templates/app/login.html:80
 msgid "Email"
