@@ -479,7 +479,11 @@ GALLERY_ITEMS_PER_PAGE = 6
 
 
 def galery(request):
-    paginator = Paginator(GALLERY_ITEMS, GALLERY_ITEMS_PER_PAGE)
+    # Resolve lazy translations for the active locale (cards + lightbox data-title).
+    gallery_items = [
+        {"image": item["image"], "title": str(item["title"])} for item in GALLERY_ITEMS
+    ]
+    paginator = Paginator(gallery_items, GALLERY_ITEMS_PER_PAGE)
     page_number = request.GET.get("page", 1)
     try:
         page_obj = paginator.page(page_number)
