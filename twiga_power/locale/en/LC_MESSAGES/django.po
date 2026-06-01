@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-01 12:40+0100\n"
+"POT-Creation-Date: 2026-06-01 13:00+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -148,24 +148,24 @@ msgid "Actualités"
 msgstr "News"
 
 #: app/views.py:28
-msgid "Logo partenaire 1"
-msgstr "Partner logo 1"
+msgid "Logo partenaire 5"
+msgstr "Partner logo 5"
 
 #: app/views.py:33
-msgid "Logo partenaire 2"
-msgstr "Partner logo 2"
-
-#: app/views.py:38
 msgid "Logo partenaire 3"
 msgstr "Partner logo 3"
 
-#: app/views.py:43
+#: app/views.py:38
 msgid "Logo partenaire 4"
 msgstr "Partner logo 4"
 
+#: app/views.py:43
+msgid "Logo partenaire 1"
+msgstr "Partner logo 1"
+
 #: app/views.py:48
-msgid "Logo partenaire 5"
-msgstr "Partner logo 5"
+msgid "Logo partenaire 2"
+msgstr "Partner logo 2"
 
 #: app/views.py:53
 msgid "Logo partenaire 6"
@@ -377,12 +377,12 @@ msgid "Directeur Général"
 msgstr "Managing Director"
 
 #: app/views.py:246
-msgid "Directeur technique"
-msgstr "Technical Director"
+msgid "Directeur en charge de la gestion et développement des projets"
+msgstr "Director responsible for project management and development"
 
 #: app/views.py:251
-msgid "Directeur RH"
-msgstr "HR Director"
+msgid "Directeur Administratif et financier"
+msgstr "Administrative and Financial Director"
 
 #: app/views.py:258 twiga_power/templates/app/equipe_dirigeante.html:16
 #: twiga_power/templates/app/equipe_dirigeante.html:26
@@ -863,10 +863,10 @@ msgstr "Respect"
 
 #: twiga_power/templates/app/ambition_valeurs.html:100
 msgid ""
-"Écoute des populations, engagements tenus et respect strict du cadre légal."
+"Écoute des clients finaux, engagements tenus et respect strict du cadre légal."
 msgstr ""
-"Listening to communities, honouring commitments andstrictrespectforthe legal "
-"framework."
+"Listening to end customers, honouring commitments and strict respect for the "
+"legal framework."
 
 #: twiga_power/templates/app/ambition_valeurs.html:110
 msgid "Excellence"
@@ -884,9 +884,10 @@ msgstr "Safety"
 
 #: twiga_power/templates/app/ambition_valeurs.html:124
 msgid ""
-"Protection des personnes et des infrastructures ; prévention des risques à "
+"Protection des personnels et des clients finaux : prévention des risques à "
 "chaque étape."
-msgstr "Protection of people and infrastructure; risk prevention ateverystage."
+msgstr ""
+"Protection of staff and end customers: risk prevention at every stage."
 
 #: twiga_power/templates/app/ambition_valeurs.html:134
 msgid "Engagement social"
@@ -1069,18 +1070,18 @@ msgid ""
 "secteur énergétique en République Démocratique du Congo à travers des "
 "solutions modernes, fiables et durables. Dans un contexte marqué par une "
 "demande croissante en électricité et la nécessité d'améliorer l'accès à une "
-"énergie stable et de qualité, l'entreprise s'engage à proposer des services "
+"énergie stable et de qualité, la société s'engage à proposer des services "
 "performants répondant aux besoins des ménages, des entreprises et des "
 "institutions."
 msgstr ""
-"Founded in November 2024, Twiga Power is "
-"aCongolesecompanylegallyincorporated as a limited liability company(SARL). "
-"Itwasborn froman ambitious vision to contribute to thedevelopment "
-"oftheenergysector in the Democratic Republic of theCongothroughmodern,"
-"reliable and sustainable solutions. In acontextofgrowingelectricity demand "
-"and the need to improve accesstostable,qualitypower, the company is "
-"committedtodeliveringhigh-performanceservices that meet the "
-"needsofhouseholds,businesses andinstitutions."
+"Founded in November 2024, Twiga Power is a Congolese company legally "
+"incorporated as a limited liability company (SARL). It was born from an "
+"ambitious vision to contribute to the development of the energy sector in "
+"the Democratic Republic of the Congo through modern, reliable and "
+"sustainable solutions. In a context of growing electricity demand and the "
+"need to improve access to stable, quality power, the company is committed to "
+"delivering high-performance services that meet the needs of households, "
+"businesses and institutions."
 
 #: twiga_power/templates/app/home.html:16
 msgid ""
@@ -1414,10 +1415,12 @@ msgstr "Already have an account?"
 
 #: twiga_power/templates/app/vision_mission.html:29
 msgid ""
-"Notre ambition et nos engagements pour l'énergie en République Démocratique "
-"du Congo."
+"Une vision forte et des missions stratégiques pour contribuer au "
+"développement durable du secteur énergétique en République Démocratique du "
+"Congo."
 msgstr ""
-"Our ambition and commitments for energy in the DemocraticRepublicofthe Congo."
+"A strong vision and strategic missions to contribute to the sustainable "
+"development of the energy sector in the Democratic Republic of the Congo."
 
 #: twiga_power/templates/app/vision_mission.html:61
 msgid "Vision"
@@ -1429,11 +1432,15 @@ msgstr "Our Vision"
 
 #: twiga_power/templates/app/vision_mission.html:73
 msgid ""
-"Être une référence nationale et un acteur central de la relance énergétique "
-"durable en République Démocratique du Congo."
+"Être un partenaire de confiance dans le développement énergétique durable en "
+"République Démocratique du Congo, en contribuant à l'amélioration de l'accès "
+"à une électricité fiable, moderne et adaptée aux besoins des populations, "
+"des entreprises et des institutions."
 msgstr ""
-"To be a national reference and a central player insustainableenergyrecovery "
-"in the Democratic Republic of the Congo."
+"To be a trusted partner in sustainable energy development in the Democratic "
+"Republic of the Congo, contributing to improved access to reliable, modern "
+"electricity tailored to the needs of communities, businesses and "
+"institutions."
 
 #: twiga_power/templates/app/vision_mission.html:92
 msgid "Missions"
@@ -1445,11 +1452,13 @@ msgstr "Our Mission"
 
 #: twiga_power/templates/app/vision_mission.html:106
 msgid ""
-"Répondre à l'un des besoins fondamentaux de la population : l'accès fiable, "
-"sécurisé et durable à l'énergie électrique."
+"Répondre durablement aux besoins énergétiques des ménages, des entreprises "
+"et des institutions, en garantissant un accès fiable, sécurisé et adapté à "
+"l'électricité."
 msgstr ""
-"To meet one of the population's fundamental needs: reliable,"
-"secureandsustainable access to electricity."
+"To respond sustainably to the energy needs of households, businesses and "
+"institutions by ensuring reliable, secure access to electricity that meets "
+"their requirements."
 
 #: twiga_power/templates/app/vision_mission.html:118
 msgid ""
@@ -1629,12 +1638,14 @@ msgstr "Footer"
 
 #: twiga_power/templates/components/footer.html:10
 msgid ""
-"Entreprise congolaise spécialisée dans l'électricité, offrant des solutions "
-"fiables et durables pour un développement responsable en RDC."
+"Société congolaise spécialisée dans le trading énergétique et la chaîne de "
+"valeur de l'énergie hydroélectrique, offrant des solutions fiables et "
+"durables pour améliorer l'offre énergétique en République Démocratique du "
+"Congo."
 msgstr ""
-"Congolese company specialising in electricity, "
-"offeringreliableandsustainable solutions for responsible development in "
-"theDRC."
+"A Congolese company specialising in energy trading and the hydroelectric "
+"energy value chain, offering reliable and sustainable solutions to improve "
+"energy supply in the Democratic Republic of the Congo."
 
 #: twiga_power/templates/components/footer.html:12
 msgid "Sélecteur de langue"
@@ -1785,6 +1796,35 @@ msgstr "Twiga Power"
 #: twiga_power/urls.py:30
 msgid "Tableau de bord"
 msgstr "Dashboard"
+
+#~ msgid ""
+#~ "Répondre à l'un des besoins fondamentaux de la population : l'accès "
+#~ "fiable, sécurisé et durable à l'énergie électrique."
+#~ msgstr ""
+#~ "To meet one of the population's fundamental needs: reliable,"
+#~ "secureandsustainable access to electricity."
+
+#~ msgid ""
+#~ "Être une référence nationale et un acteur central de la relance "
+#~ "énergétique durable en République Démocratique du Congo."
+#~ msgstr ""
+#~ "To be a national reference and a central player "
+#~ "insustainableenergyrecovery in the Democratic Republic of the Congo."
+
+#~ msgid ""
+#~ "Notre ambition et nos engagements pour l'énergie en République "
+#~ "Démocratique du Congo."
+#~ msgstr ""
+#~ "Our ambition and commitments for energy in the DemocraticRepublicofthe "
+#~ "Congo."
+
+#~ msgid ""
+#~ "Entreprise congolaise spécialisée dans l'électricité, offrant des "
+#~ "solutions fiables et durables pour un développement responsable en RDC."
+#~ msgstr ""
+#~ "Congolese company specialising in electricity, "
+#~ "offeringreliableandsustainable solutions for responsible development in "
+#~ "theDRC."
 
 #~ msgid "et personnalisé au quotidien."
 #~ msgstr "and personalised every day."

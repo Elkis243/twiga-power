@@ -1,0 +1,49 @@
+{% load static i18n %}
+{# Carrousel mobile des activités (accueil + page activités) #}
+<div
+  id="{{ carousel_id|default:'activitiesCarouselMobile' }}"
+  class="carousel slide activities-carousel d-lg-none"
+  data-bs-ride="false"
+  data-bs-interval="false"
+  aria-label="{% trans 'Carrousel des activités' %}"
+>
+  <div class="carousel-indicators activities-carousel__indicators">
+    {% for activity in activities %}
+    <button
+      type="button"
+      data-bs-target="#{{ carousel_id|default:'activitiesCarouselMobile' }}"
+      data-bs-slide-to="{{ forloop.counter0 }}"
+      class="{% if forloop.first %}active{% endif %}"
+      {% if forloop.first %}aria-current="true"{% endif %}
+      aria-label="{% trans 'Activité' %} {{ forloop.counter }}"
+    ></button>
+    {% endfor %}
+  </div>
+  <div class="carousel-inner pb-1">
+    {% for activity in activities %}
+    <div class="carousel-item{% if forloop.first %} active{% endif %}">
+      <div class="d-flex">
+        {% include "components/activity_card.html" with title=activity.title description=activity.description image=activity.image image_alt=activity.image_alt card_id=activity.slug hide_button=hide_button description_words=description_words only %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <button
+    class="carousel-control-prev activities-carousel__control"
+    type="button"
+    data-bs-target="#{{ carousel_id|default:'activitiesCarouselMobile' }}"
+    data-bs-slide="prev"
+  >
+    <span class="activities-carousel__control-icon" aria-hidden="true"><i class="bi bi-chevron-left"></i></span>
+    <span class="visually-hidden">{% trans "Précédent" %}</span>
+  </button>
+  <button
+    class="carousel-control-next activities-carousel__control"
+    type="button"
+    data-bs-target="#{{ carousel_id|default:'activitiesCarouselMobile' }}"
+    data-bs-slide="next"
+  >
+    <span class="activities-carousel__control-icon" aria-hidden="true"><i class="bi bi-chevron-right"></i></span>
+    <span class="visually-hidden">{% trans "Suivant" %}</span>
+  </button>
+</div>

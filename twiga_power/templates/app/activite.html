@@ -39,18 +39,23 @@
   <div class="container px-4">
     <div class="row justify-content-center">
       <div class="col-xl-10">
-        <div class="row g-3 align-items-stretch">
-          {% for activity in activities %}
-          <div class="col-12 col-md-6 col-lg-4 d-flex"
-            data-sal="slide-up"
-            data-sal-duration="700"
-            data-sal-delay="{% widthratio forloop.counter0 1 80 %}"
-            data-sal-easing="ease-out-cubic"
-          >
-            {% include "components/activity_card.html" with title=activity.title description=activity.description image=activity.image image_alt=activity.image_alt card_id=activity.slug hide_button=True only %}
+        <div class="d-none d-lg-block">
+          <div class="row g-3 align-items-stretch">
+            {% for activity in activities %}
+            <div
+              class="col-lg-4 d-flex"
+              data-sal="slide-up"
+              data-sal-duration="700"
+              data-sal-delay="{% widthratio forloop.counter0 1 80 %}"
+              data-sal-easing="ease-out-cubic"
+            >
+              {% include "components/activity_card.html" with title=activity.title description=activity.description image=activity.image image_alt=activity.image_alt card_id=activity.slug hide_button=True only %}
+            </div>
+            {% endfor %}
           </div>
-          {% endfor %}
         </div>
+
+        {% include "components/activities_mobile_carousel.html" with carousel_id="activiteCarouselMobile" activities=activities hide_button=True only %}
       </div>
     </div>
   </div>

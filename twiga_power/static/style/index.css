@@ -1056,13 +1056,46 @@ svg {
   transform: none;
 }
 
-@media (max-width: 575.98px) {
+.activities-carousel__control::before {
+  display: none;
+}
+
+@media (max-width: 991.98px) {
   .activities-carousel {
-    padding-inline: 0;
+    padding-inline: 2.75rem;
   }
 
   .activities-carousel__control {
-    display: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.35rem;
+    height: 2.35rem;
+    opacity: 1;
+    z-index: 5;
+  }
+
+  .activities-carousel__control-icon {
+    width: 2.35rem;
+    height: 2.35rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .activities-carousel {
+    padding-inline: 2.35rem;
+  }
+
+  .activities-carousel__control {
+    width: 2.15rem;
+    height: 2.15rem;
+  }
+
+  .activities-carousel__control-icon {
+    width: 2.15rem;
+    height: 2.15rem;
+    font-size: 0.95rem;
   }
 }
 
@@ -1316,10 +1349,16 @@ a.project-card__link:focus-visible {
   opacity: 0.88;
 }
 
-/* partner5 — avant-dernier, logo agrandi */
-.partners-section__item:nth-last-child(2) .partners-section__logo {
-  max-height: 5rem;
-  max-width: 15rem;
+/* partner5 (SNEL) — 1er affiché */
+.partners-section__item:first-child .partners-section__logo {
+  max-height: 4.25rem;
+  max-width: 12.5rem;
+}
+
+/* 4e partenaire (partner1) — taille réduite */
+.partners-section__item:nth-child(4) .partners-section__logo {
+  max-height: 3.5rem;
+  max-width: 9rem;
 }
 
 /* partner6 — dernier, logo le plus grand */
@@ -1340,9 +1379,14 @@ a.project-card__link:focus-visible {
     max-width: 12rem;
   }
 
-  .partners-section__item:nth-last-child(2) .partners-section__logo {
-    max-height: 5.5rem;
-    max-width: 16.5rem;
+  .partners-section__item:first-child .partners-section__logo {
+    max-height: 4.75rem;
+    max-width: 14rem;
+  }
+
+  .partners-section__item:nth-child(4) .partners-section__logo {
+    max-height: 3.75rem;
+    max-width: 9.5rem;
   }
 
   .partners-section__item:last-child .partners-section__logo {
@@ -1357,9 +1401,14 @@ a.project-card__link:focus-visible {
     gap: 1.5rem 2rem;
   }
 
-  .partners-section__item:nth-last-child(2) .partners-section__logo {
-    max-height: 5.75rem;
-    max-width: 17.5rem;
+  .partners-section__item:first-child .partners-section__logo {
+    max-height: 5rem;
+    max-width: 15rem;
+  }
+
+  .partners-section__item:nth-child(4) .partners-section__logo {
+    max-height: 4rem;
+    max-width: 10rem;
   }
 
   .partners-section__item:last-child .partners-section__logo {
@@ -1378,9 +1427,14 @@ a.project-card__link:focus-visible {
     max-width: 9rem;
   }
 
-  .partners-section__item:nth-last-child(2) .partners-section__logo {
-    max-height: 3.85rem;
-    max-width: 11.5rem;
+  .partners-section__item:first-child .partners-section__logo {
+    max-height: 3.5rem;
+    max-width: 10rem;
+  }
+
+  .partners-section__item:nth-child(4) .partners-section__logo {
+    max-height: 2.85rem;
+    max-width: 7.5rem;
   }
 
   .partners-section__item:last-child .partners-section__logo {

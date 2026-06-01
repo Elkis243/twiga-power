@@ -24,13 +24,8 @@ from .utils.mail import (
 # Remplacez les URLs par les sites officiels de chaque partenaire.
 PARTNER_LOGOS = [
     {
-        "src": "images/partner1.png",
-        "alt": _("Logo partenaire 1"),
-        "url": "https://www.example.com",
-    },
-    {
-        "src": "images/partner2.png",
-        "alt": _("Logo partenaire 2"),
+        "src": "images/partner5.png",
+        "alt": _("Logo partenaire 5"),
         "url": "https://www.example.com",
     },
     {
@@ -44,8 +39,13 @@ PARTNER_LOGOS = [
         "url": "https://www.example.com",
     },
     {
-        "src": "images/partner5.png",
-        "alt": _("Logo partenaire 5"),
+        "src": "images/partner1.png",
+        "alt": _("Logo partenaire 1"),
+        "url": "https://www.example.com",
+    },
+    {
+        "src": "images/partner2.png",
+        "alt": _("Logo partenaire 2"),
         "url": "https://www.example.com",
     },
     {
@@ -243,12 +243,12 @@ EQUIPE_DIRIGEANTE_MEMBERS = [
     },
     {
         "src": "images/Equipe Dt.webp",
-        "role": _("Directeur technique"),
+        "role": _("Directeur en charge de la gestion et développement des projets"),
         "name": "Kevin Lobota",
     },
     {
         "src": "images/Equipe Rh.webp",
-        "role": _("Directeur RH"),
+        "role": _("Directeur Administratif et financier"),
         "name": "Olivier Luwando",
     },
 ]
