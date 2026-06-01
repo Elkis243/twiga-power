@@ -74,16 +74,18 @@
     <span aria-hidden="true">&times;</span>
   </button>
   <div class="gallery-lightbox__content">
-    <button type="button" class="gallery-lightbox__nav gallery-lightbox__nav--prev" aria-label="{% trans 'Photo précédente' %}">
-      <i class="bi bi-chevron-left" aria-hidden="true"></i>
-    </button>
     <figure class="gallery-lightbox__figure">
-      <img src="" alt="" class="gallery-lightbox__image" />
-      <figcaption class="gallery-lightbox__caption"></figcaption>
+      <div class="gallery-lightbox__stage">
+        <button type="button" class="gallery-lightbox__nav gallery-lightbox__nav--prev" aria-label="{% trans 'Photo précédente' %}">
+          <i class="bi bi-chevron-left" aria-hidden="true"></i>
+        </button>
+        <img src="" alt="" class="gallery-lightbox__image" />
+        <button type="button" class="gallery-lightbox__nav gallery-lightbox__nav--next" aria-label="{% trans 'Photo suivante' %}">
+          <i class="bi bi-chevron-right" aria-hidden="true"></i>
+        </button>
+      </div>
+      <figcaption class="gallery-lightbox__caption text-white"></figcaption>
     </figure>
-    <button type="button" class="gallery-lightbox__nav gallery-lightbox__nav--next" aria-label="{% trans 'Photo suivante' %}">
-      <i class="bi bi-chevron-right" aria-hidden="true"></i>
-    </button>
   </div>
 </div>
 

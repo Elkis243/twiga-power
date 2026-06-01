@@ -500,6 +500,34 @@ msgstr "Local community"
 msgid "Visite du site avec les spécialistes"
 msgstr "Site visit with specialists"
 
+#: app/views.py:459
+msgid ""
+"Rencontre institutionnelle entre TWIGA Power SARL et l'ANSER, consacrée à "
+"la présentation de l'entreprise et à l'exploration d'opportunités de "
+"partenariat."
+msgstr ""
+"Institutional meeting between TWIGA Power SARL and ANSER, focused on "
+"presenting the company and exploring partnership opportunities."
+
+#: app/views.py:465
+msgid ""
+"Échanges constructifs autour des perspectives de collaboration entre TWIGA "
+"Power SARL et l'ANSER."
+msgstr ""
+"Constructive discussions on collaboration prospects between TWIGA Power "
+"SARL and ANSER."
+
+#: app/views.py:471
+msgid ""
+"Assemblée Générale de la SPV KIBOMBO POWER SA réunissant les partenaires du "
+"projet — SNEL SA, TOHA ENERGY SARL et TWIGA POWER SARL — pour faire le "
+"point sur les activités en cours et les perspectives de développement du "
+"projet."
+msgstr ""
+"General Meeting of SPV KIBOMBO POWER SA bringing together project partners "
+"— SNEL SA, TOHA ENERGY SARL and TWIGA POWER SARL — to review ongoing "
+"activities and project development prospects."
+
 #: app/views.py:477 twiga_power/templates/app/galerie.html:16
 #: twiga_power/templates/components/footer.html:114
 msgid "Galerie"

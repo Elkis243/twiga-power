@@ -454,6 +454,24 @@ GALLERY_ITEMS = [
         "image": "images/picture15.webp",
         "title": _("Visite du site avec les spécialistes"),
     },
+    {
+        "image": "images/picture16.webp",
+        "title": _(
+            "Rencontre institutionnelle entre TWIGA Power SARL et l'ANSER, consacrée à la présentation de l'entreprise et à l'exploration d'opportunités de partenariat."
+        ),
+    },
+    {
+        "image": "images/picture17.webp",
+        "title": _(
+            "Échanges constructifs autour des perspectives de collaboration entre TWIGA Power SARL et l'ANSER."
+        ),
+    },
+    {
+        "image": "images/picture18.webp",
+        "title": _(
+            "Assemblée Générale de la SPV KIBOMBO POWER SA réunissant les partenaires du projet — SNEL SA, TOHA ENERGY SARL et TWIGA POWER SARL — pour faire le point sur les activités en cours et les perspectives de développement du projet."
+        ),
+    },
 ]
 
 
