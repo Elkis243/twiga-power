@@ -1246,8 +1246,8 @@ msgid "Adresse e-mail ou identifiant"
 msgstr "Email address or username"
 
 #: twiga_power/templates/app/login.html:80
-msgid "E-mail ou identifiant"
-msgstr "Email or username"
+msgid "Email"
+msgstr "Email"
 
 #: twiga_power/templates/app/login.html:98
 msgid "Votre mot de passe"
