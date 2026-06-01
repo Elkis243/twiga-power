@@ -1,17 +1,17 @@
 {% load static i18n %}
 
-{% trans "Production de l'énergie électrique" as act1_title %}
-{% blocktrans asvar act1_desc %}Nous développons des capacités de production exclusivement basées sur l'énergie hydroélectrique afin de garantir une énergie durable, fiable et résiliente.{% endblocktrans %}
-{% trans "Transport de l'énergie électrique" as act2_title %}
-{% blocktrans asvar act2_desc %}Nous acheminons l'énergie produite ou importée vers les centres de consommation via des réseaux haute et moyenne tension avec un haut niveau de sécurité et de performance.{% endblocktrans %}
-{% trans "Distribution de l'énergie électrique" as act3_title %}
-{% blocktrans asvar act3_desc %}Nous assurons la distribution de l'électricité aux ménages et entreprises grâce à des réseaux fiables et adaptés aux réalités locales.{% endblocktrans %}
-{% trans "Commercialisation de l'énergie électrique" as act4_title %}
-{% blocktrans asvar act4_desc %}Nous gérons la vente d'électricité, la relation client et la gestion de la consommation avec une approche basée sur la transparence et la satisfaction client.{% endblocktrans %}
-{% trans "Exportation de l'énergie électrique" as act5_title %}
-{% blocktrans asvar act5_desc %}Nous participons aux échanges énergétiques régionaux afin de valoriser les capacités de production excédentaires et renforcer la compétitivité énergétique.{% endblocktrans %}
-{% trans "Importation de l'énergie électrique" as act6_title %}
-{% blocktrans asvar act6_desc %}Nous renforçons l'approvisionnement énergétique grâce à l'importation stratégique d'électricité afin d'assurer la continuité et la stabilité du service.{% endblocktrans %}
+{% trans "Importation de l'énergie électrique" as act1_title %}
+{% blocktrans asvar act1_desc %}Nous renforçons l'approvisionnement énergétique grâce à l'importation stratégique d'électricité afin d'assurer la continuité et la stabilité du service.{% endblocktrans %}
+{% trans "Exportation de l'énergie électrique" as act2_title %}
+{% blocktrans asvar act2_desc %}Nous participons aux échanges énergétiques régionaux afin de valoriser les capacités de production excédentaires et renforcer la compétitivité énergétique.{% endblocktrans %}
+{% trans "Production de l'énergie électrique" as act3_title %}
+{% blocktrans asvar act3_desc %}Nous développons des capacités de production exclusivement basées sur l'énergie hydroélectrique afin de garantir une énergie durable, fiable et résiliente.{% endblocktrans %}
+{% trans "Transport de l'énergie électrique" as act4_title %}
+{% blocktrans asvar act4_desc %}Nous acheminons l'énergie produite ou importée vers les centres de consommation via des réseaux haute et moyenne tension avec un haut niveau de sécurité et de performance.{% endblocktrans %}
+{% trans "Distribution de l'énergie électrique" as act5_title %}
+{% blocktrans asvar act5_desc %}Nous assurons la distribution de l'électricité aux ménages et entreprises grâce à des réseaux fiables et adaptés aux réalités locales.{% endblocktrans %}
+{% trans "Commercialisation de l'énergie électrique" as act6_title %}
+{% blocktrans asvar act6_desc %}Nous gérons la vente d'électricité, la relation client et la gestion de la consommation avec une approche basée sur la transparence et la satisfaction client.{% endblocktrans %}
 
 {# ~2 lignes visuelles sur les cartes accueil #}
 {% with activity_description_words=18 %}
@@ -26,7 +26,7 @@
             <h2 id="activities-heading" class="activities-section__title h2 text-color mb-3">{% trans "Nos Activités" %}</h2>
             <div class="project-detail__title-accent mx-auto mb-3" aria-hidden="true"></div>
             <p class="text-muted mb-0 mx-auto activities-section__lead">
-              {% blocktrans %}Nous intervenons sur l'ensemble de la chaîne de valeur de l'énergie électrique, de la production à la commercialisation.{% endblocktrans %}
+              {% blocktrans %}Nous intervenons sur le trading énergétique ainsi que sur l'ensemble de la chaîne de valeur de l'énergie hydroélectrique.{% endblocktrans %}
             </p>
           </div>
         </div>
@@ -45,16 +45,16 @@
           <div class="carousel-inner pb-1">
             <div class="carousel-item active">
               <div class="row g-3 align-items-stretch">
-                <div class="col-lg-4 d-flex">{% include "components/activity_card.html" with title=act1_title description=act1_desc description_words=activity_description_words image="images/activite1.webp" anchor="production" image_alt=_("Production hydroélectrique") only %}</div>
-                <div class="col-lg-4 d-flex">{% include "components/activity_card.html" with title=act2_title description=act2_desc description_words=activity_description_words image="images/activite2.webp" anchor="transport" image_alt=_("Transport d'énergie électrique") only %}</div>
-                <div class="col-lg-4 d-flex">{% include "components/activity_card.html" with title=act3_title description=act3_desc description_words=activity_description_words image="images/activite3.webp" anchor="distribution" image_alt=_("Distribution d'énergie électrique") only %}</div>
+                <div class="col-lg-4 d-flex">{% include "components/activity_card.html" with title=act1_title description=act1_desc description_words=activity_description_words image="images/activite6.webp" anchor="importation" image_alt=_("Importation d'énergie électrique") only %}</div>
+                <div class="col-lg-4 d-flex">{% include "components/activity_card.html" with title=act2_title description=act2_desc description_words=activity_description_words image="images/activite5.webp" anchor="exportation" image_alt=_("Exportation d'énergie électrique") only %}</div>
+                <div class="col-lg-4 d-flex">{% include "components/activity_card.html" with title=act3_title description=act3_desc description_words=activity_description_words image="images/activite1.webp" anchor="production" image_alt=_("Production hydroélectrique") only %}</div>
               </div>
             </div>
             <div class="carousel-item">
               <div class="row g-3 align-items-stretch">
-                <div class="col-lg-4 d-flex">{% include "components/activity_card.html" with title=act4_title description=act4_desc description_words=activity_description_words image="images/activite4.webp" anchor="commercialisation" image_alt=_("Commercialisation d'énergie électrique") only %}</div>
-                <div class="col-lg-4 d-flex">{% include "components/activity_card.html" with title=act5_title description=act5_desc description_words=activity_description_words image="images/activite5.webp" anchor="exportation" image_alt=_("Exportation d'énergie électrique") only %}</div>
-                <div class="col-lg-4 d-flex">{% include "components/activity_card.html" with title=act6_title description=act6_desc description_words=activity_description_words image="images/activite6.webp" anchor="importation" image_alt=_("Importation d'énergie électrique") only %}</div>
+                <div class="col-lg-4 d-flex">{% include "components/activity_card.html" with title=act4_title description=act4_desc description_words=activity_description_words image="images/activite2.webp" anchor="transport" image_alt=_("Transport d'énergie électrique") only %}</div>
+                <div class="col-lg-4 d-flex">{% include "components/activity_card.html" with title=act5_title description=act5_desc description_words=activity_description_words image="images/activite3.webp" anchor="distribution" image_alt=_("Distribution d'énergie électrique") only %}</div>
+                <div class="col-lg-4 d-flex">{% include "components/activity_card.html" with title=act6_title description=act6_desc description_words=activity_description_words image="images/activite4.webp" anchor="commercialisation" image_alt=_("Commercialisation d'énergie électrique") only %}</div>
               </div>
             </div>
           </div>
@@ -84,12 +84,12 @@
             <button type="button" data-bs-target="#activitiesCarouselMobile" data-bs-slide-to="5" aria-label="{% trans 'Activité' %} 6"></button>
           </div>
           <div class="carousel-inner pb-1">
-            <div class="carousel-item active"><div class="d-flex">{% include "components/activity_card.html" with title=act1_title description=act1_desc description_words=activity_description_words image="images/activite1.webp" anchor="production" image_alt=_("Production hydroélectrique") only %}</div></div>
-            <div class="carousel-item"><div class="d-flex">{% include "components/activity_card.html" with title=act2_title description=act2_desc description_words=activity_description_words image="images/activite2.webp" anchor="transport" image_alt=_("Transport d'énergie électrique") only %}</div></div>
-            <div class="carousel-item"><div class="d-flex">{% include "components/activity_card.html" with title=act3_title description=act3_desc description_words=activity_description_words image="images/activite3.webp" anchor="distribution" image_alt=_("Distribution d'énergie électrique") only %}</div></div>
-            <div class="carousel-item"><div class="d-flex">{% include "components/activity_card.html" with title=act4_title description=act4_desc description_words=activity_description_words image="images/activite4.webp" anchor="commercialisation" image_alt=_("Commercialisation d'énergie électrique") only %}</div></div>
-            <div class="carousel-item"><div class="d-flex">{% include "components/activity_card.html" with title=act5_title description=act5_desc description_words=activity_description_words image="images/activite5.webp" anchor="exportation" image_alt=_("Exportation d'énergie électrique") only %}</div></div>
-            <div class="carousel-item"><div class="d-flex">{% include "components/activity_card.html" with title=act6_title description=act6_desc description_words=activity_description_words image="images/activite6.webp" anchor="importation" image_alt=_("Importation d'énergie électrique") only %}</div></div>
+            <div class="carousel-item active"><div class="d-flex">{% include "components/activity_card.html" with title=act1_title description=act1_desc description_words=activity_description_words image="images/activite6.webp" anchor="importation" image_alt=_("Importation d'énergie électrique") only %}</div></div>
+            <div class="carousel-item"><div class="d-flex">{% include "components/activity_card.html" with title=act2_title description=act2_desc description_words=activity_description_words image="images/activite5.webp" anchor="exportation" image_alt=_("Exportation d'énergie électrique") only %}</div></div>
+            <div class="carousel-item"><div class="d-flex">{% include "components/activity_card.html" with title=act3_title description=act3_desc description_words=activity_description_words image="images/activite1.webp" anchor="production" image_alt=_("Production hydroélectrique") only %}</div></div>
+            <div class="carousel-item"><div class="d-flex">{% include "components/activity_card.html" with title=act4_title description=act4_desc description_words=activity_description_words image="images/activite2.webp" anchor="transport" image_alt=_("Transport d'énergie électrique") only %}</div></div>
+            <div class="carousel-item"><div class="d-flex">{% include "components/activity_card.html" with title=act5_title description=act5_desc description_words=activity_description_words image="images/activite3.webp" anchor="distribution" image_alt=_("Distribution d'énergie électrique") only %}</div></div>
+            <div class="carousel-item"><div class="d-flex">{% include "components/activity_card.html" with title=act6_title description=act6_desc description_words=activity_description_words image="images/activite4.webp" anchor="commercialisation" image_alt=_("Commercialisation d'énergie électrique") only %}</div></div>
           </div>
           <button class="carousel-control-prev activities-carousel__control" type="button" data-bs-target="#activitiesCarouselMobile" data-bs-slide="prev">
             <span class="activities-carousel__control-icon" aria-hidden="true"><i class="bi bi-chevron-left"></i></span>

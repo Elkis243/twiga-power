@@ -48,9 +48,32 @@ PARTNER_LOGOS = [
         "alt": _("Logo partenaire 5"),
         "url": "https://www.example.com",
     },
+    {
+        "src": "images/partner6.png",
+        "alt": _("Logo partenaire 6"),
+        "url": "https://www.example.com",
+    },
 ]
 
 ACTIVITIES = [
+    {
+        "slug": "importation",
+        "title": _("Importation de l'énergie électrique"),
+        "description": _(
+            "L'importation de l'énergie électrique constitue un levier stratégique pour Twiga Power Sarl. Elle permet de renforcer l'approvisionnement lorsque la production locale est insuffisante, d'assurer la continuité et la stabilité du service, et de répondre efficacement aux pics de consommation."
+        ),
+        "image": "images/activite6.webp",
+        "image_alt": _("Importation d'énergie électrique"),
+    },
+    {
+        "slug": "exportation",
+        "title": _("Exportation de l'énergie électrique"),
+        "description": _(
+            "Twiga Power Sarl développe également des activités d'exportation de l'énergie électrique visant à valoriser les capacités de production excédentaires et à participer aux échanges énergétiques régionaux. Cette activité contribue au renforcement de la compétitivité de l'entreprise, à la création de valeur économique et au positionnement de la RDC comme un acteur énergétique régional."
+        ),
+        "image": "images/activite5.webp",
+        "image_alt": _("Exportation d'énergie électrique"),
+    },
     {
         "slug": "production",
         "title": _("Production de l'énergie électrique"),
@@ -86,24 +109,6 @@ ACTIVITIES = [
         ),
         "image": "images/activite4.webp",
         "image_alt": _("Commercialisation d'énergie électrique"),
-    },
-    {
-        "slug": "exportation",
-        "title": _("Exportation de l'énergie électrique"),
-        "description": _(
-            "Twiga Power Sarl développe également des activités d'exportation de l'énergie électrique visant à valoriser les capacités de production excédentaires et à participer aux échanges énergétiques régionaux. Cette activité contribue au renforcement de la compétitivité de l'entreprise, à la création de valeur économique et au positionnement de la RDC comme un acteur énergétique régional."
-        ),
-        "image": "images/activite5.webp",
-        "image_alt": _("Exportation d'énergie électrique"),
-    },
-    {
-        "slug": "importation",
-        "title": _("Importation de l'énergie électrique"),
-        "description": _(
-            "L'importation de l'énergie électrique constitue un levier stratégique pour Twiga Power Sarl. Elle permet de renforcer l'approvisionnement lorsque la production locale est insuffisante, d'assurer la continuité et la stabilité du service, et de répondre efficacement aux pics de consommation."
-        ),
-        "image": "images/activite6.webp",
-        "image_alt": _("Importation d'énergie électrique"),
     },
 ]
 
