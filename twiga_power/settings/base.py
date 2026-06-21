@@ -158,7 +158,7 @@ MESSAGE_TAGS = {
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTHENTICATION_BACKENDS = [
-    "app.backends.EmailOrUsernameBackend",
+    "app.backends.EmailBackend",
     "django.contrib.auth.backends.ModelBackend",
 ]
 

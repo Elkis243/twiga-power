@@ -10,7 +10,7 @@
             {% blocktrans %}Société congolaise spécialisée dans le trading énergétique et la chaîne de valeur de l'énergie hydroélectrique, offrant des solutions fiables et durables pour améliorer l'offre énergétique en République Démocratique du Congo.{% endblocktrans %}
           </p>
           <nav class="site-footer__lang" role="group" aria-label="{% trans 'Sélecteur de langue' %}">
-            <form action="{% url 'set_language' %}" method="post" class="site-footer__lang-form">
+            <form action="{% url 'set_language' %}" method="post" class="site-footer__lang-form d-inline m-0">
               {% csrf_token %}
               <input type="hidden" name="next" value="{{ request.get_full_path }}" />
               <button
@@ -24,7 +24,7 @@
               </button>
             </form>
             <span class="site-footer__lang-divider" aria-hidden="true">·</span>
-            <form action="{% url 'set_language' %}" method="post" class="site-footer__lang-form">
+            <form action="{% url 'set_language' %}" method="post" class="site-footer__lang-form d-inline m-0">
               {% csrf_token %}
               <input type="hidden" name="next" value="{{ request.get_full_path }}" />
               <button
@@ -57,7 +57,7 @@
             </li>
           </ul>
           <ul class="site-footer__social social-links list-unstyled d-flex flex-wrap gap-2 mb-0" aria-label="{% trans 'Réseaux sociaux' %}">
-            <li>
+            <li class="d-flex m-0 p-0">
               <a
                 href="https://www.facebook.com/share/1BdbsnCLaK/"
                 class="site-footer__social-link contact-page__social-link"
@@ -68,7 +68,7 @@
                 <i class="bi bi-facebook" aria-hidden="true"></i>
               </a>
             </li>
-            <li>
+            <li class="d-flex m-0 p-0">
               <a
                 href="https://www.linkedin.com/in/twiga-power-005b1a386?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
                 class="site-footer__social-link contact-page__social-link"
@@ -79,7 +79,7 @@
                 <i class="bi bi-linkedin" aria-hidden="true"></i>
               </a>
             </li>
-            <li>
+            <li class="d-flex m-0 p-0">
               <a
                 href="https://x.com/TwigaP73502?t=AWQTb66k7TsJzD50OswUdw&s=09"
                 class="site-footer__social-link contact-page__social-link"
@@ -90,7 +90,7 @@
                 <i class="bi bi-twitter" aria-hidden="true"></i>
               </a>
             </li>
-            <li>
+            <li class="d-flex m-0 p-0">
               <a
                 href="https://www.tiktok.com/@twiga.power?_t=ZM-90lXamRCgRs&_r=1"
                 class="site-footer__social-link contact-page__social-link"
@@ -123,7 +123,7 @@
     <div class="container px-3 px-md-4">
       <p class="site-footer__copyright mb-1">{% trans "© 2026 Twiga Power SARL. Tous droits réservés." %}</p>
       <p class="site-footer__credit mb-0">
-        {% trans "Design par" %} <span class="site-footer__credit-name">Elie Kisudiku</span>
+        {% trans "Design par" %} <span class="site-footer__credit-name text-white fw-medium">Elie Kisudiku</span>
       </p>
     </div>
   </div>

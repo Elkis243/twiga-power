@@ -19,13 +19,13 @@
         <form
           action="{% url 'mon_espace' %}"
           method="post"
-          class="contact-page__form needs-validation mon-espace-modal__form"
+          class="contact-page__form mon-espace-modal__form needs-validation"
           novalidate
           aria-labelledby="modal-{{ service.slug }}-title"
         >
           {% csrf_token %}
           <input type="hidden" name="service" value="{{ service.slug }}" />
-          {% include "components/mon_espace_form_fields.html" with field_prefix=service.field_prefix message_label=service.message_label message_placeholder=service.message_placeholder only %}
+          {% include "components/mon_espace_form_fields.html" with field_prefix=service.field_prefix message_label=service.message_label message_placeholder=service.message_placeholder post_data=service.post_data errors=service.errors only %}
           <div class="contact-page__submit-wrap mt-2">
             <button type="submit" class="contact-page__submit btn">
               {{ service.submit_label }}

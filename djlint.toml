@@ -1,0 +1,2 @@
+profile = "django"
+ignore = "T002"

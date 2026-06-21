@@ -55,15 +55,15 @@
       {% endfor %}
       {% endif %}
 
-      {% if form.non_field_errors %}
+      {% if non_field_errors %}
       <div class="alert alert-danger login-page__alert" role="alert">
-        {% for error in form.non_field_errors %}
+        {% for error in non_field_errors %}
         <p class="mb-0">{{ error }}</p>
         {% endfor %}
       </div>
       {% endif %}
 
-      <form method="post" action="{% url 'login' %}" class="contact-page__form login-page__form" novalidate>
+      <form method="post" action="{% url 'login' %}" class="contact-page__form login-page__form needs-validation" novalidate>
         {% csrf_token %}
         {% if request.GET.next %}
         <input type="hidden" name="next" value="{{ request.GET.next }}" />
@@ -72,20 +72,21 @@
         <div class="contact-page__field">
           <label class="contact-page__field-label" for="id_username">{% trans "Adresse e-mail" %}</label>
           <input
-            type="text"
+            type="email"
             name="username"
             id="id_username"
-            class="contact-page__input form-control{% if form.username.errors %} is-invalid{% endif %}"
-            value="{{ form.username.value|default:'' }}"
+            class="contact-page__input form-control{% if errors.username %} is-invalid{% endif %}"
+            value="{{ post_data.username|default:'' }}"
             placeholder="E-mail"
-            autocomplete="username"
+            autocomplete="email"
             inputmode="email"
-            required
             autofocus
+            required
+            data-msg-required="{% trans 'Veuillez saisir votre adresse e-mail.' %}"
           />
-          {% if form.username.errors %}
-          <div class="invalid-feedback d-block">{{ form.username.errors.0 }}</div>
-          {% endif %}
+          <div class="invalid-feedback">
+            {% if errors.username %}{{ errors.username }}{% else %}{% trans "Veuillez saisir une adresse e-mail valide." %}{% endif %}
+          </div>
         </div>
 
         <div class="contact-page__field">
@@ -94,14 +95,15 @@
             type="password"
             name="password"
             id="id_password"
-            class="contact-page__input form-control{% if form.password.errors %} is-invalid{% endif %}"
+            class="contact-page__input form-control{% if errors.password %} is-invalid{% endif %}"
             placeholder="{% trans 'Votre mot de passe' %}"
             autocomplete="current-password"
             required
+            data-msg-required="{% trans 'Veuillez saisir votre mot de passe.' %}"
           />
-          {% if form.password.errors %}
-          <div class="invalid-feedback d-block">{{ form.password.errors.0 }}</div>
-          {% endif %}
+          <div class="invalid-feedback">
+            {% if errors.password %}{{ errors.password }}{% else %}{% trans "Veuillez saisir votre mot de passe." %}{% endif %}
+          </div>
         </div>
 
         <div class="login-page__remember form-check">
@@ -111,6 +113,7 @@
             id="id_remember_me"
             class="form-check-input"
             value="1"
+            {% if post_data.remember_me %}checked{% endif %}
           />
           <label class="form-check-label login-page__remember-label" for="id_remember_me">
             {% trans "Se souvenir de moi" %}
@@ -137,7 +140,8 @@
   document.addEventListener("DOMContentLoaded", function () {
     var overlay = document.getElementById("loading");
     if (overlay) {
-      overlay.style.display = "none";
+      overlay.classList.add("d-none");
+      overlay.setAttribute("aria-hidden", "true");
     }
   });
 </script>

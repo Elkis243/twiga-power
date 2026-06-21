@@ -23,8 +23,14 @@ msgid "Image"
 msgstr "Image"
 
 #: app/forms.py:14
-msgid "Identifiant ou mot de passe incorrect. Veuillez réessayer."
-msgstr "Incorrect username or password. Please try again."
+msgid "Adresse e-mail ou mot de passe incorrect. Veuillez réessayer."
+msgstr "Incorrect email address or password. Please try again."
+
+msgid "Veuillez saisir votre adresse e-mail."
+msgstr "Please enter your email address."
+
+msgid "Veuillez saisir une adresse e-mail valide."
+msgstr "Please enter a valid email address."
 
 #: app/forms.py:16
 msgid "Ce compte est inactif."

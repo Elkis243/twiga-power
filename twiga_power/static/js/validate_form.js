@@ -1,169 +1,256 @@
-// Validation Bootstrap — contact (#customValidationForm) et modales Mon espace (.js-contact-form)
-function applyTrimValidation(field) {
-  const isTextarea = field.tagName === "TEXTAREA";
-  const isTextInput = field.tagName === "INPUT" && field.type === "text";
+/**
+ * Validation Bootstrap 5 — Twiga Power
+ *
+ * Active la validation HTML5 native sur tous les formulaires portant
+ * les classes `needs-validation` et l'attribut `novalidate`.
+ *
+ * Pattern officiel Bootstrap : https://getbootstrap.com/docs/5.3/forms/validation/
+ */
+(function () {
+  "use strict";
 
-  if (!isTextarea && !isTextInput) {
-    return;
-  }
+  /** Sélecteur des formulaires à valider */
+  var FORM_SELECTOR = ".needs-validation";
 
-  const trimmed = field.value.trim();
-  const min = field.minLength > 0 ? field.minLength : 0;
-  const emptyMsg =
-    field.getAttribute("data-msg-empty") ||
-    "Ce champ ne peut pas être laissé vide !";
+  /** Champs pris en charge (hors hidden, checkbox et radio) */
+  var FIELD_SELECTOR =
+    "input:not([type='hidden']):not([type='checkbox']):not([type='radio']), textarea, select";
 
-  if (field.required && !trimmed) {
-    field.setCustomValidity(emptyMsg);
-    return;
-  }
-
-  if (min && trimmed.length < min) {
-    field.setCustomValidity(
-      `Ce champ doit contenir au moins ${min} caractères !`,
-    );
-    return;
-  }
-
-  field.setCustomValidity("");
-}
-
-function initContactForm(form) {
-  const inputs = form.querySelectorAll(
-    "input:not([type='hidden']), textarea, select",
-  );
-
+  /**
+   * Retourne le bloc `.invalid-feedback` associé à un champ.
+   * Cherche d'abord le sibling direct, puis dans le conteneur parent.
+   */
   function getInvalidFeedback(field) {
-    let el = field.nextElementSibling;
-    while (el && !el.classList.contains("invalid-feedback")) {
-      el = el.nextElementSibling;
+    var sibling = field.nextElementSibling;
+    if (sibling && sibling.classList.contains("invalid-feedback")) {
+      return sibling;
     }
-    return el;
+
+    var parent = field.closest(".contact-page__field, .col-md-6, .modal-body");
+    if (parent) {
+      return parent.querySelector(".invalid-feedback");
+    }
+
+    return null;
   }
 
-  function validateField(field) {
-    const feedback = getInvalidFeedback(field);
-    if (!feedback) return;
+  /**
+   * Applique les règles métier via setCustomValidity() avant checkValidity().
+   * Réinitialise d'abord les messages personnalisés du navigateur.
+   */
+  function applyCustomRules(field) {
+    field.setCustomValidity("");
 
-    if (field.validity.valid) {
-      field.classList.remove("is-invalid");
-      field.classList.add("is-valid");
-      feedback.textContent = "";
-      feedback.classList.remove("d-block");
-    } else {
-      field.classList.remove("is-valid");
-      field.classList.add("is-invalid");
-      feedback.classList.add("d-block");
+    /* --- Fichiers (CV PDF, taille max) --- */
+    if (field.type === "file") {
+      var file = field.files && field.files[0];
+      var maxBytes = parseInt(field.getAttribute("data-max-bytes") || "0", 10);
 
-      if (field.validity.valueMissing) {
-        feedback.textContent =
-          field.getAttribute("data-msg-empty") ||
-          "Ce champ ne peut pas être laissé vide !";
-      } else if (field.validity.customError) {
-        feedback.textContent = field.validationMessage;
-      } else if (field.validity.tooShort) {
-        feedback.textContent = `Ce champ doit contenir au moins ${field.minLength || 0} caractères !`;
-      } else if (field.validity.tooLong) {
-        feedback.textContent = `Ce champ ne doit pas dépasser ${field.maxLength || 0} caractères !`;
-      } else if (field.validity.patternMismatch) {
-        feedback.textContent =
-          "Veuillez respecter le format requis pour ce champ !";
-      } else if (field.type === "radio" && !isRadioGroupValid(field)) {
-        feedback.textContent = "Ce champ ne peut pas être laissé vide !";
-      } else if (field.type === "checkbox" && !isCheckboxValid(field)) {
-        feedback.textContent = "Ce champ ne peut pas être laissé vide !";
-      } else {
-        feedback.textContent = "Ce champ est invalide !";
+      if (field.required && !file) {
+        field.setCustomValidity(
+          field.getAttribute("data-msg-required") ||
+            "Veuillez sélectionner un fichier.",
+        );
+        return;
+      }
+
+      if (file && maxBytes > 0 && file.size > maxBytes) {
+        field.setCustomValidity(
+          field.getAttribute("data-msg-max-size") ||
+            "Le fichier ne doit pas dépasser 5 Mo.",
+        );
+        return;
+      }
+
+      if (file) {
+        var isPdf =
+          file.type === "application/pdf" ||
+          file.name.toLowerCase().endsWith(".pdf");
+        if (!isPdf) {
+          field.setCustomValidity(
+            field.getAttribute("data-msg-type") ||
+              "Le fichier doit être au format PDF.",
+          );
+        }
+      }
+      return;
+    }
+
+    /* --- Correspondance de mot de passe (inscription) --- */
+    var matchName = field.getAttribute("data-match-field");
+    if (matchName && field.form) {
+      var matchField = field.form.querySelector('[name="' + matchName + '"]');
+      if (matchField && field.value !== matchField.value) {
+        field.setCustomValidity(
+          field.getAttribute("data-msg-mismatch") ||
+            "Les mots de passe ne correspondent pas.",
+        );
+        return;
+      }
+    }
+
+    /* --- Champs texte / textarea : trim + longueur minimale --- */
+    var isTextInput = field.tagName === "INPUT" && field.type === "text";
+    var isTextarea = field.tagName === "TEXTAREA";
+    var isEmail = field.type === "email";
+
+    if (isTextInput || isTextarea || isEmail) {
+      var trimmed = field.value.trim();
+
+      if (field.required && trimmed === "") {
+        field.setCustomValidity(
+          field.getAttribute("data-msg-required") ||
+            "Ce champ ne peut pas être laissé vide.",
+        );
+        return;
+      }
+
+      if (field.minLength > 0 && trimmed.length > 0 && trimmed.length < field.minLength) {
+        field.setCustomValidity(
+          field.getAttribute("data-msg-minlength") ||
+            "Ce champ ne respecte pas la longueur minimale requise.",
+        );
+        return;
+      }
+
+      if (field.hasAttribute("data-no-digits") && /\d/.test(trimmed)) {
+        field.setCustomValidity(
+          field.getAttribute("data-msg-no-digits") ||
+            "Ce champ ne doit pas contenir de chiffres.",
+        );
       }
     }
   }
 
-  function isRadioGroupValid(radio) {
-    const radioGroup = document.querySelectorAll(`input[name="${radio.name}"]`);
-    return Array.from(radioGroup).some((r) => r.checked);
+  /**
+   * Met à jour l'état visuel des champs fichier (input masqué dans .cv-upload).
+   */
+  function syncFileFieldVisual(field, isFormValidated) {
+    if (field.type !== "file") {
+      return;
+    }
+
+    var uploadRoot = field.closest(".cv-upload");
+    if (!uploadRoot) {
+      return;
+    }
+
+    if (isFormValidated && !field.checkValidity()) {
+      uploadRoot.classList.add("cv-upload--error", "is-invalid");
+    } else if (field.files && field.files[0]) {
+      uploadRoot.classList.remove("cv-upload--error", "is-invalid");
+    }
   }
 
-  function isCheckboxValid(checkbox) {
-    return checkbox.checked;
+  /**
+   * Affiche le message d'erreur personnalisé dans `.invalid-feedback`
+   * lorsque le navigateur renvoie une erreur customError ou valueMissing.
+   */
+  function syncFeedbackMessage(field) {
+    var feedback = getInvalidFeedback(field);
+    if (!feedback || field.validity.valid) {
+      return;
+    }
+
+    if (field.validity.customError || field.validationMessage) {
+      feedback.textContent = field.validationMessage;
+    }
   }
 
-  function prepareFieldsForValidation() {
-    inputs.forEach((input) => {
-      if (input.type === "file" && input.hasAttribute("data-max-bytes")) {
-        const max = parseInt(input.getAttribute("data-max-bytes"), 10);
-        if (input.files && input.files[0] && input.files[0].size > max) {
-          const msg =
-            input.getAttribute("data-msg-max-size") ||
-            "Le fichier ne doit pas dépasser 5 Mo.";
-          input.setCustomValidity(msg);
-        } else {
-          input.setCustomValidity("");
-        }
-      } else {
-        applyTrimValidation(input);
+  /**
+   * Supprime les espaces superflus avant l'envoi du formulaire.
+   */
+  function trimFieldsBeforeSubmit(fields) {
+    fields.forEach(function (field) {
+      if (
+        field.tagName === "TEXTAREA" ||
+        (field.tagName === "INPUT" &&
+          (field.type === "text" || field.type === "email"))
+      ) {
+        field.value = field.value.trim();
       }
     });
   }
 
-  form.addEventListener(
-    "submit",
-    (event) => {
-      prepareFieldsForValidation();
+  /**
+   * Initialise un formulaire : écouteurs submit + revalidation après saisie.
+   */
+  function initForm(form) {
+    var fields = form.querySelectorAll(FIELD_SELECTOR);
 
-      let isValid = true;
-      let firstInvalid = null;
+    form.addEventListener(
+      "submit",
+      function (event) {
+        /* Appliquer les règles métier avant la validation native */
+        fields.forEach(applyCustomRules);
 
-      inputs.forEach((input) => {
-        if (!input.checkValidity()) {
-          isValid = false;
-          if (!firstInvalid) {
-            firstInvalid = input;
-          }
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        } else {
+          trimFieldsBeforeSubmit(fields);
         }
-        validateField(input);
-      });
 
-      if (!isValid) {
-        event.preventDefault();
-        event.stopImmediatePropagation();
+        /* Classe Bootstrap : active les styles :invalid / .invalid-feedback */
         form.classList.add("was-validated");
-        firstInvalid?.focus();
-        return;
-      }
 
-      inputs.forEach((input) => {
-        if (input.tagName === "TEXTAREA" || input.type === "text") {
-          input.value = input.value.trim();
+        fields.forEach(function (field) {
+          syncFileFieldVisual(field, true);
+          syncFeedbackMessage(field);
+        });
+
+        var firstInvalid = form.querySelector(":invalid");
+        if (firstInvalid) {
+          firstInvalid.focus();
         }
-      });
-    },
-    true,
-  );
+      },
+      false,
+    );
 
-  inputs.forEach((input) => {
-    const handler = () => {
-      if (input.type === "file") {
-        input.setCustomValidity("");
-      } else {
-        applyTrimValidation(input);
+    /* Revalidation en direct après la première tentative de soumission */
+    fields.forEach(function (field) {
+      function revalidate() {
+        if (!form.classList.contains("was-validated")) {
+          return;
+        }
+        applyCustomRules(field);
+        syncFileFieldVisual(field, true);
+        syncFeedbackMessage(field);
       }
-      validateField(input);
-    };
 
-    if (input.type === "file") {
-      input.addEventListener("change", handler);
-    } else {
-      input.addEventListener("input", handler);
-    }
-    input.addEventListener("blur", handler);
-  });
-}
+      field.addEventListener("input", revalidate);
+      field.addEventListener("blur", revalidate);
+      if (field.type === "file") {
+        field.addEventListener("change", revalidate);
+      }
+    });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const forms = new Set([
-    ...document.querySelectorAll(".js-contact-form:not(.mon-espace-modal__form)"),
-    document.getElementById("customValidationForm"),
-  ].filter(Boolean));
+    /* Revalider la confirmation mot de passe quand le mot de passe change */
+    var passwordFields = form.querySelectorAll("[data-match-field]");
+    passwordFields.forEach(function (confirmField) {
+      var matchName = confirmField.getAttribute("data-match-field");
+      var sourceField = form.querySelector('[name="' + matchName + '"]');
+      if (sourceField) {
+        sourceField.addEventListener("input", function () {
+          if (form.classList.contains("was-validated")) {
+            applyCustomRules(confirmField);
+            syncFeedbackMessage(confirmField);
+          }
+        });
+      }
+    });
+  }
 
-  forms.forEach(initContactForm);
-});
+  /**
+   * Point d'entrée : attacher la validation à tous les formulaires concernés.
+   */
+  function initAllForms() {
+    document.querySelectorAll(FORM_SELECTOR).forEach(initForm);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initAllForms);
+  } else {
+    initAllForms();
+  }
+})();

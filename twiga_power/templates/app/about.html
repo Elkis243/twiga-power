@@ -1,119 +1,134 @@
-{% extends "base.html" %} {% load static i18n %} {% block base %} {% include "components/navbar.html" %}
-<div class="header-contact">
-  <div
-    class="d-flex flex-column justify-content-center align-items-center text-center px-3"
-    data-sal="fade"
-    data-sal-duration="800"
-    data-sal-easing="ease-out-cubic"
-  >
-    <h1 class="text-white mb-0">{% trans "Notre histoire" %}</h1>
-    <div class="project-detail__title-accent mt-3" aria-hidden="true"></div>
-  </div>
-</div>
-<section id="historique" class="container mt-5 mb-5 px-3 px-md-4 py-4 py-md-5">
-  <div class="row justify-content-center">
-    <div class="col-md-10">
-      <div class="row gy-5">
-        <div
-          class="col-12" data-sal="slide-up" data-sal-duration="750" data-sal-delay="120" data-sal-easing="ease-out-cubic"
-        >
-          <div>
-            <div id="presentation" class="mb-4">
-              <p class="text-color h3 lh-sm mb-3">{% trans "Notre histoire" %}</p>
-              <p class="text-muted">
-                {% blocktrans %}Créée en novembre 2024, Twiga Power SARL est une société de droit congolais constituée
-                sous la forme d’une Société à Responsabilité Limitée (SARL). Elle s’inscrit dans une dynamique de
-                développement énergétique visant à apporter des solutions innovantes et adaptées au contexte de la
-                République Démocratique du Congo.{% endblocktrans %}
-              </p>
-              <p class="text-muted">
-                {% blocktrans %}Animée par la volonté de fournir une énergie fiable, économiquement accessible et
-                durable, Twiga Power SARL œuvre pour soutenir la croissance économique et répondre efficacement aux
-                besoins croissants en électricité, tout en contribuant à l’amélioration des conditions de vie des
-                communautés.{% endblocktrans %}
-              </p>
-              <a href="{% url 'contact' %}" class="btn btn-primary">
-                {% trans "Nous contacter" %} <i class="bi bi-arrow-right text-accent"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+{% extends "base.html" %}
+{% load static i18n %}
+{% block base %}
+  {% include
+  "components/navbar.html" %}
+  <div class="header-contact">
+    <div class="d-flex flex-column justify-content-center align-items-center text-center px-3"
+         data-sal="fade"
+         data-sal-duration="800"
+         data-sal-easing="ease-out-cubic">
+      <h1 class="text-white mb-0">{% trans "Notre histoire" %}</h1>
+      <div class="project-detail__title-accent mt-3" aria-hidden="true"></div>
     </div>
   </div>
-</section>
-<section id="vision-mission" class="mt-5 p-5 bg-body-secondary">
-  <div class="container">
+  <section id="historique" class="container mt-5 mb-5 px-3 px-md-4 py-4 py-md-5">
     <div class="row justify-content-center">
       <div class="col-md-10">
-        <div class="row justify-content-between gy-3">
-          <div
-            class="col-md-6"
-            data-sal="slide-up"
-            data-sal-duration="700"
-            data-sal-delay="80"
-            data-sal-easing="ease-out-cubic"
-          >
-            <div class="container">
-              <h3 class="mb-3 text-color">{% trans "Notre Mission" %}</h3>
-              <p>
-                {% blocktrans %}Fournir des solutions énergétiques durables et accessibles qui contribuent au
-                développement économique et social de la République Démocratique du Congo.{% endblocktrans %}
-              </p>
-              <ul class="list-unstyled">
-                <li class="mb-2">
-                  <i class="bi bi-check-circle text-accent me-2"></i>
-                  {% blocktrans %}Répondre aux besoins fondamentaux de la population en garantissant un accès fiable,
-                  sécurisé et durable à l’énergie électrique.{% endblocktrans %}
-                </li>
-                <li class="mb-2">
-                  <i class="bi bi-check-circle text-accent me-2"></i>
-                  {% blocktrans %}Contribuer de manière responsable au développement économique, social et
-                  environnemental de la République Démocratique du Congo.{% endblocktrans %}
-                </li>
-                <li class="mb-2">
-                  <i class="bi bi-check-circle text-accent me-2"></i>
-                  {% blocktrans %}Aller au-delà du rôle d’énergéticien en accompagnant et en sensibilisant les
-                  consommateurs à une utilisation responsable de l’électricité, afin de renforcer leur satisfaction.{% endblocktrans %}
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div
-            class="col-md-6"
-            data-sal="slide-up"
-            data-sal-duration="700"
-            data-sal-delay="160"
-            data-sal-easing="ease-out-cubic"
-          >
-            <div class="container">
-              <h3 class="mb-3 text-color">{% trans "Notre Vision" %}</h3>
-              <p>
-                {% blocktrans %}Être une référence nationale et un acteur central de la relance énergétique durable en
-                République Démocratique du Congo{% endblocktrans %}
-              </p>
-              <ul class="list-unstyled">
-                <li class="mb-2">
-                  <i class="bi bi-check-circle text-accent me-2"></i>
-                  {% blocktrans %}Électrifier les zones rurales et urbaines afin de réduire les inégalités d’accès à
-                  l’électricité.{% endblocktrans %}
-                </li>
-                <li class="mb-2">
-                  <i class="bi bi-check-circle text-accent me-2"></i>
-                  {% blocktrans %}Promouvoir les énergies renouvelables et l’innovation pour des solutions modernes et
-                  durables.{% endblocktrans %}
-                </li>
-                <li class="mb-2">
-                  <i class="bi bi-check-circle text-accent me-2"></i>
-                  {% blocktrans %}Former la main-d’œuvre locale afin de renforcer les compétences et garantir un service
-                  de qualité.{% endblocktrans %}
-                </li>
-              </ul>
+        <div class="row gy-5">
+          <div class="col-12"
+               data-sal="slide-up"
+               data-sal-duration="750"
+               data-sal-delay="120"
+               data-sal-easing="ease-out-cubic">
+            <div>
+              <div id="presentation" class="mb-4">
+                <p class="text-color h3 lh-sm mb-3">{% trans "Notre histoire" %}</p>
+                <p class="text-muted">
+                  {% blocktrans %}Créée en novembre 2024, Twiga Power SARL est une
+                société de droit congolais constituée sous la forme d’une
+                Société à Responsabilité Limitée (SARL). Elle s’inscrit dans une
+                dynamique de développement énergétique visant à apporter des
+                solutions innovantes et adaptées au contexte de la République
+                Démocratique du Congo.{% endblocktrans %}
+                </p>
+                <p class="text-muted">
+                  {% blocktrans %}Animée par la volonté de fournir une énergie
+                fiable, économiquement accessible et durable, Twiga Power SARL
+                œuvre pour soutenir la croissance économique et répondre
+                efficacement aux besoins croissants en électricité, tout en
+                contribuant à l’amélioration des conditions de vie des
+                communautés.{% endblocktrans %}
+                </p>
+                <a href="{% url 'contact' %}" class="btn btn-primary">
+                  {% trans "Nous contacter" %}
+                  <i class="bi bi-arrow-right text-accent"></i>
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
+  <section id="vision-mission" class="mt-5 p-5 bg-body-secondary">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-10">
+          <div class="row justify-content-between gy-3">
+            <div class="col-md-6"
+                 data-sal="slide-up"
+                 data-sal-duration="700"
+                 data-sal-delay="80"
+                 data-sal-easing="ease-out-cubic">
+              <div class="container">
+                <h3 class="mb-3 text-color">{% trans "Notre Mission" %}</h3>
+                <p>
+                  {% blocktrans %}Fournir des solutions énergétiques durables et
+                accessibles qui contribuent au développement économique et
+                social de la République Démocratique du Congo.{% endblocktrans
+                %}
+              </p>
+              <ul class="list-unstyled">
+                <li class="mb-2">
+                  <i class="bi bi-check-circle text-accent me-2"></i>
+                  {% blocktrans %}Répondre aux besoins fondamentaux de la
+                  population en garantissant un accès fiable, sécurisé et
+                  durable à l’énergie électrique.{% endblocktrans %}
+</li>
+<li class="mb-2">
+<i class="bi bi-check-circle text-accent me-2"></i>
+{% blocktrans %}Contribuer de manière responsable au
+                  développement économique, social et environnemental de la
+                  République Démocratique du Congo.{% endblocktrans %}
+</li>
+<li class="mb-2">
+<i class="bi bi-check-circle text-accent me-2"></i>
+{% blocktrans %}Aller au-delà du rôle d’énergéticien en
+                  accompagnant et en sensibilisant les consommateurs à une
+                  utilisation responsable de l’électricité, afin de renforcer
+                  leur satisfaction.{% endblocktrans %}
+</li>
+</ul>
+</div>
+</div>
+<div class="col-md-6" data-sal="slide-up" data-sal-duration="700" data-sal-delay="160" data-sal-easing="ease-out-cubic">
+<div class="container">
+<h3 class="mb-3 text-color">{% trans "Notre Vision" %}</h3>
+<p>
+{% blocktrans %}Être une référence nationale et un acteur
+                central de la relance énergétique durable en République
+                Démocratique du Congo{% endblocktrans %}
+</p>
+<ul class="list-unstyled">
+<li class="mb-2">
+<i class="bi bi-check-circle text-accent me-2"></i>
+{% blocktrans %}
+Électrifier les zones rurales et urbaines afin
+de réduire les inégalités d’accès à l’électricité.{%
+endblocktrans %}
+</li>
+<li class="mb-2">
+<i class="bi bi-check-circle text-accent me-2"></i>
+{% blocktrans %}
+Promouvoir les énergies renouvelables et
+l’innovation pour des solutions modernes et durables.{%
+endblocktrans %}
+</li>
+<li class="mb-2">
+<i class="bi bi-check-circle text-accent me-2"></i>
+{% blocktrans %}
+Former la main-d’œuvre locale afin de
+renforcer les compétences et garantir un service de qualité.{%
+endblocktrans %}
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-{% include "components/footer.html" %} {% endblock base %}
+{% include "components/footer.html" %}
+{% endblock base %}

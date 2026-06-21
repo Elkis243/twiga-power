@@ -4,15 +4,17 @@
     {% if message_label %}{{ message_label }}{% else %}{% trans "Message" %}{% endif %}
   </label>
   <textarea
-    class="contact-page__input contact-page__input--textarea form-control"
-    id="{{ field_prefix }}message"
     name="message"
+    id="{{ field_prefix }}message"
+    class="contact-page__input contact-page__input--textarea form-control{% if errors.message %} is-invalid{% endif %}"
     rows="5"
     placeholder="{% if message_placeholder %}{{ message_placeholder }}{% else %}{% trans 'Écrivez votre message…' %}{% endif %}"
     required
     minlength="10"
-    maxlength="700"
-    data-msg-empty="{% trans 'Message requis !' %}"
-  ></textarea>
-  <div class="invalid-feedback">{% trans "Message requis !" %}</div>
+    data-msg-required="{% trans 'Veuillez saisir votre message.' %}"
+    data-msg-minlength="{% trans 'Votre message doit contenir au moins 10 caractères.' %}"
+  >{{ post_data.message|default:'' }}</textarea>
+  <div class="invalid-feedback">
+    {% if errors.message %}{{ errors.message }}{% else %}{% trans "Votre message doit contenir au moins 10 caractères." %}{% endif %}
+  </div>
 </div>

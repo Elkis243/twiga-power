@@ -152,9 +152,8 @@
         <form
           action="{% url 'contact' %}"
           method="post"
-          class="contact-page__form needs-validation js-contact-form"
+          class="contact-page__form needs-validation"
           novalidate
-          id="customValidationForm"
           aria-labelledby="contact-form-title"
         >
           <h2 id="contact-form-title" class="visually-hidden">{% trans "Formulaire de contact" %}</h2>
@@ -164,44 +163,58 @@
               <label class="contact-page__field-label" for="name">{% trans "Votre nom" %}</label>
               <input
                 type="text"
-                class="contact-page__input form-control"
-                id="name"
                 name="name"
+                id="name"
+                class="contact-page__input form-control{% if errors.name %} is-invalid{% endif %}"
+                value="{{ post_data.name|default:'' }}"
                 placeholder="{% trans 'Votre nom complet' %}"
+                autocomplete="name"
                 required
                 minlength="2"
-                maxlength="100"
-                pattern="^[^\d]+$"
+                data-no-digits
+                data-msg-required="{% trans 'Veuillez indiquer votre nom.' %}"
+                data-msg-minlength="{% trans 'Veuillez indiquer votre nom (au moins 2 caractères).' %}"
+                data-msg-no-digits="{% trans 'Le nom ne doit pas contenir de chiffres.' %}"
               />
-              <div class="invalid-feedback">{% trans "Nom requis !" %}</div>
+              <div class="invalid-feedback">
+                {% if errors.name %}{{ errors.name }}{% else %}{% trans "Veuillez indiquer votre nom (au moins 2 caractères)." %}{% endif %}
+              </div>
             </div>
             <div class="col-md-6">
               <label class="contact-page__field-label" for="email">{% trans "Adresse e-mail" %}</label>
               <input
                 type="email"
-                class="contact-page__input form-control"
-                id="email"
                 name="email"
+                id="email"
+                class="contact-page__input form-control{% if errors.email %} is-invalid{% endif %}"
+                value="{{ post_data.email|default:'' }}"
                 placeholder="{% trans 'Votre adresse e-mail' %}"
+                autocomplete="email"
+                inputmode="email"
                 required
+                data-msg-required="{% trans 'Veuillez indiquer votre adresse e-mail.' %}"
               />
-              <div class="invalid-feedback">{% trans "Email requis !" %}</div>
+              <div class="invalid-feedback">
+                {% if errors.email %}{{ errors.email }}{% else %}{% trans "Veuillez saisir une adresse e-mail valide." %}{% endif %}
+              </div>
             </div>
           </div>
           <div class="contact-page__field">
             <label class="contact-page__field-label" for="message">{% trans "Message" %}</label>
             <textarea
-              class="contact-page__input contact-page__input--textarea form-control"
-              id="message"
               name="message"
+              id="message"
+              class="contact-page__input contact-page__input--textarea form-control{% if errors.message %} is-invalid{% endif %}"
               rows="6"
               placeholder="{% trans 'Écrivez votre message…' %}"
               required
               minlength="10"
-              maxlength="700"
-              data-msg-empty="{% trans 'Message requis !' %}"
-            ></textarea>
-            <div class="invalid-feedback">{% trans "Message requis !" %}</div>
+              data-msg-required="{% trans 'Veuillez saisir votre message.' %}"
+              data-msg-minlength="{% trans 'Votre message doit contenir au moins 10 caractères.' %}"
+            >{{ post_data.message|default:'' }}</textarea>
+            <div class="invalid-feedback">
+              {% if errors.message %}{{ errors.message }}{% else %}{% trans "Votre message doit contenir au moins 10 caractères." %}{% endif %}
+            </div>
           </div>
           <button type="submit" class="contact-page__submit btn w-100">
             {% trans "Envoyer le message" %}
@@ -215,5 +228,4 @@
 </section>
 
 {% include "components/footer.html" %}
-<script src="{% static 'js/validate_form.js' %}"></script>
 {% endblock base %}

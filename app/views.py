@@ -1,8 +1,8 @@
 from datetime import datetime
 
 from django.contrib import messages
+from django.contrib.auth import authenticate, get_user_model, login, logout
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.views import LoginView, LogoutView
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.http import Http404
 from django.shortcuts import get_object_or_404, HttpResponseRedirect, redirect, render
@@ -10,107 +10,25 @@ from django.urls import reverse
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
-PDF_MAX_CANDIDATURE_BYTES = 5 * 1024 * 1024
-
-from .forms import RegisterForm, TwigaAuthenticationForm
+from .data.activities import ACTIVITIES
+from .data.equipe_dirigeante import EQUIPE_DIRIGEANTE_MEMBERS
+from .data.gallery import GALLERY_ITEMS, GALLERY_ITEMS_PER_PAGE
+from .data.partners import PARTNER_LOGOS
 from .models import Actualite, Offre
 from .utils.mail import (
     send_candidature_email,
     send_contact_email,
     send_mon_espace_request_email,
 )
+from .validators import (
+    validate_candidature,
+    validate_contact,
+    validate_login,
+    validate_mon_espace_message,
+    validate_register,
+)
 
-
-# Remplacez les URLs par les sites officiels de chaque partenaire.
-PARTNER_LOGOS = [
-    {
-        "src": "images/partner5.png",
-        "alt": _("Logo partenaire 5"),
-        "url": "https://www.example.com",
-    },
-    {
-        "src": "images/partner3.png",
-        "alt": _("Logo partenaire 3"),
-        "url": "https://www.example.com",
-    },
-    {
-        "src": "images/partner4.png",
-        "alt": _("Logo partenaire 4"),
-        "url": "https://www.example.com",
-    },
-    {
-        "src": "images/partner1.png",
-        "alt": _("Logo partenaire 1"),
-        "url": "https://www.example.com",
-    },
-    {
-        "src": "images/partner2.png",
-        "alt": _("Logo partenaire 2"),
-        "url": "https://www.example.com",
-    },
-    {
-        "src": "images/partner6.png",
-        "alt": _("Logo partenaire 6"),
-        "url": "https://www.example.com",
-    },
-]
-
-ACTIVITIES = [
-    {
-        "slug": "importation",
-        "title": _("Importation de l'énergie électrique"),
-        "description": _(
-            "L'importation de l'énergie électrique constitue un levier stratégique pour Twiga Power Sarl. Elle permet de renforcer l'approvisionnement lorsque la production locale est insuffisante, d'assurer la continuité et la stabilité du service, et de répondre efficacement aux pics de consommation."
-        ),
-        "image": "images/activite6.webp",
-        "image_alt": _("Importation d'énergie électrique"),
-    },
-    {
-        "slug": "exportation",
-        "title": _("Exportation de l'énergie électrique"),
-        "description": _(
-            "Twiga Power Sarl développe également des activités d'exportation de l'énergie électrique visant à valoriser les capacités de production excédentaires et à participer aux échanges énergétiques régionaux. Cette activité contribue au renforcement de la compétitivité de l'entreprise, à la création de valeur économique et au positionnement de la RDC comme un acteur énergétique régional."
-        ),
-        "image": "images/activite5.webp",
-        "image_alt": _("Exportation d'énergie électrique"),
-    },
-    {
-        "slug": "production",
-        "title": _("Production de l'énergie électrique"),
-        "description": _(
-            "La production constitue un pilier stratégique pour Twiga Power Sarl, qui développe des capacités basées sur l'eau (centrales hydroélectriques), la chaleur (solutions thermiques), le vent (éolien), le soleil (photovoltaïque) et des solutions hybrides combinant plusieurs sources selon les besoins locaux. Cette diversification assure un approvisionnement énergétique sûr, durable et résilient, tout en contribuant à la transition énergétique du pays."
-        ),
-        "image": "images/activite1.webp",
-        "image_alt": _("Production d'énergie électrique"),
-    },
-    {
-        "slug": "transport",
-        "title": _("Transport de l'énergie électrique"),
-        "description": _(
-            "Le transport de l'électricité consiste à acheminer l'énergie produite ou importée vers les centres de consommation à travers des infrastructures haute et moyenne tension, en veillant à la sécurité, à la performance des lignes et à la réduction des pertes techniques."
-        ),
-        "image": "images/activite2.webp",
-        "image_alt": _("Transport d'énergie électrique"),
-    },
-    {
-        "slug": "distribution",
-        "title": _("Distribution de l'énergie électrique"),
-        "description": _(
-            "La distribution constitue le lien direct entre Twiga Power Sarl et les consommateurs finaux. L'entreprise déploie et exploite des réseaux adaptés aux réalités locales, en mettant l'accent sur la fiabilité, la qualité du service et l'amélioration de l'accès à l'électricité pour les ménages et les entreprises, contribuant ainsi à la satisfaction des clients et à la confiance des partenaires."
-        ),
-        "image": "images/activite3.webp",
-        "image_alt": _("Distribution d'énergie électrique"),
-    },
-    {
-        "slug": "commercialisation",
-        "title": _("Commercialisation de l'énergie électrique"),
-        "description": _(
-            "La commercialisation regroupe la vente d'électricité, la relation client et la gestion de la consommation. Twiga Power Sarl adopte une approche client basée sur la transparence tarifaire, la sensibilisation à une consommation responsable et la réduction des plaintes, contribuant ainsi à la satisfaction des clients et à la confiance des partenaires."
-        ),
-        "image": "images/activite4.webp",
-        "image_alt": _("Commercialisation d'énergie électrique"),
-    },
-]
+User = get_user_model()
 
 
 def home(request):
@@ -136,33 +54,46 @@ def activite(request):
 
 def contact(request):
     page = _("Contact")
-    context = {"page": page}
+    post_data = {}
+    errors = {}
 
     if request.method == "POST":
-        name = (request.POST.get("name") or "").strip()
-        email = (request.POST.get("email") or "").strip()
-        message = (request.POST.get("message") or "").strip()
+        post_data = {
+            "name": request.POST.get("name"),
+            "email": request.POST.get("email"),
+            "message": request.POST.get("message"),
+        }
+        errors, cleaned = validate_contact(
+            post_data["name"], post_data["email"], post_data["message"]
+        )
+        post_data = cleaned
 
-        validation_error = _validate_contact_fields(name, email, message)
-        if validation_error:
-            messages.error(request, validation_error)
-            return redirect("contact")
+        if not errors:
+            try:
+                send_contact_email(
+                    name=cleaned["name"],
+                    email=cleaned["email"],
+                    message=cleaned["message"],
+                )
+                messages.success(
+                    request,
+                    _(
+                        "Votre message a été envoyé avec succès. Nous vous répondrons bientôt !"
+                    ),
+                )
+                return redirect("contact")
+            except Exception as e:
+                messages.error(
+                    request,
+                    _("Une erreur est survenue lors de l'envoi du message : %(error)s")
+                    % {"error": e},
+                )
 
-        try:
-            send_contact_email(name=name, email=email, message=message)
-            messages.success(
-                request,
-                _("Votre message a été envoyé avec succès. Nous vous répondrons bientôt !"),
-            )
-            return redirect("contact")
-
-        except Exception as e:
-            messages.error(
-                request, f"Une erreur est survenue lors de l'envoi du message : {e}"
-            )
-            return redirect("contact")
-
-    return render(request, "app/contact.html", context)
+    return render(
+        request,
+        "app/contact.html",
+        {"page": page, "post_data": post_data, "errors": errors},
+    )
 
 
 def about(request):
@@ -235,25 +166,6 @@ def ambition_valeurs(request):
     return render(request, "app/ambition_valeurs.html", context)
 
 
-EQUIPE_DIRIGEANTE_MEMBERS = [
-    {
-        "src": "images/Equipe Dg.webp",
-        "role": _("Directeur Général"),
-        "name": "Papy Mvulazana Mbidi",
-    },
-    {
-        "src": "images/Equipe Dt.webp",
-        "role": _("Directeur en charge de la gestion et développement des projets"),
-        "name": "Kevin Lobota",
-    },
-    {
-        "src": "images/Equipe Rh.webp",
-        "role": _("Directeur Administratif et financier"),
-        "name": "Olivier Luwando",
-    },
-]
-
-
 def equipe_dirigeante(request):
     page = _("Équipe dirigeante")
     context = {
@@ -300,31 +212,46 @@ def postuler_offre(request, slug):
     errors = {}
 
     if request.method == "POST":
-        prenom = (request.POST.get("prenom") or "").strip()
-        nom = (request.POST.get("nom") or "").strip()
-        email = (request.POST.get("email") or "").strip()
-        telephone = (request.POST.get("telephone") or "").strip()
-        lettre_motivation = (request.POST.get("lettre_motivation") or "").strip()
-        cv = request.FILES.get("cv")
-
         post_data = {
-            "prenom": prenom,
-            "nom": nom,
-            "email": email,
-            "telephone": telephone,
-            "lettre_motivation": lettre_motivation,
+            "prenom": request.POST.get("prenom"),
+            "nom": request.POST.get("nom"),
+            "telephone": request.POST.get("telephone"),
+            "email": request.POST.get("email"),
+            "lettre_motivation": request.POST.get("lettre_motivation"),
         }
-        send_candidature_email(
-            offre,
-            prenom=prenom,
-            nom=nom,
-            email=email,
-            telephone=telephone,
-            lettre_motivation=lettre_motivation,
-            cv_fichier=cv,
+        cv = request.FILES.get("cv")
+        errors, cleaned = validate_candidature(
+            post_data["prenom"],
+            post_data["nom"],
+            post_data["telephone"],
+            post_data["email"],
+            post_data["lettre_motivation"],
+            cv,
         )
-        messages.success(request, _("Votre candidature a été envoyée avec succès."))
-        return HttpResponseRedirect(reverse("postuler_offre", args=[offre.slug]))
+        post_data = {k: v for k, v in cleaned.items() if k != "cv"}
+
+        if not errors:
+            try:
+                send_candidature_email(
+                    offre,
+                    prenom=cleaned["prenom"],
+                    nom=cleaned["nom"],
+                    email=cleaned["email"],
+                    telephone=cleaned["telephone"],
+                    lettre_motivation=cleaned["lettre_motivation"],
+                    cv_fichier=cleaned["cv"],
+                )
+                messages.success(
+                    request, _("Votre candidature a été envoyée avec succès.")
+                )
+                return HttpResponseRedirect(reverse("postuler_offre", args=[offre.slug]))
+            except Exception as e:
+                messages.error(
+                    request,
+                    _("Une erreur est survenue lors de l'envoi : %(error)s")
+                    % {"error": e},
+                )
+
     return render(
         request,
         "app/postuler_offre.html",
@@ -403,81 +330,6 @@ def detail_project_construction(request, project_id):
     return render(request, "app/detail_project_construction.html", context)
 
 
-GALLERY_ITEMS = [
-    {
-        "image": "images/picture7.webp",
-        "title": _(
-            "Obtention de la licence d'importation et de commercialisation de l'électricité – ARE-RDC"
-        ),
-    },
-    {
-        "image": "images/picture12.webp",
-        "title": _(
-            "Obtention de la licence d'importation et de commercialisation de l'électricité – ARE-RDC"
-        ),
-    },
-    {
-        "image": "images/picture13.webp",
-        "title": _(
-            "Obtention de la licence d'importation et de commercialisation de l'électricité – ARE-RDC"
-        ),
-    },
-    {
-        "image": "images/picture10.webp",
-        "title": _("Pont en liasse, rivière Inkisi, village Mbata Nkulusu"),
-    },
-    {
-        "image": "images/picture2.webp",
-        "title": _("Rapide rivière Inkisi"),
-    },
-    {
-        "image": "images/picture8.webp",
-        "title": _("Rivière Inkisi, site de Kibombo, Kongo-central"),
-    },
-    {
-        "image": "images/picture9.webp",
-        "title": _("Les enfants du village Mbata Nkulusu"),
-    },
-    {
-        "image": "images/picture5.webp",
-        "title": _("Communauté locale"),
-    },
-    {
-        "image": "images/picture11.webp",
-        "title": _("Visite du site avec les spécialistes"),
-    },
-    {
-        "image": "images/picture14.webp",
-        "title": _("Visite du site avec les spécialistes"),
-    },
-    {
-        "image": "images/picture15.webp",
-        "title": _("Visite du site avec les spécialistes"),
-    },
-    {
-        "image": "images/picture16.webp",
-        "title": _(
-            "Rencontre institutionnelle entre TWIGA Power SARL et l'ANSER, consacrée à la présentation de l'entreprise et à l'exploration d'opportunités de partenariat."
-        ),
-    },
-    {
-        "image": "images/picture17.webp",
-        "title": _(
-            "Échanges constructifs autour des perspectives de collaboration entre TWIGA Power SARL et l'ANSER."
-        ),
-    },
-    {
-        "image": "images/picture18.webp",
-        "title": _(
-            "Assemblée Générale de la SPV KIBOMBO POWER SA réunissant les partenaires du projet — SNEL SA, TOHA ENERGY SARL et TWIGA POWER SARL — pour faire le point sur les activités en cours et les perspectives de développement du projet."
-        ),
-    },
-]
-
-
-GALLERY_ITEMS_PER_PAGE = 6
-
-
 def galery(request):
     # Resolve lazy translations for the active locale (cards + lightbox data-title).
     gallery_items = [
@@ -531,25 +383,66 @@ def browserconfig_xml(request):
     return render(request, "browserconfig.xml", context, content_type="application/xml")
 
 
-class ConnexionView(LoginView):
-    template_name = "app/login.html"
-    authentication_form = TwigaAuthenticationForm
-    redirect_authenticated_user = True
+def connexion(request):
+    if request.user.is_authenticated:
+        return redirect("home")
 
-    def form_valid(self, form):
-        response = super().form_valid(form)
-        remember_me = self.request.POST.get("remember_me")
-        if remember_me:
-            self.request.session.set_expiry(None)
-        else:
-            self.request.session.set_expiry(0)
-        return response
+    page = _("Connexion")
+    post_data = {}
+    errors = {}
+    non_field_errors = []
 
-    def get_success_url(self):
-        redirect_to = self.get_redirect_url()
-        if redirect_to:
-            return redirect_to
-        return reverse("home")
+    if request.method == "POST":
+        post_data = {
+            "username": request.POST.get("username"),
+            "password": request.POST.get("password"),
+            "remember_me": request.POST.get("remember_me"),
+        }
+        errors, cleaned = validate_login(
+            post_data["username"], post_data["password"]
+        )
+        post_data["username"] = cleaned["username"]
+
+        if not errors:
+            user = authenticate(
+                request,
+                username=cleaned["username"],
+                password=cleaned["password"],
+            )
+            if user is not None:
+                if user.is_active:
+                    login(request, user)
+                    if post_data.get("remember_me"):
+                        request.session.set_expiry(None)
+                    else:
+                        request.session.set_expiry(0)
+                    next_url = request.POST.get("next") or request.GET.get("next")
+                    if next_url:
+                        return redirect(next_url)
+                    return redirect("home")
+                non_field_errors = [_("Ce compte est inactif.")]
+            else:
+                non_field_errors = [
+                    _(
+                        "Adresse e-mail ou mot de passe incorrect. Veuillez réessayer."
+                    )
+                ]
+
+    return render(
+        request,
+        "app/login.html",
+        {
+            "page": page,
+            "post_data": post_data,
+            "errors": errors,
+            "non_field_errors": non_field_errors,
+        },
+    )
+
+
+def deconnexion(request):
+    logout(request)
+    return redirect("home")
 
 
 MON_ESPACE_SERVICES = [
@@ -602,65 +495,72 @@ def _get_mon_espace_service(slug):
     return next((s for s in MON_ESPACE_SERVICES if s["slug"] == slug), None)
 
 
-def _validate_contact_fields(name, email, message):
-    if len(name) < 2:
-        return _("Veuillez indiquer votre nom (au moins 2 caractères).")
-    if not email:
-        return _("Veuillez indiquer votre adresse e-mail.")
-    if len(message) < 10:
-        return _("Votre message doit contenir au moins 10 caractères.")
-    return None
-
-
 @login_required
 def mon_espace(request):
     page = _("Mon espace")
     display_name = request.user.get_full_name().strip() or request.user.email
+    active_service_slug = (request.GET.get("service") or "").strip()
+    post_data_by_service = {}
+    errors_by_service = {}
 
     if request.method == "POST":
-        service_slug = (request.POST.get("service") or "").strip()
-        service = _get_mon_espace_service(service_slug)
+        posted_slug = (request.POST.get("service") or "").strip()
         message = (request.POST.get("message") or "").strip()
-        name = request.user.get_full_name().strip() or request.user.email
-        email = request.user.email
+        service = _get_mon_espace_service(posted_slug)
+        active_service_slug = posted_slug
+        post_data_by_service[posted_slug] = {"message": message}
 
         if not service:
             messages.error(request, _("Type de demande invalide."))
             return redirect(reverse("mon_espace"))
 
-        if not email:
-            messages.error(request, _("Votre compte ne possède pas d'adresse e-mail."))
-            return redirect(reverse("mon_espace"))
+        message_error = validate_mon_espace_message(message)
+        if message_error:
+            errors_by_service[posted_slug] = {"message": message_error}
+        else:
+            email = request.user.email
+            if not email:
+                messages.error(
+                    request, _("Votre compte ne possède pas d'adresse e-mail.")
+                )
+                return redirect(f"{reverse('mon_espace')}?service={posted_slug}")
 
-        try:
-            send_mon_espace_request_email(
-                request_subject=str(service["email_subject"]),
-                name=name,
-                email=email,
-                message=message,
-                account_email=email,
-            )
-            messages.success(
-                request,
-                _("Votre demande a été envoyée avec succès. Nous vous répondrons bientôt !"),
-            )
-        except Exception as e:
-            messages.error(
-                request,
-                _("Une erreur est survenue lors de l'envoi : %(error)s") % {"error": e},
-            )
-            return redirect(f"{reverse('mon_espace')}?service={service_slug}")
+            name = request.user.get_full_name().strip() or email
+            try:
+                send_mon_espace_request_email(
+                    request_subject=str(service["email_subject"]),
+                    name=name,
+                    email=email,
+                    message=message,
+                    account_email=email,
+                )
+                messages.success(
+                    request,
+                    _(
+                        "Votre demande a été envoyée avec succès. Nous vous répondrons bientôt !"
+                    ),
+                )
+                return redirect(reverse("mon_espace"))
+            except Exception as e:
+                messages.error(
+                    request,
+                    _("Une erreur est survenue lors de l'envoi : %(error)s")
+                    % {"error": e},
+                )
 
-        return redirect(reverse("mon_espace"))
+    services = []
+    for service in MON_ESPACE_SERVICES:
+        slug = service["slug"]
+        services.append(
+            {
+                **service,
+                "field_prefix": f"{slug}-",
+                "modal_target": f"#modal-{slug}",
+                "post_data": post_data_by_service.get(slug, {}),
+                "errors": errors_by_service.get(slug, {}),
+            }
+        )
 
-    services = [
-        {
-            **service,
-            "field_prefix": f"{service['slug']}-",
-            "modal_target": f"#modal-{service['slug']}",
-        }
-        for service in MON_ESPACE_SERVICES
-    ]
     return render(
         request,
         "app/mon_espace.html",
@@ -668,6 +568,7 @@ def mon_espace(request):
             "page": page,
             "display_name": display_name,
             "services": services,
+            "active_service_slug": active_service_slug,
         },
     )
 
@@ -677,18 +578,43 @@ def register(request):
         return redirect(reverse("home"))
 
     page = _("Inscription")
-    form = RegisterForm(request.POST or None)
+    post_data = {}
+    errors = {}
 
-    if request.method == "POST" and form.is_valid():
-        form.save()
-        messages.success(
-            request,
-            _("Votre compte a été créé. Connectez-vous pour accéder au portail."),
+    if request.method == "POST":
+        post_data = {
+            "full_name": request.POST.get("full_name"),
+            "email": request.POST.get("email"),
+            "password1": request.POST.get("password1"),
+            "password2": request.POST.get("password2"),
+        }
+        errors, cleaned = validate_register(
+            post_data["full_name"],
+            post_data["email"],
+            post_data["password1"],
+            post_data["password2"],
         )
-        return redirect(reverse("login"))
+        post_data = {k: v for k, v in cleaned.items() if k != "password1"}
+
+        if not errors:
+            parts = cleaned["full_name"].split(None, 1)
+            first_name = parts[0]
+            last_name = parts[1] if len(parts) > 1 else ""
+            User.objects.create_user(
+                username=cleaned["email"],
+                email=cleaned["email"],
+                password=cleaned["password1"],
+                first_name=first_name,
+                last_name=last_name,
+            )
+            messages.success(
+                request,
+                _("Votre compte a été créé. Connectez-vous pour accéder au portail."),
+            )
+            return redirect(reverse("login"))
 
     return render(
         request,
         "app/register.html",
-        {"page": page, "form": form},
+        {"page": page, "post_data": post_data, "errors": errors},
     )

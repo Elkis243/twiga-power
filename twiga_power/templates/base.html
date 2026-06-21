@@ -106,8 +106,19 @@
   </head>
 
   <body class="{% block body_class %}{% endblock body_class %}">
-    <div id="loading" class="loading-overlay">
-      <img src="{% static 'images/animate.gif' %}" alt="{% trans 'Chargement...' %}" class="loading-image" width="150" />
+    <div
+      id="loading"
+      class="loading-overlay d-flex justify-content-center align-items-center"
+      role="status"
+      aria-live="polite"
+      aria-label="{% trans 'Chargement...' %}"
+    >
+      <div class="loading-dots d-flex align-items-center justify-content-center gap-2" aria-hidden="true">
+        <span class="loading-dots__dot rounded-circle"></span>
+        <span class="loading-dots__dot rounded-circle"></span>
+        <span class="loading-dots__dot rounded-circle"></span>
+      </div>
+      <span class="visually-hidden">{% trans 'Chargement...' %}</span>
     </div>
 
     {% block base %} {% endblock base %}
@@ -121,6 +132,7 @@
     <script src="https://unpkg.com/sal.js/dist/sal.js"></script>
     <script src="{% static 'js/sal-init.js' %}"></script>
     <script src="{% static 'js/loader.js' %}"></script>
+    <script src="{% static 'js/validate_form.js' %}"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         // Récupérer l'élément Offcanvas Bootstrap

@@ -3,7 +3,6 @@
 
 {% block extra_js %}
 <script src="{% static 'js/cv-upload.js' %}"></script>
-<script src="{% static 'js/validate_form.js' %}"></script>
 {% endblock %}
 
 {% block base %}
@@ -73,7 +72,6 @@
               enctype="multipart/form-data"
               class="contact-page__form needs-validation"
               novalidate
-              id="customValidationForm"
             >
               {% csrf_token %}
               <div class="row g-3 g-md-4">
@@ -81,28 +79,41 @@
                   <label class="contact-page__field-label" for="prenom">{% trans "Prénom" %}</label>
                   <input
                     type="text"
-                    class="contact-page__input form-control"
-                    id="prenom"
                     name="prenom"
+                    id="prenom"
+                    class="contact-page__input form-control{% if errors.prenom %} is-invalid{% endif %}"
+                    value="{{ post_data.prenom|default:'' }}"
                     placeholder="{% trans 'Votre prénom' %}"
+                    autocomplete="given-name"
                     required
                     minlength="2"
-                    maxlength="100"
-                    pattern="^[^\d]+$"
+                    data-no-digits
+                    data-msg-required="{% trans 'Veuillez saisir votre prénom.' %}"
+                    data-msg-minlength="{% trans 'Veuillez saisir votre prénom (au moins 2 caractères).' %}"
+                    data-msg-no-digits="{% trans 'Le prénom ne doit pas contenir de chiffres.' %}"
                   />
-                  <div class="invalid-feedback">{% trans "Prénom requis !" %}</div>
+                  <div class="invalid-feedback">
+                    {% if errors.prenom %}{{ errors.prenom }}{% else %}{% trans "Veuillez saisir votre prénom (au moins 2 caractères)." %}{% endif %}
+                  </div>
                 </div>
                 <div class="col-md-6">
                   <label class="contact-page__field-label" for="nom">{% trans "Nom" %}</label>
                   <input
                     type="text"
-                    class="contact-page__input form-control"
-                    id="nom"
                     name="nom"
+                    id="nom"
+                    class="contact-page__input form-control{% if errors.nom %} is-invalid{% endif %}"
+                    value="{{ post_data.nom|default:'' }}"
                     placeholder="{% trans 'Votre nom' %}"
+                    autocomplete="family-name"
                     required
+                    minlength="2"
+                    data-msg-required="{% trans 'Veuillez saisir votre nom.' %}"
+                    data-msg-minlength="{% trans 'Veuillez saisir votre nom (au moins 2 caractères).' %}"
                   />
-                  <div class="invalid-feedback">{% trans "Nom requis !" %}</div>
+                  <div class="invalid-feedback">
+                    {% if errors.nom %}{{ errors.nom }}{% else %}{% trans "Veuillez saisir votre nom (au moins 2 caractères)." %}{% endif %}
+                  </div>
                 </div>
               </div>
               <div class="row g-3 g-md-4">
@@ -110,60 +121,74 @@
                   <label class="contact-page__field-label" for="telephone">{% trans "Téléphone" %}</label>
                   <input
                     type="tel"
-                    class="contact-page__input form-control"
-                    id="telephone"
                     name="telephone"
+                    id="telephone"
+                    class="contact-page__input form-control{% if errors.telephone %} is-invalid{% endif %}"
+                    value="{{ post_data.telephone|default:'' }}"
                     placeholder="{% trans 'Votre numéro de téléphone' %}"
+                    autocomplete="tel"
+                    inputmode="tel"
                     required
-                    pattern="^\+?[0-9]{9,15}$"
-                    title="{% trans 'Veuillez entrer un numéro de téléphone valide (9 à 15 chiffres, avec ou sans +)' %}"
+                    pattern="\+?[0-9]{9,15}"
+                    data-msg-required="{% trans 'Veuillez saisir votre numéro de téléphone.' %}"
+                    title="{% trans '9 à 15 chiffres, avec ou sans +' %}"
                   />
-                  <div class="invalid-feedback"></div>
+                  <div class="invalid-feedback">
+                    {% if errors.telephone %}{{ errors.telephone }}{% else %}{% trans "Veuillez entrer un numéro de téléphone valide (9 à 15 chiffres, avec ou sans +)." %}{% endif %}
+                  </div>
                 </div>
                 <div class="col-md-6">
-                  <label class="contact-page__field-label" for="address">{% trans "Adresse e-mail" %}</label>
+                  <label class="contact-page__field-label" for="email">{% trans "Adresse e-mail" %}</label>
                   <input
                     type="email"
-                    class="contact-page__input form-control"
-                    id="address"
-                    name="address"
+                    name="email"
+                    id="email"
+                    class="contact-page__input form-control{% if errors.email %} is-invalid{% endif %}"
+                    value="{{ post_data.email|default:'' }}"
                     placeholder="{% trans 'Votre adresse e-mail' %}"
+                    autocomplete="email"
+                    inputmode="email"
                     required
-                    minlength="2"
-                    maxlength="100"
+                    data-msg-required="{% trans 'Veuillez indiquer votre adresse e-mail.' %}"
                   />
-                  <div class="invalid-feedback">{% trans "Adresse e-mail requise !" %}</div>
+                  <div class="invalid-feedback">
+                    {% if errors.email %}{{ errors.email }}{% else %}{% trans "Veuillez saisir une adresse e-mail valide." %}{% endif %}
+                  </div>
                 </div>
               </div>
               <div class="contact-page__field">
                 <label class="contact-page__field-label" for="lettre_motivation">{% trans "Motivation" %}</label>
                 <textarea
-                  class="contact-page__input contact-page__input--textarea form-control"
-                  id="lettre_motivation"
                   name="lettre_motivation"
+                  id="lettre_motivation"
+                  class="contact-page__input contact-page__input--textarea form-control{% if errors.lettre_motivation %} is-invalid{% endif %}"
                   rows="5"
                   placeholder="{% trans 'Présentez votre parcours et votre motivation pour ce poste…' %}"
                   required
                   minlength="10"
-                  maxlength="700"
-                ></textarea>
-                <div class="invalid-feedback"></div>
+                  data-msg-required="{% trans 'Veuillez rédiger votre lettre de motivation.' %}"
+                  data-msg-minlength="{% trans 'Votre lettre de motivation doit contenir au moins 10 caractères.' %}"
+                >{{ post_data.lettre_motivation|default:'' }}</textarea>
+                <div class="invalid-feedback">
+                  {% if errors.lettre_motivation %}{{ errors.lettre_motivation }}{% else %}{% trans "Votre lettre de motivation doit contenir au moins 10 caractères." %}{% endif %}
+                </div>
               </div>
               <div class="contact-page__field">
                 <label class="contact-page__field-label" id="cv-field-label">{% trans "Curriculum vitae (5 Mo maximum)" %}</label>
-                <div class="cv-upload w-100" id="cv-upload-root" aria-labelledby="cv-field-label">
+                <div class="cv-upload w-100{% if errors.cv %} cv-upload--error is-invalid{% endif %}" id="cv-upload-root" aria-labelledby="cv-field-label">
                   <input
                     type="file"
                     name="cv"
                     id="id_cv"
                     class="cv-upload__input visually-hidden"
                     accept=".pdf,application/pdf"
-                    required
                     aria-label="{% trans 'Joindre votre CV au format PDF' %}"
+                    required
                     data-max-bytes="5242880"
+                    data-msg-required="{% trans 'Veuillez joindre votre CV au format PDF.' %}"
                     data-msg-max-size="{% trans 'Le fichier ne doit pas dépasser 5 Mo.' %}"
+                    data-msg-type="{% trans 'Le CV doit être au format PDF.' %}"
                   />
-                  <div class="invalid-feedback d-block" id="cv-feedback-client" role="alert"></div>
                   <label for="id_cv" class="cv-upload__drop mb-0">
                     <span class="cv-upload__placeholder" id="cv-placeholder">
                       <span class="cv-upload__drop-inner">
@@ -179,6 +204,9 @@
                       <span class="cv-upload__change-hint">{% trans "Cliquer pour remplacer le fichier" %}</span>
                     </span>
                   </label>
+                </div>
+                <div class="invalid-feedback">
+                  {% if errors.cv %}{{ errors.cv }}{% else %}{% trans "Veuillez joindre votre CV au format PDF (5 Mo maximum)." %}{% endif %}
                 </div>
               </div>
               <button type="submit" class="contact-page__submit btn w-100">{% trans "Envoyer ma candidature" %}</button>

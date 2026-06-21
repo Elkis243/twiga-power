@@ -35,7 +35,11 @@
   </div>
 </header>
 
-<section class="mon-espace-section activities-section py-4 mb-5" aria-label="{% trans 'Services' %}">
+<section
+  class="mon-espace-section activities-section py-4 mb-5"
+  aria-label="{% trans 'Services' %}"
+  {% if active_service_slug %}data-open-service-modal="{{ active_service_slug }}"{% endif %}
+>
   <div class="container px-4">
     {% if messages %}
     <div class="row justify-content-center mb-4">
@@ -74,6 +78,5 @@
 {% endfor %}
 
 {% include "components/footer.html" %}
-<script src="{% static 'js/validate_form.js' %}"></script>
 <script src="{% static 'js/mon_espace.js' %}"></script>
 {% endblock base %}

@@ -173,7 +173,7 @@
             </li>
             <li class="nav-item">
               {% if user.is_authenticated %}
-              <form method="post" action="{% url 'logout' %}" class="site-navbar__logout-form d-inline-flex ms-lg-2">
+              <form method="post" action="{% url 'logout' %}" class="site-navbar__logout-form d-inline-flex m-0 ms-lg-2">
                 {% csrf_token %}
                 <button
                   type="submit"
