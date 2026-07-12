@@ -2,9 +2,7 @@ from .base import *
 
 SECRET_KEY = os.getenv('SECRET_KEY')
 ALLOWED_HOSTS = [
-    "https://*.up.railway.app",
-    "https://twigapower.com",
-    "https://www.twigapower.com",
+    "twiga-power-production.up.railway.app",
     "twigapower.com",
     "www.twigapower.com",
 ]
