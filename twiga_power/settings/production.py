@@ -1,7 +1,7 @@
 from .base import *
 
 SECRET_KEY = os.getenv('SECRET_KEY')
-ALLOWED_HOSTS = ['www.twigapower.com', 'twigapower.com']
+ALLOWED_HOSTS = ['*']
 
 DATABASES = {
     'default': {
@@ -21,7 +21,7 @@ SECURE_SSL_REDIRECT = os.getenv('SECURE_SSL_REDIRECT') == 'True'
 
 SESSION_COOKIE_SECURE = os.getenv('SESSION_COOKIE_SECURE') == 'True'
 CSRF_COOKIE_SECURE = os.getenv('CSRF_COOKIE_SECURE') == 'True'
-CSRF_TRUSTED_ORIGINS = ['https://twigapower.com']
+CSRF_TRUSTED_ORIGINS = ['*']
 
 X_FRAME_OPTIONS = os.getenv('X_FRAME_OPTIONS')
 SECURE_BROWSER_XSS_FILTER = os.getenv('SECURE_BROWSER_XSS_FILTER') == 'True'
