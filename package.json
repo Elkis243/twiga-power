@@ -1,8 +1,0 @@
-{
-  "name": "twiga-power",
-  "private": true,
-  "devDependencies": {
-    "prettier": "^3.5.3",
-    "prettier-plugin-django-alpine": "^1.2.1"
-  }
-}

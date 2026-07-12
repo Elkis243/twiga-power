@@ -7,12 +7,14 @@ click==8.2.1
 colorama==0.4.6
 cssbeautifier==1.15.4
 deep-translator==1.11.4
+dj-database-url==3.1.2
 Django==5.2.4
 django-appconf==1.1.0
 django-modeltranslation==0.19.17
 djhtml==3.0.9
 djlint==1.36.4
 EditorConfig==0.17.1
+gunicorn==26.0.0
 idna==3.11
 jsbeautifier==1.15.4
 json5==0.12.1
@@ -21,6 +23,8 @@ packaging==25.0
 pathspec==0.12.1
 pillow==12.2.0
 platformdirs==4.3.8
+psycopg==3.3.4
+psycopg2-binary==2.9.12
 python-dotenv==1.1.1
 PyYAML==6.0.2
 rcssmin==1.1.2
@@ -33,3 +37,4 @@ sqlparse==0.5.3
 tqdm==4.67.1
 typing_extensions==4.15.0
 urllib3==2.6.3
+whitenoise==6.12.0

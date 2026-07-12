@@ -1,9 +1,18 @@
 from .base import *
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
 SECRET_KEY = os.getenv('SECRET_KEY')
 ALLOWED_HOSTS = ['www.twigapower.com', 'twigapower.com']
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT'),
+    }
+}
 
 SECURE_HSTS_SECONDS = int(os.getenv('SECURE_HSTS_SECONDS'))
 SECURE_HSTS_INCLUDE_SUBDOMAINS = os.getenv('SECURE_HSTS_INCLUDE_SUBDOMAINS') == 'True'

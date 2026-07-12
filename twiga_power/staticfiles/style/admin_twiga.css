@@ -1,0 +1,157 @@
+/*
+ * Admin Django — alignement avec la charte Twiga Power (police Outfit, bleus / accent).
+ */
+
+:root {
+  --twiga-blue: #022f54;
+  --twiga-blue-deep: #012543;
+  --twiga-accent: #f6af33;
+}
+
+/* Police comme sur le site public */
+html[data-theme="light"],
+html[data-theme="dark"],
+html {
+  font-family: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-size: 13.5px;
+  letter-spacing: 0.2px;
+}
+
+body {
+  font-family: inherit !important;
+  font-size: inherit !important;
+  letter-spacing: inherit !important;
+}
+
+#header,
+#content,
+#content-main,
+.module caption,
+.module table,
+.submit-row,
+.form-row,
+.inline-related,
+.selector,
+.help,
+.change-list .filtered,
+.calendarbox,
+.clockbox,
+.timelist,
+.popup #header {
+  font-family: inherit !important;
+}
+
+input,
+textarea,
+select,
+button,
+.submit-row input,
+.button,
+.button.cancel-link,
+.delete-confirmation form input[type="submit"],
+.object-tools a {
+  font-family: inherit !important;
+}
+
+/* Liens principaux */
+a:link,
+a:visited {
+  color: var(--twiga-blue);
+}
+
+a:focus,
+a:hover {
+  color: #063a6b;
+}
+
+html[data-theme="light"] {
+  --primary: var(--twiga-blue);
+  --secondary: var(--twiga-accent);
+  --link-fg: var(--twiga-blue);
+  --header-bg: var(--twiga-blue);
+  --header-color: #fff;
+  --header-link-color: rgba(255, 255, 255, 0.92);
+  --header-branding-color: #fff;
+}
+
+html[data-theme="dark"] {
+  --primary: var(--twiga-blue-deep);
+  --secondary: var(--twiga-accent);
+  --link-fg: #8ecaff;
+  --header-bg: var(--twiga-blue-deep);
+  --header-color: #fff;
+  --header-link-color: rgba(255, 255, 255, 0.92);
+  --header-branding-color: #fff;
+}
+
+#header {
+  background: var(--twiga-blue) !important;
+  color: #fff !important;
+}
+
+#branding {
+  color: #fff !important;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+#site-name a:link,
+#site-name a:visited {
+  color: #fff !important;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+#user-tools,
+#user-tools a:link,
+#user-tools a:visited {
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+
+#user-tools a:focus,
+#user-tools a:hover {
+  color: var(--twiga-accent) !important;
+}
+
+.button.default,
+input[type="submit"].default,
+.submit-row input.default {
+  background: var(--twiga-accent) !important;
+  border-color: var(--twiga-accent) !important;
+  color: var(--twiga-blue) !important;
+  font-weight: 600 !important;
+}
+
+.button.default:active,
+.button.default:focus,
+.button.default:hover,
+input[type="submit"].default:focus,
+input[type="submit"].default:hover {
+  background: #ffd078 !important;
+  border-color: #ffd078 !important;
+  color: var(--twiga-blue) !important;
+}
+
+.object-tools a {
+  background-color: var(--twiga-accent) !important;
+  color: var(--twiga-blue) !important;
+  font-weight: 600 !important;
+}
+
+.object-tools a:focus,
+.object-tools a:hover {
+  background-color: #ffd078 !important;
+  color: var(--twiga-blue) !important;
+}
+
+.module h2,
+.module caption,
+.inline-group h2 {
+  background: var(--twiga-blue) !important;
+  color: #fff !important;
+}
+
+fieldset.module h2 {
+  background: transparent !important;
+  color: inherit !important;
+}
