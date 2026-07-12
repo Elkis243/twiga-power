@@ -134,7 +134,8 @@ AUTO_TRANSLATE_ENABLED = os.getenv("AUTO_TRANSLATE_ENABLED", "True") == "True"
 
 STATIC_URL = "static/"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
-STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Fichiers uploadés (images des actualités / alertes)
 MEDIA_URL = "media/"
@@ -195,11 +196,3 @@ LANGUAGES = [
     ("fr", "Français"),
     ("en", "English"),
 ]
-
-
-# WhiteNoise configuration
-STORAGES = {
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    },
-}
