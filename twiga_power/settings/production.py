@@ -21,7 +21,11 @@ SECURE_SSL_REDIRECT = os.getenv('SECURE_SSL_REDIRECT') == 'True'
 
 SESSION_COOKIE_SECURE = os.getenv('SESSION_COOKIE_SECURE') == 'True'
 CSRF_COOKIE_SECURE = os.getenv('CSRF_COOKIE_SECURE') == 'True'
-CSRF_TRUSTED_ORIGINS = ['*']
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.up.railway.app",
+    "https://twigapower.com",
+    "https://www.twigapower.com",
+]
 
 X_FRAME_OPTIONS = os.getenv('X_FRAME_OPTIONS')
 SECURE_BROWSER_XSS_FILTER = os.getenv('SECURE_BROWSER_XSS_FILTER') == 'True'
