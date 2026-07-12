@@ -1,7 +1,13 @@
 from .base import *
 
 SECRET_KEY = os.getenv('SECRET_KEY')
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    "https://*.up.railway.app",
+    "https://twigapower.com",
+    "https://www.twigapower.com",
+    "twigapower.com",
+    "www.twigapower.com",
+]
 
 DATABASES = {
     'default': {
@@ -30,3 +36,4 @@ CSRF_TRUSTED_ORIGINS = [
 X_FRAME_OPTIONS = os.getenv('X_FRAME_OPTIONS')
 SECURE_BROWSER_XSS_FILTER = os.getenv('SECURE_BROWSER_XSS_FILTER') == 'True'
 SECURE_CONTENT_TYPE_NOSNIFF = os.getenv('SECURE_CONTENT_TYPE_NOSNIFF') == 'True'
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
