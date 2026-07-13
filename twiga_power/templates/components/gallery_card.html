@@ -1,16 +1,16 @@
-{% load static i18n %}
+{% load i18n %}
 <button
   type="button"
   class="activity-card card gallery-card h-100 w-100 border-0 rounded-4 overflow-hidden text-start p-0"
   data-gallery-card
   data-gallery-index="{{ gallery_index }}"
-  data-src="{% static image %}"
+  data-src="{{ image_url }}"
   data-title="{{ caption }}"
   aria-label="{% blocktrans with title=caption %}Agrandir : {{ title }}{% endblocktrans %}"
 >
   <div class="activity-card__media overflow-hidden">
     <img
-      src="{% static image %}"
+      src="{{ image_url }}"
       class="activity-card__img w-100"
       alt="{{ image_alt|default:caption }}"
       width="400"

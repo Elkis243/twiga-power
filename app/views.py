@@ -12,9 +12,10 @@ from django.utils.translation import gettext_lazy as _
 
 from .data.activities import ACTIVITIES
 from .data.equipe_dirigeante import EQUIPE_DIRIGEANTE_MEMBERS
-from .data.gallery import GALLERY_ITEMS, GALLERY_ITEMS_PER_PAGE
 from .data.partners import PARTNER_LOGOS
-from .models import Actualite, Offre
+from .models import Actualite, Galerie, Offre
+
+GALLERY_ITEMS_PER_PAGE = 6
 from .utils.mail import (
     send_candidature_email,
     send_contact_email,
@@ -331,10 +332,7 @@ def detail_project_construction(request, project_id):
 
 
 def galery(request):
-    # Resolve lazy translations for the active locale (cards + lightbox data-title).
-    gallery_items = [
-        {"image": item["image"], "title": str(item["title"])} for item in GALLERY_ITEMS
-    ]
+    gallery_items = Galerie.objects.filter(est_active=True).order_by("-id")
     paginator = Paginator(gallery_items, GALLERY_ITEMS_PER_PAGE)
     page_number = request.GET.get("page", 1)
     try:

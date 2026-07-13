@@ -54,11 +54,11 @@
             data-sal-delay="{% widthratio forloop.counter0 1 80 %}"
             data-sal-easing="ease-out-cubic"
           >
-            {% include "components/gallery_card.html" with image=item.image caption=item.title gallery_index=forloop.counter0 description_words=gallery_description_words only %}
+            {% include "components/gallery_card.html" with image_url=item.image.url caption=item.description gallery_index=forloop.counter0 description_words=gallery_description_words only %}
           </div>
           {% empty %}
           <div class="col-12 text-center text-muted py-4">
-            <p class="mb-0">{% trans "Aucune image à afficher." %}</p>
+            <p class="mb-0">{% trans "La galerie est vide." %}</p>
           </div>
           {% endfor %}
         </div>

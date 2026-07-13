@@ -6,7 +6,7 @@ from modeltranslation.admin import TranslationAdmin, TranslationTabularInline
 # Avant TranslationAdmin : l’autodiscover admin s’exécute avant app.ready()
 from . import translation  # noqa: F401
 
-from .models import Actualite, Offre, ProfileRecherche
+from .models import Actualite, Galerie, Offre, ProfileRecherche
 
 
 class ProfileRechercheInline(TranslationTabularInline):
@@ -174,3 +174,39 @@ class ActualiteAdmin(TranslationAdmin):
             'style="object-fit:cover;border-radius:6px;" loading="lazy" />',
             obj.image.url,
         )
+
+
+@admin.register(Galerie)
+class GalerieAdmin(admin.ModelAdmin):
+    list_display = ("image_thumb", "apercu_description", "est_active")
+    list_filter = ("est_active",)
+    search_fields = ("description",)
+    ordering = ("-id",)
+
+    fieldsets = (
+        (
+            None,
+            {
+                "fields": (
+                    "image",
+                    "description",
+                    "est_active",
+                )
+            },
+        ),
+    )
+
+    @admin.display(description=_("Image"))
+    def image_thumb(self, obj):
+        if not getattr(obj, "image", None) or not obj.image.name:
+            return "—"
+        return format_html(
+            '<img src="{}" width="52" height="52" alt="" '
+            'style="object-fit:cover;border-radius:6px;" loading="lazy" />',
+            obj.image.url,
+        )
+
+    @admin.display(description=_("Description"))
+    def apercu_description(self, obj):
+        text = (obj.description or "")[:80]
+        return f"{text}…" if len(obj.description or "") > 80 else text

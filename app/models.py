@@ -103,3 +103,15 @@ class Actualite(models.Model):
         from django.urls import reverse
 
         return reverse("alerte_detail", kwargs={"slug": self.slug})
+
+class Galerie(models.Model):
+    image = models.ImageField(upload_to="twigapower/galerie/")
+    description = models.TextField()
+    est_active = models.BooleanField(default=True)
+
+    class Meta:
+        verbose_name = _("Galerie")
+        verbose_name_plural = _("Galerie")
+
+    def __str__(self):
+        return self.description
