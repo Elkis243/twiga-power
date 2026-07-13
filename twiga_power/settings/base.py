@@ -205,7 +205,6 @@ LANGUAGES = [
     ("en", "English"),
 ]
 
-
 # Cloudinary configuration
 CLOUDINARY_STORAGE = {
     "CLOUD_NAME": os.getenv("CLOUDINARY_CLOUD_NAME"),
